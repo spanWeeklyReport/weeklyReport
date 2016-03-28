@@ -30,6 +30,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	public void setMapper(TaskDetailsMapper mapper) 
 	{
 		this.mapper = mapper;
+		//comment
 	}
 
 	public void addUser(TaskDetailsView taskDetailsView) 
