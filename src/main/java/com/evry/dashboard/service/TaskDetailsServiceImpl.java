@@ -38,15 +38,6 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		taskDetailsDAO.add(obj);
 	}
 	
-	/*public void getFilters(TaskDetailsView taskDetailsView) 
-	{
-		
-		this.taskDetailsView = taskDetailsView;
-		
-		
-	}
-	*/
-
 	public List<TaskDetailsView> getUsers()
 	{
 		//List<TaskDetails> taskDetailss = taskDetailsDAO.getUsers(taskDetails);
