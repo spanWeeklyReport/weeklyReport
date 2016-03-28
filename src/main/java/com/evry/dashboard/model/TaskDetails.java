@@ -1,0 +1,170 @@
+package com.evry.dashboard.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = "TASK_DETAILS")
+
+@NamedQueries(  
+	    {  
+	        @NamedQuery(  
+	        name = "findProject",  
+	        query = "select o from TaskDetails o where o.projectName = :projectName and o.WeekNo = :weekNo "  
+	        )  
+	    }  
+	)  
+public class TaskDetails {
+	@Id
+	@Column(name = "O_ID")
+	private long oid;
+	
+		
+	@Column(name = "PROJECT_NAME")
+	private String projectName;
+	
+	@Column(name = "WEEK_NO")
+	private String WeekNo;
+	
+	@Column(name = "PLANNED_TASK")
+	private String PlannedTask;
+	
+	@Column(name = "COMPLETED_TASK")
+	private String CompletedTask;
+	
+	@Column(name = "HOLD_TASK")
+	private String HoldTask;
+	
+	@Column(name = "INPROGRESS_TASK")
+	private String InprogressTask;
+
+	@Column(name = "RISK_DEC")
+	private String RiskDec;
+	
+	@Column(name = "RISK_RESP")
+	private String RiskResp;
+	
+	@Column(name = "SHARED_RESOURCES")
+	private String SharedResources;
+	
+	@Column(name = "BILLED_RESOURCES")
+	private String BilledResources;
+	
+	@Column(name = "PROJECT_INC")
+	private String ProjectInc;
+
+	@Column(name = "PROJECT_DEC")
+	private String ProjectDec;
+
+	public long getOid() {
+		return oid;
+	}
+
+	public void setOid(long oid) {
+		this.oid = oid;
+	}
+
+	public String getProject_Name() {
+		return projectName;
+	}
+
+	public void setProject_Name(String project_Name) {
+		this.projectName = project_Name;
+	}
+
+	public String getWeekNo() {
+		return WeekNo;
+	}
+
+	public void setWeekNo(String weekNo) {
+		this.WeekNo = weekNo;
+	}
+
+	public String getPlannedTask() {
+		return PlannedTask;
+	}
+
+	public void setPlannedTask(String plannedTask) {
+		this.PlannedTask = plannedTask;
+	}
+
+	public String getCompletedTask() {
+		return CompletedTask;
+	}
+
+	public void setCompletedTask(String completedTask) {
+		this.CompletedTask = completedTask;
+	}
+
+	public String getHoldTask() {
+		return HoldTask;
+	}
+
+	public void setHoldTask(String holdTask) {
+		this.HoldTask = holdTask;
+	}
+
+	public String getInprogressTask() {
+		return InprogressTask;
+	}
+
+	public void setInprogressTask(String inprogressTask) {
+		this.InprogressTask = inprogressTask;
+	}
+
+	public String getRiskDec() {
+		return RiskDec;
+	}
+
+	public void setRiskDec(String riskDec) {
+		this.RiskDec = riskDec;
+	}
+
+	public String getRiskResp() {
+		return RiskResp;
+	}
+
+	public void setRiskResp(String riskResp) {
+		this.RiskResp = riskResp;
+	}
+
+	public String getSharedResources() {
+		return SharedResources;
+	}
+
+	public void setSharedResources(String sharedResources) {
+		this.SharedResources = sharedResources;
+	}
+
+	public String getBilledResources() {
+		return BilledResources;
+	}
+
+	public void setBilledResources(String billedResources) {
+		this.BilledResources = billedResources;
+	}
+
+	public String getProjectInc() {
+		return ProjectInc;
+	}
+
+	public void setProjectInc(String projectInc) {
+		this.ProjectInc = projectInc;
+	}
+
+	public String getProjectDec() {
+		return ProjectDec;
+	}
+
+	public void setProjectDec(String projectDec) {
+		this.ProjectDec = projectDec;
+	}
+	
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+       xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:a4j="http://richfaces.org/a4j"
+      >
+
+    <h:head>
+	   	<title>Welcome</title>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
+		<link rel="stylesheet" href="style2.css"></link>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	  
+	</h:head>
+    
+    <h:body>
+    
+    <div class="container" >
+    <header>
+				<h1><strong> Please fill in the weekly task details</strong></h1>
+     </header>       
+     
+     <div class="form">
+    		<h:form id="taskform">
+    		  
+    		     
+				<h:selectOneMenu value="#{taskDetails.project_Name}" class="select-style gender">
+				           <f:selectItem itemValue="0" itemLabel="Select Project" />
+						   <f:selectItem itemValue="1" itemLabel="Project 1" />
+						   <f:selectItem itemValue="2" itemLabel="Project 2" />	  
+						   <f:selectItem itemValue="3" itemLabel="Project 3" />
+						   <f:selectItem itemValue="4" itemLabel="Project 4" />
+						   <f:selectItem itemValue="5" itemLabel="Project 5" /> 							
+				</h:selectOneMenu>
+				  
+				  <br /> <br />
+		 
+				<h:selectOneMenu value="#{taskDetails.weekNo}" class="select-style gender" >
+						   <f:selectItem itemValue="0" itemLabel="Select Week" />
+						   <f:selectItem itemValue="1" itemLabel="1" />
+						   <f:selectItem itemValue="2" itemLabel="2" />	  
+						   <f:selectItem itemValue="3" itemLabel="3" />
+						   <f:selectItem itemValue="4" itemLabel="4" />
+						   <f:selectItem itemValue="5" itemLabel="5" /> 
+						   
+						   							
+				</h:selectOneMenu>
+				
+				 <br /> <br />
+				
+				<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.isValid(taskDetails)}" ></h:commandButton>
+				
+				  <br /> <br />
+					  
+				  
+    			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" /></p> 
+    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" ></h:inputText>
+    			 
+    			<p class="contact"><h:outputLabel value="Tasks Completed" for="tasks_completed" /></p> 
+    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" ></h:inputText>
+    			
+                <p class="contact"><h:outputLabel value="Tasks In Progress" for="tasks_inprogress" /></p> 
+    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" > </h:inputText>
+    			 
+                <p class="contact"><h:outputLabel value="Tasks On Hold" for="tasks_onhold" /></p> 
+    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Associated Risks" for="ass_risks" /></p> 
+    			<h:inputText value="#{taskDetails.riskDec}" id="ass_risks" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Responsible" for="ass_risksresp" /></p> 
+    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Shadow Resources" for="shadow_resc" /></p> 
+    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Billed Resources" for="billed_resc" /></p> 
+    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Projected Increase" for="proj_inc" /></p> 
+    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" > </h:inputText>
+    			
+    			<p class="contact"><h:outputLabel value="Projected Decrease" for="proj_dec" /></p> 
+    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" > </h:inputText>
+    			
+    			                                                       
+               <h:commandButton id="submit" value="SUBMIT" class="buttom" action="#{taskDetailsService.addUser(taskDetails)}" ></h:commandButton> 	 
+    
+     </h:form>
+   
+   
+   <br />
+   
+   
+      </div> 
+  </div>  
+		
+		
+  </h:body>
+</html>
