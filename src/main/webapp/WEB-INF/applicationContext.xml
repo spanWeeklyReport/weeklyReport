@@ -14,7 +14,7 @@
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <beans:property name="url" value="jdbc:mysql://localhost:3306/report" />
         <beans:property name="username" value="root" />
-        <beans:property name="password" value="root" />
+        <beans:property name="password" value="" />
     </beans:bean>
  
     <!-- Hibernate 4 SessionFactory Bean definition -->
@@ -25,6 +25,7 @@
             <beans:list>
                 <beans:value>com.evry.dashboard.model.UserInfo</beans:value>
                 <beans:value>com.evry.dashboard.model.TaskDetails</beans:value>
+                <beans:value>com.evry.dashboard.model.ProjectDetails</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -48,6 +49,9 @@
      <beans:bean id = "taskDetailsDAO" class = "com.evry.dashboard.dao.TaskDetailsDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean> 
+     <beans:bean id = "projectDetailsDAO" class = "com.evry.dashboard.dao.ProjectDetailsDAOImpl">
+        <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
+    </beans:bean> 
     <beans:bean id = "userInfoService" class = "com.evry.dashboard.service.UserInfoServiceImpl">
         <beans:property name = "userInfoDAO" ref = "userInfoDAO"/>
         <beans:property name = "mapper" ref = "userInfoMapper"/>
@@ -60,7 +64,9 @@
     </beans:bean>
     <beans:bean id = "userInfoMapper" class = "com.evry.dashboard.dto.mapper.UserInfoMapper"/>
     
-    <beans:bean id = "taskDetailsMapper" class = "com.evry.dashboard.dto.mapper.TaskDetailsMapper"/>
+    <beans:bean id = "taskDetailsMapper" class = "com.evry.dashboard.dto.mapper.TaskDetailsMapper">
+    <beans:property name = "projectDetailsDAO" ref = "projectDetailsDAO"/>
+    </beans:bean>
 
         
     <context:component-scan base-package="com.evry.dashboard.service" />

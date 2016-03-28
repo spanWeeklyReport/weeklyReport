@@ -32,24 +32,25 @@ private SessionFactory sessionFactory;
 	public TaskDetails getUsers(TaskDetails taskDetails)
 	{
 		
-		  String ProjectName = taskDetails.getProject_Name();
+		  long projectOid = taskDetails.getProjectDetails().getOid();
 		  String WeekNo = taskDetails.getWeekNo(); 
-		  System.out.println(ProjectName);
+		  System.out.println(projectOid);
 		Session session = this.sessionFactory.getCurrentSession();
      
-		Query query = session.getNamedQuery("findProject").setParameter("projectName", ProjectName).setParameter("weekNo", WeekNo);
+		Query query = session.getNamedQuery("findProject")
+				.setParameter("projectDetails", taskDetails.getProjectDetails())
+				.setParameter("weekNo", WeekNo);
 		List<TaskDetails> rs=query.list();
 		TaskDetails details = null;
 			if(!rs.isEmpty())
 			{
 				details = rs.get(0);
 			}
-				 System.out.println(details.getProject_Name());
+			else
+				details = new TaskDetails();
+				 System.out.println(details.getProjectDetails().getProjectName());
 					
-		return details;
-//			return r;
-		
-			
+		return details;			
 	}
 
 	

@@ -1,16 +1,27 @@
 package com.evry.dashboard.dto.mapper;
 
+import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
+import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 
 public class TaskDetailsMapper 
 {
 	
+	private ProjectDetailsDAO projectDetailsDAO;
+	
+	
+	
+	public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) 
+	{
+		this.projectDetailsDAO = projectDetailsDAO;
+	}
+
 	public void mapView(TaskDetailsView taskDetailsView, TaskDetails taskDetails)
 	{
 		taskDetailsView.setOid(taskDetails.getOid());
 		//taskDetailsView.set(taskDetails.getUid());
-		taskDetailsView.setProject_Name(taskDetails.getProject_Name());
+		taskDetailsView.setProjectDetailsName(taskDetails.getProjectDetails().getProjectName());
 		taskDetailsView.setWeekNo(taskDetails.getWeekNo());
 		taskDetailsView.setPlannedTask(taskDetails.getPlannedTask());
 		taskDetailsView.setCompletedTask(taskDetails.getCompletedTask());
@@ -28,7 +39,7 @@ public class TaskDetailsMapper
 	{
 		TaskDetails taskDetails = new TaskDetails();
 		taskDetails.setOid(taskDetailsView.getOid());
-		taskDetails.setProject_Name(taskDetailsView.getProject_Name());
+		taskDetails.setProjectDetails(projectDetailsDAO.findByName(taskDetailsView.getProjectDetailsName()));
 		taskDetails.setWeekNo(taskDetailsView.getWeekNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());

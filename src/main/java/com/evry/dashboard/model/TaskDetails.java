@@ -3,7 +3,9 @@ package com.evry.dashboard.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -17,18 +19,20 @@ import javax.persistence.Table;
 	    {  
 	        @NamedQuery(  
 	        name = "findProject",  
-	        query = "select o from TaskDetails o where o.projectName = :projectName and o.WeekNo = :weekNo "  
+	        query = "select o from TaskDetails o where o.projectDetails = :projectDetails and o.WeekNo = :weekNo "  
 	        )  
 	    }  
 	)  
 public class TaskDetails {
 	@Id
-	@Column(name = "O_ID")
+	@Column(name = "OID")
 	private long oid;
 	
 		
-	@Column(name = "PROJECT_NAME")
-	private String projectName;
+	
+	@ManyToOne()
+	@JoinColumn(name = "PROJECT_ID")
+	private ProjectDetails projectDetails;
 	
 	@Column(name = "WEEK_NO")
 	private String WeekNo;
@@ -45,7 +49,7 @@ public class TaskDetails {
 	@Column(name = "INPROGRESS_TASK")
 	private String InprogressTask;
 
-	@Column(name = "RISK_DEC")
+	@Column(name = "RISK_DESC")
 	private String RiskDec;
 	
 	@Column(name = "RISK_RESP")
@@ -71,12 +75,14 @@ public class TaskDetails {
 		this.oid = oid;
 	}
 
-	public String getProject_Name() {
-		return projectName;
+	
+
+	public ProjectDetails getProjectDetails() {
+		return projectDetails;
 	}
 
-	public void setProject_Name(String project_Name) {
-		this.projectName = project_Name;
+	public void setProjectDetails(ProjectDetails projectDetails) {
+		this.projectDetails = projectDetails;
 	}
 
 	public String getWeekNo() {

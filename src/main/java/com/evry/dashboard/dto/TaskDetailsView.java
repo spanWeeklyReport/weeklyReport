@@ -5,13 +5,15 @@ import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
+import com.evry.dashboard.model.ProjectDetails;
+
 @ManagedBean(name="taskDetails")
 @SessionScoped
 public class TaskDetailsView 
 {
 	
 	private long oid;
-	private String Project_Name;
+	private String projectDetailsName;
 	private String WeekNo;
 	private String PlannedTask;	
 	private String CompletedTask;
@@ -32,12 +34,12 @@ public class TaskDetailsView
 		this.oid = oid;
 	}
 
-	public String getProject_Name() {
-		return Project_Name;
+	public String getProjectDetailsName() {
+		return projectDetailsName;
 	}
 
-	public void setProject_Name(String project_Name) {
-		this.Project_Name = project_Name;
+	public void setProjectDetailsName(String projectDetailsID) {
+		this.projectDetailsName = projectDetailsID;
 	}
 
 	public String getWeekNo() {
