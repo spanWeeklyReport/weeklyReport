@@ -3,19 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
 	version="2.1"> 
+	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/welcome.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>false</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
     <application>
         <el-resolver>
             org.springframework.web.jsf.el.SpringBeanFacesELResolver
         </el-resolver>
-    </application>     
-  <!--   <navigation-rule>
-      <from-view-id>welcome.xhtml</from-view-id>
-      <navigation-case>
-         <from-action>#{taskDetailsService.isValid}</from-action>
-         <from-outcome>success</from-outcome>
-         <to-view-id>welcome.xhtml</to-view-id>
-      </navigation-case>
-   </navigation-rule> -->
+    </application>            
+</faces-config>
+ 
              
     
-</faces-config>

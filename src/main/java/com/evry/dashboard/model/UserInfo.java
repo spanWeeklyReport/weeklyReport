@@ -3,8 +3,19 @@ package com.evry.dashboard.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-@Entity(name = "USER_DETAILS")
+
+	
+@Entity()
+@Table(name = "USER_DETAILS")
+
+@NamedQueries(
+		{@NamedQuery (name = "Users.findByUsername", query = "SELECT o FROM UserInfo o WHERE o.userName = :username AND o.password = :password")}
+		)
+
 public class UserInfo 
 {
 	@Id
