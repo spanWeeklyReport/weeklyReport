@@ -54,6 +54,12 @@ public class ProjectDetails {
 	public void setProjectStatus(String projectStatus) {
 		this.projectStatus = projectStatus;
 	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return projectName;
+	}
 	
 	
 

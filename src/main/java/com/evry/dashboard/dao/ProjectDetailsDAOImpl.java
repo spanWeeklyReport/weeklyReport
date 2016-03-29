@@ -1,5 +1,7 @@
 package com.evry.dashboard.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -44,4 +46,18 @@ private SessionFactory sessionFactory;
 				}
 			return details;
 }
+	
+	@Transactional
+	public List<String> getProjectNames()
+	{
+		Session session = this.sessionFactory.getCurrentSession();
+        List<ProjectDetails> projectList = session.createQuery("from ProjectDetails").list();
+        //System.out.println(projectList);
+        ArrayList projectNames = new ArrayList();
+        
+        for(ProjectDetails details: projectList)
+        	projectNames.add(details.getProjectName());
+        return projectNames;
+	}
+	
 }

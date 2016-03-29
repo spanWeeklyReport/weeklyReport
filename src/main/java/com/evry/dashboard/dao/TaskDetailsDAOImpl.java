@@ -22,7 +22,7 @@ private SessionFactory sessionFactory;
 	public void addTasks(TaskDetails taskDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
-        session.persist(taskDetails);
+        session.saveOrUpdate(taskDetails);
 	}
 
 	@Transactional

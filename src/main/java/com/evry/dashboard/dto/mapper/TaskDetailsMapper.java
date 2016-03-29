@@ -45,7 +45,7 @@ public class TaskDetailsMapper
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)
 	{
 		TaskDetails taskDetails = new TaskDetails();
-		taskDetails.setOid(taskDetailsView.getOid());
+//		taskDetails.setOid(taskDetailsView.getOid());
 		taskDetails.setProjectDetails(projectDetailsDAO.findByName(taskDetailsView.getProjectDetailsName()));
 		taskDetails.setWeekNo(taskDetailsView.getWeekNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
