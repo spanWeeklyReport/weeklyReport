@@ -21,7 +21,14 @@ public class TaskDetailsMapper
 	{
 		taskDetailsView.setOid(taskDetails.getOid());
 		//taskDetailsView.set(taskDetails.getUid());
-		taskDetailsView.setProjectDetailsName(taskDetails.getProjectDetails().getProjectName());
+			try
+			{
+				taskDetailsView.setProjectDetailsName(taskDetails.getProjectDetails().getProjectName());
+			}
+			catch(Exception e)
+			{
+				taskDetailsView.setProjectDetailsName("");
+			}
 		taskDetailsView.setWeekNo(taskDetails.getWeekNo());
 		taskDetailsView.setPlannedTask(taskDetails.getPlannedTask());
 		taskDetailsView.setCompletedTask(taskDetails.getCompletedTask());

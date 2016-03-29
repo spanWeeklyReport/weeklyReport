@@ -35,12 +35,13 @@ private SessionFactory sessionFactory;
 		 Query query = session.getNamedQuery("findByName").setParameter("projectName", projectName);
 		 List<ProjectDetails> rs=query.list();
 		 ProjectDetails details = null;
-				if(!rs.isEmpty())
-				{
+				if(!rs.isEmpty())				
 					details = rs.get(0);
+				else
+				{
+					details = new ProjectDetails();
+					details.setProjectName(projectName);
 				}
-					 System.out.println(details.getProjectName());
-						
 			return details;
 }
 }

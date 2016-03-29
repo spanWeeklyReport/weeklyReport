@@ -6,10 +6,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-
 import com.evry.dashboard.model.TaskDetails;
 
 public class TaskDetailsDAOImpl implements TaskDetailsDAO {
@@ -25,31 +21,27 @@ private SessionFactory sessionFactory;
 	public void add(TaskDetails taskDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
-        session.persist(taskDetails);
+        session.merge(taskDetails);
 	}
 
 	@Transactional
 	public TaskDetails getUsers(TaskDetails taskDetails)
 	{
-		
-		  long projectOid = taskDetails.getProjectDetails().getOid();
-		  String WeekNo = taskDetails.getWeekNo(); 
-		  System.out.println(projectOid);
-		Session session = this.sessionFactory.getCurrentSession();
-     
+		String weekNo = taskDetails.getWeekNo(); 
+		Session session = this.sessionFactory.getCurrentSession();     
 		Query query = session.getNamedQuery("findProject")
 				.setParameter("projectDetails", taskDetails.getProjectDetails())
-				.setParameter("weekNo", WeekNo);
+				.setParameter("weekNo", weekNo);
 		List<TaskDetails> rs=query.list();
 		TaskDetails details = null;
-			if(!rs.isEmpty())
-			{
-				details = rs.get(0);
-			}
+			if(!rs.isEmpty())			
+				details = rs.get(0);			
 			else
-				details = new TaskDetails();
-				 System.out.println(details.getProjectDetails().getProjectName());
-					
+				{
+					details = new TaskDetails();	
+					details.setWeekNo(weekNo);
+					details.setProjectDetails(taskDetails.getProjectDetails());
+				}
 		return details;			
 	}
 
@@ -58,7 +50,6 @@ private SessionFactory sessionFactory;
 	@Transactional
 	public TaskDetails isValid(TaskDetails taskDetails) 
 	{
-		Session session = this.sessionFactory.getCurrentSession();
 		 return getUsers(taskDetails);
 	}
 

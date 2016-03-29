@@ -53,8 +53,10 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 
 	public void isValid(TaskDetailsView taskDetailsView) 
 	{
-//		TaskDetails taskDetails =  taskDetailsDAO.isValid(mapper.getMappedEntity(taskDetailsView));
+
+		System.out.println("-------------dfefef---");
+		TaskDetails taskDetails =  taskDetailsDAO.isValid(mapper.getMappedEntity(taskDetailsView));
 		System.out.println("----------------");
-//		mapper.mapView(taskDetailsView, taskDetails);
+		mapper.mapView(taskDetailsView, taskDetails);
 	}
 }
