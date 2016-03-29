@@ -44,11 +44,11 @@
         <div class="inputs">
         
             <h:form id="loginForm">
-					
-					<h:inputText value="#{loginBean.username}" a:placeholder="Username" />					
-			        
-					<h:inputSecret value="#{loginBean.password}" a:placeholder="Password" ></h:inputSecret>
-					<h:commandButton id="submit" value="SIGN IN" action="#{loginBean.login}"></h:commandButton>
+				<h:inputText value="#{usersInfo.userName}" a:Placeholder="Username" />	
+				<h:inputSecret value="#{usersInfo.password}" a:Placeholder="Password" ></h:inputSecret>
+				<h:commandButton id="submit" value="SIGN IN" action="#{userInfoService.isValid(usersInfo)}"></h:commandButton>	
+				<h:message for="username" style="color:red" />
+				
 			</h:form>
         
         </div>

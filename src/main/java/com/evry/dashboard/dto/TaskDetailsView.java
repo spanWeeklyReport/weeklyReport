@@ -19,7 +19,7 @@ public class TaskDetailsView
 	private String CompletedTask;
 	private String HoldTask;
 	private String InprogressTask;
-	private String RiskDec;
+	private String riskDisc;
 	private String RiskResp;
 	private String SharedResources;
 	private String BilledResources;
@@ -33,7 +33,6 @@ public class TaskDetailsView
 	public void setOid(long oid) {
 		this.oid = oid;
 	}
-
 	public String getProjectDetailsName() {
 		return projectDetailsName;
 	}
@@ -82,12 +81,12 @@ public class TaskDetailsView
 		this.InprogressTask = inprogressTask;
 	}
 
-	public String getRiskDec() {
-		return RiskDec;
+	public String getRiskDisc() {
+		return riskDisc;
 	}
 
-	public void setRiskDec(String riskDec) {
-		this.RiskDec = riskDec;
+	public void setriskDisc(String riskDisc) {
+		this.riskDisc = riskDisc;
 	}
 
 	public String getRiskResp() {

@@ -9,9 +9,9 @@ import com.evry.dashboard.model.UserInfo;
 
 public interface TaskDetailsDAO {
 	
-	void add(TaskDetails taskDetails);
-	TaskDetails getUsers(TaskDetails taskDetails);
-	TaskDetails isValid(TaskDetails taskDetails);
+	void addTasks(TaskDetails taskDetails);
+	TaskDetails getTasks(TaskDetails taskDetails);
+	TaskDetails checkTasks(TaskDetails taskDetails);
 	
 	
 }

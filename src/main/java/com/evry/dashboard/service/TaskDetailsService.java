@@ -7,9 +7,9 @@ import com.evry.dashboard.model.TaskDetails;
 
 public interface TaskDetailsService {
 	
-	void addUser(TaskDetailsView taskDetails);
-	//List<TaskDetailsView> getUsers(TaskDetails taskDetails);
-	void isValid(TaskDetailsView taskDetails);
+	void addTasks(TaskDetailsView taskDetails);
+	void checkTasks(TaskDetailsView taskDetails);
+	boolean renderScreen();
 	
     
 }

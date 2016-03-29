@@ -8,24 +8,25 @@ import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 import com.evry.dashboard.model.TaskDetails;
 
-public class TaskDetailsDAOImpl implements TaskDetailsDAO {
+public  class TaskDetailsDAOImpl implements TaskDetailsDAO {
 	
 private SessionFactory sessionFactory;
 	
+
 	public void setSessionFactory(SessionFactory sessionFactory) 
 	{
 		this.sessionFactory = sessionFactory;
 	}
 
 	@Transactional
-	public void add(TaskDetails taskDetails) 
+	public void addTasks(TaskDetails taskDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
-        session.merge(taskDetails);
+        session.persist(taskDetails);
 	}
 
 	@Transactional
-	public TaskDetails getUsers(TaskDetails taskDetails)
+	public TaskDetails getTasks(TaskDetails taskDetails)
 	{
 		String weekNo = taskDetails.getWeekNo(); 
 		Session session = this.sessionFactory.getCurrentSession();     
@@ -48,9 +49,9 @@ private SessionFactory sessionFactory;
 	
 
 	@Transactional
-	public TaskDetails isValid(TaskDetails taskDetails) 
+	public TaskDetails checkTasks(TaskDetails taskDetails) 
 	{
-		 return getUsers(taskDetails);
+		 return getTasks(taskDetails);
 	}
 
 }

@@ -34,7 +34,7 @@ public class TaskDetailsMapper
 		taskDetailsView.setCompletedTask(taskDetails.getCompletedTask());
 		taskDetailsView.setHoldTask(taskDetails.getHoldTask());
 		taskDetailsView.setInprogressTask(taskDetails.getInprogressTask());
-		taskDetailsView.setRiskDec(taskDetails.getRiskDec());
+		taskDetailsView.setriskDisc(taskDetails.getRiskDisc());
 		taskDetailsView.setRiskResp(taskDetails.getRiskResp());
 		taskDetailsView.setSharedResources(taskDetails.getSharedResources());
 		taskDetailsView.setBilledResources(taskDetails.getBilledResources());
@@ -52,7 +52,7 @@ public class TaskDetailsMapper
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());
 		taskDetails.setHoldTask(taskDetailsView.getHoldTask());
 		taskDetails.setInprogressTask(taskDetailsView.getInprogressTask());
-		taskDetails.setRiskDec(taskDetailsView.getRiskDec());
+		taskDetails.setRiskDec(taskDetailsView.getRiskDisc());
 		taskDetails.setRiskResp(taskDetailsView.getRiskResp());
 		taskDetails.setSharedResources(taskDetailsView.getSharedResources());
 		taskDetails.setBilledResources(taskDetailsView.getBilledResources());

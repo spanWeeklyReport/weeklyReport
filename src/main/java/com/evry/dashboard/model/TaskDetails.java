@@ -50,7 +50,7 @@ public class TaskDetails {
 	private String InprogressTask;
 
 	@Column(name = "RISK_DESC")
-	private String RiskDec;
+	private String riskDisc;
 	
 	@Column(name = "RISK_RESP")
 	private String RiskResp;
@@ -125,12 +125,12 @@ public class TaskDetails {
 		this.InprogressTask = inprogressTask;
 	}
 
-	public String getRiskDec() {
-		return RiskDec;
+	public String getRiskDisc() {
+		return riskDisc;
 	}
 
 	public void setRiskDec(String riskDec) {
-		this.RiskDec = riskDec;
+		this.riskDisc = riskDec;
 	}
 
 	public String getRiskResp() {

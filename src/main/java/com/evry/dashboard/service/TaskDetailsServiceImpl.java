@@ -18,6 +18,7 @@ import com.evry.dashboard.model.TaskDetails;
 public class TaskDetailsServiceImpl implements TaskDetailsService 
 {
 
+	private boolean renderer;
 	private TaskDetailsMapper mapper;
 	private TaskDetailsDAO taskDetailsDAO;
 	private TaskDetailsView taskDetailsView;
@@ -30,33 +31,30 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	public void setMapper(TaskDetailsMapper mapper) 
 	{
 		this.mapper = mapper;
-		//comment
 	}
 
-	public void addUser(TaskDetailsView taskDetailsView) 
+	public void addTasks(TaskDetailsView taskDetailsView) 
 	{
 		TaskDetails obj = mapper.getMappedEntity(taskDetailsView);
-		taskDetailsDAO.add(obj);
+		taskDetailsDAO.addTasks(obj);
 	}
 	
 	public List<TaskDetailsView> getUsers()
 	{
-		//List<TaskDetails> taskDetailss = taskDetailsDAO.getUsers(taskDetails);
 		List<TaskDetailsView> taskDetailsViews = new ArrayList();
-			/*for(TaskDetails taskDetails :taskDetailss)			
-			{
-				taskDetailsViews.add(mapper.getMappedView(taskDetails));	
-				
-			}*/
 		return taskDetailsViews;
 	}
 
-	public void isValid(TaskDetailsView taskDetailsView) 
+	public void checkTasks(TaskDetailsView taskDetailsView) 
 	{
 
-		System.out.println("-------------dfefef---");
-		TaskDetails taskDetails =  taskDetailsDAO.isValid(mapper.getMappedEntity(taskDetailsView));
-		System.out.println("----------------");
+		renderer = true;
+		TaskDetails taskDetails =  taskDetailsDAO.checkTasks(mapper.getMappedEntity(taskDetailsView));
 		mapper.mapView(taskDetailsView, taskDetails);
+	}
+
+	public boolean renderScreen() {
+		
+		return renderer;
 	}
 }

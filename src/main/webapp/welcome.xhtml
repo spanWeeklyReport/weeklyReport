@@ -51,43 +51,43 @@
 				
 				 <br /> <br />
 				
-				<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.isValid(taskDetails)}" ></h:commandButton>
+				<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
 				  <br /> <br />
 					  
 				  
-    			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" /></p> 
-    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" ></h:inputText>
+    			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" /></p> 
+    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
     			 
-    			<p class="contact"><h:outputLabel value="Tasks Completed" for="tasks_completed" /></p> 
-    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" ></h:inputText>
+    			<p class="contact"><h:outputLabel value="Tasks Completed" for="tasks_completed" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
+    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
     			
-                <p class="contact"><h:outputLabel value="Tasks In Progress" for="tasks_inprogress" /></p> 
-    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" > </h:inputText>
+                <p class="contact"><h:outputLabel value="Tasks In Progress" for="tasks_inprogress" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
+    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			 
-                <p class="contact"><h:outputLabel value="Tasks On Hold" for="tasks_onhold" /></p> 
-    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" > </h:inputText>
+                <p class="contact"><h:outputLabel value="Tasks On Hold" for="tasks_onhold" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
+    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Associated Risks" for="ass_risks" /></p> 
-    			<h:inputText value="#{taskDetails.riskDec}" id="ass_risks" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Associated Risks" for="ass_risks" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
+    			<h:inputText value="#{taskDetails.riskDisc}" id="ass_risks" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Responsible" for="ass_risksresp" /></p> 
-    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Responsible" for="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
+    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Shadow Resources" for="shadow_resc" /></p> 
-    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Shadow Resources" for="shadow_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
+    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Billed Resources" for="billed_resc" /></p> 
-    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Billed Resources" for="billed_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
+    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Projected Increase" for="proj_inc" /></p> 
-    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Projected Increase" for="proj_inc" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
+    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
-    			<p class="contact"><h:outputLabel value="Projected Decrease" for="proj_dec" /></p> 
-    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" > </h:inputText>
+    			<p class="contact"><h:outputLabel value="Projected Decrease" for="proj_dec" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
+    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			
     			                                                       
-               <h:commandButton id="submit" value="SUBMIT" class="buttom" action="#{taskDetailsService.addUser(taskDetails)}" ></h:commandButton> 	 
+               <h:commandButton id="submit" value="SUBMIT" class="buttom"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton> 	 
     
      </h:form>
    

@@ -35,6 +35,6 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     </session-config>     
     
     <welcome-file-list>
-		<welcome-file>faces/welcome.xhtml</welcome-file>
+		<welcome-file>faces/index.xhtml</welcome-file>
 	</welcome-file-list>
 </web-app>
