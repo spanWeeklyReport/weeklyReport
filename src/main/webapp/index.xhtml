@@ -11,7 +11,8 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
 		<link rel="stylesheet" href="style.css"></link>
 	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	  
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+		 
 	</h:head>
     
     <h:body>    	
@@ -44,8 +45,8 @@
         <div class="inputs">
         
             <h:form id="loginForm">
-				<h:inputText value="#{userInfo.userName}" a:Placeholder="Username" id="username" />	
-				<h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" id="password" ></h:inputSecret>
+				<h:inputText value="#{userInfo.userName}" a:Placeholder="Username" class="username" />	
+				<h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" class="password" ></h:inputSecret>
 				<h:commandButton id="submit" value="SIGN IN" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>	
 				<h:message for="username" style="color:red" />
 				
@@ -63,6 +64,18 @@
 	    	  <ui:include src="commonFooter.xhtml" />
 	    	</ui:insert>
     	</footer>
+    	<script type="text/javascript">
+		$("#signup").submit(function (){
+
+			  if ($(".username").val() == "" || $(".password").val() == "" ){
+			    
+			    alert("Please enter username and/or password");
+			  }
+			 
+
+			});
+		
+		</script> 
     </h:body>
 </html>
 

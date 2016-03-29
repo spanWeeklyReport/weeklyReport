@@ -49,10 +49,6 @@ public class UserInfoDAOImpl implements UserInfoDAO
 			return true;
 		}
 		
-			 FacesMessage message = new FacesMessage("Invalid username or password ");
-	            FacesContext context = FacesContext.getCurrentInstance();
-	            context.addMessage(null, message);
-		
 	          return result;
 	
         }
@@ -66,35 +62,13 @@ public class UserInfoDAOImpl implements UserInfoDAO
 
  
 
-        if((username.equals("") || password.equals("")) )
-        {
-        	if(username.equals("") && password.equals(""))
-            {
-           	 FacesMessage message = new FacesMessage("username and password missing ");
-   	         FacesContext context = FacesContext.getCurrentInstance();
-   	         context.addMessage(null, message);
-               }
-        	else if(username.equals(""))
-            {
-        	 FacesMessage message = new FacesMessage(" username missing ");
-	         FacesContext context = FacesContext.getCurrentInstance();
-	         context.addMessage(null, message);
-            }
-              else if(password.equals(""))
-            {
-        	 FacesMessage message = new FacesMessage("password missing ");
-	         FacesContext context = FacesContext.getCurrentInstance();
-	         context.addMessage(null, message);
-            }
-        	
-        }
+       
         	
         
-        else
-          {
+        
         	return getUsers(username,password);  
              
-         }
+      
         
        
 
@@ -102,7 +76,7 @@ public class UserInfoDAOImpl implements UserInfoDAO
        
 
           
-return false;
+
 	}
 
 	public Query getUsers() {
