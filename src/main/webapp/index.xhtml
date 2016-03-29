@@ -44,8 +44,8 @@
         <div class="inputs">
         
             <h:form id="loginForm">
-				<h:inputText value="#{userInfo.userName}" a:Placeholder="Username" />	
-				<h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" ></h:inputSecret>
+				<h:inputText value="#{userInfo.userName}" a:Placeholder="Username" id="username" />	
+				<h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" id="password" ></h:inputSecret>
 				<h:commandButton id="submit" value="SIGN IN" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>	
 				<h:message for="username" style="color:red" />
 				
