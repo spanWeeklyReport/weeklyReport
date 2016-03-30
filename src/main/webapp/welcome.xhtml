@@ -27,11 +27,9 @@
     		<h:form id="taskform">
     		  
     		     <p class="contact"><h:outputLabel value="Select Project" for="select_project"  /></p>
-				<h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">
-								   
+				<h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">								   
 						<f:selectItems value="#{projectDetailsService.getProjectNames()}" />    							
-				</h:selectOneMenu>
-				  
+				</h:selectOneMenu>				  
 				  <br /> <br />
 		        <p class="contact"><h:outputLabel value="Select Week" for="select_week" /></p>
 				<h:selectOneMenu value="#{taskDetails.weekNo}" class="select-style gender" >
