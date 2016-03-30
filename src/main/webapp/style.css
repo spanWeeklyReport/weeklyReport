@@ -23,6 +23,27 @@ img {
   border-radius: 8px;
 }
 
+.navigation {
+  float: right;
+}
+
+ul {
+  display: inline-flex;
+  list-style: outside none none;
+}
+
+li {
+  float: left;
+  margin: 10px;
+}
+
+.button {
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  font-size: 14px;
+}
+
+
 #signup {
     padding: 0px 25px 25px;
     background: #fff;

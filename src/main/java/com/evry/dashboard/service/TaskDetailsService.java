@@ -10,6 +10,7 @@ public interface TaskDetailsService {
 	void addTasks(TaskDetailsView taskDetails);
 	void checkTasks(TaskDetailsView taskDetails);
 	boolean renderScreen();
+	public String logout();
 	
     
 }

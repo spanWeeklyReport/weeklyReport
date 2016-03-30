@@ -13,6 +13,16 @@
 		       <div class="nav">
 		       
 		       <img src="images/spanlogo.png" alt="Span Logo" /> 
+		       <div class="navigation">
+		       <h:form id="logout">
+			       <ul> 
+			       
+			       <li>Welcome ${userInfo.userName}</li>
+			       <li><h:commandButton id="logout" value="Sign Out" class="button"  action="#{taskDetailsService.logout()}"></h:commandButton></li>
+		           
+		           </ul>
+		         </h:form>
+		       </div>
 		          
 		       </div>
 		   </div>

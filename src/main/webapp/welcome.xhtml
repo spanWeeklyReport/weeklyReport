@@ -19,18 +19,15 @@
     <h:body>
     
     <div class="container" >
+		   
     
     <header>
+             <ui:insert name="header" >
+		  <ui:include src="commonHeader.xhtml" />
+		</ui:insert>
+    
 				<h1><strong> Please fill in the weekly task details</strong></h1>
-				<div class="navigation">
-		       
-		          <ul>
-		            <li>Welcome ${userInfo.userName}</li>
-		            <li>Sign Out</li> 
-		          		          
-		          </ul>
-		       
-		       </div>
+				 
      </header>  
      
            

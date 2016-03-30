@@ -165,7 +165,9 @@ a{
 .form input.buttom{ background: #4b8df9; display: inline-block; padding: 5px 10px 6px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
 .form input.buttom:hover	{ background-color: #2a78f6; }
 
-
+.navigation {
+  float: right;
+}
 
 ul {
   display: inline-flex;
@@ -176,3 +178,23 @@ li {
   float: left;
   margin: 10px;
 }
+
+img {
+  height: 45px;
+  border-radius: 8px;
+}
+.nav {
+  background: white none repeat scroll 0 0;
+  margin-top: 0;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  text-align:left;
+}
+
+.button {
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  font-size: 14px;
+}
+
