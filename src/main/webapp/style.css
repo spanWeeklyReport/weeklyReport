@@ -11,7 +11,8 @@ body {
 }
 
 img {
-  height: 70px;
+  height: 45px;
+  border-radius: 8px;
 }
 
 .nav {
@@ -19,6 +20,7 @@ img {
   margin-top: 0;
   position: relative;
   width: 100%;
+  border-radius: 8px;
 }
 
 #signup {
@@ -168,3 +170,4 @@ input:-moz-placeholder {
         from(#a4b0cb),
         to(#b9c5dd));
 }
+
