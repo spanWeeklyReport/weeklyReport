@@ -12,8 +12,13 @@
 	   	<title>Welcome</title>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
 		<link rel="stylesheet" href="style2.css"></link>
-	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	  
+	    
+	    <link href = "http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+         " rel = "stylesheet" ></link>
+         
+	    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+		<script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
 	</h:head>
     
     <h:body>
@@ -26,7 +31,7 @@
 		  <ui:include src="commonHeader.xhtml" />
 		</ui:insert>
     
-				<h1><strong> Please fill in the weekly task details</strong></h1>
+				<h1>Please fill in the Weekly Status</h1>
 				 
      </header>  
      
@@ -36,12 +41,12 @@
      <div class="form">
     		<h:form id="taskform">
     		  
-    		     <p class="contact"><h:outputLabel value="Select Project" for="select_project"  /></p>
+    		     <p class="contact selectbox"><h:outputLabel value="Select Project" for="select_project"  /></p>
 				<h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">								   
 						<f:selectItems value="#{projectDetailsService.getProjectNames()}" />    							
 				</h:selectOneMenu>				  
 				  <br /> <br />
-		        <p class="contact"><h:outputLabel value="Select Week" for="select_week" /></p>
+		        <p class="contact selectbox"><h:outputLabel value="Select Week" for="select_week" /></p>
 				<h:selectOneMenu value="#{taskDetails.weekNo}" class="select-style gender" >
 						  
 						   <f:selectItem itemValue="1" itemLabel="1" />
@@ -105,41 +110,56 @@
 				<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
 				  <br /> <br />
+				  
+			<div id = "tabs-1">
+			         <ul>
+			            <li><a href = "#tabs-2">Task Details</a></li>
+			            <li><a href = "#tabs-3">Risk Details</a></li>
+			            <li><a href = "#tabs-4">Resouce Details</a></li>
+			         </ul>
 					  
+			    <div id = "tabs-2">
 				  
     			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
+    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
     			 
     			<p class="contact"><h:outputLabel value="Tasks Completed" for="tasks_completed" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
+    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
     			
                 <p class="contact"><h:outputLabel value="Tasks In Progress" for="tasks_inprogress" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
+    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			 
                 <p class="contact"><h:outputLabel value="Tasks On Hold" for="tasks_onhold" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
+    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
+    			
+    			</div>
+    			<div id = "tabs-3">
     			
     			<p class="contact"><h:outputLabel value="Associated Risks" for="ass_risks" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.riskDisc}" id="ass_risks" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
+    			<h:inputTextarea row="10" col="20" value="#{taskDetails.riskDisc}" id="ass_risks" class="textarea not-numeric" rendered="#{taskDetailsService.renderScreen()}" />
     			
     			<p class="contact"><h:outputLabel value="Responsible" for="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" class="not-numeric responsible" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			
+    			</div>
+    			<div id = "tabs-4">
     			
     			<p class="contact"><h:outputLabel value="Shadow Resources" for="shadow_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
     			<p class="contact"><h:outputLabel value="Billed Resources" for="billed_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
     			<p class="contact"><h:outputLabel value="Projected Increase" for="proj_inc" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
     			
     			<p class="contact"><h:outputLabel value="Projected Decrease" for="proj_dec" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
+    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			
+    			</div>
     			                                                       
-               <h:commandButton id="submit" value="SUBMIT" class="buttom"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton> 	 
-    
+               <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton> 	 
+           </div>
      </h:form>
    
    
@@ -148,7 +168,43 @@
    
       </div> 
   </div>  
-		
+  <footer>
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="commonFooter.xhtml" />
+	    	</ui:insert>
+  </footer>
+		<script type="text/javascript">
+		$(document).ready(function(){
+         $(function() {
+            $( "#tabs-1" ).tabs();
+         });
+         
+         $(".s-button").click(function(e){
+         
+         if($.isNumeric($('.textarea').val())) {
+        	  
+        	  alert ("Please enter text in associated risks");
+        	    e.preventDefault();
+        	   
+        	}
+         
+         else if($.isNumeric($('.responsible').val())) {
+       	  
+       	  alert ("Please enter text in reponsible person");
+       	 e.preventDefault();
+       	}
+         
+         else {
+        	 
+        	 alert("Your details have been saved");
+         }
+        	
+         }); 
+        
+         
+		});
+         
+      </script>
 		
   </h:body>
 </html>

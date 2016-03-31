@@ -18,12 +18,13 @@ header{
 	display: block;
 }
 /* General Demo Style */
-body{
-	font-family: Arial, Helvetica, sans-serif;
-	background:url(images/bg.png);
-	font-size: 14px;
-	color: #3a2127;
+
+body {
+    background-image: url(http://kreativo.se/backlogin.jpg);
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    
 }
+
 a{
 	color: #333;
 	text-decoration: none;
@@ -41,14 +42,14 @@ a{
 	display: block;
     text-align: center;
 }
-.container > header h1{
-	position: relative;
-	color: #275973;
-	font-weight: 700;
-	font-style: normal;
-	font-size: 25px;
-	padding: 0px 0px 5px 0px;
-	text-shadow: 0px 1px 1px rgba(255,255,255,0.8);
+.container > header h1 {
+  color: #fff;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 10px;
+  padding: 0 0 5px;
+  position: relative;
 }
 .container > header h1 strong{
 	font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
@@ -125,7 +126,7 @@ a{
 }
 
 .form{
-	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
+	background:#fff; width:70%; margin:0 auto; padding-left:50px; padding-top:20px;
 }
 .form fieldset{border:0px; padding:0px; margin:0px;}
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
@@ -150,7 +151,7 @@ a{
     -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
   background-position: center right;
   background-repeat: no-repeat;
-  border: 0px solid #FFF;
+  border: 1px solid #ccc;
   color: #555;
   font-size: inherit;
   margin: 0;
@@ -162,15 +163,28 @@ a{
 .form .gender {
   width:410px;
   }
-.form input.buttom{ background: #4b8df9; display: inline-block; padding: 5px 10px 6px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
+.form input.buttom{ background: #4b8df9; display: inline-block; padding: 10px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
 .form input.buttom:hover	{ background-color: #2a78f6; }
+
+.s-button {margin-left:3%;}
+
+.selectbox {
+  float: left;
+  margin-top: 10px !important;
+  vertical-align: middle;
+  width: 16%;
+}
+
+.form > form input[type=text] {
+  border: 1px solid #ccc !important;
+}
 
 .navigation {
   float: right;
 }
 
 ul {
-  display: inline-flex;
+  display: block;
   list-style: outside none none;
 }
 
@@ -198,3 +212,35 @@ img {
   font-size: 14px;
 }
 
+.ui-widget-header {
+  background: #6ac1f6 none repeat scroll 0 0 !important;
+  border: 0 none !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  width: 99.2%;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #0c6078 !important;
+  text-decoration: none;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
+{
+	border: 0 !important;
+	
+}
+
+#tabs-1 {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #ccc;
+  width: 90%;
+  padding:0;
+}
+
+.textarea {
+  border: 1px solid #ccc;
+  width: 50%;
+}
+
+.error { border: 1px solid red !important;}

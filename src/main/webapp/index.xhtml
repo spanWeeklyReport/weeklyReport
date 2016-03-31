@@ -17,9 +17,23 @@
     
     <h:body>    	
 	    <header>
-		<ui:insert name="header" >
-		  <ui:include src="commonHeader.xhtml" />
-		</ui:insert>
+		 <div class="top">
+		       <div class="nav">
+		       
+		       <img src="images/spanlogo.png" alt="Span Logo" /> 
+		       <div class="navigation">
+		       <h:form id="logout">
+			       <ul> 
+			       
+			       <li></li>
+			       <li></li>
+		           
+		           </ul>
+		         </h:form>
+		       </div>
+		          
+		       </div>
+		   </div>
 	    </header>
 	    
 	    <div id="content">
@@ -65,6 +79,7 @@
 	    	</ui:insert>
     	</footer>
     	<script type="text/javascript">
+    	$(document).ready(function() {
 		$("#signup").submit(function (){
 
 			  if ($(".username").val() == "" || $(".password").val() == "" ){
@@ -75,6 +90,11 @@
 
 			});
 		
+		$("#signup").on('submit',  function(){
+			 $("#javax_faces_developmentstage_messages span").insertAfter(".password");
+		});
+		
+    	});
 		</script> 
     </h:body>
 </html>
