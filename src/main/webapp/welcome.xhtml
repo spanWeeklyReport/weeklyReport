@@ -107,17 +107,17 @@
 				
 				 <br /> <br />
 				
-				<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
+				<h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
 				  <br /> <br />
-				  
+		   
 			<div id = "tabs-1">
-			         <ul>
+			         <ul >
 			            <li><a href = "#tabs-2">Task Details</a></li>
 			            <li><a href = "#tabs-3">Risk Details</a></li>
 			            <li><a href = "#tabs-4">Resouce Details</a></li>
-			         </ul>
-					  
+			         
+					  </ul>
 			    <div id = "tabs-2">
 				  
     			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" /></p> 
@@ -159,6 +159,7 @@
     			</div>
     			                                                       
                <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton> 	 
+           
            </div>
      </h:form>
    
@@ -200,6 +201,13 @@
          }
         	
          }); 
+         
+         $(".fetch").click(function(){
+
+        	 $("#tabs-1").show();
+
+        	 })
+
         
          
 		});
