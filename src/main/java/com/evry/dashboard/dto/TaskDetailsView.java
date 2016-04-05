@@ -23,8 +23,14 @@ public class TaskDetailsView
 	private String RiskResp;
 	private String SharedResources;
 	private String BilledResources;
-	private String ProjectInc;
-	private String ProjectDec;
+	private String ProjectIncB;
+	private String ProjectDecB;
+	private String ProjectIncSh;
+	private String ProjectDecSh;
+	private String ProjectUpdates;
+	private String ResourceLoadingB;
+	private String ResourceLoadingSh;
+	
 
 	public long getOid() {
 		return oid;
@@ -112,22 +118,65 @@ public class TaskDetailsView
 	public void setBilledResources(String billedResources) {
 		this.BilledResources = billedResources;
 	}
-
+    
+	
+	//For billable resources
 	public String getProjectInc() {
-		return ProjectInc;
+		return ProjectIncB;
 	}
 
 	public void setProjectInc(String projectInc) {
-		this.ProjectInc = projectInc;
+		this.ProjectIncB = projectInc;
 	}
 
 	public String getProjectDec() {
-		return ProjectDec;
+		return ProjectDecB;
 	}
 
 	public void setProjectDec(String projectDec) {
-		this.ProjectDec = projectDec;
+		this.ProjectDecB = projectDec;
 	}
 	
+	//For shadow resources
+	
+	public String getProjectIncSh() {
+		return ProjectIncSh;
+	}
+	
+	public void setProjectIncSh(String projectIncSh) {
+		ProjectIncSh = projectIncSh;
+	}
+	
+	public String getProjectDecSh() {
+		return ProjectDecSh;
+	}
+	
+	public void setProjectDecSh(String projectDecSh) {
+		ProjectDecSh = projectDecSh;
+	}
+	
+	public String getProjectUpdates() {
+		return ProjectUpdates;
+	}
+	
+	public void setProjectUpdates(String projectUpdates) {
+		ProjectUpdates = projectUpdates;
+	}
+	
+	public String getResourceLoadingB() {
+		return ResourceLoadingB;
+	}
+	
+	public void setResourceLoadingB(String resourceLoadingB) {
+		ResourceLoadingB = resourceLoadingB;
+	}
+	
+	public String getResourceLoadingSh() {
+		return ResourceLoadingSh;
+	}
+	
+	public void setResourceLoadingSh(String resourceLoadingSh) {
+		ResourceLoadingSh = resourceLoadingSh;
+	}
 	
 }

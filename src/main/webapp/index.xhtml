@@ -78,24 +78,7 @@
 	    	  <ui:include src="commonFooter.xhtml" />
 	    	</ui:insert>
     	</footer>
-    	<script type="text/javascript">
-    	$(document).ready(function() {
-		$("#signup").submit(function (){
-
-			  if ($(".username").val() == "" || $(".password").val() == "" ){
-			    
-			    alert("Please enter username and/or password");
-			  }
-			 
-
-			});
-		
-		$("#signup").on('submit',  function(){
-			 $("#javax_faces_developmentstage_messages span").insertAfter(".password");
-		});
-		
-    	});
-		</script> 
+     
     </h:body>
 </html>
 

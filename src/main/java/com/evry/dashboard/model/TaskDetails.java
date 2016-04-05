@@ -61,11 +61,27 @@ public class TaskDetails {
 	@Column(name = "BILLED_RESOURCES")
 	private String BilledResources;
 	
-	@Column(name = "PROJECT_INC")
-	private String ProjectInc;
+	@Column(name = "PROJECT_INC_B")
+	private String ProjectIncB;
 
-	@Column(name = "PROJECT_DEC")
-	private String ProjectDec;
+	@Column(name = "PROJECT_DEC_B")
+	private String ProjectDecB;
+	
+	@Column(name = "PROJECT_INC_SH")
+	private String ProjectIncSh;
+	
+	@Column(name = "PROJECT_DEC_SH")
+	private String ProjectDecSh;
+	
+	@Column(name = "PROJECT_UPDATES")
+	private String ProjectUpdates;
+	
+	@Column(name = "RESOURCE_LOADING_B")
+	private String ResourceLoadingB;
+	
+	@Column(name = "RESOURCE_LOADING_SH")
+	private String ResourceLoadingSh;
+	
 
 	public long getOid() {
 		return oid;
@@ -158,19 +174,58 @@ public class TaskDetails {
 	}
 
 	public String getProjectInc() {
-		return ProjectInc;
+		return ProjectIncB;
 	}
 
 	public void setProjectInc(String projectInc) {
-		this.ProjectInc = projectInc;
+		this.ProjectIncB = projectInc;
 	}
 
 	public String getProjectDec() {
-		return ProjectDec;
+		return ProjectDecB;
 	}
 
 	public void setProjectDec(String projectDec) {
-		this.ProjectDec = projectDec;
+		this.ProjectDecB = projectDec;
 	}
 	
+	public String getProjectUpdates() {
+		return ProjectUpdates;
+	}
+	
+	public void setProjectUpdates(String projectUpdates) {
+		ProjectUpdates = projectUpdates;
+	}
+	
+	public String getProjectIncSh() {
+		return ProjectIncSh;
+	}
+	
+	public void setProjectIncSh(String projectIncSh) {
+		ProjectIncSh = projectIncSh;
+	}
+	
+	public String getProjectDecSh() {
+		return ProjectDecSh;
+	}
+	
+	public void setProjectDecSh(String projectDecSh) {
+		ProjectDecSh = projectDecSh;
+	}
+	
+	public String getResourceLoadingB() {
+		return ResourceLoadingB;
+	}
+	
+	public void setResourceLoadingB(String resourceLoadingB) {
+		ResourceLoadingB = resourceLoadingB;
+	}
+	
+	public String getResourceLoadingSh() {
+		return ResourceLoadingSh;
+	}
+	
+	public void setResourceLoadingSh(String resourceLoadingSh) {
+		ResourceLoadingSh = resourceLoadingSh;
+	}
 }

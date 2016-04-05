@@ -11,19 +11,19 @@
     <h:head>
 	   	<title>Welcome</title>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
-		<link rel="stylesheet" href="style2.css"></link>
+		<link rel="stylesheet" href="style.css"></link>
 	    
 	    <link href = "http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
          " rel = "stylesheet" ></link>
          
-	    
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 		<script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
 	</h:head>
     
     <h:body>
     
-    <div class="container" >
+    <div class="container2" >
 		   
     
     <header>
@@ -107,60 +107,151 @@
 				
 				 <br /> <br />
 				
-				<h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
+	<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
 				  <br /> <br />
-		   
-			<div id = "tabs-1">
-			         <ul >
-			            <li><a href = "#tabs-2">Task Details</a></li>
-			            <li><a href = "#tabs-3">Risk Details</a></li>
-			            <li><a href = "#tabs-4">Resouce Details</a></li>
-			         
-					  </ul>
-			    <div id = "tabs-2">
+	<div id="Panel-details" >
 				  
-    			<p class="contact"><h:outputLabel value="Tasks Planned" for="tasks_planned" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
+		<div id = "tabs-1">
+			         <ul>
+			            <li><a href = "#tabs-2">Task Details</a></li>
+			           
+			            <li><a href = "#tabs-4">Resource Details</a></li>
+			         </ul>
+					  
+			<div id = "tabs-2">
+			    
+			    <table>
+			     
+			     <thead>
+			    
+				      <th></th>
+				      <th>Planned</th>
+				      <th>Completed</th>
+				      <th>Hold</th>
+				      <th>In Progress</th>
+			      
+			     </thead>
+			     <tr>
+			         <td>Last Week</td>
+			         <td>9</td>
+			         <td>10</td>
+			         <td>0</td>
+			         <td>0</td>
+			     
+			     </tr>
+			     <tr>
+			     
+			      <td>Current Week</td>
+			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			     
+			     </tr>
+			    
+			    </table>
+				  
     			 
-    			<p class="contact"><h:outputLabel value="Tasks Completed" for="tasks_completed" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText>
     			
-                <p class="contact"><h:outputLabel value="Tasks In Progress" for="tasks_inprogress" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
-    			 
-                <p class="contact"><h:outputLabel value="Tasks On Hold" for="tasks_onhold" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
     			
-    			</div>
-    			<div id = "tabs-3">
+    	</div>
     			
-    			<p class="contact"><h:outputLabel value="Associated Risks" for="ass_risks" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputTextarea row="10" col="20" value="#{taskDetails.riskDisc}" id="ass_risks" class="textarea not-numeric" rendered="#{taskDetailsService.renderScreen()}" />
+    	<div id ="tabs-4" >
     			
-    			<p class="contact"><h:outputLabel value="Responsible" for="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" class="not-numeric responsible" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
+    			 <table class="resource-table">
+			     
+			     <thead>
+			    
+				      <th></th>
+				      <th>Count</th>
+				      <th>Resource loading %</th>
+				      <th>Proj. Increase</th>
+				      <th>Proj. Decrease</th>
+			      
+			     </thead>
+			     <tr>
+			         <td>Billable</td>
+			         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectInc}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectDec}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			     
+			     </tr>
+			     <tr>
+			     
+			      <td>Shadow</td>
+			         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			     
+			     </tr>
+			     
+			     <tr>
+			     
+			      <td>Total</td>
+			         <td class="total-count"></td>
+			         <td class="total-resource"></td>
+			         <td class="total-inc"></td>
+			         <td class="total-dec"></td>
+			     
+			     </tr>
+			    
+			    </table>
     			
-    			</div>
-    			<div id = "tabs-4">
     			
-    			<p class="contact"><h:outputLabel value="Shadow Resources" for="shadow_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.sharedResources}" id="shadow_resc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
-    			
-    			<p class="contact"><h:outputLabel value="Billed Resources" for="billed_resc" rendered="#{taskDetailsService.renderScreen()}" /></p> 
-    			<h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
-    			
-    			<p class="contact"><h:outputLabel value="Projected Increase" for="proj_inc" rendered="#{taskDetailsService.renderScreen()}"   /></p> 
-    			<h:inputText value="#{taskDetails.projectInc}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText>
-    			
-    			<p class="contact"><h:outputLabel value="Projected Decrease" for="proj_dec" rendered="#{taskDetailsService.renderScreen()}"  /></p> 
-    			<h:inputText value="#{taskDetails.projectDec}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText>
-    			
-    			</div>
+    	</div>
     			                                                       
-               <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton> 	 
-           
+                	 
            </div>
+           
+           <div id = "Risk-Details">
+           
+           <div class="div-inner">
+           
+           <h2 class="panel-heading">Project Updates</h2>
+           
+               <div class="risk_row">
+                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea" rendered="#{taskDetailsService.renderScreen()}" />
+               
+    		   </div>
+    	   </div>
+    			
+    	  </div>
+           
+           <div id = "Risk-Details">
+           
+           <div class="div-inner">
+           
+           <h2 class="panel-heading">Risk Details</h2>
+           
+               <div class="risk_row">
+           
+                <h:outputLabel value="Risk Type" for="risks_type" rendered="#{taskDetailsService.renderScreen()}"  />
+    			<h:selectOneMenu  class="risk-input" >
+						  
+						   <f:selectItem itemValue="0" itemLabel="Select Risk" />
+						   <f:selectItem itemValue="1" itemLabel="High Risk" />	  
+						   <f:selectItem itemValue="2" itemLabel="Medium Risk" />
+						   <f:selectItem itemValue="3" itemLabel="Low Risk" />
+				</h:selectOneMenu>
+    			
+    			<h:outputLabel value="Risk Description" for="ass_risks" rendered="#{taskDetailsService.renderScreen()}"  /> 
+    			<h:inputText value="#{taskDetails.riskDisc}" id="ass_risks" class="risk-input" rendered="#{taskDetailsService.renderScreen()}" />
+    			
+    			<h:outputLabel value="Responsible Person" for="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"   /> 
+    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" class="risk-input" rendered="#{taskDetailsService.renderScreen()}"  /> 
+    		    <img src="images/add-icon.png" class="add-row" />
+    		    <img src="images/remove.png" class="del-row" />
+    		   </div>
+    	   </div>
+    			
+    	  </div>
+    	  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton>
+        </div>
+        
+        
      </h:form>
    
    
@@ -174,45 +265,7 @@
 	    	  <ui:include src="commonFooter.xhtml" />
 	    	</ui:insert>
   </footer>
-		<script type="text/javascript">
-		$(document).ready(function(){
-         $(function() {
-            $( "#tabs-1" ).tabs();
-         });
-         
-         $(".s-button").click(function(e){
-         
-         if($.isNumeric($('.textarea').val())) {
-        	  
-        	  alert ("Please enter text in associated risks");
-        	    e.preventDefault();
-        	   
-        	}
-         
-         else if($.isNumeric($('.responsible').val())) {
-       	  
-       	  alert ("Please enter text in reponsible person");
-       	 e.preventDefault();
-       	}
-         
-         else {
-        	 
-        	 alert("Your details have been saved");
-         }
-        	
-         }); 
-         
-         $(".fetch").click(function(){
-
-        	 $("#tabs-1").show();
-
-        	 })
-
-        
-         
-		});
-         
-      </script>
+		
 		
   </h:body>
 </html>

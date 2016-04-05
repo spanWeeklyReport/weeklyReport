@@ -28,7 +28,7 @@ public class UserInfoServiceImpl implements UserInfoService
 	public void addUser(UserInfoView userInfoView) 
 	{
 		UserInfo obj = mapper.getMappedEntity(userInfoView);
-	//	userInfoDAO.add(obj);
+	//userInfoDAO.add(obj);
 	}
 
 	public List<UserInfoView> getUsers() 

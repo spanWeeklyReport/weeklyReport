@@ -36,13 +36,13 @@ a{
 .clr{
 	clear: both;
 }
-.container > header{
+.container2 > header{
 	padding: 20px 20px 20px 20px;
 	position: relative;
 	display: block;
     text-align: center;
 }
-.container > header h1 {
+.container2 > header h1 {
   color: #fff;
   font-size: 25px;
   font-style: normal;
@@ -51,7 +51,7 @@ a{
   padding: 0 0 5px;
   position: relative;
 }
-.container > header h1 strong{
+.container2 > header h1 strong{
 	font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
 	padding:0px 5px 0px 5px;
 	line-height:35px; 
@@ -59,7 +59,7 @@ a{
 	font-size:28px;
 	text-transform: uppercase;
 }
-.container > header h1 span{
+.container2 > header h1 span{
 	font-family: 'Alegreya SC', Georgia, serif;
 	font-size: 20px;
 	line-height: 20px;
@@ -245,4 +245,4 @@ img {
 
 .error { border: 1px solid red !important;}
 
-#tabs-1 {display:none;}
+

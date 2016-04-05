@@ -40,6 +40,11 @@ public class TaskDetailsMapper
 		taskDetailsView.setBilledResources(taskDetails.getBilledResources());
 		taskDetailsView.setProjectInc(taskDetails.getProjectInc());
 		taskDetailsView.setProjectDec(taskDetails.getProjectDec());
+		taskDetailsView.setProjectIncSh(taskDetails.getProjectIncSh());
+		taskDetailsView.setProjectDecSh(taskDetails.getProjectDecSh());
+		taskDetailsView.setProjectUpdates(taskDetails.getProjectUpdates());
+		taskDetailsView.setResourceLoadingB(taskDetails.getResourceLoadingB());
+		taskDetailsView.setResourceLoadingSh(taskDetails.getResourceLoadingSh());
 	}
 
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)
@@ -58,6 +63,11 @@ public class TaskDetailsMapper
 		taskDetails.setBilledResources(taskDetailsView.getBilledResources());
 		taskDetails.setProjectInc(taskDetailsView.getProjectInc());
 		taskDetails.setProjectDec(taskDetailsView.getProjectDec());
+		taskDetails.setProjectIncSh(taskDetailsView.getProjectIncSh());
+		taskDetails.setProjectDecSh(taskDetailsView.getProjectDecSh());
+		taskDetails.setProjectUpdates(taskDetailsView.getProjectUpdates());
+		taskDetails.setResourceLoadingB(taskDetailsView.getResourceLoadingB());
+		taskDetails.setResourceLoadingSh(taskDetailsView.getResourceLoadingSh());
 		return taskDetails;
 	}
 
