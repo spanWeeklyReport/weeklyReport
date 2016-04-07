@@ -1,13 +1,19 @@
 package com.evry.dashboard.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -27,9 +33,7 @@ public class TaskDetails {
 	@Id
 	@Column(name = "OID")
 	private long oid;
-	
 		
-	
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_ID")
 	private ProjectDetails projectDetails;
@@ -48,12 +52,12 @@ public class TaskDetails {
 	
 	@Column(name = "INPROGRESS_TASK")
 	private String InprogressTask;
-
+/*
 	@Column(name = "RISK_DESC")
 	private String riskDisc;
 	
 	@Column(name = "RISK_RESP")
-	private String RiskResp;
+	private String RiskResp; */
 	
 	@Column(name = "SHARED_RESOURCES")
 	private String SharedResources;
@@ -82,7 +86,14 @@ public class TaskDetails {
 	@Column(name = "RESOURCE_LOADING_SH")
 	private String ResourceLoadingSh;
 	
-
+	@OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="TASK_RISK_MAPPING",
+            joinColumns = @JoinColumn(name = "TASK_ID"),
+            inverseJoinColumns = @JoinColumn(name = "RISK_ID"))
+    private List <RiskDetails> riskDetails = new ArrayList<>();
+	
+	
+	
 	public long getOid() {
 		return oid;
 	}
@@ -91,7 +102,13 @@ public class TaskDetails {
 		this.oid = oid;
 	}
 
+	public List<RiskDetails> getRiskDetails() {
+		return riskDetails;
+	}
 	
+	public void setRiskDetails(List<RiskDetails> riskDetails) {
+		this.riskDetails = riskDetails;
+	}
 
 	public ProjectDetails getProjectDetails() {
 		return projectDetails;
@@ -141,7 +158,7 @@ public class TaskDetails {
 		this.InprogressTask = inprogressTask;
 	}
 
-	public String getRiskDisc() {
+	/*public String getRiskDisc() {
 		return riskDisc;
 	}
 
@@ -155,7 +172,7 @@ public class TaskDetails {
 
 	public void setRiskResp(String riskResp) {
 		this.RiskResp = riskResp;
-	}
+	}*/
 
 	public String getSharedResources() {
 		return SharedResources;

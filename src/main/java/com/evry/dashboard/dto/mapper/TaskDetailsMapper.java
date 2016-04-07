@@ -34,8 +34,6 @@ public class TaskDetailsMapper
 		taskDetailsView.setCompletedTask(taskDetails.getCompletedTask());
 		taskDetailsView.setHoldTask(taskDetails.getHoldTask());
 		taskDetailsView.setInprogressTask(taskDetails.getInprogressTask());
-		taskDetailsView.setriskDisc(taskDetails.getRiskDisc());
-		taskDetailsView.setRiskResp(taskDetails.getRiskResp());
 		taskDetailsView.setSharedResources(taskDetails.getSharedResources());
 		taskDetailsView.setBilledResources(taskDetails.getBilledResources());
 		taskDetailsView.setProjectInc(taskDetails.getProjectInc());
@@ -45,6 +43,8 @@ public class TaskDetailsMapper
 		taskDetailsView.setProjectUpdates(taskDetails.getProjectUpdates());
 		taskDetailsView.setResourceLoadingB(taskDetails.getResourceLoadingB());
 		taskDetailsView.setResourceLoadingSh(taskDetails.getResourceLoadingSh());
+		taskDetailsView.setRiskDetails(taskDetails.getRiskDetails());
+		
 	}
 
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)
@@ -57,8 +57,6 @@ public class TaskDetailsMapper
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());
 		taskDetails.setHoldTask(taskDetailsView.getHoldTask());
 		taskDetails.setInprogressTask(taskDetailsView.getInprogressTask());
-		taskDetails.setRiskDec(taskDetailsView.getRiskDisc());
-		taskDetails.setRiskResp(taskDetailsView.getRiskResp());
 		taskDetails.setSharedResources(taskDetailsView.getSharedResources());
 		taskDetails.setBilledResources(taskDetailsView.getBilledResources());
 		taskDetails.setProjectInc(taskDetailsView.getProjectInc());
@@ -68,6 +66,7 @@ public class TaskDetailsMapper
 		taskDetails.setProjectUpdates(taskDetailsView.getProjectUpdates());
 		taskDetails.setResourceLoadingB(taskDetailsView.getResourceLoadingB());
 		taskDetails.setResourceLoadingSh(taskDetailsView.getResourceLoadingSh());
+		taskDetails.setRiskDetails(taskDetailsView.getRiskDetails());
 		return taskDetails;
 	}
 

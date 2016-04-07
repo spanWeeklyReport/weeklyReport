@@ -10,9 +10,13 @@
 	    
 	    <script type="text/javascript">
 		$(document).ready(function(){
+			
+		//tabs
          $(function() {
             $( "#tabs-1" ).tabs();
          });
+         
+       //Validations
          
          $("#signup").submit(function (){
 
@@ -24,10 +28,7 @@
 
 			});
 		
-		$("#signup").on('submit',  function(){
-			 $("#javax_faces_developmentstage_messages span").insertAfter(".password");
-		});
-         
+		         
          $(".s-button").click(function(e){
          
          if($.isNumeric($('.textarea').val())) {
@@ -37,19 +38,22 @@
         	   
         	}
          
-         else if($.isNumeric($('.responsible').val())) {
+         else if ($.isNumeric($('.responsible').val())) {
        	  
        	  alert ("Please enter text in reponsible person");
        	 e.preventDefault();
        	}
          
          else {
+        	alert("Your details have been saved successfully"); 
         	 
-        	 alert("Your details have been saved");
          }
+         
+         
         	
          }); 
         
+         //add remove icons for risk details
          $(".add-row").click(function(){
 
         	  $(".risk_row:last").clone(true).insertAfter(".risk_row:last");
@@ -62,6 +66,10 @@
         	 $(this).parent(".risk_row").hide();
 
         	});
+         
+         $(".div-inner .risk_row:nth-child(2) .del-row").hide();
+         
+         //Calculating total fields
            
          var bill_count = parseInt($(".resource-table tr:nth-child(1) td:nth-child(2) input").val());
          var shadow_count = parseInt($(".resource-table tr:nth-child(2) td:nth-child(2) input").val());

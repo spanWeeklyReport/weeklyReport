@@ -1,11 +1,14 @@
 package com.evry.dashboard.dto;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
 import com.evry.dashboard.model.ProjectDetails;
+import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="taskDetails")
 @SessionScoped
@@ -19,8 +22,6 @@ public class TaskDetailsView
 	private String CompletedTask;
 	private String HoldTask;
 	private String InprogressTask;
-	private String riskDisc;
-	private String RiskResp;
 	private String SharedResources;
 	private String BilledResources;
 	private String ProjectIncB;
@@ -30,6 +31,7 @@ public class TaskDetailsView
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
+	private List <RiskDetails> riskDetails ;
 	
 
 	public long getOid() {
@@ -87,22 +89,7 @@ public class TaskDetailsView
 		this.InprogressTask = inprogressTask;
 	}
 
-	public String getRiskDisc() {
-		return riskDisc;
-	}
-
-	public void setriskDisc(String riskDisc) {
-		this.riskDisc = riskDisc;
-	}
-
-	public String getRiskResp() {
-		return RiskResp;
-	}
-
-	public void setRiskResp(String riskResp) {
-		this.RiskResp = riskResp;
-	}
-
+	
 	public String getSharedResources() {
 		return SharedResources;
 	}
@@ -177,6 +164,14 @@ public class TaskDetailsView
 	
 	public void setResourceLoadingSh(String resourceLoadingSh) {
 		ResourceLoadingSh = resourceLoadingSh;
+	}
+	
+	public List<RiskDetails> getRiskDetails() {
+		return riskDetails;
+	}
+
+	public void setRiskDetails(List<RiskDetails> riskDetails) {
+		this.riskDetails = riskDetails;
 	}
 	
 }

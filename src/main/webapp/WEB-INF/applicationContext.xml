@@ -26,6 +26,7 @@
                 <beans:value>com.evry.dashboard.model.UserInfo</beans:value>
                 <beans:value>com.evry.dashboard.model.TaskDetails</beans:value>
                 <beans:value>com.evry.dashboard.model.ProjectDetails</beans:value>
+                 <beans:value>com.evry.dashboard.model.RiskDetails</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -52,6 +53,9 @@
      <beans:bean id = "projectDetailsDAO" class = "com.evry.dashboard.dao.ProjectDetailsDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean> 
+    <beans:bean id = "riskDetailsDAO" class = "com.evry.dashboard.dao.RiskDetailsDAOImpl">
+        <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
+    </beans:bean> 
     <beans:bean id = "userInfoService" class = "com.evry.dashboard.service.UserInfoServiceImpl">
         <beans:property name = "userInfoDAO" ref = "userInfoDAO"/>
         <beans:property name = "mapper" ref = "userInfoMapper"/>
@@ -67,6 +71,12 @@
         <beans:property name = "mapper" ref = "projectDetailsMapper"/>
        
     </beans:bean>
+    <beans:bean id = "riskDetailsService" class = "com.evry.dashboard.service.RiskDetailsServiceImpl">
+        <beans:property name = "riskDetailsDAO" ref = "riskDetailsDAO"/>
+        <beans:property name = "mapper" ref = "riskDetailsMapper"/>
+       
+    </beans:bean>
+    
     <beans:bean id = "userInfoMapper" class = "com.evry.dashboard.dto.mapper.UserInfoMapper"/>
     
     <beans:bean id = "taskDetailsMapper" class = "com.evry.dashboard.dto.mapper.TaskDetailsMapper" >
@@ -75,7 +85,7 @@
     </beans:bean>
    <beans:bean id = "projectDetailsMapper" class = "com.evry.dashboard.dto.mapper.ProjectDetailsMapper" />
 
-
+    <beans:bean id = "riskDetailsMapper" class = "com.evry.dashboard.dto.mapper.RiskDetailsMapper" />
         
     <context:component-scan base-package="com.evry.dashboard.service" />
     <context:component-scan base-package="com.evry.dashboard.dao" />     

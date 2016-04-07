@@ -213,7 +213,7 @@
            <h2 class="panel-heading">Project Updates</h2>
            
                <div class="risk_row">
-                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea" rendered="#{taskDetailsService.renderScreen()}" />
+                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea"  />
                
     		   </div>
     	   </div>
@@ -226,24 +226,23 @@
            
            <h2 class="panel-heading">Risk Details</h2>
            
-               <div class="risk_row">
+            <div class="risk_row">
            
-                <h:outputLabel value="Risk Type" for="risks_type" rendered="#{taskDetailsService.renderScreen()}"  />
-    			<h:selectOneMenu  class="risk-input" >
-						  
-						   <f:selectItem itemValue="0" itemLabel="Select Risk" />
-						   <f:selectItem itemValue="1" itemLabel="High Risk" />	  
-						   <f:selectItem itemValue="2" itemLabel="Medium Risk" />
-						   <f:selectItem itemValue="3" itemLabel="Low Risk" />
-				</h:selectOneMenu>
-    			
-    			<h:outputLabel value="Risk Description" for="ass_risks" rendered="#{taskDetailsService.renderScreen()}"  /> 
-    			<h:inputText value="#{taskDetails.riskDisc}" id="ass_risks" class="risk-input" rendered="#{taskDetailsService.renderScreen()}" />
-    			
-    			<h:outputLabel value="Responsible Person" for="ass_risksresp" rendered="#{taskDetailsService.renderScreen()}"   /> 
-    			<h:inputText value="#{taskDetails.riskResp}" id="ass_risksresp" class="risk-input" rendered="#{taskDetailsService.renderScreen()}"  /> 
-    		    <img src="images/add-icon.png" class="add-row" />
-    		    <img src="images/remove.png" class="del-row" />
+		                <h:outputLabel value="Risk Type" for="risks_type"  />
+		    			<h:selectOneMenu  class="risk-input" value="#{riskDetails.riskType}" >								  
+								   <f:selectItem itemValue="0" itemLabel="Select Risk" />
+								   <f:selectItem itemValue="High" itemLabel="High Risk" />	  
+								   <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
+								   <f:selectItem itemValue="Low" itemLabel="Low Risk" />
+						</h:selectOneMenu>
+		    			
+		    			<h:outputLabel value="Risk Description" for="ass_risks"   /> 
+		    			<h:inputText  id="ass_risks" class="risk-input" value="#{riskDetails.riskDescription}" />
+		    			
+		    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
+		    			<h:inputText  id="ass_risksresp" class="risk-input" value="#{riskDetails.riskResponsible}"  /> 
+		    		    <img src="images/add-icon.png" class="add-row" />
+		    		    <img src="images/remove.png" class="del-row" />
     		   </div>
     	   </div>
     			
