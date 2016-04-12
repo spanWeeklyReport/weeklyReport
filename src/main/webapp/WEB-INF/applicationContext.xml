@@ -63,7 +63,8 @@
     </beans:bean> 
      <beans:bean id = "taskDetailsService" class = "com.evry.dashboard.service.TaskDetailsServiceImpl">
         <beans:property name = "taskDetailsDAO" ref = "taskDetailsDAO"/>
-        <beans:property name = "mapper" ref = "taskDetailsMapper"/>
+        <beans:property name = "taskDetailsMapper" ref = "taskDetailsMapper"/>
+        <beans:property name = "riskDetailsMapper" ref = "riskDetailsMapper"/>
        
     </beans:bean>
      <beans:bean id = "projectDetailsService" class = "com.evry.dashboard.service.ProjectDetailsServiceImpl">

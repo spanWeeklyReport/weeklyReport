@@ -244,7 +244,7 @@
 		    		    <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
     		   </div>
     		   
-    		<h:dataTable  var="o" value="#{taskDetailsView.riskDetailsList}"
+    		<h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}"
     			styleClass="order-table"
     			headerClass="order-table-header"
     			rowClasses="order-table-odd-row,order-table-even-row"
@@ -253,21 +253,21 @@
     		<h:column>
     			
     			<f:facet name="header">Risk Type</f:facet>
-    			#{riskDetails.riskType}
+    			#{risk.riskType}
     				
     		</h:column>
     			
     		<h:column>
     			
     			<f:facet name="header">Risk Description</f:facet>
-    			#{riskDetails.riskDescription}
+    			#{risk.riskDescription}
     				
     		</h:column>
     			
     		<h:column>
     				
     			<f:facet name="header">Responsible Person</f:facet>
-    			#{riskDetails.riskResponsible}
+    			#{risk.riskResponsible}
     				
     		</h:column>
     		
@@ -276,7 +276,7 @@
     			<f:facet name="header">Action</f:facet>
     				
     			<h:commandLink value="Delete" 
-                                   action="#{riskDetails.deleteAction(o)}" />
+                                   action="#{taskDetailsService.deleteRisks(taskDetails ,risk)}" />
     				
     		</h:column>
     			

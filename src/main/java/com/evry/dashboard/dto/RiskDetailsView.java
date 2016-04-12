@@ -5,11 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="riskDetails")
-
+@RequestScoped
 public class RiskDetailsView {
 	
 	private long oid;

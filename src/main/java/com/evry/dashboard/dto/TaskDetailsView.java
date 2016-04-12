@@ -33,14 +33,8 @@ public class TaskDetailsView
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
 	public String data = "1";
-	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
+	private static final ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
 	
-	public TaskDetailsView()
-	{
-		riskDetailsList.add(new RiskDetailsView());
-	}
-	
-
 	public long getOid() {
 		return oid;
 	}
@@ -175,10 +169,6 @@ public class TaskDetailsView
 
 	public ArrayList<RiskDetailsView> getRiskDetailsList() {
 		return riskDetailsList;
-	}
-
-	public void setRiskDetailsList(ArrayList<RiskDetailsView> riskDetailsList) {
-		this.riskDetailsList = riskDetailsList;
 	}
 
 	public String getData() {

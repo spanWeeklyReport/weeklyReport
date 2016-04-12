@@ -13,7 +13,8 @@ public interface TaskDetailsService {
 	boolean renderScreen();
 	String logout();
 	public String showResult(TaskDetailsView taskDetailsView);
-    void addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
+    String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
+    String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
 	
 	
 	

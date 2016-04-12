@@ -13,6 +13,7 @@ import org.omg.CORBA.PRIVATE_MEMBER;
 import com.evry.dashboard.dao.TaskDetailsDAO;
 import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.dto.TaskDetailsView;
+import com.evry.dashboard.dto.mapper.RiskDetailsMapper;
 import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
 import com.evry.dashboard.model.RiskDetails;
 import com.evry.dashboard.model.TaskDetails;
@@ -23,7 +24,8 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 {
 
 	private boolean renderer;
-	private TaskDetailsMapper mapper;
+	private TaskDetailsMapper taskDetailsMapper;
+	private RiskDetailsMapper riskDetailsMapper;
 	private TaskDetailsDAO taskDetailsDAO;
 	private TaskDetailsView taskDetailsView;
 		
@@ -32,17 +34,21 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		this.taskDetailsDAO = taskDetailsDAO;
 	}	
 
-	public void setMapper(TaskDetailsMapper mapper) 
+	public void setTaskDetailsMapper(TaskDetailsMapper mapper) 
 	{
-		this.mapper = mapper;
+		this.taskDetailsMapper = mapper;
 	}
 
 	public void addTasks(TaskDetailsView taskDetailsView) 
 	{
-		TaskDetails obj = mapper.getMappedEntity(taskDetailsView);
+		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
 		taskDetailsDAO.addTasks(obj);
 	}
 	
+	public void setRiskDetailsMapper(RiskDetailsMapper riskDeatilsMapper) {
+		this.riskDetailsMapper = riskDeatilsMapper;
+	}
+
 	public List<TaskDetailsView> getUsers()
 	{
 		List<TaskDetailsView> taskDetailsViews = new ArrayList();
@@ -53,8 +59,8 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	{
 
 		renderer = true;
-		TaskDetails taskDetails =  taskDetailsDAO.checkTasks(mapper.getMappedEntity(taskDetailsView));
-		mapper.mapView(taskDetailsView, taskDetails);
+		TaskDetails taskDetails =  taskDetailsDAO.checkTasks(taskDetailsMapper.getMappedEntity(taskDetailsView));
+		taskDetailsMapper.mapView(taskDetailsView, taskDetails);
 	}
 
 	public boolean renderScreen() {
@@ -65,7 +71,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	}
 	
 	public String logout() {
-        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();		
         return "index.xhtml";
     }
 	
@@ -78,11 +84,20 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	      return "result";
 	   }
 	
-	 public void addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
+	 public String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
 		 		 
-		 taskDetailsView.getRiskDetailsList().add(riskDetailsView);
+		 RiskDetailsView risk = riskDetailsMapper.getMappedView(riskDetailsView);
+		 taskDetailsView.getRiskDetailsList().add(risk);
+		 return null;
 		 
 		}  
+	 
+	 public String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
+		    
+		 RiskDetailsView risk = new RiskDetailsView();
+		 taskDetailsView.getRiskDetailsList().remove(risk);
+		 return null;
+		}
 
 	 
 
