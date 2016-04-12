@@ -2,6 +2,7 @@ package com.evry.dashboard.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -10,8 +11,10 @@ import javax.faces.context.FacesContext;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
 import com.evry.dashboard.dao.TaskDetailsDAO;
+import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
+import com.evry.dashboard.model.RiskDetails;
 import com.evry.dashboard.model.TaskDetails;
 
 @ManagedBean(name = "taskDetailsService")
@@ -65,5 +68,22 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "index.xhtml";
     }
+	
+	public String showResult(TaskDetailsView taskDetailsView){
+	      FacesContext fc = FacesContext.getCurrentInstance();
+	      Map<String,String> params = 
+	      fc.getExternalContext().getRequestParameterMap();
+	      String data = taskDetailsView.getData();
+	      data =  params.get("username"); 
+	      return "result";
+	   }
+	
+	 public void addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
+		 		 
+		 taskDetailsView.getRiskDetailsList().add(riskDetailsView);
+		 
+		}  
+
+	 
 
 }

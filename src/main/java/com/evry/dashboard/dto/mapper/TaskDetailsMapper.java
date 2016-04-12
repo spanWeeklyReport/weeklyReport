@@ -1,6 +1,7 @@
 package com.evry.dashboard.dto.mapper;
 
 import com.evry.dashboard.dao.ProjectDetailsDAO;
+import com.evry.dashboard.dao.RiskDetailsDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
@@ -9,12 +10,18 @@ public class TaskDetailsMapper
 {
 	
 	private ProjectDetailsDAO projectDetailsDAO;
+	private RiskDetailsDAO riskDetailsDAO;
 	
 	
 	
 	public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) 
 	{
 		this.projectDetailsDAO = projectDetailsDAO;
+	}
+	
+	public void setRiskDetailsDAO(RiskDetailsDAO riskDetailsDAO) 
+	{
+		this.riskDetailsDAO = riskDetailsDAO;
 	}
 
 	public void mapView(TaskDetailsView taskDetailsView, TaskDetails taskDetails)
@@ -36,14 +43,14 @@ public class TaskDetailsMapper
 		taskDetailsView.setInprogressTask(taskDetails.getInprogressTask());
 		taskDetailsView.setSharedResources(taskDetails.getSharedResources());
 		taskDetailsView.setBilledResources(taskDetails.getBilledResources());
-		taskDetailsView.setProjectInc(taskDetails.getProjectInc());
-		taskDetailsView.setProjectDec(taskDetails.getProjectDec());
+		taskDetailsView.setProjectIncB(taskDetails.getProjectIncB());
+		taskDetailsView.setProjectDecB(taskDetails.getProjectDecB());
 		taskDetailsView.setProjectIncSh(taskDetails.getProjectIncSh());
 		taskDetailsView.setProjectDecSh(taskDetails.getProjectDecSh());
 		taskDetailsView.setProjectUpdates(taskDetails.getProjectUpdates());
 		taskDetailsView.setResourceLoadingB(taskDetails.getResourceLoadingB());
 		taskDetailsView.setResourceLoadingSh(taskDetails.getResourceLoadingSh());
-		taskDetailsView.setRiskDetails(taskDetails.getRiskDetails());
+		//taskDetailsView.setRiskDetailsList(taskDetails.getRiskDetails());
 		
 	}
 
@@ -59,15 +66,15 @@ public class TaskDetailsMapper
 		taskDetails.setInprogressTask(taskDetailsView.getInprogressTask());
 		taskDetails.setSharedResources(taskDetailsView.getSharedResources());
 		taskDetails.setBilledResources(taskDetailsView.getBilledResources());
-		taskDetails.setProjectInc(taskDetailsView.getProjectInc());
-		taskDetails.setProjectDec(taskDetailsView.getProjectDec());
+		taskDetails.setProjectIncB(taskDetailsView.getProjectIncB());
+		taskDetails.setProjectDecB(taskDetailsView.getProjectDecB());
 		taskDetails.setProjectIncSh(taskDetailsView.getProjectIncSh());
 		taskDetails.setProjectDecSh(taskDetailsView.getProjectDecSh());
 		taskDetails.setProjectUpdates(taskDetailsView.getProjectUpdates());
 		taskDetails.setResourceLoadingB(taskDetailsView.getResourceLoadingB());
-		taskDetails.setResourceLoadingSh(taskDetailsView.getResourceLoadingSh());
-		taskDetails.setRiskDetails(taskDetailsView.getRiskDetails());
-		return taskDetails;
+		taskDetails.setResourceLoadingSh(taskDetailsView.getResourceLoadingSh());	
+//		taskDetails.setRiskDetails(riskDetailsDAO.(taskDetailsView.getRiskDetailsList()));
+	    return taskDetails;
 	}
 
 }

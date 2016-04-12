@@ -174,8 +174,8 @@
 			         <td>Billable</td>
 			         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
 			         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectInc}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectDec}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
 			     
 			     </tr>
 			     <tr>
@@ -241,13 +241,60 @@
 		    			
 		    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
 		    			<h:inputText  id="ass_risksresp" class="risk-input" value="#{riskDetails.riskResponsible}"  /> 
-		    		    <img src="images/add-icon.png" class="add-row" />
-		    		    <img src="images/remove.png" class="del-row" />
+		    		    <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
     		   </div>
+    		   
+    		<h:dataTable  var="o" value="#{taskDetailsView.riskDetailsList}"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+    		<h:column>
+    			
+    			<f:facet name="header">Risk Type</f:facet>
+    			#{riskDetails.riskType}
+    				
+    		</h:column>
+    			
+    		<h:column>
+    			
+    			<f:facet name="header">Risk Description</f:facet>
+    			#{riskDetails.riskDescription}
+    				
+    		</h:column>
+    			
+    		<h:column>
+    				
+    			<f:facet name="header">Responsible Person</f:facet>
+    			#{riskDetails.riskResponsible}
+    				
+    		</h:column>
+    		
+    		<h:column>
+    				
+    			<f:facet name="header">Action</f:facet>
+    				
+    			<h:commandLink value="Delete" 
+                                   action="#{riskDetails.deleteAction(o)}" />
+    				
+    		</h:column>
+    			
+    		</h:dataTable>
+    		
+    		   
     	   </div>
     			
     	  </div>
-    	  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" rendered="#{taskDetailsService.renderScreen()}"  ></h:commandButton>
+    	  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
+    	 
+    	  
+    	  </h:commandButton>
+    	  
+    	  <h:commandButton id="submit2" 
+         value="Generate Report" class="buttom" action="#{taskDetailsService.showResult(taskDetails)}">
+         <f:param name="username" value="JSF 2.0 User" />
+      </h:commandButton>
         </div>
         
         

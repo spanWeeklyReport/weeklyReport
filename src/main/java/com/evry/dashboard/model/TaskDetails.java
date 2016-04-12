@@ -190,19 +190,19 @@ public class TaskDetails {
 		this.BilledResources = billedResources;
 	}
 
-	public String getProjectInc() {
+	public String getProjectIncB() {
 		return ProjectIncB;
 	}
 
-	public void setProjectInc(String projectInc) {
+	public void setProjectIncB(String projectInc) {
 		this.ProjectIncB = projectInc;
 	}
 
-	public String getProjectDec() {
+	public String getProjectDecB() {
 		return ProjectDecB;
 	}
 
-	public void setProjectDec(String projectDec) {
+	public void setProjectDecB(String projectDec) {
 		this.ProjectDecB = projectDec;
 	}
 	

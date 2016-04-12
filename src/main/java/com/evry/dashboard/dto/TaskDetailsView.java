@@ -1,5 +1,6 @@
 package com.evry.dashboard.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -31,7 +32,13 @@ public class TaskDetailsView
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
-	private List <RiskDetails> riskDetails ;
+	public String data = "1";
+	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
+	
+	public TaskDetailsView()
+	{
+		riskDetailsList.add(new RiskDetailsView());
+	}
 	
 
 	public long getOid() {
@@ -105,27 +112,27 @@ public class TaskDetailsView
 	public void setBilledResources(String billedResources) {
 		this.BilledResources = billedResources;
 	}
-    
+    	
+	//For billed resources
 	
-	//For billable resources
-	public String getProjectInc() {
+	public String getProjectIncB() {
 		return ProjectIncB;
 	}
 
-	public void setProjectInc(String projectInc) {
-		this.ProjectIncB = projectInc;
+	public void setProjectIncB(String projectIncB) {
+		ProjectIncB = projectIncB;
 	}
 
-	public String getProjectDec() {
+	public String getProjectDecB() {
 		return ProjectDecB;
 	}
 
-	public void setProjectDec(String projectDec) {
-		this.ProjectDecB = projectDec;
+	public void setProjectDecB(String projectDecB) {
+		ProjectDecB = projectDecB;
 	}
 	
 	//For shadow resources
-	
+
 	public String getProjectIncSh() {
 		return ProjectIncSh;
 	}
@@ -165,13 +172,25 @@ public class TaskDetailsView
 	public void setResourceLoadingSh(String resourceLoadingSh) {
 		ResourceLoadingSh = resourceLoadingSh;
 	}
-	
-	public List<RiskDetails> getRiskDetails() {
-		return riskDetails;
+
+	public ArrayList<RiskDetailsView> getRiskDetailsList() {
+		return riskDetailsList;
 	}
 
-	public void setRiskDetails(List<RiskDetails> riskDetails) {
-		this.riskDetails = riskDetails;
+	public void setRiskDetailsList(ArrayList<RiskDetailsView> riskDetailsList) {
+		this.riskDetailsList = riskDetailsList;
 	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+	
+	
+	
+	
 	
 }

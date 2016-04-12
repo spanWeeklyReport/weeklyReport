@@ -3,6 +3,10 @@ package com.evry.dashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Arrays;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -20,6 +24,7 @@ public class RiskDetailsServiceImpl implements RiskDetailsService  {
 	private RiskDetailsMapper mapper;
 	private RiskDetailsDAO riskDetailsDAO;
 	private RiskDetailsView riskDetailsView;
+	private static ArrayList<RiskDetails> riskDetailsList;
 	
 	public void setRiskDetailsDAO(RiskDetailsDAO riskDetailsDAO) 
 	{
@@ -30,12 +35,9 @@ public class RiskDetailsServiceImpl implements RiskDetailsService  {
 	{
 		this.mapper = mapper;
 	}
-
-	public void addRisks(RiskDetailsView riskDetailsView) 
-	{
-		
-	}
 	
+	
+   
 	
 
 }
