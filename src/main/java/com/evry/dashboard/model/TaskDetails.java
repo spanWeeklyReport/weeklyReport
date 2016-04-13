@@ -3,6 +3,7 @@ package com.evry.dashboard.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,8 +32,8 @@ import javax.persistence.Table;
 	)  
 public class TaskDetails {
 	@Id
-	@Column(name = "OID")
-	private long oid;
+	@Column(name = "TASK_ID")
+	private long taskId;
 		
 	@ManyToOne()
 	@JoinColumn(name = "PROJECT_ID")
@@ -52,12 +53,6 @@ public class TaskDetails {
 	
 	@Column(name = "INPROGRESS_TASK")
 	private String InprogressTask;
-/*
-	@Column(name = "RISK_DESC")
-	private String riskDisc;
-	
-	@Column(name = "RISK_RESP")
-	private String RiskResp; */
 	
 	@Column(name = "SHARED_RESOURCES")
 	private String SharedResources;
@@ -86,20 +81,24 @@ public class TaskDetails {
 	@Column(name = "RESOURCE_LOADING_SH")
 	private String ResourceLoadingSh;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name="TASK_RISK_MAPPING",
             joinColumns = @JoinColumn(name = "TASK_ID"),
             inverseJoinColumns = @JoinColumn(name = "RISK_ID"))
     private List <RiskDetails> riskDetails = new ArrayList<>();
 	
+	public TaskDetails(){
+		
+		
+	}
 	
 	
-	public long getOid() {
-		return oid;
+	public long getTaskId() {
+		return taskId;
 	}
 
-	public void setOid(long oid) {
-		this.oid = oid;
+	public void setTaskId(long taskId) {
+		this.taskId = taskId;
 	}
 
 	public List<RiskDetails> getRiskDetails() {
@@ -158,22 +157,7 @@ public class TaskDetails {
 		this.InprogressTask = inprogressTask;
 	}
 
-	/*public String getRiskDisc() {
-		return riskDisc;
-	}
-
-	public void setRiskDec(String riskDec) {
-		this.riskDisc = riskDec;
-	}
-
-	public String getRiskResp() {
-		return RiskResp;
-	}
-
-	public void setRiskResp(String riskResp) {
-		this.RiskResp = riskResp;
-	}*/
-
+	
 	public String getSharedResources() {
 		return SharedResources;
 	}

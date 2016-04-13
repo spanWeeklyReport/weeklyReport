@@ -82,6 +82,8 @@
     
     <beans:bean id = "taskDetailsMapper" class = "com.evry.dashboard.dto.mapper.TaskDetailsMapper" >
       <beans:property name = "projectDetailsDAO" ref = "projectDetailsDAO"/>
+      <beans:property name = "riskDetailsDAO" ref = "riskDetailsDAO"/>
+        <beans:property name = "riskDetailsMapper" ref = "riskDetailsMapper"/>
        
     </beans:bean>
    <beans:bean id = "projectDetailsMapper" class = "com.evry.dashboard.dto.mapper.ProjectDetailsMapper" />

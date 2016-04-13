@@ -13,20 +13,19 @@ import com.evry.dashboard.model.RiskDetails;
 @RequestScoped
 public class RiskDetailsView {
 	
-	private long oid;
-	
+	private long riskId;	
 	private String RiskType;
 	private String RiskDescription;
 	private String RiskResponsible;
 	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList(){{add(new RiskDetails()); add(new RiskDetails());}};
 	
 
-	public long getOid() {
-		return oid;
+	public long getRiskId() {
+		return riskId;
 	}
 	
-	public void setOid(long oid) {
-		this.oid = oid;
+	public void setRiskId(long oid) {
+		this.riskId = oid;
 	}
 	
 		

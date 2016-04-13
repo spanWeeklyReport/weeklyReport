@@ -16,7 +16,7 @@ import com.evry.dashboard.model.RiskDetails;
 public class TaskDetailsView 
 {
 	
-	private long oid;
+	private long taskId;
 	private String projectDetailsName;
 	private String WeekNo;
 	private String PlannedTask;	
@@ -35,12 +35,12 @@ public class TaskDetailsView
 	public String data = "1";
 	private static final ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
 	
-	public long getOid() {
-		return oid;
+	public long getTaskId() {
+		return taskId;
 	}
 
-	public void setOid(long oid) {
-		this.oid = oid;
+	public void setTaskId(long taskId) {
+		this.taskId = taskId;
 	}
 	public String getProjectDetailsName() {
 		return projectDetailsName;

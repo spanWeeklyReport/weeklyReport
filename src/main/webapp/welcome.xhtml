@@ -143,10 +143,11 @@
 			     <tr>
 			     
 			      <td>Current Week</td>
-			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric" rendered="#{taskDetailsService.renderScreen()}" ></h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" 
+                requiredMessage="Please enter planned tasks" ></h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric"  ></h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="numeric"  > </h:inputText></td>
 			     
 			     </tr>
 			    
@@ -172,19 +173,19 @@
 			     </thead>
 			     <tr>
 			         <td>Billable</td>
-			         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" rendered="#{taskDetailsService.renderScreen()}"   > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" > </h:inputText></td>
 			     
 			     </tr>
 			     <tr>
 			     
 			      <td>Shadow</td>
-			         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" rendered="#{taskDetailsService.renderScreen()}" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" > </h:inputText></td>
 			     
 			     </tr>
 			     
@@ -276,7 +277,7 @@
     			<f:facet name="header">Action</f:facet>
     				
     			<h:commandLink value="Delete" 
-                                   action="#{taskDetailsService.deleteRisks(taskDetails ,risk)}" />
+                                   action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
     				
     		</h:column>
     			

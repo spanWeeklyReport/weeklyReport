@@ -7,7 +7,6 @@ com\evry\dashboard\dao\UserInfoDAO.class
 com\evry\dashboard\model\TaskDetails.class
 com\evry\dashboard\service\ProjectDetailsServiceImpl.class
 com\evry\dashboard\dto\mapper\TaskDetailsMapper.class
-com\evry\dashboard\dto\TaskDetailsView$1.class
 com\evry\dashboard\dao\UserDetailsDAO.class
 com\evry\dashboard\dto\RiskDetailsView.class
 com\evry\dashboard\dao\RiskDetailsDAO.class
@@ -18,7 +17,6 @@ com\evry\dashboard\service\TaskDetailsService.class
 com\evry\dashboard\dto\ProjectDetailsView.class
 com\evry\dashboard\model\ProjectDetails.class
 com\evry\dashboard\service\RiskDetailsService.class
-com\evry\dashboard\dto\RiskDetailsView$1.class
 com\evry\dashboard\dao\ProjectDetailsDAOImpl.class
 com\evry\dashboard\service\RiskDetailsServiceImpl.class
 com\evry\dashboard\dao\TaskDetailsDAOImpl.class

@@ -94,8 +94,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	 
 	 public String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
 		    
-		 RiskDetailsView risk = new RiskDetailsView();
-		 taskDetailsView.getRiskDetailsList().remove(risk);
+		 taskDetailsView.getRiskDetailsList().remove(riskDetailsView);
 		 return null;
 		}
 

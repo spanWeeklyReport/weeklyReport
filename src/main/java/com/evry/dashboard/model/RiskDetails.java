@@ -16,8 +16,8 @@ import javax.persistence.Table;
 public class RiskDetails {
 	
 	@Id
-	@Column(name = "O_ID")
-	private long Oid;
+	@Column(name = "RISK_ID")
+	private long riskId;
 	
 	@Column(name = "RISK_TYPE")
 	private String riskType;
@@ -28,12 +28,16 @@ public class RiskDetails {
 	@Column(name = "RISK_RESPONSIBLE")
 	private String riskResponsible;
 	
-	public long getOid() {
-		return Oid;
+	public RiskDetails(){
+		
 	}
 	
-	public void setOid(long oid) {
-		Oid = oid;
+	public long getRiskId() {
+		return riskId;
+	}
+	
+	public void setRiskId(long riskId) {
+		riskId = riskId;
 	}
 	
 		

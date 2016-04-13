@@ -45,7 +45,7 @@
        	}
          
          else {
-        	alert("Your details have been saved successfully"); 
+        	//alert("Your details have been saved successfully"); 
         	 
          }
          
@@ -71,22 +71,74 @@
          
          //Calculating total fields
            
-         var bill_count = parseInt($(".resource-table tr:nth-child(1) td:nth-child(2) input").val());
-         var shadow_count = parseInt($(".resource-table tr:nth-child(2) td:nth-child(2) input").val());
+         var bill_count = $(".resource-table tr:nth-child(1) td:nth-child(2) input").val();
+        var shadow_count = $(".resource-table tr:nth-child(2) td:nth-child(2) input").val();
+        if (bill_count == 0 &amp;&amp; shadow_count == 0) {
+        	
+        	$(".total-count").empty();
+        	
+        }
+        else {
+          var bill_count = parseInt($(".resource-table tr:nth-child(1) td:nth-child(2) input").val());
+        var shadow_count = parseInt($(".resource-table tr:nth-child(2) td:nth-child(2) input").val());
+       
+        	$(".total-count").text(bill_count+shadow_count);
+        }
         
-         $(".total-count").text(bill_count+shadow_count);
-         
+	      
+        var rescL_bill = $(".resource-table tr:nth-child(1) td:nth-child(3) input").val();
+        var rescL_sha = $(".resource-table tr:nth-child(2) td:nth-child(3) input").val();
+        
+        if (rescL_bill == "" &amp;&amp; rescL_sha =="") {
+        	
+        	$(".total-resource").empty();
+        	
+            }
+        else {
+        
          var rescL_bill = parseInt($(".resource-table tr:nth-child(1) td:nth-child(3) input").val());
          var rescL_sha = parseInt($(".resource-table tr:nth-child(2) td:nth-child(3) input").val());
-         $(".total-resource").text(rescL_bill+rescL_sha);
          
+	        	 $(".total-resource").text(rescL_bill+rescL_sha);
+	        	 
+        }
+        
+        var PInc_bill = $(".resource-table tr:nth-child(1) td:nth-child(4) input").val();
+        var PInc_sha = $(".resource-table tr:nth-child(2) td:nth-child(4) input").val();
+        
+        if (PInc_bill == "" &amp;&amp; PInc_sha =="") {
+        	
+        	$(".total-inc").empty();
+        	
+        }
+        else {
+	       
          var PInc_bill = parseInt($(".resource-table tr:nth-child(1) td:nth-child(4) input").val());
          var PInc_sha = parseInt($(".resource-table tr:nth-child(2) td:nth-child(4) input").val());
-         $(".total-inc").text(PInc_bill+PInc_sha);
-         
+        
+	        	 $(".total-inc").text(PInc_bill+PInc_sha);
+	     
+        }
+        
+        
+        var PDec_bill = $(".resource-table tr:nth-child(1) td:nth-child(5) input").val();
+        var PDec_sha = $(".resource-table tr:nth-child(2) td:nth-child(5) input").val();
+        
+        if (PDec_bill == "" &amp;&amp; PDec_sha =="") {
+        	
+        	$(".total-dec").empty();
+        	
+        }
+        else {
+        
          var PDec_bill = parseInt($(".resource-table tr:nth-child(1) td:nth-child(5) input").val());
          var PDec_sha = parseInt($(".resource-table tr:nth-child(2) td:nth-child(5) input").val());
+         
          $(".total-dec").text(PDec_bill+PDec_sha);
+         
+        }
+         
+       
          
          
 		});

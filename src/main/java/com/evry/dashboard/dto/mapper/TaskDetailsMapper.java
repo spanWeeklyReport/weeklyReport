@@ -1,16 +1,23 @@
 package com.evry.dashboard.dto.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
 import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dao.RiskDetailsDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
+import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
+import com.evry.dashboard.model.RiskDetails;
 
 public class TaskDetailsMapper 
 {
 	
 	private ProjectDetailsDAO projectDetailsDAO;
 	private RiskDetailsDAO riskDetailsDAO;
+	private RiskDetailsMapper riskDetailsMapper;
 	
 	
 	
@@ -23,11 +30,15 @@ public class TaskDetailsMapper
 	{
 		this.riskDetailsDAO = riskDetailsDAO;
 	}
+	
+	public void setRiskDetailsMapper(RiskDetailsMapper riskDetailsMapper) 
+	{
+		this.riskDetailsMapper = riskDetailsMapper;
+	}
 
 	public void mapView(TaskDetailsView taskDetailsView, TaskDetails taskDetails)
 	{
-		taskDetailsView.setOid(taskDetails.getOid());
-		//taskDetailsView.set(taskDetails.getUid());
+		taskDetailsView.setTaskId(taskDetails.getTaskId());
 			try
 			{
 				taskDetailsView.setProjectDetailsName(taskDetails.getProjectDetails().getProjectName());
@@ -50,14 +61,14 @@ public class TaskDetailsMapper
 		taskDetailsView.setProjectUpdates(taskDetails.getProjectUpdates());
 		taskDetailsView.setResourceLoadingB(taskDetails.getResourceLoadingB());
 		taskDetailsView.setResourceLoadingSh(taskDetails.getResourceLoadingSh());
-		//taskDetailsView.setRiskDetailsList(taskDetails.getRiskDetails());
+		//taskDetailsView.setRiskDetailsList(taskDetails.getRiskDetailsList());
 		
 	}
 
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)
 	{
 		TaskDetails taskDetails = new TaskDetails();
-		taskDetails.setOid(taskDetailsView.getOid());
+		taskDetails.setTaskId(taskDetailsView.getTaskId());
 		taskDetails.setProjectDetails(projectDetailsDAO.findByName(taskDetailsView.getProjectDetailsName()));
 		taskDetails.setWeekNo(taskDetailsView.getWeekNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
@@ -73,7 +84,19 @@ public class TaskDetailsMapper
 		taskDetails.setProjectUpdates(taskDetailsView.getProjectUpdates());
 		taskDetails.setResourceLoadingB(taskDetailsView.getResourceLoadingB());
 		taskDetails.setResourceLoadingSh(taskDetailsView.getResourceLoadingSh());	
-//		taskDetails.setRiskDetails(riskDetailsDAO.(taskDetailsView.getRiskDetailsList()));
+		List<RiskDetails> list = new ArrayList<RiskDetails>();
+		
+		 RiskDetailsView riskDetailsView = new RiskDetailsView();
+		 
+		ListIterator litr = taskDetailsView.getRiskDetailsList().listIterator();
+	      while(litr.hasNext()) {
+   
+	         
+	    	 //Object element = litr.next();
+	        list.add(riskDetailsMapper.getMappedEntity((RiskDetailsView)litr.next()));
+	      }
+		
+     	taskDetails.setRiskDetails(list);
 	    return taskDetails;
 	}
 

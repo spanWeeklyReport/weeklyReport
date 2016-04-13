@@ -9,7 +9,7 @@ public class RiskDetailsMapper {
 	public RiskDetailsView getMappedView(RiskDetails riskDetails)
 	{
 		RiskDetailsView riskDetailsView = new RiskDetailsView();
-		riskDetailsView.setOid(riskDetails.getOid());
+		riskDetailsView.setRiskId(riskDetails.getRiskId());
 		riskDetailsView.setRiskType(riskDetails.getRiskType());
 		riskDetailsView.setRiskDescription(riskDetails.getRiskDescription());
 		riskDetailsView.setRiskResponsible(riskDetails.getRiskResponsible());
@@ -17,10 +17,10 @@ public class RiskDetailsMapper {
 	}
 
 
-	public RiskDetailsView getMappedView(RiskDetailsView riskDetails)
+   public RiskDetailsView getMappedView(RiskDetailsView riskDetails)
 	{
 		RiskDetailsView riskDetailsView = new RiskDetailsView();
-		riskDetailsView.setOid(riskDetails.getOid());
+		riskDetailsView.setRiskId(riskDetails.getRiskId());
 		riskDetailsView.setRiskType(riskDetails.getRiskType());
 		riskDetailsView.setRiskDescription(riskDetails.getRiskDescription());
 		riskDetailsView.setRiskResponsible(riskDetails.getRiskResponsible());
@@ -31,7 +31,7 @@ public class RiskDetailsMapper {
 	public RiskDetails getMappedEntity(RiskDetailsView riskDetailsView)
 	{
 		RiskDetails riskDetails = new RiskDetails();
-		riskDetailsView.setOid(riskDetailsView.getOid());
+		riskDetailsView.setRiskId(riskDetailsView.getRiskId());
 		riskDetails.setRiskType(riskDetailsView.getRiskType());
 		riskDetails.setRiskDescription(riskDetailsView.getRiskDescription());
 		riskDetails.setRiskResponsible(riskDetailsView.getRiskResponsible());
