@@ -28,8 +28,8 @@
     
     <header>
              <ui:insert name="header" >
-		  <ui:include src="commonHeader.xhtml" />
-		</ui:insert>
+				  <ui:include src="commonHeader.xhtml" />
+		     </ui:insert>
     
 				<h1>Please fill in the Weekly Status</h1>
 				 
@@ -39,7 +39,7 @@
 		            
      
      <div class="form">
-    		<h:form id="taskform">
+    		<h:form id="taskform"  >
     		  
     		     <p class="contact selectbox"><h:outputLabel value="Select Project" for="select_project"  /></p>
 				<h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">								   
@@ -105,14 +105,21 @@
 						   							
 				</h:selectOneMenu>
 				
-				 <br /> <br />
+				 <br />
+				 			 	 
+				  <br />
 				
 	<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
-				  <br /> <br />
-	<div id="Panel-details" >
+				  <br /> 
 				  
-		<div id = "tabs-1">
+				  <h:messages class="error-msg" style="color:red;margin:8px 0px;padding:0" />
+				  
+				  <br />
+				  
+	<h:panelGroup layout="block" id="Panel-details" rendered="#{taskDetailsService.renderScreen()}" >
+				  
+	<div id = "tabs-1">
 			         <ul>
 			            <li><a href = "#tabs-2">Task Details</a></li>
 			           
@@ -143,7 +150,7 @@
 			     <tr>
 			     
 			      <td>Current Week</td>
-			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" class="numeric" 
+			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" required="true" class="numeric" 
                 requiredMessage="Please enter planned tasks" ></h:inputText></td>
 			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric"  ></h:inputText></td>
 			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric"  > </h:inputText></td>
@@ -162,144 +169,140 @@
     			
     			 <table class="resource-table">
 			     
-			     <thead>
+				     <thead>
+				    
+					      <th></th>
+					      <th>Count</th>
+					      <th>Resource loading %</th>
+					      <th>Proj. Increase</th>
+					      <th>Proj. Decrease</th>
+				      
+				     </thead>
+				     <tr>
+				         <td>Billable</td>
+				         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" > </h:inputText></td>
+				     
+				     </tr>
+				     <tr>
+				     
+				      <td>Shadow</td>
+				         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" > </h:inputText></td>
+				     
+				     </tr>
+			     
+				     <tr>
+				     
+				      <td>Total</td>
+				         <td class="total-count"></td>
+				         <td class="total-resource"></td>
+				         <td class="total-inc"></td>
+				         <td class="total-dec"></td>
+				     
+				     </tr>
 			    
-				      <th></th>
-				      <th>Count</th>
-				      <th>Resource loading %</th>
-				      <th>Proj. Increase</th>
-				      <th>Proj. Decrease</th>
-			      
-			     </thead>
-			     <tr>
-			         <td>Billable</td>
-			         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" > </h:inputText></td>
-			     
-			     </tr>
-			     <tr>
-			     
-			      <td>Shadow</td>
-			         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" > </h:inputText></td>
-			     
-			     </tr>
-			     
-			     <tr>
-			     
-			      <td>Total</td>
-			         <td class="total-count"></td>
-			         <td class="total-resource"></td>
-			         <td class="total-inc"></td>
-			         <td class="total-dec"></td>
-			     
-			     </tr>
-			    
-			    </table>
+			  </table>
     			
     			
     	</div>
     			                                                       
                 	 
-           </div>
+    </div>
            
            <div id = "Risk-Details">
            
-           <div class="div-inner">
-           
-           <h2 class="panel-heading">Project Updates</h2>
-           
-               <div class="risk_row">
-                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea"  />
-               
-    		   </div>
-    	   </div>
+	           <div class="div-inner">
+	           
+		               <h2 class="panel-heading">Project Updates</h2>
+		           
+		               <div class="risk_row">
+		                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea"  />
+		               
+		    		   </div>
+	    	   </div>
     			
     	  </div>
            
            <div id = "Risk-Details">
            
-           <div class="div-inner">
-           
-           <h2 class="panel-heading">Risk Details</h2>
-           
-            <div class="risk_row">
-           
-		                <h:outputLabel value="Risk Type" for="risks_type"  />
-		    			<h:selectOneMenu  class="risk-input" value="#{riskDetails.riskType}" >								  
-								   <f:selectItem itemValue="0" itemLabel="Select Risk" />
-								   <f:selectItem itemValue="High" itemLabel="High Risk" />	  
-								   <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
-								   <f:selectItem itemValue="Low" itemLabel="Low Risk" />
-						</h:selectOneMenu>
-		    			
-		    			<h:outputLabel value="Risk Description" for="ass_risks"   /> 
-		    			<h:inputText  id="ass_risks" class="risk-input" value="#{riskDetails.riskDescription}" />
-		    			
-		    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
-		    			<h:inputText  id="ass_risksresp" class="risk-input" value="#{riskDetails.riskResponsible}"  /> 
-		    		    <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
-    		   </div>
-    		   
-    		<h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}"
-    			styleClass="order-table"
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
-
-    		<h:column>
-    			
-    			<f:facet name="header">Risk Type</f:facet>
-    			#{risk.riskType}
-    				
-    		</h:column>
-    			
-    		<h:column>
-    			
-    			<f:facet name="header">Risk Description</f:facet>
-    			#{risk.riskDescription}
-    				
-    		</h:column>
-    			
-    		<h:column>
-    				
-    			<f:facet name="header">Responsible Person</f:facet>
-    			#{risk.riskResponsible}
-    				
-    		</h:column>
-    		
-    		<h:column>
-    				
-    			<f:facet name="header">Action</f:facet>
-    				
-    			<h:commandLink value="Delete" 
-                                   action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
-    				
-    		</h:column>
-    			
-    		</h:dataTable>
-    		
-    		   
-    	   </div>
+		           <div class="div-inner">
+		           
+		                 <h2 class="panel-heading">Risk Details</h2>
+		           
+			            <div class="risk_row">
+			           
+					                <h:outputLabel value="Risk Type" for="risks_type"  />
+					    			<h:selectOneMenu  class="risk-input" value="#{riskDetails.riskType}" >								  
+											   <f:selectItem itemValue="0" itemLabel="Select Risk" />
+											   <f:selectItem itemValue="High" itemLabel="High Risk" />	  
+											   <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
+											   <f:selectItem itemValue="Low" itemLabel="Low Risk" />
+									</h:selectOneMenu>
+					    			
+					    			<h:outputLabel value="Risk Description" for="ass_risks"   /> 
+					    			<h:inputText  id="ass_risks" class="risk-input" value="#{riskDetails.riskDescription}" />
+					    			
+					    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
+					    			<h:inputText  id="ass_risksresp" class="risk-input" value="#{riskDetails.riskResponsible}"  /> 
+			    	 <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
+			    		   </div>
+		    		   
+				    		<h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}"
+				    			styleClass="order-table"
+				    			headerClass="order-table-header"
+				    			rowClasses="order-table-odd-row,order-table-even-row" >
+				
+								    		<h:column>
+								    			
+								    			<f:facet name="header">Risk Type</f:facet>
+								    			#{risk.riskType}
+								    				
+								    		</h:column>
+								    			
+								    		<h:column>
+								    			
+								    			<f:facet name="header">Risk Description</f:facet>
+								    			#{risk.riskDescription}
+								    				
+								    		</h:column>
+								    			
+								    		<h:column>
+								    				
+								    			<f:facet name="header">Responsible Person</f:facet>
+								    			#{risk.riskResponsible}
+								    				
+								    		</h:column>
+								    		
+								    		<h:column>
+								    				
+								    			<f:facet name="header">Action</f:facet>
+								    				
+								    			<h:commandLink value="Delete" 
+								                                   action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
+								    				
+								    		</h:column>
+				    			
+				    		</h:dataTable>
+		    		
+		    		   
+		    	   </div>
     			
     	  </div>
-    	  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
-    	 
-    	  
-    	  </h:commandButton>
-    	  
-    	  <h:commandButton id="submit2" 
-         value="Generate Report" class="buttom" action="#{taskDetailsService.showResult(taskDetails)}">
-         <f:param name="username" value="JSF 2.0 User" />
-      </h:commandButton>
-        </div>
+		  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
+		   </h:commandButton>
+		    	  
+		  <h:commandButton id="submit2" value="Generate Report" class="buttom" action="#{taskDetailsService.showResult(taskDetails)}">
+		   </h:commandButton>
+       
+      </h:panelGroup > <!-- end of panel details -->
         
         
-     </h:form>
+    </h:form>
    
    
    <br />

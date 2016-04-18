@@ -26,8 +26,8 @@ private SessionFactory sessionFactory;
 	public void addTasks(TaskDetails taskDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
-       // session.merge(taskDetails);
-		session.save(taskDetails);
+       session.merge(taskDetails);
+		//session.save(taskDetails);
 	}
 
 	@Transactional

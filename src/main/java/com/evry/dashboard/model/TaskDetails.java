@@ -81,7 +81,7 @@ public class TaskDetails {
 	@Column(name = "RESOURCE_LOADING_SH")
 	private String ResourceLoadingSh;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name="TASK_RISK_MAPPING",
             joinColumns = @JoinColumn(name = "TASK_ID"),
             inverseJoinColumns = @JoinColumn(name = "RISK_ID"))

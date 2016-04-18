@@ -9,7 +9,7 @@ import com.evry.dashboard.model.TaskDetails;
 
 public interface RiskDetailsDAO {
 	
-	void addRisks(RiskDetails riskDetails);
+	Long addRisks(RiskDetails riskDetails);
 	RiskDetails getRisks(RiskDetails riskDetails);
 	RiskDetails checkRisks(RiskDetails riskDetails);
 

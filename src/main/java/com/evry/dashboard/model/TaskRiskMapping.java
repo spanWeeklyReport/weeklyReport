@@ -14,24 +14,14 @@ import javax.persistence.Table;
 
 public class TaskRiskMapping {
 	
-	@Id
-	@Column(name = "OID")
-	private long oid;
-	
+		
 	@Column(name = "TASK_ID")
 	private String taskId;
 
 	@Column(name = "RISK_ID")
 	private String riskId;
 
-	public long getOid() {
-		return oid;
-	}
-
-	public void setOid(long oid) {
-		this.oid = oid;
-	}
-
+	
 	public String getTaskId() {
 		return taskId;
 	}

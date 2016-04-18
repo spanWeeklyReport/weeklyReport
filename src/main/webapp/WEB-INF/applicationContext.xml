@@ -53,6 +53,7 @@
      <beans:bean id = "projectDetailsDAO" class = "com.evry.dashboard.dao.ProjectDetailsDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean> 
+                      
     <beans:bean id = "riskDetailsDAO" class = "com.evry.dashboard.dao.RiskDetailsDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean> 
@@ -63,6 +64,7 @@
     </beans:bean> 
      <beans:bean id = "taskDetailsService" class = "com.evry.dashboard.service.TaskDetailsServiceImpl">
         <beans:property name = "taskDetailsDAO" ref = "taskDetailsDAO"/>
+         <beans:property name = "riskDetailsDAO" ref = "riskDetailsDAO"/>
         <beans:property name = "taskDetailsMapper" ref = "taskDetailsMapper"/>
         <beans:property name = "riskDetailsMapper" ref = "riskDetailsMapper"/>
        

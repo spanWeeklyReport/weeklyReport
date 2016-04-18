@@ -2,7 +2,10 @@ package com.evry.dashboard.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
+
+import javassist.bytecode.stackmap.BasicBlock.Catch;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -10,6 +13,7 @@ import javax.faces.context.FacesContext;
 
 import org.omg.CORBA.PRIVATE_MEMBER;
 
+import com.evry.dashboard.dao.RiskDetailsDAO;
 import com.evry.dashboard.dao.TaskDetailsDAO;
 import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.dto.TaskDetailsView;
@@ -27,7 +31,9 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	private TaskDetailsMapper taskDetailsMapper;
 	private RiskDetailsMapper riskDetailsMapper;
 	private TaskDetailsDAO taskDetailsDAO;
+	private RiskDetailsDAO riskDetailsDAO;
 	private TaskDetailsView taskDetailsView;
+	private long riskId;
 		
 	public void setTaskDetailsDAO(TaskDetailsDAO taskDetailsDAO) 
 	{
@@ -38,17 +44,43 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	{
 		this.taskDetailsMapper = mapper;
 	}
-
-	public void addTasks(TaskDetailsView taskDetailsView) 
-	{
-		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
-		taskDetailsDAO.addTasks(obj);
-	}
 	
+	public void setRiskDetailsDAO(RiskDetailsDAO riskDetailsDAO) 
+	{
+		this.riskDetailsDAO = riskDetailsDAO;
+	}	
+    
 	public void setRiskDetailsMapper(RiskDetailsMapper riskDeatilsMapper) {
 		this.riskDetailsMapper = riskDeatilsMapper;
 	}
 
+
+	public void addTasks(TaskDetailsView taskDetailsView) 
+	{
+		ListIterator litr = taskDetailsView.getRiskDetailsList().listIterator();
+	     
+		try{
+		while(litr.hasNext()) 
+	      {
+	    	  RiskDetailsView detailsView = (RiskDetailsView)litr.next();
+	    	  
+		 RiskDetails details = riskDetailsMapper.getMappedEntity(detailsView);
+		 riskId = riskDetailsDAO.addRisks(details);
+		 details.setRiskId(riskId);
+	 
+	      }
+	      
+		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
+		taskDetailsDAO.addTasks(obj);
+	}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		finally{
+			}
+	}
+		
 	public List<TaskDetailsView> getUsers()
 	{
 		List<TaskDetailsView> taskDetailsViews = new ArrayList();
@@ -65,9 +97,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 
 	public boolean renderScreen() {
 		
-		
-	//System.out.println("hiieee");
-	return renderer;
+		return renderer;
 	}
 	
 	public String logout() {
@@ -86,8 +116,8 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	
 	 public String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
 		 		 
-		 RiskDetailsView risk = riskDetailsMapper.getMappedView(riskDetailsView);
-		 taskDetailsView.getRiskDetailsList().add(risk);
+		// RiskDetailsView risk = riskDetailsMapper.getMappedView(riskDetailsView);
+		 taskDetailsView.getRiskDetailsList().add(riskDetailsView);
 		 return null;
 		 
 		}  

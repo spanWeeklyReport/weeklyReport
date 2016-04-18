@@ -24,9 +24,12 @@ private SessionFactory sessionFactory;
 	}
 	
 	@Transactional
-	public void addRisks(RiskDetails riskDetails) 
+	public Long addRisks(RiskDetails riskDetails) 
 	{
+		Session session = this.sessionFactory.getCurrentSession();
+		RiskDetails details = (RiskDetails)session.merge(riskDetails);
 		
+		return details.getRiskId();
 	}
 	
 	@Transactional

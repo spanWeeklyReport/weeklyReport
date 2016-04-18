@@ -17,6 +17,7 @@ com\evry\dashboard\service\TaskDetailsService.class
 com\evry\dashboard\dto\ProjectDetailsView.class
 com\evry\dashboard\model\ProjectDetails.class
 com\evry\dashboard\service\RiskDetailsService.class
+com\evry\dashboard\dto\RiskDetailsView$1.class
 com\evry\dashboard\dao\ProjectDetailsDAOImpl.class
 com\evry\dashboard\service\RiskDetailsServiceImpl.class
 com\evry\dashboard\dao\TaskDetailsDAOImpl.class
