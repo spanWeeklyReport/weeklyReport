@@ -63,6 +63,19 @@ public class TaskDetailsMapper
 		taskDetailsView.setResourceLoadingSh(taskDetails.getResourceLoadingSh());
 		//taskDetailsView.setRiskDetailsList(taskDetails.getRiskDetailsList());
 		
+		List<RiskDetailsView> list2 = taskDetailsView.getRiskDetailsList();
+		list2.clear();
+				 
+		ListIterator litr = taskDetails.getRiskDetails().listIterator();
+	      while(litr.hasNext()) {
+  
+	         
+	    	      list2.add(riskDetailsMapper.getMappedView((RiskDetails)litr.next()));
+	      }
+		
+    	
+		
+		
 	}
 
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)

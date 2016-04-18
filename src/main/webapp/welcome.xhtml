@@ -140,13 +140,14 @@
 			      
 			     </thead>
 			     <tr>
-			         <td>Last Week</td>
-			         <td>9</td>
-			         <td>10</td>
-			         <td>0</td>
-			         <td>0</td>
-			     
-			     </tr>
+                              <td>Last Week</td>
+                              <td><h:inputText value="#{taskDetails.lastPlanned}" id="tasks_planned1" class="numeric" disabled="true" ></h:inputText></td>
+                              <td><h:inputText value="#{taskDetails.lastCompleted}" id="tasks_completed1" class="numeric" disabled="true"></h:inputText></td>
+                              <td><h:inputText value="#{taskDetails.lastHold}" id="tasks_hold1" class="numeric" disabled="true" ></h:inputText></td>
+                              <td><h:inputText value="#{taskDetails.lastInProgress}" id="tasks_inprogress1" class="numeric" disabled="true" ></h:inputText></td>
+                          
+                          </tr>
+
 			     <tr>
 			     
 			      <td>Current Week</td>

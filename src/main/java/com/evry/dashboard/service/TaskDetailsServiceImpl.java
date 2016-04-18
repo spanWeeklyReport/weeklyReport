@@ -57,28 +57,18 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 
 	public void addTasks(TaskDetailsView taskDetailsView) 
 	{
-		ListIterator litr = taskDetailsView.getRiskDetailsList().listIterator();
-	     
-		try{
-		while(litr.hasNext()) 
-	      {
-	    	  RiskDetailsView detailsView = (RiskDetailsView)litr.next();
-	    	  
-		 RiskDetails details = riskDetailsMapper.getMappedEntity(detailsView);
-		 riskId = riskDetailsDAO.addRisks(details);
-		 details.setRiskId(riskId);
-	 
-	      }
-	      
-		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
-		taskDetailsDAO.addTasks(obj);
-	}
-		catch(Exception e){
-			e.printStackTrace();
-		}
+//		taskDetailsView.getRiskDetailsList().forEach(
+//				detailsView ->
+//				{			    	  
+//					 RiskDetails details = riskDetailsMapper.getMappedEntity(detailsView);
+//					 riskId = riskDetailsDAO.addRisks(details);
+//					 detailsView.setRiskId(details.getRiskId());
+//				}
+//			);
 		
-		finally{
-			}
+		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
+		taskDetailsDAO.addTasks(obj);	
+	
 	}
 		
 	public List<TaskDetailsView> getUsers()
@@ -93,6 +83,20 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		renderer = true;
 		TaskDetails taskDetails =  taskDetailsDAO.checkTasks(taskDetailsMapper.getMappedEntity(taskDetailsView));
 		taskDetailsMapper.mapView(taskDetailsView, taskDetails);
+		
+        int lastWeek = taskDetails.getWeekNo() - 1;
+        
+        TaskDetails taskDetailsLastWeek = new TaskDetails();
+        taskDetailsLastWeek.setProjectDetails(taskDetails.getProjectDetails());
+        taskDetailsLastWeek.setWeekNo(lastWeek);
+        
+        taskDetails =  taskDetailsDAO.checkTasks(taskDetailsLastWeek);
+        taskDetailsView.setLastPlanned(taskDetails.getPlannedTask());
+        taskDetailsView.setLastCompleted(taskDetails.getCompletedTask());
+        taskDetailsView.setLastHold(taskDetails.getHoldTask());
+        taskDetailsView.setLastInProgress(taskDetails.getInprogressTask());
+
+		
 	}
 
 	public boolean renderScreen() {

@@ -17,7 +17,7 @@ public class RiskDetailsView {
 	private String RiskType;
 	private String RiskDescription;
 	private String RiskResponsible;
-	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList(){{add(new RiskDetails()); add(new RiskDetails());}};
+	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList(){{add(new RiskDetails());}};
 	
 
 	public long getRiskId() {

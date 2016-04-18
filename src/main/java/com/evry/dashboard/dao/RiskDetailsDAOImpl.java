@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.evry.dashboard.model.RiskDetails;
-import com.evry.dashboard.model.TaskDetails;
 
 public class RiskDetailsDAOImpl implements RiskDetailsDAO {
 	
@@ -27,9 +26,9 @@ private SessionFactory sessionFactory;
 	public Long addRisks(RiskDetails riskDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
-		RiskDetails details = (RiskDetails)session.merge(riskDetails);
-		
-		return details.getRiskId();
+		session.merge(riskDetails);
+//		session.flush();
+		return null;
 	}
 	
 	@Transactional

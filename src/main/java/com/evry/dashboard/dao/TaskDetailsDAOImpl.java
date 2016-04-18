@@ -33,7 +33,7 @@ private SessionFactory sessionFactory;
 	@Transactional
 	public TaskDetails getTasks(TaskDetails taskDetails)
 	{
-		String weekNo = taskDetails.getWeekNo(); 
+		int weekNo = taskDetails.getWeekNo(); 
 		Session session = this.sessionFactory.getCurrentSession();     
 		Query query = session.getNamedQuery("findProject")
 				.setParameter("projectDetails", taskDetails.getProjectDetails())

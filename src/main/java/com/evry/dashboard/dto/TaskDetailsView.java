@@ -18,7 +18,7 @@ public class TaskDetailsView
 	
 	private long taskId;
 	private String projectDetailsName;
-	private String WeekNo;
+	private int WeekNo;
 	private String PlannedTask;	
 	private String CompletedTask;
 	private String HoldTask;
@@ -32,6 +32,10 @@ public class TaskDetailsView
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
+	private String lastPlanned;
+	private String lastCompleted;
+	private String lastHold;
+	private String lastInProgress;
 	public String data = "1";
 	private static final ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
 	
@@ -50,11 +54,11 @@ public class TaskDetailsView
 		this.projectDetailsName = projectDetailsID;
 	}
 
-	public String getWeekNo() {
+	public int getWeekNo() {
 		return WeekNo;
 	}
 
-	public void setWeekNo(String weekNo) {
+	public void setWeekNo(int weekNo) {
 		this.WeekNo = weekNo;
 	}
 
@@ -178,8 +182,38 @@ public class TaskDetailsView
 	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
+
+	public String getLastPlanned() {
+		return lastPlanned;
+	}
+
+	public void setLastPlanned(String lastPlanned) {
+		this.lastPlanned = lastPlanned;
+	}
+
+	public String getLastCompleted() {
+		return lastCompleted;
+	}
+
+	public void setLastCompleted(String lastCompleted) {
+		this.lastCompleted = lastCompleted;
+	}
+
+	public String getLastHold() {
+		return lastHold;
+	}
+
+	public void setLastHold(String lastHold) {
+		this.lastHold = lastHold;
+	}
+
+	public String getLastInProgress() {
+		return lastInProgress;
+	}
+
+	public void setLastInProgress(String lastInProgress) {
+		this.lastInProgress = lastInProgress;
+	}
 	
 	
 	

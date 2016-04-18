@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -32,6 +34,7 @@ import javax.persistence.Table;
 	)  
 public class TaskDetails {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "TASK_ID")
 	private long taskId;
 		
@@ -40,7 +43,7 @@ public class TaskDetails {
 	private ProjectDetails projectDetails;
 	
 	@Column(name = "WEEK_NO")
-	private String WeekNo;
+	private int WeekNo;
 	
 	@Column(name = "PLANNED_TASK")
 	private String PlannedTask;
@@ -81,7 +84,7 @@ public class TaskDetails {
 	@Column(name = "RESOURCE_LOADING_SH")
 	private String ResourceLoadingSh;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name="TASK_RISK_MAPPING",
             joinColumns = @JoinColumn(name = "TASK_ID"),
             inverseJoinColumns = @JoinColumn(name = "RISK_ID"))
@@ -117,11 +120,11 @@ public class TaskDetails {
 		this.projectDetails = projectDetails;
 	}
 
-	public String getWeekNo() {
+	public int getWeekNo() {
 		return WeekNo;
 	}
 
-	public void setWeekNo(String weekNo) {
+	public void setWeekNo(int weekNo) {
 		this.WeekNo = weekNo;
 	}
 
