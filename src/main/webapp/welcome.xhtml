@@ -297,9 +297,12 @@
 		  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
 		   </h:commandButton>
 		    	  
-		  <h:commandButton id="submit2" value="Generate Report" class="buttom" action="#{taskDetailsService.showResult(taskDetails)}">
+		  <h:commandButton id="submit2" value="Generate Report" class="buttom" action="report.xhtml">
 		   </h:commandButton>
-       
+         <h:button value="Enter" outcome="report" />
+
+         
+         
       </h:panelGroup > <!-- end of panel details -->
         
         

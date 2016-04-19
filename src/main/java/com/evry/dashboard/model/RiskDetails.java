@@ -40,7 +40,7 @@ public class RiskDetails {
 	}
 	
 	public void setRiskId(long riskId) {
-		riskId = riskId;
+		this.riskId = riskId;
 	}
 	
 		
