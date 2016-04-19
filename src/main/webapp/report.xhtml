@@ -33,18 +33,21 @@
 				
 				 
      </header>  
-     
-    
-         <h3>Project Name: ${taskDetails.projectDetailsName}</h3>
-         <h3>Week No: ${taskDetails.weekNo}</h3>
-   
+        <div class="upper-head">
+		         <div class="report-head" >
+				         <h3>Project Name: ${taskDetails.projectDetailsName}</h3>
+				         <h3>Week No: ${taskDetails.weekNo}</h3>
+		         </div>
+		         <img class="logo" src="images/spanlogo.png" alt="Span Logo" /> 
+         </div>
+         <hr class="divider" />
         <table class="report-table">
             <tr class="tb-head-row">
 		            <td colspan="5">Task Details</td>
 		            <td colspan="5">Resource Details</td>
             </tr>
             
-            <tr class="tb-head-row">
+            <tr class="tb-head-row mini-titles">
 		            <td>  </td>
 		            <td>Planned</td>
 		            <td>Completed</td>
@@ -58,7 +61,7 @@
             
             
             </tr>
-             <tr>
+             <tr class="table-data">
 		             <td> Last Week </td>
 		             <td>${taskDetails.lastPlanned} </td>
 		             <td>${taskDetails.lastCompleted}  </td>
@@ -73,7 +76,7 @@
              
              
              </tr>
-             <tr> 
+             <tr class="table-data"> 
              
                   <td rowspan="2">Current Week</td>
                   <td rowspan="2">${taskDetails.plannedTask}</td>
@@ -89,7 +92,7 @@
              
              
              </tr>
-             <tr>
+             <tr class="table-data">
                 
                 
                  <td>Total</td>
@@ -105,7 +108,7 @@
              		<td colspan="10" class="left-align"> Project Updates:</td>
             
              </tr>
-             <tr>
+             <tr class="table-data">
              		<td colspan="10" class="left-align"> ${taskDetails.projectUpdates}</td>
             
              </tr>
@@ -117,7 +120,7 @@
                          
         </table>
         <h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}"
-				    			headerClass="tb-head-row">
+				    			headerClass="mini-titles" rowClasses="table-data">
 				
 			    		<h:column>
 			    			
@@ -142,6 +145,8 @@
 			    		
 								    						    			
 	   </h:dataTable>
+	   
+	   <a class="return" href="welcome.xhtml">Go Back</a>
    
     </div>
      <footer>

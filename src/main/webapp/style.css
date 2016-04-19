@@ -1,4 +1,4 @@
-body {
+.welcome-body {
     background-image: url(http://kreativo.se/backlogin.jpg);
     font-family: "Helvetica Neue", Helvetica, Arial;
     
@@ -449,18 +449,60 @@ td, th {
 
 div.report-container {
   margin: 0 auto;
-  width: 85%;
+  width: 75%;
 }
 
 .tb-head-row {
+	background: #bbe0e3 none repeat scroll 0 0;
   font-weight: bold;
 }
 
 .report-container td, .report-container th {
-  border: 1px solid #000;
+  border: 0;
 }
 
 .left-align {
   padding-left: 15px;
   text-align: left;
+}
+
+.mini-titles {
+  background: #e7f3f4 none repeat scroll 0 0;
+}
+
+.table-data > td {
+  background: #f3f9fa none repeat scroll 0 0;
+}
+
+.report-table td, .report-table th {
+  height: 40px;
+}
+
+hr.divider {
+  background: #919f9f none repeat scroll 0 0;
+}
+
+.logo {
+ 
+  width: 20%;
+  height: auto;
+}
+
+.report-head {
+  float: left;
+  width: 80%;
+}
+
+a.return {
+  background: #bbe0e3 none repeat scroll 0 0;
+  border-radius: 8px;
+  color: black;
+  padding: 10px;
+  position: relative;
+  text-decoration: none;
+  top: 20px;
+}
+
+.report-head h3 {
+  margin: 10px;
 }
