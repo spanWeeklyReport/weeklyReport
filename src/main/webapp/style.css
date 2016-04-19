@@ -391,7 +391,7 @@ table {
   width: 100%;
 }
 
-td {
+td, th {
   border: 1px solid #ccc;
   height: 50px;
   width: auto;
@@ -445,4 +445,22 @@ td {
 
 .update-textarea {
   width: 97%;
+}
+
+div.report-container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.tb-head-row {
+  font-weight: bold;
+}
+
+.report-container td, .report-container th {
+  border: 1px solid #000;
+}
+
+.left-align {
+  padding-left: 15px;
+  text-align: left;
 }

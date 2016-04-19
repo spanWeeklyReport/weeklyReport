@@ -16,9 +16,9 @@
 	    <link href = "http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
          " rel = "stylesheet" ></link>
          
-	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 		<script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+		<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.9.0/validate.min.js"></script>
 	</h:head>
     
     <h:body>
@@ -151,7 +151,7 @@
 			     <tr>
 			     
 			      <td>Current Week</td>
-			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned" required="true" class="numeric" 
+			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned"  class="numeric" 
                 requiredMessage="Please enter planned tasks" ></h:inputText></td>
 			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="numeric"  ></h:inputText></td>
 			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="numeric"  > </h:inputText></td>
@@ -181,19 +181,19 @@
 				     </thead>
 				     <tr>
 				         <td>Billable</td>
-				         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count_bill" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="numeric" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="numeric" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count-bill" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="count-billR" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="count-projIncB" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="count-projdecB" > </h:inputText></td>
 				     
 				     </tr>
 				     <tr>
 				     
 				      <td>Shadow</td>
-				         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count_sh" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="numeric" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="numeric" > </h:inputText></td>
-				         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="numeric" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count-sha" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="count-shaR" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="count-projIncSh" > </h:inputText></td>
+				         <td><h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="count-projDecSh" > </h:inputText></td>
 				     
 				     </tr>
 			     
@@ -296,10 +296,11 @@
     	  </div>
 		  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
 		   </h:commandButton>
-		    	  
-		  <h:commandButton id="submit2" value="Generate Report" class="buttom" action="report.xhtml">
-		   </h:commandButton>
-         <h:button value="Enter" outcome="report" />
+		   
+		   <h:commandButton id="submit2" value="Generate Report" class="buttom s-button"  action="report" >
+		   </h:commandButton> 	  
+		   
+		  
 
          
          

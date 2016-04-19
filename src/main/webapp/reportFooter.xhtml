@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <body>
+	    <ui:composition>
+	    
+	    <script type="text/javascript">
+		$(document).ready(function(){
+			
+		
+         
+      
+		         
+         $(".s-button").click(function(e){
+         
+         if($.isNumeric($('.textarea').val())) {
+        	  
+        	  alert ("Please enter text in associated risks");
+        	    e.preventDefault();
+        	   
+        	}
+         
+         else if ($.isNumeric($('.responsible').val())) {
+       	  
+       	  alert ("Please enter text in reponsible person");
+       	 e.preventDefault();
+       	}
+         
+         else {
+        	//alert("Your details have been saved successfully"); 
+        	 
+         }
+         
+         
+        	
+         }); 
+        
+         //add remove icons for risk details
+         $(".add-row").click(function(){
+
+        	  $(".risk_row:last").clone(true).insertAfter(".risk_row:last");
+        	  return false;
+
+        	});
+         
+         $(".del-row").click(function(){
+
+        	 $(this).parent(".risk_row").remove();
+
+        	});
+         
+         //$(".div-inner .risk_row:nth-child(2) .del-row").hide();
+         
+         //Calculating total fields
+           
+         //Count Total Resources
+         var bill_count = $(".count-bill").text().trim();
+        var shadow_count = $(".count-sha").text().trim();
+        if (bill_count == 0 &amp;&amp; shadow_count == 0) {
+        	
+        	$(".total-count").empty();
+        	
+        }
+        else {
+          var bill_count = parseInt($(".count-bill").text().trim());
+        var shadow_count = parseInt($(".count-sha").text().trim());
+       
+        	$(".total-count").text(bill_count+shadow_count);
+        }
+        
+	     //Count Total Resource Loading 
+        var rescL_bill = $(".count-billR").text().trim();
+        var rescL_sha = $(".count-shaR").text().trim();
+        
+        if (rescL_bill == "" &amp;&amp; rescL_sha =="") {
+        	
+        	$(".total-resource").empty();
+        	
+            }
+        else {
+        
+         var rescL_bill = parseInt($(".count-billR").text().trim());
+         var rescL_sha = parseInt($(".count-shaR").text().trim());
+         
+	        	 $(".total-resource").text(rescL_bill+rescL_sha);
+	        	 
+        }
+        
+        //Total Projection Increase
+        var PInc_bill = $(".count-projIncB").text().trim();
+        var PInc_sha = $(".count-projIncSh").text().trim();
+        
+        if (PInc_bill == "" &amp;&amp; PInc_sha =="") {
+        	
+        	$(".total-inc").empty();
+        	
+        }
+        else {
+	       
+         var PInc_bill = parseInt($(".count-projIncB").text().trim());
+         var PInc_sha = parseInt($(".count-projIncSh").text().trim());
+        
+	        	 $(".total-inc").text(PInc_bill+PInc_sha);
+	     
+        }
+        
+        //Total Projection Decrease
+        var PDec_bill = $(".count-projdecB").text().trim();
+        var PDec_sha = $(".count-projDecSh").text().trim();
+        
+        if (PDec_bill == "" &amp;&amp; PDec_sha =="") {
+        	
+        	$(".total-dec").empty();
+        	
+        }
+        else {
+        
+         var PDec_bill = parseInt($(".count-projdecB").text().trim());
+         var PDec_sha = parseInt($(".count-projDecSh").text().trim());
+         
+         $(".total-dec").text(PDec_bill+PDec_sha);
+         
+        }
+         
+       
+         
+         
+		});
+         
+      </script>
+      	
+				
+	    </ui:composition>
+    </body>
+</html>
