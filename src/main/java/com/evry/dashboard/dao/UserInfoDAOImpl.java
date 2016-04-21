@@ -21,12 +21,7 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		this.sessionFactory = sessionFactory;
 	}
 
-	//@Transactional
-	//public void add(UserInfo userInfo) 
-	//{
 	
-      //  session.persist(userInfo);
-	//}
 
 	@Transactional
 	private boolean getUsers(String username,String password)

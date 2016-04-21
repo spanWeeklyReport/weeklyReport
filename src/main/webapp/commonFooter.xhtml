@@ -11,6 +11,15 @@
 	    <script type="text/javascript">
 		$(document).ready(function(){
 			
+			$(".weeknumber").val("Select Week");
+			
+			$("#taskform\\:Panel-details").hide();
+			if ($(".weeknumber").val() != 0) {
+			 
+			  $("#taskform\\:Panel-details").show();
+
+			}
+			
 		//tabs
          $(function() {
             $( "#tabs-1" ).tabs();
@@ -112,6 +121,11 @@
          //Calender
          
          $('.weeknumber').datepicker({
+        	 buttonImage: "/images/calender.png",
+        	 buttonImageOnly: true,
+        	 yearRange: "2002:2016",
+        	 changeYear: true,
+        	 changeMonth: true,
                showOtherMonths: true,
                   onSelect: function (dateText, inst) {
                       $(this).val($.datepicker.iso8601Week(new Date(dateText)));

@@ -510,6 +510,7 @@ a.return {
 .weeknumber {
   height: 24px !important;
   width: 37% !important;
+  text-align:left !important;
 }
 
 .last-week-row {
@@ -527,4 +528,12 @@ a.return {
 
 #signup .error-msg > li {
   color: red;
+}
+
+.datepicker {
+  height: 26px;
+  margin-left: -30px;
+  margin-top: 4px;
+  position: absolute;
+  width: 26px;
 }

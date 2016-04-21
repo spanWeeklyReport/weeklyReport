@@ -38,16 +38,17 @@
      
      <div class="form">
     		<h:form id="taskform"  >
-    		  
-    		     <p class="contact selectbox"><h:outputLabel value="Select Project" for="select_project"  /></p>
+    		     <p class="info"><h:outputLabel value="Select the project and week for which you want to add/update report" for="select_project"  /></p>
+    		     
+    		     <p class="contact selectbox"><h:outputLabel value="Select Project:" for="select_project"  /></p>
 				<h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">								   
 						<f:selectItems value="#{projectDetailsService.getProjectNames()}" />    							
 				</h:selectOneMenu>				  
 				  <br /> <br />
 				  
-				 <p class="contact selectbox"><h:outputLabel value="Select Week" for="select_week" /></p>
+				 <p class="contact selectbox"><h:outputLabel value="Select Week:" for="select_week" /></p>
                <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week"></h:inputText>
-				 
+				 <img src="images/calender.png" class="datepicker"  />
 		      
 		
 				 <br />
