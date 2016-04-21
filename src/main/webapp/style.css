@@ -506,3 +506,21 @@ a.return {
 .report-head h3 {
   margin: 10px;
 }
+
+.weeknumber {
+  height: 24px !important;
+  width: 37% !important;
+}
+
+.last-week-row {
+  background: #dedede none repeat scroll 0 0;
+}
+
+.add-button {
+  background: #4b8df9 none repeat scroll 0 0 !important;
+  border-radius: 4px;
+  color: white !important;
+  font-weight: bold;
+  margin-left: 10px;
+  width: 10%;
+}

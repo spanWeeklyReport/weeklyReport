@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javassist.bytecode.stackmap.BasicBlock.Catch;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -57,18 +58,17 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 
 	public void addTasks(TaskDetailsView taskDetailsView) 
 	{
-//		taskDetailsView.getRiskDetailsList().forEach(
-//				detailsView ->
-//				{			    	  
-//					 RiskDetails details = riskDetailsMapper.getMappedEntity(detailsView);
-//					 riskId = riskDetailsDAO.addRisks(details);
-//					 detailsView.setRiskId(details.getRiskId());
-//				}
-//			);
+
 		
 		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
 		taskDetailsDAO.addTasks(obj);	
-	
+		
+		if (taskDetailsView.getPlannedTask() != "") {
+			
+			String message = "Submitted successfully !!"; 
+		    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(message));
+		}
+	    
 	}
 		
 	public List<TaskDetailsView> getUsers()

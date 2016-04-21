@@ -29,40 +29,26 @@
 			});
        
         
-		
+         //Only numbers validation       
+         $(".integer").numeric(false, function() { alert("Please enter only numeric values"); this.value = ""; this.focus(); });
 		         
-        /* $(".s-button").click(function(e){
+          
+         //Calender
          
-         if($.isNumeric($('.textarea').val())) {
-        	  
-        	  alert ("Please enter text in associated risks");
-        	    e.preventDefault();
-        	   
-        	}
-         
-         else if ($.isNumeric($('.responsible').val())) {
-       	  
-       	  alert ("Please enter text in reponsible person");
-       	 e.preventDefault();
-       	}
-         
-         else {
-        	//alert("Your details have been saved successfully"); 
-        	 
-         } 
-         
-         
-        	
-         }); */
-        
-        
+         $('.weeknumber').datepicker({
+               showOtherMonths: true,
+                  onSelect: function (dateText, inst) {
+                      $(this).val($.datepicker.iso8601Week(new Date(dateText)));
+                  }
+              });
+
          
          
          //Calculating total fields
            
          var bill_count = $(".resource-table tr:nth-child(1) td:nth-child(2) input").val();
         var shadow_count = $(".resource-table tr:nth-child(2) td:nth-child(2) input").val();
-        if (bill_count == 0 &amp;&amp; shadow_count == 0) {
+        if (bill_count == 0 &amp;&amp; shadow_count == 0) { 
         	
         	$(".total-count").empty();
         	
