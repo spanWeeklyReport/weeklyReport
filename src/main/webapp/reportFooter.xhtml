@@ -9,58 +9,15 @@
 	    <ui:composition>
 	    
 	    <script type="text/javascript">
-		$(document).ready(function(){
-			
-		
-         
-      
-		         
-         $(".s-button").click(function(e){
-         
-         if($.isNumeric($('.textarea').val())) {
-        	  
-        	  alert ("Please enter text in associated risks");
-        	    e.preventDefault();
-        	   
-        	}
-         
-         else if ($.isNumeric($('.responsible').val())) {
-       	  
-       	  alert ("Please enter text in reponsible person");
-       	 e.preventDefault();
-       	}
-         
-         else {
-        	//alert("Your details have been saved successfully"); 
-        	 
-         }
-         
-         
-        	
-         }); 
-        
-         //add remove icons for risk details
-         $(".add-row").click(function(){
-
-        	  $(".risk_row:last").clone(true).insertAfter(".risk_row:last");
-        	  return false;
-
-        	});
-         
-         $(".del-row").click(function(){
-
-        	 $(this).parent(".risk_row").remove();
-
-        	});
-         
-         //$(".div-inner .risk_row:nth-child(2) .del-row").hide();
+		$(document).ready(function(){         
+             
          
          //Calculating total fields
            
          //Count Total Resources
          var bill_count = $(".count-bill").text().trim();
         var shadow_count = $(".count-sha").text().trim();
-        if (bill_count == 0 &amp;&amp; shadow_count == 0) {
+        if (bill_count == 0 &amp;&amp; shadow_count == 0 || bill_count == ""  || shadow_count == "") {
         	
         	$(".total-count").empty();
         	
@@ -76,7 +33,7 @@
         var rescL_bill = $(".count-billR").text().trim();
         var rescL_sha = $(".count-shaR").text().trim();
         
-        if (rescL_bill == "" &amp;&amp; rescL_sha =="") {
+        if (rescL_bill == "" &amp;&amp; rescL_sha =="" || rescL_bill == "" || rescL_sha =="") {
         	
         	$(".total-resource").empty();
         	
@@ -94,7 +51,7 @@
         var PInc_bill = $(".count-projIncB").text().trim();
         var PInc_sha = $(".count-projIncSh").text().trim();
         
-        if (PInc_bill == "" &amp;&amp; PInc_sha =="") {
+        if (PInc_bill == "" &amp;&amp; PInc_sha =="" || PInc_bill == "" || PInc_sha =="") {
         	
         	$(".total-inc").empty();
         	
@@ -112,7 +69,7 @@
         var PDec_bill = $(".count-projdecB").text().trim();
         var PDec_sha = $(".count-projDecSh").text().trim();
         
-        if (PDec_bill == "" &amp;&amp; PDec_sha =="") {
+        if (PDec_bill == "" &amp;&amp; PDec_sha =="" || PDec_bill == "" || PDec_sha =="") {
         	
         	$(".total-dec").empty();
         	

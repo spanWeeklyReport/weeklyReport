@@ -11,7 +11,7 @@ public interface TaskDetailsService {
 	void addTasks(TaskDetailsView taskDetails);
 	void checkTasks(TaskDetailsView taskDetails);
 	boolean renderScreen();
-	String logout();
+	Boolean logout();
 	public String showResult(TaskDetailsView taskDetailsView);
     String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
     String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);

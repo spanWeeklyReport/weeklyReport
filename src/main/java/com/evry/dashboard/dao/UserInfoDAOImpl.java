@@ -40,16 +40,14 @@ public class UserInfoDAOImpl implements UserInfoDAO
         	
         boolean userFound = false;
 		
-      //  System.out.println("hi");
-      //  System.out.println(rs);
-
+      
 		if (!rs.isEmpty()) {
 			userFound= true;
 			System.out.println("Login Successful");
 			return true;
 		}
 		
-		FacesMessage message = new FacesMessage("username or password invalid ");
+		FacesMessage message = new FacesMessage("Username/Password is invalid. Please try again. ");
 	         FacesContext context = FacesContext.getCurrentInstance();
 	         context.addMessage(null, message);
 	          return result;

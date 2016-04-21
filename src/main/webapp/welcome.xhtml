@@ -29,7 +29,7 @@
 				  <ui:include src="commonHeader.xhtml" />
 		     </ui:insert>
     
-				<h1>Please fill in the Weekly Status</h1>
+				<h1>Weekly Report</h1>
 				 
      </header>  
      
@@ -54,7 +54,7 @@
 				 			 	 
 				  <br />
 				
-	<h:commandButton id="fetch" value="Select" class="buttom" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
+	<h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" ></h:commandButton>
 				
 				  <br /> 
 				  
@@ -96,11 +96,11 @@
 			     <tr>
 			     
 			      <td>Current Week</td>
-			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned"  class="integer" 
+			         <td><h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned"  class="integer planned" 
                 requiredMessage="Please enter planned tasks" ></h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="integer"  ></h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="integer"  > </h:inputText></td>
-			         <td><h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="integer"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="integer completed"  ></h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="integer hold"  > </h:inputText></td>
+			         <td><h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="integer inprogress"  > </h:inputText></td>
 			     
 			     </tr>
 			    
@@ -183,7 +183,7 @@
 			            <div class="risk_row">
 			           
 					                <h:outputLabel value="Risk Type" for="risks_type"  />
-					    			<h:selectOneMenu  class="risk-input" value="#{riskDetails.riskType}" >								  
+					    			<h:selectOneMenu  class="risk-input risk-type" value="#{riskDetails.riskType}" >								  
 											   <f:selectItem itemValue="0" itemLabel="Select Risk" />
 											   <f:selectItem itemValue="High" itemLabel="High Risk" />	  
 											   <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
@@ -191,10 +191,10 @@
 									</h:selectOneMenu>
 					    			
 					    			<h:outputLabel value="Risk Description" for="ass_risks"   /> 
-					    			<h:inputText  id="ass_risks" class="risk-input" value="#{riskDetails.riskDescription}" />
+					    			<h:inputText  id="ass_risks" class="risk-input risk-des" value="#{riskDetails.riskDescription}" />
 					    			
 					    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
-					    			<h:inputText  id="ass_risksresp" class="risk-input" value="#{riskDetails.riskResponsible}"  /> 
+					    			<h:inputText  id="ass_risksresp" class="risk-input risk-res" value="#{riskDetails.riskResponsible}"  /> 
 			    	 <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" class="add-button" />
 			    		   </div>
 		    		   
@@ -242,7 +242,7 @@
 		  <h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" >
 		   </h:commandButton>
 		   
-		   <h:commandButton id="submit2" value="View Report" class="buttom s-button"  action="report" >
+		   <h:commandButton id="submit2" value="View Report" class="buttom"  action="report" >
 		   </h:commandButton> 	  
 		   
 		  

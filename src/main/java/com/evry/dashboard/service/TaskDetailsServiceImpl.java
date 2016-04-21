@@ -18,6 +18,7 @@ import com.evry.dashboard.dao.RiskDetailsDAO;
 import com.evry.dashboard.dao.TaskDetailsDAO;
 import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.dto.TaskDetailsView;
+import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.RiskDetailsMapper;
 import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
 import com.evry.dashboard.model.RiskDetails;
@@ -29,6 +30,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 {
 
 	private boolean renderer;
+	private boolean logout;
 	private TaskDetailsMapper taskDetailsMapper;
 	private RiskDetailsMapper riskDetailsMapper;
 	private TaskDetailsDAO taskDetailsDAO;
@@ -104,9 +106,10 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		return renderer;
 	}
 	
-	public String logout() {
+	public Boolean logout() {
+		logout = true;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();		
-        return "index.xhtml";
+        return logout;
     }
 	
 	public String showResult(TaskDetailsView taskDetailsView){
@@ -122,13 +125,43 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		 		 
 		// RiskDetailsView risk = riskDetailsMapper.getMappedView(riskDetailsView);
 		 taskDetailsView.getRiskDetailsList().add(riskDetailsView);
+		 
+		 if (taskDetailsView.getRiskDetailsList().isEmpty()) {
+				
+				String message = "Risk could not be added !!"; 
+			    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(message));
+			}
+		    
+		 else { 
+			 
+			 String message = "Risk added !!"; 
+			    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(message));
+		 }
+		 
 		 return null;
+		 
 		 
 		}  
 	 
 	 public String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView) {
 		    
 		 taskDetailsView.getRiskDetailsList().remove(riskDetailsView);
+		 if (taskDetailsView.getRiskDetailsList().isEmpty()) {
+			 
+			 String message = "Risk could not be deleted !!"; 
+			    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(message));
+				
+			}
+		    
+		 else {
+			 
+			 String message = "Risk deleted !!"; 
+			 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(message));
+			 
+			
+		 }
+		 
+		 
 		 return null;
 		}
 

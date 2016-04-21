@@ -50,7 +50,7 @@ li {
 
 
 #signup {
-    padding: 0px 25px 25px;
+    padding: 0px 20px 25px;
     background: #fff;
     box-shadow: 
         0px 0px 0px 5px rgba( 255,255,255,0.4 ), 
@@ -240,7 +240,7 @@ input:-moz-placeholder {
 	clear: both;
 }
 .container2 > header{
-	padding: 20px 20px 20px 20px;
+	padding: 20px 0 10px;
 	position: relative;
 	display: block;
 }
@@ -523,4 +523,8 @@ a.return {
   font-weight: bold;
   margin-left: 10px;
   width: 10%;
+}
+
+#signup .error-msg > li {
+  color: red;
 }
