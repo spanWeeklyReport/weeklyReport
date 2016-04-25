@@ -4,11 +4,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
 	version="2.1"> 
 	<navigation-rule>
-		<display-name>index.xhtml</display-name>
+		
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>true</from-outcome>
 			<to-view-id>/welcome.xhtml</to-view-id>
+			 <redirect />
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>false</from-outcome>

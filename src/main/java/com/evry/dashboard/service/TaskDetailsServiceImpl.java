@@ -86,11 +86,14 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 		TaskDetails taskDetails =  taskDetailsDAO.checkTasks(taskDetailsMapper.getMappedEntity(taskDetailsView));
 		taskDetailsMapper.mapView(taskDetailsView, taskDetails);
 		
+		//fetch last week's data
         int lastWeek = taskDetails.getWeekNo() - 1;
         
         TaskDetails taskDetailsLastWeek = new TaskDetails();
         taskDetailsLastWeek.setProjectDetails(taskDetails.getProjectDetails());
         taskDetailsLastWeek.setWeekNo(lastWeek);
+        taskDetailsLastWeek.setYearNo(taskDetails.getYearNo());
+        
         
         taskDetails =  taskDetailsDAO.checkTasks(taskDetailsLastWeek);
         taskDetailsView.setLastPlanned(taskDetails.getPlannedTask());
@@ -107,6 +110,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
 	}
 	
 	public Boolean logout() {
+		renderer = false;
 		logout = true;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();		
         return logout;

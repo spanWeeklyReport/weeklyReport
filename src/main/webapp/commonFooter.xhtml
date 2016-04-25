@@ -11,7 +11,7 @@
 	    <script type="text/javascript">
 		$(document).ready(function(){
 			
-			$(".weeknumber").val("Select Week");
+			
 			
 			$("#taskform\\:Panel-details").hide();
 			if ($(".weeknumber").val() != 0) {
@@ -61,6 +61,21 @@
 				  }
 				  
 				  else {}
+	    	 
+	    	 //select year validation
+				if ($(".year").val()== 0 ) { 
+					
+					alert("Please select year");
+					   return false;
+					}
+					  
+					  else if ($(".year").val() > 2016) {
+					   
+					    alert("Please select a valid year range");
+					    return false;
+					  }
+					  
+					  else {}
 	    });
 	    	 
 	   $(".s-button").click(function() {
@@ -121,14 +136,19 @@
          //Calender
          
          $('.weeknumber').datepicker({
-        	 buttonImage: "/images/calender.png",
+        	 
+        	 buttonImage: "images/calender.png",
         	 buttonImageOnly: true,
         	 yearRange: "2002:2016",
         	 changeYear: true,
         	 changeMonth: true,
                showOtherMonths: true,
                   onSelect: function (dateText, inst) {
-                      $(this).val($.datepicker.iso8601Week(new Date(dateText)));
+                $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));
+                var startDate = new Date(dateText);
+                var selectedYear = startDate.getFullYear();
+          	  $('.year').val(selectedYear);
+                     
                   }
               });
 

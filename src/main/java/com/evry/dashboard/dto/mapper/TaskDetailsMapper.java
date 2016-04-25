@@ -36,6 +36,8 @@ public class TaskDetailsMapper
 		this.riskDetailsMapper = riskDetailsMapper;
 	}
 
+	
+	//Get Map View
 	public void mapView(TaskDetailsView taskDetailsView, TaskDetails taskDetails)
 	{
 		taskDetailsView.setTaskId(taskDetails.getTaskId());
@@ -48,6 +50,7 @@ public class TaskDetailsMapper
 				taskDetailsView.setProjectDetailsName("");
 			}
 		taskDetailsView.setWeekNo(taskDetails.getWeekNo());
+		taskDetailsView.setYearNo(taskDetails.getYearNo());
 		taskDetailsView.setPlannedTask(taskDetails.getPlannedTask());
 		taskDetailsView.setCompletedTask(taskDetails.getCompletedTask());
 		taskDetailsView.setHoldTask(taskDetails.getHoldTask());
@@ -77,13 +80,16 @@ public class TaskDetailsMapper
 		
 		
 	}
-
+    
+	
+	//Get Entity
 	public TaskDetails getMappedEntity(TaskDetailsView taskDetailsView)
 	{
 		TaskDetails taskDetails = new TaskDetails();
 		taskDetails.setTaskId(taskDetailsView.getTaskId());
 		taskDetails.setProjectDetails(projectDetailsDAO.findByName(taskDetailsView.getProjectDetailsName()));
 		taskDetails.setWeekNo(taskDetailsView.getWeekNo());
+		taskDetails.setYearNo(taskDetailsView.getYearNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());
 		taskDetails.setHoldTask(taskDetailsView.getHoldTask());

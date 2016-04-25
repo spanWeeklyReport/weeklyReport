@@ -508,9 +508,10 @@ a.return {
 }
 
 .weeknumber {
+  float: left;
   height: 24px !important;
-  width: 37% !important;
-  text-align:left !important;
+  text-align: left !important;
+  width: 11.5% !important;
 }
 
 .last-week-row {
@@ -532,8 +533,19 @@ a.return {
 
 .datepicker {
   height: 26px;
-  margin-left: -30px;
+  margin-left: 10px;
   margin-top: 4px;
   position: absolute;
   width: 26px;
+}
+
+.year {
+  height: 24px !important;
+  text-align: left !important;
+  width: 11.5% !important;
+}
+
+.contact.selectbox.year-div {
+  margin-left: 10px;
+  width: 8%;
 }
