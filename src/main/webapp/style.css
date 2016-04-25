@@ -240,17 +240,18 @@ input:-moz-placeholder {
 	clear: both;
 }
 .container2 > header{
-	padding: 20px 0 10px;
+	
 	position: relative;
 	display: block;
 }
+
 .container2 > header h1 {
   color: #fff;
+  font-family: times new roman;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
-  margin-top: 10px;
-  padding: 0 0 5px;
+  margin: 22px;
   position: relative;
   text-align: center;
 }
@@ -511,7 +512,7 @@ a.return {
   float: left;
   height: 24px !important;
   text-align: left !important;
-  width: 11.5% !important;
+  width: 33% !important;
 }
 
 .last-week-row {
@@ -532,11 +533,12 @@ a.return {
 }
 
 .datepicker {
-  height: 26px;
+  background: rgba(0, 0, 0, 0) url("images/calender.png") no-repeat scroll 0 0 !important;
+  color: transparent !important;
+  height: 35px;
   margin-left: 10px;
-  margin-top: 4px;
   position: absolute;
-  width: 26px;
+  width: 30px;
 }
 
 .year {
@@ -548,4 +550,8 @@ a.return {
 .contact.selectbox.year-div {
   margin-left: 10px;
   width: 8%;
+}
+
+.buttom.r-button {
+  margin-left: 10px;
 }

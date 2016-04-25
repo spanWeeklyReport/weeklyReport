@@ -92,7 +92,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService
         TaskDetails taskDetailsLastWeek = new TaskDetails();
         taskDetailsLastWeek.setProjectDetails(taskDetails.getProjectDetails());
         taskDetailsLastWeek.setWeekNo(lastWeek);
-        taskDetailsLastWeek.setYearNo(taskDetails.getYearNo());
+        //taskDetailsLastWeek.setYearNo(taskDetails.getYearNo());
         
         
         taskDetails =  taskDetailsDAO.checkTasks(taskDetailsLastWeek);

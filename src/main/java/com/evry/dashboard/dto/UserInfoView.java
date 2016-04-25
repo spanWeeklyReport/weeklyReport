@@ -1,8 +1,10 @@
 package com.evry.dashboard.dto;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="userInfo")
+@SessionScoped
 public class UserInfoView 
 {
 	private String userName;

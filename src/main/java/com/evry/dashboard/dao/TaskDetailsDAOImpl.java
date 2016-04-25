@@ -34,12 +34,12 @@ private SessionFactory sessionFactory;
 	public TaskDetails getTasks(TaskDetails taskDetails)
 	{
 		int weekNo = taskDetails.getWeekNo(); 
-		int yearNo = taskDetails.getYearNo();
+		//int yearNo = taskDetails.getYearNo();
 		Session session = this.sessionFactory.getCurrentSession();     
 		Query query = session.getNamedQuery("findProject")
 				.setParameter("projectDetails", taskDetails.getProjectDetails())
-				.setParameter("weekNo", weekNo)
-				.setParameter("yearNo", yearNo);
+				.setParameter("weekNo", weekNo);
+				
 		
 		List<TaskDetails> rs=query.list();
 		TaskDetails details = null;
@@ -49,6 +49,7 @@ private SessionFactory sessionFactory;
 				{
 					details = new TaskDetails();	
 					details.setWeekNo(weekNo);
+					//details.setYearNo(yearNo);
 					details.setProjectDetails(taskDetails.getProjectDetails());
 				}
 		return details;			

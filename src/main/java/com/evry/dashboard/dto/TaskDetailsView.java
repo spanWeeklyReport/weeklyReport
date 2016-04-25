@@ -18,8 +18,8 @@ public class TaskDetailsView
 	
 	private long taskId;
 	private String projectDetailsName;
-	private int WeekNo;
-	private int YearNo;
+	private int WeekNo = 1;
+	//private int YearNo;
 	private String PlannedTask;	
 	private String CompletedTask;
 	private String HoldTask;
@@ -63,13 +63,13 @@ public class TaskDetailsView
 		this.WeekNo = weekNo;
 	}
 	
-	public int getYearNo() {
+	/*public int getYearNo() {
 		return YearNo;
 	}
 
 	public void setYearNo(int yearNo) {
 		YearNo = yearNo;
-	}
+	}*/
 
 	public String getPlannedTask() {
 		return PlannedTask;

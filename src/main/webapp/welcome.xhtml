@@ -4,8 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-       xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:a4j="http://richfaces.org/a4j"  >
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+       xmlns:c="http://java.sun.com/jsp/jstl/core" 
+       xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+        >
 
 <h:head>
    	<title>Welcome</title>
@@ -29,6 +32,7 @@
 		       <div class="navigation">
 		       <h:form id="logout">
 			       <ul> 
+			        
 			           <li>Welcome ${userInfo.userName}</li>
 				       <li><h:commandButton id="logout" value="Sign Out" class="button"  action="#{taskDetailsService.logout()}"></h:commandButton></li>
 		           </ul>
@@ -60,15 +64,18 @@
 		 <p class="contact selectbox">
 		     <h:outputLabel value="Select Week:" for="select_week" />
 		 </p>
-         <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week" />
+         <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week" >
+             
+         </h:inputText>
+		
 		 
-		 
-		 <p class="contact selectbox year-div">
+		 <!-- <p class="contact selectbox year-div">
 		     <h:outputLabel value="Select Year:" for="select_year" />
 		 </p>
-         <h:inputText value="#{taskDetails.yearNo}" class="year select-style gender" a:placeholder="Select Year" />
-         <img src="images/calender.png" class="datepicker"  /><br /><br />
-		 <br /><br />
+         <h:inputText value="#{taskDetails.yearNo}" class="year select-style gender" a:placeholder="Select Year" />  -->
+         <h:button class="datepicker"></h:button>
+         <br /><br />
+		 
 				
 	     <h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" /><br /> 
 				  
@@ -245,7 +252,7 @@
     </div> <!-- risk details table close --> 
     
 	<h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
-	<h:commandButton id="submit2" value="View Report" class="buttom"  action="report"  />
+	<h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="report"  />
 		   
 		   
 		  
