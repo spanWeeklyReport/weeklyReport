@@ -12,6 +12,6 @@ public interface TaskDetailsDAO {
 	void addTasks(TaskDetails taskDetails);
 	TaskDetails getTasks(TaskDetails taskDetails);
 	TaskDetails checkTasks(TaskDetails taskDetails);
-
+    void updateLastWeekTasks(TaskDetails taskDetails);
 	
 }

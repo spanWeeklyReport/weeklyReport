@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,6 +16,7 @@ import com.evry.dashboard.model.UserInfo;
 public class UserInfoDAOImpl implements UserInfoDAO 
 {
 	private SessionFactory sessionFactory;
+	//private String islogin;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) 
 	{
@@ -30,8 +32,8 @@ public class UserInfoDAOImpl implements UserInfoDAO
 		Session session = this.sessionFactory.getCurrentSession();
         boolean result=false;
 
-        List<UserInfo> rs = session.getNamedQuery("Users.findByUsername").setParameter("username", username)
-                .setParameter("password", password).list();
+        
+       List<UserInfo> rs = session.getNamedQuery("Users.findByUsername").setParameter("username", username).setParameter("password", password).list();
         	
         boolean userFound = false;
 		
@@ -41,11 +43,10 @@ public class UserInfoDAOImpl implements UserInfoDAO
 			System.out.println("Login Successful");
 			return true;
 		}
-		
-		FacesMessage message = new FacesMessage("Username/Password is invalid. Please try again. ");
-	         FacesContext context = FacesContext.getCurrentInstance();
-	         context.addMessage(null, message);
-	          return result;
+		else {
+	    
+	          return false;
+		}
 	
         }
 

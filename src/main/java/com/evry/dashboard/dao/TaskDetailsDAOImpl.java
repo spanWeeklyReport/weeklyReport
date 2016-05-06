@@ -1,9 +1,6 @@
 package com.evry.dashboard.dao;
 
-import java.util.Iterator;
 import java.util.List;
-
-import javax.faces.context.FacesContext;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,6 +12,9 @@ import com.evry.dashboard.model.TaskDetails;
 public  class TaskDetailsDAOImpl implements TaskDetailsDAO {
 	
 private SessionFactory sessionFactory;
+private static final String UPDATE_QUERY= 
+"update TaskDetails o set o.PlannedTask = :plannedTask, o.CompletedTask = :completedTask, o.HoldTask = :holdTask, o.InprogressTask = :inprogressTask where o.taskId = :taskId";
+
 	
 
 	public void setSessionFactory(SessionFactory sessionFactory) 
@@ -29,6 +29,31 @@ private SessionFactory sessionFactory;
        session.merge(taskDetails);
 		//session.save(taskDetails);
 	}
+	
+	
+	@Transactional
+    public void updateLastWeekTasks(TaskDetails lastWeekDetails) {
+
+           Session session = this.sessionFactory.getCurrentSession();
+           // TaskDetails task = getTasks(lastWeekDetails);
+           //
+           // task.setPlannedTask(lastWeekDetails.getPlannedTask());
+           // task.setCompletedTask(lastWeekDetails.getCompletedTask());
+           // task.setHoldTask(lastWeekDetails.getHoldTask());
+           // task.setInprogressTask(lastWeekDetails.getInprogressTask());
+           // addTasks(task);
+
+           session.createQuery(UPDATE_QUERY)
+                        .setParameter("taskId", lastWeekDetails.getTaskId())
+                        .setParameter("plannedTask", lastWeekDetails.getPlannedTask())
+                        .setParameter("completedTask",
+                                      lastWeekDetails.getCompletedTask())
+                        .setParameter("holdTask", lastWeekDetails.getHoldTask())
+                        .setParameter("inprogressTask",
+                                      lastWeekDetails.getInprogressTask()).executeUpdate();
+
+    }
+
 
 	@Transactional
 	public TaskDetails getTasks(TaskDetails taskDetails)

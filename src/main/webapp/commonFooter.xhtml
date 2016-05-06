@@ -6,203 +6,196 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       >
     <body>
-	    <ui:composition>
-	    
-	    <script type="text/javascript">
-		$(document).ready(function(){
-			
-			
-			
-			$("#taskform\\:Panel-details").hide();
-			if ($(".weeknumber").val() != 0) {
-			 
-			  $("#taskform\\:Panel-details").show();
+           <ui:composition>
+           
+           <script type="text/javascript">
+           $.noConflict();
+              $(document).ready(function($){
+                
+                //login fields cannot b empty 
+                  
+                
+                     
+                     //add class to risk table
+                     $(".order-table tr").addClass('order-table-odd-row');
+                     
+                     //hide risk table if empty
+                     if ($(".order-table-odd-row td").text() == "") {
+  
+                      $(".order-table-odd-row td").hide();
+                     }
+                     
+                     
+                     //hide on page load
+                     $("#taskform\\:Panel-details").hide();
+                     if ($(".weeknumber").val() != 0) {
+                     
+                      $("#taskform\\:Panel-details").show();
 
-			}
-			
-		//tabs
+                     }
+                     
+                                          
+              //tabs
          $(function() {
-            $( "#tabs-1" ).tabs();
+               $( "#tabs-1" ).tabs();
          });
          
        //Validations
-       
-       
-        //login fields cannot b empty 
-         $("#signup").submit(function (){
-
-			  if ($(".username").val() == "" || $(".password").val() == "" ){
-			    
-			    alert("Please enter username and/or password");
-			    return false;
-			  }
-			 
-
-			});
-       
-       
-       
-
-       
+        
        //task form validation
-	    $(".fetch").click(function() {
-	    	
-	    	 //select week validation
-				if ($(".weeknumber").val()== 0 ) { 
-				
-				alert("Please select week");
-				   return false;
-				}
-				  
-				  else if ($(".weeknumber").val() > 52) {
-				   
-				    alert("Please select a valid week range");
-				    return false;
-				  }
-				  
-				  else {}
-	    	 
-	    	 //select year validation
-				/*if ($(".year").val()== 0 ) { 
-					
-					alert("Please select year");
-					   return false;
-					}
-					  
-					  else if ($(".year").val() > 2016) {
-					   
-					    alert("Please select a valid year range");
-					    return false;
-					  }
-					  
-					  else {}*/
-	    });
-	    	 
-	   $(".s-button").click(function() {
-				
-					//Calculating sum of planned tasks
-					var planned = parseInt($(".planned").val().trim());
-					var completed = parseInt($(".completed").val().trim());
-					var hold = parseInt($(".hold").val().trim());
-					var inprogress = parseInt($(".inprogress").val().trim());
-					
-					if (planned &gt; completed + hold + inprogress) {
-					 alert("Please distribute the planned tasks accordingly"); 
-					 return false;
-				      }
-				
-					else if ( planned &lt; completed + hold + inprogress) { 
-					
-						alert ("You seem to have worked on more tasks than actually planned");
-						 return false;
-					
-					}
-					
-					else {}
-				
-				
-				//Making all fields required
-				
-		    if ($(".planned").val() == "" || $(".completed").val() == "" || $(".hold").val() == "" || $(".inprogress").val() == "" || $(".count-bill").val() == "" || $(".count-sha").val() == "" || $(".count-billR").val() == "" || $(".count-shaR").val() == "" ||
-					$(".count-projIncB").val() == "" ||	$("..count-projIncSh").val() == "" ||	$(".count-projdecB").val() == "" ||	$(".count-projDecSh").val() == "" )		{
-						 
-						  alert ("You have missed out on filling Task/Resource Details");
-						  return false;
-						  
-						}
-						
-						else {}
-				  
-		}); //end of task form validation
+           $(".fetch").click(function() {
+              
+               //select week validation
+                           if ($(".weeknumber").val()== 0 ) { 
+                           
+                           alert("Please select week");
+                              return false;
+                           }
+                             
+                             else if ($(".weeknumber").val() > 52) {
+                              
+                               alert("Please select a valid week range");
+                               return false;
+                             }
+                             
+                             else {}
+               
+               
+           });
+               
+           $(".s-button").click(function() {
+                           
+                                                          
+                           
+                           //Making all fields required
+                           
+                  if ($(".planned").val() == "" || $(".completed").val() == "" || $(".hold").val() == "" || $(".inprogress").val() == "" || $(".count-bill").val() == "" || $(".count-sha").val() == "" || $(".count-billR").val() == "" || $(".count-shaR").val() == "" ||
+                                  $(".count-projIncB").val() == "" ||      $("..count-projIncSh").val() == "" || $(".count-projdecB").val() == "" ||      $(".count-projDecSh").val() == "" )          {
+                                         
+                                           alert ("You have missed out on filling Task/Resource Details");
+                                           return false;
+                                           
+                                         }
+                                         
+                                         else {}
+                             
+              }); //end of task form validation
 
         //Risk Validation
         
         $(".add-button").click(function(){
 
-			  if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == 0 ) {
-			      
-			      alert("Please fill the risk details properly");
-			       return false;
-			      
-			      }
-		
-		});
+                       if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == 0 ) {
+                           
+                           alert("Please fill the risk details");
+                            return false;
+                           
+                           }
+              
+              });
        
         
          //Only numbers validation       
          $(".integer").numeric(false, function() { alert("Please enter only numeric values"); this.value = ""; this.focus(); });
-		         
+                       
           
          //Calender
          
          $('.datepicker').datepicker({
-        	 
-        	 buttonImage: "images/calender.png",
-        	 buttonImageOnly: true,
-        	 yearRange: "2002:2016",
-        	 changeYear: true,
-        	 changeMonth: true,
-               showOtherMonths: true,
+               
+               buttonImage: "images/calender.png",
+               buttonImageOnly: true,
+               yearRange: "2002:2016",
+               changeYear: true,
+               changeMonth: true,
+              showOtherMonths: true,
                   onSelect: function (dateText, inst) {
-                $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));
-                var startDate = new Date(dateText);
-                var selectedYear = startDate.getFullYear();
-          	  $('.year').val(selectedYear);
-                     
-                  }
-              });
-
+              var week =  $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));
+                var date = $(this).datepicker('getDate'),
+                day  = date.getDate(),  
+                month = date.getMonth() + 1,              
+                year =  date.getFullYear();
+                 console.log(month);
+                 getQuator($(".weeknumber").val());
+              
+                   }
+             });
          
+         getQuator($(".weeknumber").val());
+     function getQuator(week){
+        if ( 1 &lt;= week &amp;&amp; week &lt;= 13 ){
+              
+                $("#qtrLabel").html('(Quarter1)');
+               $("#qtrLabel2").html('  (Quarter1)');
+               
+              
+         }
+         else if(14 &lt;= week &amp;&amp; week &lt;= 26) {
+              
+                $("#qtrLabel").html('(Quarter2)');
+                 $("#qtrLabel2").html('  (Quarter2)');
+         }
+         else if( 27 &lt;= week &amp;&amp; week &lt;= 39) {
+              
+                $("#qtrLabel").html('(Quarter3)');
+              $("#qtrLabel2").html('  (Quarter3)');
+         }
          
+         else if (40 &lt;= week &amp;&amp; week &lt;= 52){
+                $("#qtrLabel").html('(Quarter4)');
+              $("#qtrLabel2").html('  (Quarter4)');
+         }
+         else {}
+     }
          //Calculating total fields
            
          var bill_count = $(".count-bill").val();
         var shadow_count = $(".count-sha").val();
         if (bill_count == "" &amp;&amp; shadow_count == "" || bill_count == ""  || shadow_count == "" ) { 
-        	
-        	$(".total-count").empty();
-        	
+              
+              $(".total-count").empty();
+              
         }
         else {
           var bill_count = parseInt($(".count-bill").val());
         var shadow_count = parseInt($(".count-sha").val());
        
-        	$(".total-count").text(bill_count+shadow_count);
+              $(".total-count").text(bill_count+shadow_count);
         }
         
-	      
+             
         var rescL_bill = $(".count-billR").val();
         var rescL_sha = $(".count-shaR").val();
         
         if (rescL_bill == "" &amp;&amp; rescL_sha =="" || rescL_bill == "" || rescL_sha =="") {
-        	
-        	$(".total-resource").empty();
-        	
+              
+              $(".total-resource").empty();
+              
             }
         else {
         
          var rescL_bill = parseInt($(".count-billR").val());
          var rescL_sha = parseInt($(".count-shaR").val());
          
-	        	 $(".total-resource").text(rescL_bill+rescL_sha);
-	        	 
+                      $(".total-resource").text(rescL_bill+rescL_sha);
+                      
         }
         
         var PInc_bill = $(".count-projIncB").val();
         var PInc_sha = $(".count-projIncSh").val();
         
         if (PInc_bill == "" &amp;&amp; PInc_sha =="" || PInc_bill == "" || PInc_sha =="") {
-        	
-        	$(".total-inc").empty();
-        	
+              
+              $(".total-inc").empty();
+              
         }
         else {
-	       
+              
          var PInc_bill = parseInt($(".count-projIncB").val());
          var PInc_sha = parseInt($(".count-projIncSh").val());
         
-	        	 $(".total-inc").text(PInc_bill+PInc_sha);
-	     
+                      $(".total-inc").text(PInc_bill+PInc_sha);
+            
         }
         
         
@@ -210,9 +203,9 @@
         var PDec_sha = $(".count-projDecSh").val();
         
         if (PDec_bill == "" &amp;&amp; PDec_sha =="" || PDec_bill == "" || PDec_sha =="" ) {
-        	
-        	$(".total-dec").empty();
-        	
+              
+              $(".total-dec").empty();
+              
         }
         else {
         
@@ -226,11 +219,15 @@
        
          
          
-		});
+              });
          
       </script>
-      	
-				
-	    </ui:composition>
+      
+                           
+           </ui:composition>
     </body>
 </html>
+
+
+
+

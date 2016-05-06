@@ -1,10 +1,12 @@
 package com.evry.dashboard.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -13,9 +15,13 @@ import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="taskDetails")
 @SessionScoped
-public class TaskDetailsView 
+public class TaskDetailsView implements Serializable
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8796260672796259709L;
 	private long taskId;
 	private String projectDetailsName;
 	private int WeekNo = 1;
@@ -33,6 +39,8 @@ public class TaskDetailsView
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
+	
+	private long lastTaskId;
 	private String lastPlanned;
 	private String lastCompleted;
 	private String lastHold;
@@ -223,6 +231,16 @@ public class TaskDetailsView
 	public void setLastInProgress(String lastInProgress) {
 		this.lastInProgress = lastInProgress;
 	}
+
+	public long getLastTaskId() {
+		return lastTaskId;
+	}
+
+	public void setLastTaskId(long lastTaskId) {
+		this.lastTaskId = lastTaskId;
+	}
+	
+	
 	
 	
 	

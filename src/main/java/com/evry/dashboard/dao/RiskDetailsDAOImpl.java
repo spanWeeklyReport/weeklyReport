@@ -1,11 +1,5 @@
 package com.evry.dashboard.dao;
 
-import java.util.Iterator;
-import java.util.List;
-
-import javax.faces.context.FacesContext;
-
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +21,6 @@ private SessionFactory sessionFactory;
 	{
 		Session session = this.sessionFactory.getCurrentSession();
 		session.merge(riskDetails);
-//		session.flush();
 		return null;
 	}
 	

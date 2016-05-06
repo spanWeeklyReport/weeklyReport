@@ -6,11 +6,13 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="riskDetails")
-@RequestScoped
+@SessionScoped
 public class RiskDetailsView {
 	
 	private long riskId;	

@@ -11,8 +11,8 @@
 }
 
 .container2{
-	position: relative;
-	margin-bottom:15px;
+       position: relative;
+       margin-bottom:15px;
 }
 
 img {
@@ -214,12 +214,13 @@ input:-moz-placeholder {
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
   color: #0c6078 !important;
   text-decoration: none;
+  font-size: 15px;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
 {
-	border: 0 !important;
-	
+       border: 0 !important;
+       
 }
 
 #tabs-1 {
@@ -237,12 +238,12 @@ input:-moz-placeholder {
 .error { border: 1px solid red !important;}
 
 .clr{
-	clear: both;
+       clear: both;
 }
 .container2 > header{
-	
-	position: relative;
-	display: block;
+       
+       position: relative;
+       display: block;
 }
 
 .container2 > header h1 {
@@ -256,84 +257,84 @@ input:-moz-placeholder {
   text-align: center;
 }
 .container2 > header h1 strong{
-	font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
-	padding:0px 5px 0px 5px;
-	line-height:35px; 
-	color:#275973;
-	font-size:28px;
-	text-transform: uppercase;
+       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+       padding:0px 5px 0px 5px;
+       line-height:35px; 
+       color:#275973;
+       font-size:28px;
+       text-transform: uppercase;
 }
 .container2 > header h1 span{
-	font-family: 'Alegreya SC', Georgia, serif;
-	font-size: 20px;
-	line-height: 20px;
-	display: block;
-	font-weight: 400;
-	font-style: italic;
-	color:#5a99ba;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+       font-family: 'Alegreya SC', Georgia, serif;
+       font-size: 20px;
+       line-height: 20px;
+       display: block;
+       font-weight: 400;
+       font-style: italic;
+       color:#5a99ba;
+       text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 /* Buttom Style */
 .freshdesignweb-top{
-	text-align:center;
-	color:#275973;
-	line-height: 44px;
-	font-size: 11px;
+       text-align:center;
+       color:#275973;
+       line-height: 44px;
+       font-size: 11px;
     background: rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
-	position: relative;
-	box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
+       text-transform: uppercase;
+       position: relative;
+       box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
 }
 .freshdesignweb-top a{
-	color:#fcca00;
+       color:#fcca00;
 }
 .freshdesignweb-top a:hover{
-	color:#0b2f42;
+       color:#0b2f42;
 }
 .freshdesignweb-top h1{
-	margin:0 auto;
-	width:490px;
-	background:url(images/logo.png) no-repeat;
-	font-weight:bold;
-	font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
-	text-transform: uppercase;
-	font-size:36px;
-	text-shadow: 2px 2px 0px #F2F2F2, 1px 2px 0px #B1B1B2;
+       margin:0 auto;
+       width:490px;
+       background:url(images/logo.png) no-repeat;
+       font-weight:bold;
+       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+       text-transform: uppercase;
+       font-size:36px;
+       text-shadow: 2px 2px 0px #F2F2F2, 1px 2px 0px #B1B1B2;
 }
 /* Buttom Style */
 .freshdesignweb-buttom{
-	font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
-	color:#009;
-	line-height: 24px;
-	font-size: 11px;
+       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+       color:#009;
+       line-height: 24px;
+       font-size: 11px;
     background: rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
-	position: relative;
-	box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
+       text-transform: uppercase;
+       position: relative;
+       box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
 }
 .freshdesignweb-buttom a{
-	padding: 0px 10px;
-	letter-spacing: 1px;
-	text-shadow: 0px 1px 1px #fff;
-	display: block;
-	float: left;
+       padding: 0px 10px;
+       letter-spacing: 1px;
+       text-shadow: 0px 1px 1px #fff;
+       display: block;
+       float: left;
 }
 .freshdesignweb-buttom a:hover{
-	background:#FFF;
+       background:#FFF;
 }
 .freshdesignweb-buttom span.right{
-	float: right;
-	font-weight:bold;
+       float: right;
+       font-weight:bold;
 }
 .freshdesignweb-buttom span.right a{
-	display: block;
+       display: block;
 }
 
 .form{
-	background:#fff; width:80%; margin:0 auto; padding-left:50px; padding-top:20px; border-radius: 8px;
+       background:#fff; width:80%; margin:0 auto; padding-left:50px; padding-top:20px; border-radius: 8px; font-family: trebuchet ms;
 }
 .form fieldset{border:0px; padding:0px; margin:0px;}
-.form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
+.form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; }
 
 .form input[type="text"] {
   height: 35px;
@@ -372,7 +373,7 @@ input:-moz-placeholder {
   width:410px;
   }
 .form input.buttom{ background: #4b8df9; display: inline-block; padding: 10px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
-.form input.buttom:hover	{ background-color: #2a78f6; }
+.form input.buttom:hover   { background-color: #2a78f6; }
 
 .s-button {
   margin-left: 1%;
@@ -405,6 +406,7 @@ td, th {
 .ui-tabs-anchor {
   text-align: center;
   width: 100%;
+  font-size: 15px;
 }
 
 #Risk-Details {
@@ -418,10 +420,6 @@ td, th {
   margin: 25px;
 }
 
-.risk-input {
-  margin: 0 5px;
-  width: 16% !important;
-}
 
 .risk_row > label {
   margin: 0 5px;
@@ -454,7 +452,7 @@ div.report-container {
 }
 
 .tb-head-row {
-	background: #bbe0e3 none repeat scroll 0 0;
+       background: #bbe0e3 none repeat scroll 0 0;
   font-weight: bold;
 }
 
@@ -484,7 +482,7 @@ hr.divider {
 }
 
 .logo {
- 
+
   width: 20%;
   height: auto;
 }
@@ -525,7 +523,8 @@ a.return {
   color: white !important;
   font-weight: bold;
   margin-left: 10px;
-  width: 10%;
+  width: 100%;
+  margin-top: 10px;
 }
 
 #signup .error-msg > li {
@@ -554,4 +553,117 @@ a.return {
 
 .buttom.r-button {
   margin-left: 10px;
+}
+#tabs-2 th {
+  font-family: trebuchet ms !important;
+  font-size: 16px;
+}
+#tabs-2 td {
+  font-family: Trebuchet MS;
+  font-size: 13px;
+}
+
+h2.panel-heading {
+  font-size:  16px;
+}
+th.order-table-header {
+  font-size: 15px;
+}
+
+.risk-select {
+  float: left;
+
+}
+
+.risk-select > label {
+  float: left;
+  text-align: center;
+  width:100%;
+  
+}
+
+.risk-input {
+  float: left;
+  text-align: center;
+  height: 50px;
+
+}
+
+.risk-input.risk-type {
+  text-align: center;
+  width: 100%;
+}
+
+.risk-select.select1 {
+  width: 18%;
+}
+
+.order-table-odd-row > td:nth-child(1) {
+  width: 25%;
+}
+
+.order-table-odd-row > td:nth-child(1) {
+  width: 18%;
+}
+
+.order-table-odd-row > td:nth-child(2) {
+  width: 35%;
+}
+
+.order-table-odd-row > td:nth-child(3) {
+  width: 35%;
+}
+
+.risk-input.risk-res {
+  width: 95% !important;
+}
+.risk-input.risk-des {
+  width: 95% !important;
+}
+
+.risk_row tr:first-child td {
+  border: 0 none;
+}
+
+.add-butn, .del-butn {
+  background: #52a9f9 none repeat scroll 0 0 !important;
+  border: 0 none !important;
+  border-radius: 8px !important;
+  color: white !important;
+  vertical-align: middle;
+  width: 55px;
+}
+
+.add-butn {
+	margin-right: 23px;
+  margin-top: 15px;
+	
+}
+
+.buttom.fetch:hover {
+  background-image: none;
+}
+
+.navigation .button {
+  background-color: transparent !important;
+  background-image: none !important;
+  font-size: 14px !important;
+}
+
+.form input.buttom:hover {
+  background-color: #2A78F6;
+  background-image: none;
+}
+
+.Resource_Details {
+  font-family: trebuchet ms;
+  font-size: 16px;
+}
+.resource-table td {
+  font-family: trebuchet MS;
+  font-size: 14px;
+}
+
+.last-week-row td input {
+  color: #000 !important;
 }

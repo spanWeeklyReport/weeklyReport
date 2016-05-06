@@ -118,5 +118,18 @@ public class TaskDetailsMapper
      	taskDetails.setRiskDetails(list);
 	    return taskDetails;
 	}
+	
+	  public TaskDetails getLastWeekMappedEntity(TaskDetailsView taskDetailsView)
+      {
+                      TaskDetails taskDetails = new TaskDetails();
+                      taskDetails.setTaskId(taskDetailsView.getLastTaskId());  
+                      taskDetails.setPlannedTask(taskDetailsView.getLastPlanned());
+                      taskDetails.setCompletedTask(taskDetailsView.getLastCompleted());
+                      taskDetails.setHoldTask(taskDetailsView.getLastHold());
+                      taskDetails.setInprogressTask(taskDetailsView.getLastInProgress());
+                       
+          return taskDetails;
+      }
+
 
 }

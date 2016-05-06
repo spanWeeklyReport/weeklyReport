@@ -1,281 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:f="http://java.sun.com/jsf/core"
-       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-       xmlns:c="http://java.sun.com/jsp/jstl/core" 
-       xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
-        >
-
-<h:head>
-   	<title>Welcome</title>
-	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
-	<link rel="stylesheet" href="style.css"></link>
-    
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"></link>
-     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
-	 <script src="js/jquery.numeric.js" ></script>
-</h:head>
-    
-<h:body class="welcome-body">
-    
-  <div class="container2" >
-	  <header>
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets" 
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   xmlns:c="http://java.sun.com/jsp/jstl/core" 
+   xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+   >
+   <h:head>
+      <title>Welcome</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+      </link>
+      <link rel="stylesheet" href="style.css">
+      </link>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      </link>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+      <script src="js/jquery.numeric.js" ></script>
+      <script src="js/picker.js" ></script>
+   </h:head>
+   <h:body class="welcome-body">
+      <div class="container2" >
+         <header>
             <div class="top">
-		       <div class="nav">
-		       
-		       <img src="images/spanlogo.png" alt="Span Logo" /> 
-		       <div class="navigation">
-		       <h:form id="logout">
-			       <ul> 
-			        
-			           <li>Welcome ${userInfo.userName}</li>
-				       <li><h:commandButton id="logout" value="Sign Out" class="button"  action="#{taskDetailsService.logout()}"></h:commandButton></li>
-		           </ul>
-		         </h:form>
-		       </div>
-		          
-		       </div>
-		    </div>
-    
-			 <h1>Weekly Report</h1>
-				 
-      </header>  
-     
-   <div class="form">
-      <h:form id="taskform"  >
-	     <p class="info">
-	       <h:outputLabel value="Select the project and week for which you want to add/update report" for="select_project"  />
-	     </p>
-	     
-	     <p class="contact selectbox">
-	        <h:outputLabel value="Select Project:" for="select_project"  />
-	     </p>
-		 <h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender">								   
-					<f:selectItems value="#{projectDetailsService.getProjectNames()}" />    							
-		 </h:selectOneMenu>				  
-			<br />
-			<br />
-				  
-		 <p class="contact selectbox">
-		     <h:outputLabel value="Select Week:" for="select_week" />
-		 </p>
-         <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week" >
-             
-         </h:inputText>
-		
-		 
-		 <!-- <p class="contact selectbox year-div">
-		     <h:outputLabel value="Select Year:" for="select_year" />
-		 </p>
-         <h:inputText value="#{taskDetails.yearNo}" class="year select-style gender" a:placeholder="Select Year" />  -->
-         <h:button class="datepicker"></h:button>
-         <br /><br />
-		 
-				
-	     <h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" /><br /> 
-				  
-		 <h:messages class="error-msg" style="margin:8px 0px;padding:0" infoStyle="color:darkgreen" errorStyle="color:darkred"   /><br />
-				  
-	     <h:panelGroup layout="block" id="Panel-details" rendered="#{taskDetailsService.renderScreen()}" > <!-- main div -->
-				  
-	     <div id = "tabs-1"> <!-- Tabs Start -->
-	         <ul>
-	            <li>
-	              <a href = "#tabs-2">Task Details</a>
-	            </li>
-	           	<li>
-	           	  <a href = "#tabs-4">Resource Details</a>
-	            </li>
-	         </ul>
-					  
-			 <div id = "tabs-2">
-			    <table>
-				       <thead>
-				    
-					      <th></th>
-					      <th>Planned</th>
-					      <th>Completed</th>
-					      <th>Hold</th>
-					      <th>In Progress</th>
-				      
-				      </thead>
-				      <tr class="last-week-row">
-	                       <td>Last Week</td>
-	                       <td>
-	                          <h:inputText value="#{taskDetails.lastPlanned}" id="tasks_planned1" class="integer" disabled="true" />
-	                       </td>
-	                       <td>
-	                          <h:inputText value="#{taskDetails.lastCompleted}" id="tasks_completed1" class="integer" disabled="true" />
-	                       </td>
-	                       <td>
-	                          <h:inputText value="#{taskDetails.lastHold}" id="tasks_hold1" class="integer" disabled="true" />
-	                       </td>
-	                       <td>
-	                          <h:inputText value="#{taskDetails.lastInProgress}" id="tasks_inprogress1" class="integer" disabled="true" />
-	                       </td>   
-	                  </tr>
-	
-				      <tr>
-				     
-				         <td>Current Week</td>
-				         <td>
-				            <h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned"  class="integer planned" />
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="integer completed"  />
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="integer hold"  /> 
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="integer inprogress" /> 
-				         </td>
-				     
-				     </tr>
-			    
-			    </table>
-		</div>
-    			
-    	<div id ="tabs-4" >
-    		<table class="resource-table">
-			      <thead>
-				          <th></th>
-					      <th>Count</th>
-					      <th>Resource loading %</th>
-					      <th>Proj. Increase</th>
-					      <th>Proj. Decrease</th>
-				      
-				  </thead>
-				  <tr>
-				         <td>Billable</td>
-				         <td>
-				            <h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count-bill integer" />
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="count-billR integer" /> 
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="count-projIncB integer" /> 
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="count-projdecB integer" />
-				         </td>
-				     
-				   </tr>
-				   <tr>
-				     
-				         <td>Shadow</td>
-				         <td>
-				            <h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count-sha integer" />
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="count-shaR integer" /> 
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="count-projIncSh integer" /> 
-				         </td>
-				         <td>
-				            <h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="count-projDecSh integer" />
-				         </td>
-				     
-				   </tr>
-			     
-				   <tr>
-				         <td>Total</td>
-				         <td class="total-count"></td>
-				         <td class="total-resource"></td>
-				         <td class="total-inc"></td>
-				         <td class="total-dec"></td>
-				     
-				     </tr>
-			    
-			  </table>
-    	</div>
-    </div> <!-- Tabs 1 close -->
-    <div id = "Risk-Details"> <!-- Project Updates Field -->
-           
-          <div class="div-inner">
-           
-	               <h2 class="panel-heading">Project Updates</h2>
-	           
-	               <div class="risk_row">
-	                  <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea"  />
-	               </div>
-    	   </div>
-    			
-     </div> <!-- Closing Project Updates Field -->
-     <div id = "Risk-Details"> <!-- Risk Details Table -->
-          <div class="div-inner">
-		        <h2 class="panel-heading">Risk Details</h2>
-		        <div class="risk_row">
-				         <h:outputLabel value="Risk Type" for="risks_type"  />
-		    			 <h:selectOneMenu  class="risk-input risk-type" value="#{riskDetails.riskType}" >								  
-							   <f:selectItem itemValue="0" itemLabel="Select Risk" />
-							   <f:selectItem itemValue="High" itemLabel="High Risk" />	  
-							   <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
-							   <f:selectItem itemValue="Low" itemLabel="Low Risk" />
-						</h:selectOneMenu>
-		    			
-		    			<h:outputLabel value="Risk Description" for="ass_risks"   /> 
-		    			<h:inputText  id="ass_risks" class="risk-input risk-des" value="#{riskDetails.riskDescription}" />
-		    			
-		    			<h:outputLabel value="Responsible Person" for="ass_risksresp"   /> 
-		    			<h:inputText  id="ass_risksresp" class="risk-input risk-res" value="#{riskDetails.riskResponsible}"  /> 
-	   	                <h:commandButton value="Add" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" class="add-button" />
-			    </div>
-		    	<h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}" styleClass="order-table" 
-		    	                    headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row" >
-				        <h:column>
-			    			<f:facet name="header">Risk Type</f:facet>
-			    			#{risk.riskType}
-			     		</h:column>
-			    		<h:column>
-			    			<f:facet name="header">Risk Description</f:facet>
-			    			#{risk.riskDescription}
-			    		</h:column>
-			    		<h:column>
-			    			<f:facet name="header">Responsible Person</f:facet>
-			    			#{risk.riskResponsible}
-			    		</h:column>
-			    		<h:column>
-							<f:facet name="header">Action</f:facet>
-								  <h:commandLink value="Delete"  action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
-						</h:column>
-				    			
-		      </h:dataTable>
-	     </div>
-    </div> <!-- risk details table close --> 
-    
-	<h:commandButton id="submit" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
-	<h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="report"  />
-		   
-		   
-		  
-
-         
-         
-      </h:panelGroup > <!-- end of panel details -->
-        
-        
-    </h:form>
-   
-   
-   <br />
-   
-   
-      </div> 
-  </div>  
-  <footer>
-	    	<ui:insert name="footer" >
-	    	  <ui:include src="commonFooter.xhtml" />
-	    	</ui:insert>
-  </footer>
-		
-		
-  </h:body>
+               <div class="nav">
+                  <img src="images/spanlogo.png" alt="Span Logo" /> 
+                  <div class="navigation">
+                     <h:form id="logout">
+                        <ul>
+                           <li>Welcome ${userInfo.userName}</li>
+                           <li>
+                              <h:commandButton id="logout" value="Sign Out" class="button" 
+                                 action="#{userInfoService.logout()}"></h:commandButton>
+                           </li>
+                        </ul>
+                     </h:form>
+                  </div>
+               </div>
+            </div>
+            <h1>Weekly Report</h1>
+         </header>
+         <div class="form">
+            <h:form id="taskform"  >
+               <p class="info">
+                  <h:outputLabel value="Select the project and week for which you want to add/update report" for="select_project"  />
+               </p>
+               <p class="contact selectbox">
+                  <h:outputLabel value="Select Project:" for="select_project"  />
+               </p>
+               <h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender" >
+                  <f:selectItems value="#{projectDetailsService.getProjectNames()}" />
+               </h:selectOneMenu>
+               <br />
+               <br />
+               <p class="contact selectbox">
+                  <h:outputLabel value="Select Week:" for="select_week" />
+               </p>
+               <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week" id="week_no">
+               </h:inputText>
+               <h:button class="datepicker"></h:button>
+               <br /><br />
+               <h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" />
+               <br /> 
+               <h:messages class="error-msg" style="margin:8px 0px;padding:0" infoStyle="color:darkgreen" errorStyle="color:darkred"   />
+               <br />
+               <h:panelGroup layout="block" id="Panel-details" rendered="#{taskDetailsService.renderScreen()}" >
+                  <!-- main div -->
+                  <div id = "tabs-1">
+                     <!-- Tabs Start -->
+                     <ul>
+                        <li>
+                           <a href = "#tabs-2">Task Details</a>
+                        </li>
+                        <li>
+                           <a href = "#tabs-4">Resource Details</a>
+                        </li>
+                     </ul>
+                     <div id = "tabs-2">
+                        <table>
+                           <thead>
+                              <th></th>
+                              <th>Planned</th>
+                              <th>Completed</th>
+                              <th>Hold</th>
+                              <th>In Progress</th>
+                           </thead>
+                           <tr class="last-week-row">
+                              <td>Previous Week</td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.lastPlanned}" id="tasks_planned1" class="integer" disabled="#{taskDetails.lastPlanned == null}" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.lastCompleted}" id="tasks_completed1" class="integer" disabled="#{taskDetails.lastCompleted == null}" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.lastHold}" id="tasks_hold1" class="integer" disabled="#{taskDetails.lastHold == null}" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.lastInProgress}" id="tasks_inprogress1" class="integer" disabled="#{taskDetails.lastInProgress == null}" />
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selected Week (${taskDetails.weekNo})</td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.plannedTask}" id="tasks_planned"  class="integer planned" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.completedTask}" id="tasks_completed" class="integer completed"  />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.holdTask}" id="tasks_onhold" class="integer hold"  />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.inprogressTask}" id="tasks_inprogress" class="integer inprogress" />
+                              </td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div id ="tabs-4" >
+                        <table class="resource-table">
+                           <thead>
+                              <tr class="Resource_Details">
+                                 <th></th>
+                                 <th>Count</th>
+                                 <th>Resource loading %</th>
+                                 <th>Proj. Increase
+                                    <label id="qtrLabel"></label>
+                                 </th>
+                                 <th>Proj. Decrease<label id="qtrLabel2"></label></th>
+                              </tr>
+                           </thead>
+                           <tr>
+                              <td>Billable</td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.billedResources}" id="billed_resc" class="count-bill integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.resourceLoadingB}" id="resc_l_b" class="count-billR integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.projectIncB}" id="proj_inc" class="count-projIncB integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.projectDecB}" id="proj_dec" class="count-projdecB integer" />
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Shadow</td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.sharedResources}"  id="shadow_resc" class="count-sha integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.resourceLoadingSh}" id="resc_l_sh" class="count-shaR integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.projectIncSh}" id="proj_inc_sh" class="count-projIncSh integer" />
+                              </td>
+                              <td>
+                                 <h:inputText value="#{taskDetails.projectDecSh}" id="proj_dec_sh" class="count-projDecSh integer" />
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Total</td>
+                              <td class="total-count"></td>
+                              <td class="total-resource"></td>
+                              <td class="total-inc"></td>
+                              <td class="total-dec"></td>
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+                  <!-- Tabs 1 close -->
+                  <div id = "Risk-Details">
+                     <!-- Project Updates Field -->
+                     <div class="div-inner">
+                        <h2 class="panel-heading">Project Updates</h2>
+                        <div class="risk_row">
+                           <h:inputTextarea rows="5" cols="50" value="#{taskDetails.projectUpdates}" class="update-textarea"  />
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Closing Project Updates Field -->
+                  <div id = "Risk-Details">
+                     <!-- Risk Details Table -->
+                     <div class="div-inner" id="risk">
+                        <h2 class="panel-heading">Risk Details</h2>
+                        <table class="risk_row">
+                           <tr class="order-table-odd-row">
+                              <td>
+                                 <h:outputLabel value="Risk Priority" for="risks_type"  />
+                                 <h:selectOneMenu  class="risk-input risk-type" value="#{riskDetails.riskType}" >
+                                    <f:selectItem itemValue="0" itemLabel="Select Risk" />
+                                    <f:selectItem itemValue="High" itemLabel="High Risk" />
+                                    <f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
+                                    <f:selectItem itemValue="Low" itemLabel="Low Risk" />
+                                 </h:selectOneMenu>
+                              </td>
+                              <td>
+                                 <h:outputLabel value="Risk Description" for="ass_risks"   />
+                                 <h:inputText  id="ass_risks" class="risk-input risk-des" value="#{riskDetails.riskDescription}" a:placeholder="Risk Description" />
+                              </td>
+                              <td>
+                                 <h:outputLabel value="Responsible Person" for="ass_risksresp"   />
+                                 <h:inputText  id="ass_risksresp" class="risk-input risk-res" value="#{riskDetails.riskResponsible}" a:placeholder="Risk Responsible"  />
+                              </td>
+                              <td>
+                                 <h:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</h:outputLabel>
+                                 <a4j:commandButton value="Add" class="add-butn" render="out" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
+                              </td>
+                           </tr>
+                        </table>
+                        <a4j:outputPanel id="out">
+                           <h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}" styleClass="order-table" 
+                              headerClass="order-table-header" rowClasses="order-table-odd-row,order-table-even-row" >
+                              <h:column class="risk-data">
+                                 #{risk.riskType}
+                              </h:column>
+                              <h:column class="risk-data">
+                                 #{risk.riskDescription}
+                              </h:column>
+                              <h:column class="risk-data">
+                                 #{risk.riskResponsible}
+                              </h:column>
+                              <h:column class="risk-data">
+                                 <a4j:commandButton value="Delete" class="del-butn" render="out" action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
+                              </h:column>
+                           </h:dataTable>
+                        </a4j:outputPanel>
+                     </div>
+                  </div>
+                  <!-- risk details table close --> 
+                  <h:commandButton id="submit3" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
+                  <h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="report"  />
+               </h:panelGroup >
+               <!-- end of panel details -->
+            </h:form>
+            <br />
+         </div>
+      </div>
+      <footer>
+         <ui:insert name="footer" >
+            <ui:include src="commonFooter.xhtml" />
+         </ui:insert>
+      </footer>
+   </h:body>
 </html>

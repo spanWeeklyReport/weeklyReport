@@ -1,12 +1,19 @@
 package com.evry.dashboard.dto;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name="userInfo")
 @SessionScoped
-public class UserInfoView 
+public class UserInfoView implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7016146540858290775L;
 	private String userName;
 	private String password;
 	

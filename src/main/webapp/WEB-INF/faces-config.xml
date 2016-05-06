@@ -1,32 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-	version="2.1"> 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0"> 
 	<navigation-rule>
 		
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>true</from-outcome>
+		    <from-action>#{userInfoService.isValid(userInfo)}</from-action>
+			<from-outcome>welcome</from-outcome>
 			<to-view-id>/welcome.xhtml</to-view-id>
-			 <redirect />
+			<redirect />
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>false</from-outcome>
+			<from-outcome>index</from-outcome>
 			<to-view-id>/index.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	    
 	 <navigation-rule>
-	 <display-name>welcome.xhtml</display-name>
+	 
 	   <from-view-id>/welcome.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>true</from-outcome>
+		    <from-action>#{taskDetailsService.logout()}</from-action>
+			<from-outcome>index</from-outcome>
 			<to-view-id>/index.xhtml</to-view-id>
-		  <redirect />
-		</navigation-case>
-	</navigation-rule>
-	
+			<redirect />
+	   </navigation-case>
+	</navigation-rule>	
     <application>
         <el-resolver>
             org.springframework.web.jsf.el.SpringBeanFacesELResolver

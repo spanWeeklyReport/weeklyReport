@@ -19,25 +19,22 @@ import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name = "riskDetailsService")
 @SessionScoped
-public class RiskDetailsServiceImpl implements RiskDetailsService  {
-	
-	private RiskDetailsMapper mapper;
-	private RiskDetailsDAO riskDetailsDAO;
-	private RiskDetailsView riskDetailsView;
-	private static ArrayList<RiskDetails> riskDetailsList;
-	
-	public void setRiskDetailsDAO(RiskDetailsDAO riskDetailsDAO) 
-	{
-		this.riskDetailsDAO = riskDetailsDAO;
-	}	
+public class RiskDetailsServiceImpl implements RiskDetailsService {
 
-	public void setMapper(RiskDetailsMapper mapper) 
-	{
-		this.mapper = mapper;
-	}
-	
-	
-   
-	
+    private RiskDetailsMapper mapper;
+    private RiskDetailsDAO riskDetailsDAO;
+    private RiskDetailsView riskDetailsView;
+    private static ArrayList < RiskDetails > riskDetailsList;
+
+    public void setRiskDetailsDAO(RiskDetailsDAO riskDetailsDAO) {
+        this.riskDetailsDAO = riskDetailsDAO;
+    }
+
+    public void setMapper(RiskDetailsMapper mapper) {
+        this.mapper = mapper;
+    }
+
+
+
 
 }

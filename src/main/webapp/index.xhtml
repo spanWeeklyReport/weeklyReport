@@ -1,87 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      >
-
-    <h:head>
-	   	<title>Sign In</title>
-		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'></link>
-		<link rel="stylesheet" href="style.css"></link>
-	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
-		 
-	</h:head>
-    
-    <h:body class="welcome-body">    	
-	    <header>
-		 <div class="top">
-		       <div class="nav">
-		       
-		       <img src="images/spanlogo.png" alt="Span Logo" /> 
-		       <div class="navigation">
-		       <h:form id="logout">
-			       <ul> 
-			       
-			       <li></li>
-			       <li></li>
-		           
-		           </ul>
-		         </h:form>
-		       </div>
-		          
-		       </div>
-		   </div>
-	    </header>
-	    
-	    <div id="content">
-	  	<ui:insert name="content" >
-	 	  <ui:include src="commonContent.xhtml" />
-	   	</ui:insert>
-	    </div>
-	    
-	    <div class="container">
-
-       <form id="signup">
-
-        <div class="header">
-        
-            <h3>Sign In</h3>
-            
-            <p>Enter login Details</p> 
-            
-        </div>
-        
-        <div class="sep"></div>
-        <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
-        
-        <div class="inputs">
-        
-            <h:form id="loginForm">
-				<h:inputText value="#{userInfo.userName}" a:Placeholder="Username" class="username" />	
-				<h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" class="password" ></h:inputSecret>
-				<h:commandButton id="submit" value="SIGN IN" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>	
-				<h:message for="username" style="color:red" />
-				
-			</h:form>
-        
-        </div>
-
-    </form>
-
-    </div>
-​
-		    
-	    <footer>
-	    	<ui:insert name="footer" >
-	    	  <ui:include src="commonFooter.xhtml" />
-	    	</ui:insert>
-    	</footer>
-     
-    </h:body>
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets" 
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   >
+   <h:head>
+      <title>Sign In</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+      </link>
+      <link rel="stylesheet" href="style.css">
+      </link>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
+      <script type="text/javascript">
+         $(document).ready(function(){
+         $("#loginForm").submit(function (){
+         
+                   if ($(".username").val() == "" || $(".password").val() == "" ){
+                     
+                     alert("Please enter username and/or password");
+                     return false;
+                   }
+                 
+         
+                 });
+         });
+         
+      </script>
+   </h:head>
+   <h:body class="welcome-body">
+      <header>
+         <div class="top">
+            <div class="nav">
+               <img src="images/spanlogo.png" alt="Span Logo" /> 
+               <div class="navigation">
+                  <h:form id="logout">
+                     <ul>
+                        <li></li>
+                        <li></li>
+                     </ul>
+                  </h:form>
+               </div>
+            </div>
+         </div>
+      </header>
+      <div class="container">
+         <div id="signup">
+            <div class="header">
+               <h3>Sign In</h3>
+               <p>Enter login Details</p>
+            </div>
+            <div class="sep"></div>
+            <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
+            <div class="inputs">
+               <h:form id="loginForm" >
+                  <h:inputText value="#{userInfo.userName}" a:Placeholder="Username" class="username" />
+                  <h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" class="password" ></h:inputSecret>
+                  <h:commandButton type="submit" id="submit" value="SIGN IN" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>
+                  <h:message for="username" style="color:red" />
+               </h:form>
+            </div>
+         </div>
+      </div>
+      <footer>
+      </footer>
+   </h:body>
 </html>
-
-
-    		

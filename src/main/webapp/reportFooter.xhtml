@@ -9,7 +9,36 @@
 	    <ui:composition>
 	    
 	    <script type="text/javascript">
-		$(document).ready(function(){         
+		$(document).ready(function(){        
+			
+		//get quarter of the year
+			var week = $(".return").attr("data-week");
+			getQuator(week);
+		     function getQuator(week){
+		        if ( 1 &lt;= week &amp;&amp; week &lt;= 13 ){
+		              
+		                $("#qtrLabel1").html('(Q1)');
+		               $("#qtrLabel2").html('  (Q1)');
+		               
+		              
+		         }
+		         else if(14 &lt;= week &amp;&amp; week &lt;= 26) {
+		              
+		                $("#qtrLabel1").html('(Q2)');
+		                 $("#qtrLabel2").html('  (Q2)');
+		         }
+		         else if( 27 &lt;= week &amp;&amp; week &lt;= 39) {
+		              
+		                $("#qtrLabel1").html('(Q3)');
+		              $("#qtrLabel2").html('  (Q3)');
+		         }
+		         
+		         else if (40 &lt;= week &amp;&amp; week &lt;= 52){
+		                $("#qtrLabel1").html('(Q4)');
+		              $("#qtrLabel2").html('  (Q4)');
+		         }
+		         else {}
+		     }
              
          
          //Calculating total fields
