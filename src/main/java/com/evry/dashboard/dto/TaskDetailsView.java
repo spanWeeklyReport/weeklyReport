@@ -25,6 +25,7 @@ public class TaskDetailsView implements Serializable
 	private long taskId;
 	private String projectDetailsName;
 	private int WeekNo = 1;
+	private String wNo;
 	//private int YearNo;
 	private String PlannedTask;	
 	private String CompletedTask;
@@ -238,6 +239,14 @@ public class TaskDetailsView implements Serializable
 
 	public void setLastTaskId(long lastTaskId) {
 		this.lastTaskId = lastTaskId;
+	}
+
+	public String getwNo() {
+		return wNo;
+	}
+
+	public void setwNo(String wNo) {
+		this.wNo = wNo;
 	}
 	
 	

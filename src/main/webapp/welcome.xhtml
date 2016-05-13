@@ -17,10 +17,8 @@
       </link>
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
       </link>
-      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
-      <script src="js/jquery.numeric.js" ></script>
-      <script src="js/picker.js" ></script>
+     
+      
    </h:head>
    <h:body class="welcome-body">
       <div class="container2" >
@@ -41,12 +39,13 @@
                   </div>
                </div>
             </div>
-            <h1>Weekly Report</h1>
+            <h1>Create Weekly Report</h1>
          </header>
          <div class="form">
             <h:form id="taskform"  >
                <p class="info">
                   <h:outputLabel value="Select the project and week for which you want to add/update report" for="select_project"  />
+                  <h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
                </p>
                <p class="contact selectbox">
                   <h:outputLabel value="Select Project:" for="select_project"  />
@@ -234,7 +233,7 @@
                   </div>
                   <!-- risk details table close --> 
                   <h:commandButton id="submit3" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
-                  <h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="report"  />
+                  <h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="#{taskDetailsService.checkReport(taskDetails)}"  />
                </h:panelGroup >
                <!-- end of panel details -->
             </h:form>

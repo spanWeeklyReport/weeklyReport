@@ -29,7 +29,12 @@ import javax.persistence.Table;
 	        @NamedQuery(  
 	        name = "findProject",  
 	        query = "select o from TaskDetails o where o.projectDetails = :projectDetails and o.WeekNo = :weekNo"  
-	        )  
+	        ),
+	        
+	        @NamedQuery(  
+	    	        name = "findAllProject",  
+	    	        query = "select o from TaskDetails o where o.WeekNo = :weekNo"  
+	    	        )
 	    }  
 	)  
 public class TaskDetails {
@@ -132,16 +137,7 @@ public class TaskDetails {
 	}
 	
 	
-	/*public int getYearNo() {
-		return YearNo;
-	}
-
-
-	public void setYearNo(int yearNo) {
-		YearNo = yearNo;
-	}*/
-
-
+	
 	public String getPlannedTask() {
 		return PlannedTask;
 	}

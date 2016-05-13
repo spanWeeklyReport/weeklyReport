@@ -7,147 +7,90 @@
       >
     <body>
            <ui:composition>
-           
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+      <script src="js/jquery.numeric.js" ></script>
            <script type="text/javascript">
            $.noConflict();
-              $(document).ready(function($){
-                
-                //login fields cannot b empty 
-                  
-                
-                     
-                     //add class to risk table
-                     $(".order-table tr").addClass('order-table-odd-row');
-                     
-                     //hide risk table if empty
-                     if ($(".order-table-odd-row td").text() == "") {
-  
-                      $(".order-table-odd-row td").hide();
-                     }
-                     
-                     
-                     //hide on page load
-                     $("#taskform\\:Panel-details").hide();
-                     if ($(".weeknumber").val() != 0) {
-                     
-                      $("#taskform\\:Panel-details").show();
+              jQuery(document).ready(function($){
+            	  
+            	  if($("#viewform\\:checkBoxAll").is(":checked")){
+             		 $("#viewform\\:week_no").val(0);
+             		 $("#viewform\\:week_no").prop('disabled', true);
+             		 $(".datepicker").prop('disabled', true);
+             		
+             	 }
+             	 else{
+             		 $("#viewform\\:week_no").val("");
+             		  $("#viewform\\:week_no").prop('disabled', false);
+             		  $(".datepicker").prop('disabled', false);
+             	 }
+               
+            	  
+            	  $("#viewform\\:checkBoxAll").click(function(){
+            	    	 if($(this).is(":checked")){
+            	    		 $("#viewform\\:week_no").val(0);
+            	    		 $("#viewform\\:week_no").prop('disabled', true);
+            	    		 $(".datepicker").prop('disabled', true);
+            	    		
+            	    	 }
+            	    	 else{
+            	    		 $("#viewform\\:week_no").val("");
+            	    		  $("#viewform\\:week_no").prop('disabled', false);
+            	    		  $(".datepicker").prop('disabled', false);
+            	    	 }
+            	       });
+            	  
+               //add class to risk table
+               $(".order-table tr").addClass('order-table-odd-row');
+               
+               //hide risk table if empty
+               if ($(".order-table-odd-row td").text() == "") {
 
-                     }
+                $(".order-table-odd-row td").hide();
+               }
                      
-                                          
+                                        
               //tabs
-         $(function() {
-               $( "#tabs-1" ).tabs();
-         });
+	         $(function() {
+	               $( "#tabs-1" ).tabs();
+	         });
          
-       //Validations
+	               
         
        //task form validation
-           $(".fetch").click(function() {
-              
-               //select week validation
-                           if ($(".weeknumber").val()== 0 ) { 
-                           
-                           alert("Please select week");
-                              return false;
-                           }
-                             
-                             else if ($(".weeknumber").val() > 52) {
-                              
-                               alert("Please select a valid week range");
-                               return false;
-                             }
-                             
-                             else {}
-               
-               
-           });
+           
                
            $(".s-button").click(function() {
-                           
-                                                          
-                           
-                           //Making all fields required
+                    //Making all fields required
                            
                   if ($(".planned").val() == "" || $(".completed").val() == "" || $(".hold").val() == "" || $(".inprogress").val() == "" || $(".count-bill").val() == "" || $(".count-sha").val() == "" || $(".count-billR").val() == "" || $(".count-shaR").val() == "" ||
-                                  $(".count-projIncB").val() == "" ||      $("..count-projIncSh").val() == "" || $(".count-projdecB").val() == "" ||      $(".count-projDecSh").val() == "" )          {
+                    $(".count-projIncB").val() == "" ||      $("..count-projIncSh").val() == "" || $(".count-projdecB").val() == "" ||      $(".count-projDecSh").val() == "" )          {
                                          
-                                           alert ("You have missed out on filling Task/Resource Details");
-                                           return false;
-                                           
-                                         }
-                                         
-                                         else {}
-                             
+                            alert ("You have missed out on filling Task/Resource Details");
+                            return false;
+                            
+                          }
+                          
+                          else {}
+              
               }); //end of task form validation
 
         //Risk Validation
         
         $(".add-button").click(function(){
 
-                       if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == 0 ) {
-                           
-                           alert("Please fill the risk details");
-                            return false;
-                           
-                           }
+               if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == 0 ) {
+                   
+                   alert("Please fill the risk details");
+                    return false;
+                   
+                   }
               
               });
-       
-        
-         //Only numbers validation       
-         $(".integer").numeric(false, function() { alert("Please enter only numeric values"); this.value = ""; this.focus(); });
-                       
+                            
           
-         //Calender
-         
-         $('.datepicker').datepicker({
-               
-               buttonImage: "images/calender.png",
-               buttonImageOnly: true,
-               yearRange: "2002:2016",
-               changeYear: true,
-               changeMonth: true,
-              showOtherMonths: true,
-                  onSelect: function (dateText, inst) {
-              var week =  $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));
-                var date = $(this).datepicker('getDate'),
-                day  = date.getDate(),  
-                month = date.getMonth() + 1,              
-                year =  date.getFullYear();
-                 console.log(month);
-                 getQuator($(".weeknumber").val());
-              
-                   }
-             });
-         
-         getQuator($(".weeknumber").val());
-     function getQuator(week){
-        if ( 1 &lt;= week &amp;&amp; week &lt;= 13 ){
-              
-                $("#qtrLabel").html('(Quarter1)');
-               $("#qtrLabel2").html('  (Quarter1)');
-               
-              
-         }
-         else if(14 &lt;= week &amp;&amp; week &lt;= 26) {
-              
-                $("#qtrLabel").html('(Quarter2)');
-                 $("#qtrLabel2").html('  (Quarter2)');
-         }
-         else if( 27 &lt;= week &amp;&amp; week &lt;= 39) {
-              
-                $("#qtrLabel").html('(Quarter3)');
-              $("#qtrLabel2").html('  (Quarter3)');
-         }
-         
-         else if (40 &lt;= week &amp;&amp; week &lt;= 52){
-                $("#qtrLabel").html('(Quarter4)');
-              $("#qtrLabel2").html('  (Quarter4)');
-         }
-         else {}
-     }
-         //Calculating total fields
+                  //Calculating total fields
            
          var bill_count = $(".count-bill").val();
         var shadow_count = $(".count-sha").val();
@@ -216,10 +159,60 @@
          
         }
          
-       
+             
+      //Calender
+        $('.datepicker').datepicker({
+              buttonImage: "images/calender.png",
+              buttonImageOnly: true,
+              yearRange: "2002:2016",
+              changeYear: true,
+              changeMonth: true,
+             showOtherMonths: true,
+                 onSelect: function (dateText, inst) {
+             var week =  $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));
+               var date = $(this).datepicker('getDate'),
+               day  = date.getDate(),  
+               month = date.getMonth() + 1,              
+               year =  date.getFullYear();
+                console.log(month);
+                getQuator($(".weeknumber").val());
+             
+                  }
+            });
+        
+        getQuator($(".weeknumber").val());
+		    function getQuator(week){
+		       if ( 1 &lt;= week &amp;&amp; week &lt;= 13 ){
+		             
+		               $("#qtrLabel").html('(Quarter1)');
+		              $("#qtrLabel2").html('  (Quarter1)');
+		              
+		             
+		        }
+		        else if(14 &lt;= week &amp;&amp; week &lt;= 26) {
+		             
+		               $("#qtrLabel").html('(Quarter2)');
+		                $("#qtrLabel2").html('  (Quarter2)');
+		        }
+		        else if( 27 &lt;= week &amp;&amp; week &lt;= 39) {
+		             
+		               $("#qtrLabel").html('(Quarter3)');
+		             $("#qtrLabel2").html('  (Quarter3)');
+		        }
+		        
+		        else if (40 &lt;= week &amp;&amp; week &lt;= 52){
+		               $("#qtrLabel").html('(Quarter4)');
+		             $("#qtrLabel2").html('  (Quarter4)');
+		        }
+		        else {}
+		    }
+
+		    
+		    //Only numbers validation       
+	        $(".integer").numeric(false, function() { alert("Please enter only numeric values"); this.value = ""; this.focus(); });
          
          
-              });
+   });
          
       </script>
       

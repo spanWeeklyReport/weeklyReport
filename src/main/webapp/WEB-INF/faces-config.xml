@@ -8,8 +8,8 @@
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
 		    <from-action>#{userInfoService.isValid(userInfo)}</from-action>
-			<from-outcome>welcome</from-outcome>
-			<to-view-id>/welcome.xhtml</to-view-id>
+			<from-outcome>dashboard</from-outcome>
+			<to-view-id>/dashboard.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
@@ -27,6 +27,11 @@
 			<to-view-id>/index.xhtml</to-view-id>
 			<redirect />
 	   </navigation-case>
+	  <navigation-case>
+               <from-outcome>report</from-outcome>
+               <to-view-id>/report.xhtml</to-view-id>
+       </navigation-case>
+	   
 	</navigation-rule>	
     <application>
         <el-resolver>

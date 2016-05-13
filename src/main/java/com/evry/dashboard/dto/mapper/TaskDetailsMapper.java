@@ -11,7 +11,13 @@ import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.RiskDetails;
+import com.evry.dashboard.util.Constants;
 
+/**
+ * 
+ * @author Mehak.Sapra
+ *
+ */
 public class TaskDetailsMapper 
 {
 	
@@ -21,6 +27,9 @@ public class TaskDetailsMapper
 	
 	
 	
+	/**This method is doing nothing
+	 * @param projectDetailsDAO
+	 */
 	public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) 
 	{
 		this.projectDetailsDAO = projectDetailsDAO;
@@ -36,10 +45,31 @@ public class TaskDetailsMapper
 		this.riskDetailsMapper = riskDetailsMapper;
 	}
 
+	 
+	public List<TaskDetailsView> getMappedView(List<TaskDetails> taskDetails2)
+	{
+		List<TaskDetailsView>  taskDetailsViews = new ArrayList<TaskDetailsView>();
+		for (TaskDetails taskDetails: taskDetails2)
+		{
+			TaskDetailsView taskDetailsView = new TaskDetailsView();
+			mapView(taskDetailsView, taskDetails);
+			taskDetailsViews.add(taskDetailsView);
+		}
+ 
+		return taskDetailsViews;
+	}
 	
-	//Get Map View
+	 
+	/**
+	 * Method to do conversion from model to view object for task details
+	 * 
+	 * @param taskDetailsView
+	 * @param taskDetails
+	 * @throws RuntimeException
+	 */
 	public void mapView(TaskDetailsView taskDetailsView, TaskDetails taskDetails)
 	{
+		 
 		taskDetailsView.setTaskId(taskDetails.getTaskId());
 			try
 			{
@@ -88,7 +118,13 @@ public class TaskDetailsMapper
 		TaskDetails taskDetails = new TaskDetails();
 		taskDetails.setTaskId(taskDetailsView.getTaskId());
 		taskDetails.setProjectDetails(projectDetailsDAO.findByName(taskDetailsView.getProjectDetailsName()));
-		taskDetails.setWeekNo(taskDetailsView.getWeekNo());
+		if(String.valueOf(taskDetailsView.getWeekNo()).equalsIgnoreCase(Constants.ALL_WEEKS)){
+			taskDetails.setWeekNo(0);
+		}
+		else{ 
+			taskDetails.setWeekNo(taskDetailsView.getWeekNo());
+		}
+		//taskDetails.setWeekNo(taskDetailsView.getWeekNo());
 		//taskDetails.setYearNo(taskDetailsView.getYearNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());

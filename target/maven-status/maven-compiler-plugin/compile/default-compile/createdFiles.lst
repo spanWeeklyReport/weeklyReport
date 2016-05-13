@@ -1,6 +1,7 @@
 com\evry\dashboard\dto\mapper\RiskDetailsMapper.class
 com\evry\dashboard\dto\mapper\ProjectDetailsMapper.class
 com\evry\dashboard\model\TaskRiskMapping.class
+com\evry\dashboard\util\Constants.class
 com\evry\dashboard\dto\UserInfoView.class
 com\evry\dashboard\dao\UserInfoDAO.class
 com\evry\dashboard\model\TaskDetails.class

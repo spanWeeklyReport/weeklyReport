@@ -1,6 +1,7 @@
 .welcome-body {
     background-image: url(http://kreativo.se/backlogin.jpg);
     font-family: "Helvetica Neue", Helvetica, Arial;
+    background-size: cover;
     
 }
 
@@ -248,13 +249,13 @@ input:-moz-placeholder {
 
 .container2 > header h1 {
   color: #fff;
-  font-family: times new roman;
+  font-family: Trebuchet MS;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
-  margin: 22px;
+  margin: 22px 22px 22px 8%;
   position: relative;
-  text-align: center;
+  text-align: left;
 }
 .container2 > header h1 strong{
        font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
@@ -331,7 +332,13 @@ input:-moz-placeholder {
 }
 
 .form{
-       background:#fff; width:80%; margin:0 auto; padding-left:50px; padding-top:20px; border-radius: 8px; font-family: trebuchet ms;
+       background:#fff; width:80%; 
+       margin:0 auto;
+        padding-left:25px;
+         padding-top:20px;
+          border-radius: 8px;
+           font-family: trebuchet ms;
+           padding-right:25px;
 }
 .form fieldset{border:0px; padding:0px; margin:0px;}
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; }
@@ -347,7 +354,14 @@ input:-moz-placeholder {
 .form input.birthyear{width:120px;}
 .form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
 .form label.month {width: 135px;}
-.form input, textarea, select { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; }
+.form input, textarea, select { 
+	background-color: rgba(255, 255, 255, 0.4); 
+	border: 1px solid rgba(122, 192, 0, 0.15); 
+	padding: 7px; 
+	font-family: Keffeesatz, Arial; 
+	color: #4b4b4b; font-size: 14px; 
+	-webkit-border-radius: 5px; 
+	}
 .form input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
 .form .select-style {
   -webkit-appearance: button;
@@ -372,7 +386,28 @@ input:-moz-placeholder {
 .form .gender {
   width:410px;
   }
-.form input.buttom{ background: #4b8df9; display: inline-block; padding: 10px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
+.form input.buttom{ 
+	background: #4b8df9; 
+	display: inline-block; 
+	padding: 10px; 
+	color: #fbf7f7; 
+	text-decoration: none; 
+	font-weight: bold; 
+	line-height: 1; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	-moz-box-shadow: 0 1px 3px #999; 
+	-webkit-box-shadow: 0 1px 3px #999; 
+	box-shadow: 0 1px 3px #999; 
+	text-shadow: 0 -1px 1px #222; 
+	border: none; 
+	position: relative; 
+	cursor: pointer; 
+	font-size: 14px; 
+	font-family:Verdana, Geneva, sans-serif;
+	
+	}
 .form input.buttom:hover   { background-color: #2a78f6; }
 
 .s-button {
@@ -470,6 +505,10 @@ div.report-container {
 }
 
 .table-data > td {
+  background: #f3f9fa none repeat scroll 0 0;
+}
+
+.table-data > th {
   background: #f3f9fa none repeat scroll 0 0;
 }
 
@@ -666,4 +705,92 @@ th.order-table-header {
 
 .last-week-row td input {
   color: #000 !important;
+}
+
+.checkweeks {
+  margin-left: 68px;
+  margin-top: 10px;
+  vertical-align: text-bottom;
+}
+.all_weeks {
+  margin-left: 5px;
+}
+
+table.view-report-table {
+  border: 1px solid gray;
+  margin-bottom:15px;
+}
+
+.reports {
+background : rgba(0, 0, 0, 0)url(images/pen-to-paper.jpg) no-repeat scroll 0 0;
+  border: 1px dashed #ccc;
+  float: left;
+  height: 500px;
+  margin: 2%;
+  padding: 52px;
+  width: 38%;
+  background-size: cover;
+  border-radius: 8px;
+}
+.reports2 {
+  background: rgba(0, 0, 0, 0) url("images/Monthly-Reports.png") no-repeat scroll 0 0;
+  border: 1px dashed #ccc;
+  float: left;
+  height: 500px;
+  margin: 2%;
+  padding: 52px;
+  width: 38%;
+  background-size: cover;
+  border-radius: 8px;
+}
+.create_report {
+  background: rosybrown none repeat scroll 0 0;
+  border-radius: 20px;
+  color: white !important;
+  font-size: 20px;
+  margin: 30%;
+  padding: 15px;
+  position: relative;
+  text-decoration: none;
+  top: 258px;
+}
+.view_report{
+  background: rosybrown none repeat scroll 0 0;
+  border-radius: 20px;
+  color: white !important;
+  font-size: 20px;
+  margin: 30%;
+  padding: 15px;
+  position: relative;
+  text-decoration: none;
+  top: 258px;
+}
+
+.all_weeks {
+  margin-left: 5px;
+}
+
+a.Go-back {
+  background: #76c9f5 none repeat scroll 0 0;
+  border-radius: 8px;
+  color: #fff !important;
+  float: right;
+  font-size: 14px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+h1.dashboard-heading {
+  margin-left: 33px !important;
+}
+
+.view-report-table th:first-child {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.dashboard .form.view-page {
+  padding-left: 35px;
+  padding-right: 35px;
+  width: 85%;
 }

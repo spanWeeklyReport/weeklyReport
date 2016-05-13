@@ -54,7 +54,8 @@ public class UserInfoServiceImpl implements UserInfoService {
             // get Http Session and store username
             HttpSession session = HttpSessionFactory.getSession();
             session.setAttribute("username", userInfoView.getUserName());
-            return "welcome.xhtml";
+           // session.setAttribute(userId, userInfoView.ge);
+            return "dashboard.xhtml";
         } else {
 
             FacesContext.getCurrentInstance().addMessage(
@@ -70,8 +71,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     public String logout() {
         renderer = false;
         logout = true;
+        String abc = HttpSessionFactory.getUserName();
+        System.out.println(abc);
         HttpSessionFactory.getSession().invalidate();
         System.out.println("successfully logout");;
         return "index.xhtml";
+        
     }
 }

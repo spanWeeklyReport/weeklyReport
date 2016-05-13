@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets" 
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   xmlns:c="http://java.sun.com/jsp/jstl/core" 
+   
+   >
+   <h:head>
+      <title>View Reports</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+      </link>
+      <link rel="stylesheet" href="style.css">
+      </link>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      </link>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>   
+   </h:head>
+   <h:body class="welcome-body dashboard">
+     <div class="container2" >
+         <header>
+            <div class="top">
+               <div class="nav">
+                  <img src="images/spanlogo.png" alt="Span Logo" /> 
+                  <div class="navigation">
+                     <h:form id="logout">
+                        <ul>
+                           <li>Welcome ${userInfo.userName}</li>
+                           <li>
+                              <h:commandButton id="logout" value="Sign Out" class="button" 
+                                 action="#{userInfoService.logout()}"></h:commandButton>
+                           </li>
+                        </ul>
+                     </h:form>
+                  </div>
+               </div>
+            </div>
+            <h1>View Reports</h1>
+         </header>
+     </div>
+     <div class="form view-page">
+      <h:form id="viewform"  >
+               <p class="info">
+                  <h:outputLabel value="Select the project and week for which you want to view report" for="select_project"  />
+                  <h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
+               </p>
+               <p class="contact selectbox">
+                  <h:outputLabel value="Select Project:" for="select_project"  />
+               </p>
+               <h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender" >
+                  <f:selectItem itemValue="All"></f:selectItem>
+                  <f:selectItems value="#{projectDetailsService.getProjectNames()}" />
+               </h:selectOneMenu>
+               <br />
+               <br />
+               <p class="contact selectbox">
+                  <h:outputLabel value="Select Week:" for="select_week" />
+               </p>
+               <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" 
+               a:placeholder="Select Week" id="week_no" >
+               </h:inputText>
+               <h:button class="datepicker"></h:button>
+               <h:selectBooleanCheckbox class="checkweeks" id="checkBoxAll" value="#{taskDetails.wNo}" >
+                      
+               </h:selectBooleanCheckbox>
+               <h:outputLabel class="all_weeks" value="All Weeks" for="checkweeks"  />
+               
+               <br /><br />
+               <h:commandButton id="getResult" value="Select" class="buttom fetch" action="#{taskDetailsService.viewReport(taskDetails)}" />
+               <br /> 
+               <h:messages class="error-msg" style="margin:8px 0px;padding:0" infoStyle="color:darkgreen" errorStyle="color:darkred"   />
+               <br />
+       </h:form>
+       <div>
+       
+        <c:if test="${!empty taskDetailsService.taskDetailsViews}">
+        
+          <ui:repeat value="${taskDetailsService.taskDetailsViews}" var="taskDetails">
+          <table class="view-report-table">
+              <tr class="tb-head-row">
+                <th colspan="12">Project Name: ${taskDetails.projectDetailsName} </th>
+                
+              </tr>
+              <tr class="mini-titles">
+                <th colspan="12">Week No: ${taskDetails.weekNo}</th>
+                
+              </tr>
+            
+                <tr class="table-data">
+                    <th>Planned Task</th>
+                    <th>Completed Task</th>
+                    <th>Hold Task</th>
+                    <th>InProgress Task</th>
+                    <th>Billed Resources</th>
+                    <th>Shadow Resources</th>
+                    <th>Resource loading Billable %</th>
+                    <th>Resource loading Shadow %</th>
+                    <th>Projection Inc Billable</th>
+                    <th>Projection Dec Billable</th>
+                    <th>Projection Inc Shadow</th>
+                    <th>Projection Dec Shadow</th>
+                </tr>
+                <tr class="table-data">
+                   <td>${taskDetails.plannedTask}</td>
+                   <td>${taskDetails.completedTask}</td>
+                   <td>${taskDetails.holdTask}</td>
+                   <td>${taskDetails.inprogressTask}</td>
+                   <td>${taskDetails.billedResources}</td>
+                   <td>${taskDetails.sharedResources}</td>
+                   <td>${taskDetails.resourceLoadingB}</td>
+                   <td>${taskDetails.resourceLoadingSh}</td>
+                   <td>${taskDetails.projectIncB}</td>
+                   <td>${taskDetails.projectDecB}</td>
+                   <td>${taskDetails.projectIncSh}</td>
+                   <td>${taskDetails.projectDecSh}</td>
+                
+                </tr>
+                <tr class="table-data">
+                 <td colspan="12">Project Updates : ${taskDetails.projectUpdates}</td>
+                </tr>
+               </table>
+               
+               
+            </ui:repeat>
+        
+    </c:if>
+       
+       
+       </div>
+       
+       </div>
+       <footer>
+         <ui:insert name="footer" >
+            <ui:include src="commonFooter.xhtml" />
+         </ui:insert>
+      </footer>
+      
+   </h:body>
+</html>
