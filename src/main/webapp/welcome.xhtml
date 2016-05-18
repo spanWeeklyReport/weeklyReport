@@ -17,56 +17,55 @@
       </link>
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
       </link>
-     
+      
       
    </h:head>
-   <h:body class="welcome-body">
+   <h:body>
       <div class="container2" >
-         <header>
-            <div class="top">
-               <div class="nav">
-                  <img src="images/spanlogo.png" alt="Span Logo" /> 
-                  <div class="navigation">
-                     <h:form id="logout">
-                        <ul>
-                           <li>Welcome ${userInfo.userName}</li>
-                           <li>
-                              <h:commandButton id="logout" value="Sign Out" class="button" 
-                                 action="#{userInfoService.logout()}"></h:commandButton>
-                           </li>
-                        </ul>
-                     </h:form>
-                  </div>
+        <div id="ZDBHeader">
+         
+         <div style="height:auto; width:auto;padding-left:1px;" id="ZDBHEADER">
+            <div style="width: 100%; padding: 0px;">
+               <div id="ZDBMainHeader" class="toplogobg">
+                 <div class="fLeft" style="margin-top:9px;">
+                 <div class="fLeft" style="margin-right:12px;">
+						 <img id="ZDBLogo" width="110" height="25" style="cursor:pointer;" src="../images/spanlogo.png"  />
+						 <div class="dashboard-pagr-title">Reports</div>
+					</div>
+			   </div>
                </div>
             </div>
-            <h1>Create Weekly Report</h1>
-         </header>
+         </div>
+         <div id="head-banner">
+				<h1 style="">Create Report</h1>
+				<h5 class="dbDescription">Create or update the Weekly Report by selecting week/project </h5>
+		</div>
+        </div>
          <div class="form">
             <h:form id="taskform"  >
                <p class="info">
                   <h:outputLabel value="Select the project and week for which you want to add/update report" for="select_project"  />
-                  <h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
+                  <h:link class="Go-back buttons" value="Go Back" outcome="dashboard.xhtml"></h:link>
                </p>
-               <p class="contact selectbox">
+               <p class="contact selectbox project">
                   <h:outputLabel value="Select Project:" for="select_project"  />
                </p>
                <h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender" >
                   <f:selectItems value="#{projectDetailsService.getProjectNames()}" />
                </h:selectOneMenu>
-               <br />
-               <br />
-               <p class="contact selectbox">
+               
+               <p class="contact selectbox week">
                   <h:outputLabel value="Select Week:" for="select_week" />
                </p>
                <h:inputText value="#{taskDetails.weekNo}" class="weeknumber select-style gender" a:placeholder="Select Week" id="week_no">
                </h:inputText>
                <h:button class="datepicker"></h:button>
-               <br /><br />
-               <h:commandButton id="fetch" value="Select" class="buttom fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" />
+               
+               <h:commandButton id="fetch" value="Select" class="buttons fetch" action="#{taskDetailsService.checkTasks(taskDetails)}" />
                <br /> 
                <h:messages class="error-msg" style="margin:8px 0px;padding:0" infoStyle="color:darkgreen" errorStyle="color:darkred"   />
                <br />
-               <h:panelGroup layout="block" id="Panel-details" rendered="#{taskDetailsService.renderScreen()}" >
+               <h:panelGroup layout="block" id="Panel-details" rendered="#{taskDetailsService.renderScreen()}" clas="panel" >
                   <!-- main div -->
                   <div id = "tabs-1">
                      <!-- Tabs Start -->
@@ -208,7 +207,7 @@
                               </td>
                               <td>
                                  <h:outputLabel>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</h:outputLabel>
-                                 <a4j:commandButton value="Add" class="add-butn" render="out" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
+                                 <a4j:commandButton value="Add" class="add-butn buttons" render="out" action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
                               </td>
                            </tr>
                         </table>
@@ -225,21 +224,22 @@
                                  #{risk.riskResponsible}
                               </h:column>
                               <h:column class="risk-data">
-                                 <a4j:commandButton value="Delete" class="del-butn" render="out" action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
+                                 <a4j:commandButton value="Delete" class="del-butn buttons" render="out" action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
                               </h:column>
                            </h:dataTable>
                         </a4j:outputPanel>
                      </div>
                   </div>
                   <!-- risk details table close --> 
-                  <h:commandButton id="submit3" value="SUBMIT" class="buttom s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
-                  <h:commandButton id="submit2" value="View Report" class="buttom r-button"  action="#{taskDetailsService.checkReport(taskDetails)}"  />
+                  <h:commandButton id="submit3" value="SUBMIT" class="buttons s-button"  action="#{taskDetailsService.addTasks(taskDetails)}" />
+                  <h:commandButton id="submit2" value="View Report" class="buttons r-button"  action="#{taskDetailsService.checkReport(taskDetails)}"  />
                </h:panelGroup >
                <!-- end of panel details -->
             </h:form>
             <br />
          </div>
       </div>
+      
       <footer>
          <ui:insert name="footer" >
             <ui:include src="commonFooter.xhtml" />

@@ -59,8 +59,8 @@ public class UserInfoServiceImpl implements UserInfoService {
         } else {
 
             FacesContext.getCurrentInstance().addMessage(
-                "loginForm:submit",
-                new FacesMessage(FacesMessage.SEVERITY_WARN,
+                "signupform:signupbtn",
+                new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Invalid Login!", "Please Try Again!"));
 
             return "index.xhtml";

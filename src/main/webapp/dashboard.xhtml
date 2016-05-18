@@ -13,7 +13,7 @@
       <title>Dashboard</title>
       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
       </link>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="css/dashboard.css">
       </link>
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
       </link>
@@ -21,38 +21,138 @@
       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
      
    </h:head>
-   <h:body class="welcome-body dashboard">
-     <div class="container2" >
-         <header>
-            <div class="top">
-               <div class="nav">
-                  <img src="images/spanlogo.png" alt="Span Logo" /> 
-                  <div class="navigation">
-                     <h:form id="logout">
-                        <ul>
-                           <li>Welcome ${userInfo.userName}</li>
-                           <li>
-                              <h:commandButton id="logout" value="Sign Out" class="button" 
-                                 action="#{userInfoService.logout()}"></h:commandButton>
-                           </li>
-                        </ul>
-                     </h:form>
-                  </div>
+   <h:body class="dashboard" id="ZDBHome">
+     
+      <div id="ZDBHeader">
+         
+         <div style="height:auto; width:auto;padding-left:1px;" id="ZDBHEADER">
+            <div style="width: 100%; padding: 0px;">
+               <div id="ZDBMainHeader" class="toplogobg">
+                 <div class="fLeft" style="margin-top:9px;">
+                 <div class="fLeft" style="margin-right:12px;">
+						 <img id="ZDBLogo" width="110" height="25" style="cursor:pointer;" src="../images/spanlogo.png"  />
+						 <div class="dashboard-pagr-title">Reports</div>
+					</div>
+			   </div>
                </div>
             </div>
-            <h1 class="dashboard-heading">Weekly Dashboard</h1>
-         </header>
-       </div>
-       
-       <div class= "both-buttons">
-       <div class= "reports">
-       <h:link class="create_report" value="Create Report" outcome="welcome.xhtml" />
-       </div>
-       <div class= "reports2">
-        <h:link class="view_report" value="View Report" outcome="view-reports.xhtml" />
-       </div>
-       </div>
+         </div>
+        
+        
+      </div>
+      
+      <div style="top: 63px;" id="ZDBMainContainer">
+         <div id="ZDBHomeContainer">
+            <div id="ZRSHomeMainDiv" style="padding-left:40px;padding-right: 40px;padding-bottom:12px;">
+               
+               
+               <div id="ZRSDBCreationOptions">
+                  <div id="ZRSCreateOptsHeader">
+                     <h1 style="">Select Technology</h1>
+                     <h5 class="dbDescription">Select the technology for which you want to create/view Reports
+                     </h5>
+                  </div>
+                  <div id="ZRSDBCreateOptsHldr" style="position: relative; height: 205px;">
+                     <div style="position: relative; margin-left: 30px; margin-right: auto; height: 100%; width: 1144px;">
+                        <div id="ZDBDBOptsDiv" style="visibility: visible; height: 100%; opacity: 1; width: 1070px;">
+                           
+                           <ul class="DBCreateOpts">
+                              <li id="FileImport">
+                                 <div class="holder">
+                                    <div class="zdbIcon importnew"></div>
+                                    <div class="optName">Java</div>
+                                    <div style="display: none;" class="ZDBDBOptsTip">
+                                       <div>
+                                          <h1 class="dbNameFont">Java</h1>
+                                          <p class="dbDescription">
+                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
+                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
+                                          </p>
+                                          
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li  id="ImportFromCloud">
+                                 <div class="holder">
+                                    <div class="zdbIcon cloudnew"></div>
+                                    <div class="optName">Dot Net</div>
+                                    <div style="display: none;" class="ZDBDBOptsTip">
+                                       <div>
+                                          <h1 class="dbNameFont">Dot Net</h1>
+                                           <p class="dbDescription">
+                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
+                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
+                                          </p>
+                                          
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li id="ImportFromLocalDatabases">
+                                 <div class="holder">
+                                    <div class="zdbIcon localDB"></div>
+                                    <div class="optName">CRM</div>
+                                    <div class="ZDBDBOptsTip" style="height: 140px; width: 202px; padding: 5px; left: -27px; top: -37px; display: none;">
+                                       <div style="width:182px;height:119px;">
+                                          <h1 class="dbNameFont">CRM</h1>
+                                          <p class="dbDescription" style="">Create or view Reports of all projects in CRM</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li  id="ZohoProjectsImport" >
+                                 <div class="holder">
+                                    <div class="zdbIcon projectsDB"></div>
+                                    <div class="optName">ROJD</div>
+                                    <div style="display: none;" class="ZDBDBOptsTip">
+                                       <div>
+                                          <h1 class="dbNameFont">ROJD</h1>
+                                           <p class="dbDescription">
+                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
+                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
+                                          </p>
+                                          
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              <li id="GoogleAnalyticsImport" >
+                                 <div class="holder">
+                                    <div class="zdbIcon gAnalytics"></div>
+                                    <div class="optName">SharePoint</div>
+                                    <div style="display: none;" class="ZDBDBOptsTip">
+                                       <div>
+                                          <h1 class="dbNameFont">SharePoint</h1>
+                                           <p class="dbDescription">
+                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
+                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
+                                          </p>
+                                          
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+                              
+                              
+                           </ul>
+                           
+                           <div style="clear:both;"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+            <div id="ZRSFooter" class="ZRSFooter">
+               
+            </div>
+         </div>
+      </div>
+     
 
-       
+      
+      <!-- Java Script Start -->
+      <script  src="js/dashboard.js" type="text/javascript"></script>
    </h:body>
 </html>

@@ -10,60 +10,114 @@
       <title>Sign In</title>
       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
       </link>
-      <link rel="stylesheet" href="style.css">
-      </link>
+      <link rel="stylesheet" href="css/styles.css"></link>
+       <link rel="stylesheet" href="css/css.css"></link>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
-      <script type="text/javascript">
-         $(document).ready(function(){
-         $("#loginForm").submit(function (){
-         
-                   if ($(".username").val() == "" || $(".password").val() == "" ){
-                     
-                     alert("Please enter username and/or password");
-                     return false;
-                   }
-                 
-         
-                 });
-         });
-         
-      </script>
+      
    </h:head>
-   <h:body class="welcome-body">
-      <header>
-         <div class="top">
-            <div class="nav">
-               <img src="images/spanlogo.png" alt="Span Logo" /> 
-               <div class="navigation">
-                  <h:form id="logout">
-                     <ul>
-                        <li></li>
-                        <li></li>
-                     </ul>
-                  </h:form>
+   <h:body>
+      <div class="header">
+         <a href="#" class="logo"> SPAN </a>
+         <div class="signing"> </div>
+         <span class="menu-icon">Menu</span>
+         <div style="top: 36px;" class="mask-holder hide">
+            <div style="top: 36px;" class="mobile-menu">
+               <div class="mobile-menu-wrap">
+                  
+                  
+                    
                </div>
             </div>
          </div>
-      </header>
-      <div class="container">
-         <div id="signup">
-            <div class="header">
-               <h3>Sign In</h3>
-               <p>Enter login Details</p>
-            </div>
-            <div class="sep"></div>
-            <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
-            <div class="inputs">
-               <h:form id="loginForm" >
-                  <h:inputText value="#{userInfo.userName}" a:Placeholder="Username" class="username" />
-                  <h:inputSecret value="#{userInfo.password}" a:Placeholder="Password" class="password" ></h:inputSecret>
-                  <h:commandButton type="submit" id="submit" value="SIGN IN" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>
-                  <h:message for="username" style="color:red" />
-               </h:form>
-            </div>
+         <ul class="menu">
+            
+          </ul>
+         <div style="height: 322px;" class="dropdown-mask"></div>
+      </div>
+      <!-- HEADER ENDS --> 
+      <!-- PRODUCT HEADER START -->
+      <div class="product-header">
+         <div style="overflow: visible;" class="product-header-inner">
+            <a class="product-logo" href="https://www.zoho.com/reports/">Reports</a> <span class="sub-menu-icon">Menu</span>
+            <ul style="top: 36px;" class="product-menu scale hide">
+               <li><a href="">Projects</a></li>
+               <li><a href="">Users</a></li>
+               <li><a href="">Reports</a></li>
+               
+            </ul>
          </div>
       </div>
-      <footer>
-      </footer>
+      <div class="product-header-top">
+         <div style="overflow: visible;" class="product-header-inner">
+            <a class="product-logo" href="https://www.zoho.com/reports/">Reports</a>
+            <div class="signing">  </div>
+            <span class="sub-menu-icon">Menu</span>
+            <ul style="top: 36px;" class="product-menu scale hide">
+               <li><a href="">Features</a></li>
+               <li><a href="">Pricing</a></li>
+               <li><a href="">Tour</a></li>
+               <li><a href="" class="selected">Solutions</a></li>
+               <li><a href="">Customers</a></li>
+               <li><a href="">Resources</a></li>
+            </ul>
+         </div>
+      </div>
+      <!-- PRODUCT HEADER ENDS --> 
+      <!-- MAIN START -->
+      <div class="main">
+         <!--  BANNER STARTS -->
+         <section class="banner-part">
+            <div class="banner-inner content-wrap">
+               <div class="banner-content">
+                  <h1>Span Weekly Reporting</h1>
+                  <p>Visually analyze your business data. Create insightful reports and dashboards. Make informed business decisions.</p>
+                  
+               </div>
+               <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
+               <div class="signup-box ">
+                  <div class="signup_frm">
+                     <p class="signup-heading">Sign In</p>
+                     <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
+                     <h:form id="signupform" for="signup">
+                        <div class="sgfrm za-email-container">
+                         
+                           <span class="placeholder">Email</span>
+                          <h:inputText value="#{userInfo.userName}" class="sgnemail" id="email" />
+                           <div class="za-email-suggestion">
+                              <div></div>
+                           </div>
+                        </div>
+                        <div style="position: relative;" class="sgfrm za-password-container">
+                           <span class="placeholder">Password</span>
+                           
+                           <h:inputSecret value="#{userInfo.password}"  class="sgnpaswrd" ></h:inputSecret>
+                        </div>
+                        
+                        <div class="sgnbtnmn">
+                           <div class="sgnbtn">
+                              
+                              <h:commandButton type="submit" class="signupbtn" id="signupbtn" value="Sign In" action="#{userInfoService.isValid(userInfo)}"></h:commandButton>
+                           </div>
+                        </div>
+                     </h:form>
+                     
+                  </div>
+               </div>
+               <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
+            </div>
+         </section>
+         <!--  BANNER ENDS --> 
+         
+       </div>   
+      <!-- BOTTOM BANNER STARTS -->
+      
+      <div class="footer">
+        
+      </div>
+      <!-- FOOTER ENDS --> 
+      <script src="js/prd-common.js"></script>
+	  
+	 
+     
    </h:body>
 </html>

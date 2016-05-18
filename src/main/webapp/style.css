@@ -1,8 +1,5 @@
-.welcome-body {
-    background-image: url(http://kreativo.se/backlogin.jpg);
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    background-size: cover;
-    
+body {
+  font-family: Arial,Helvetica,"Lucida Grande";
 }
 
 .container {
@@ -205,10 +202,6 @@ input:-moz-placeholder {
 }
 
 .ui-widget-header {
-  background: #6ac1f6 none repeat scroll 0 0 !important;
-  border: 0 none !important;
-  color: #ffffff !important;
-  font-weight: bold !important;
   width: 99.2%;
 }
 
@@ -249,7 +242,7 @@ input:-moz-placeholder {
 
 .container2 > header h1 {
   color: #fff;
-  font-family: Trebuchet MS;
+ 
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -258,7 +251,7 @@ input:-moz-placeholder {
   text-align: left;
 }
 .container2 > header h1 strong{
-       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+      
        padding:0px 5px 0px 5px;
        line-height:35px; 
        color:#275973;
@@ -266,7 +259,7 @@ input:-moz-placeholder {
        text-transform: uppercase;
 }
 .container2 > header h1 span{
-       font-family: 'Alegreya SC', Georgia, serif;
+      
        font-size: 20px;
        line-height: 20px;
        display: block;
@@ -297,14 +290,14 @@ input:-moz-placeholder {
        width:490px;
        background:url(images/logo.png) no-repeat;
        font-weight:bold;
-       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+      
        text-transform: uppercase;
        font-size:36px;
        text-shadow: 2px 2px 0px #F2F2F2, 1px 2px 0px #B1B1B2;
 }
 /* Buttom Style */
 .freshdesignweb-buttom{
-       font-family: 'Open Sans Condensed','Arial Narrow', Arial, sans-serif;
+       
        color:#009;
        line-height: 24px;
        font-size: 11px;
@@ -332,33 +325,60 @@ input:-moz-placeholder {
 }
 
 .form{
-       background:#fff; width:80%; 
+       background:#fff; width:70%; 
        margin:0 auto;
         padding-left:25px;
          padding-top:20px;
           border-radius: 8px;
-           font-family: trebuchet ms;
+           
            padding-right:25px;
+           border: 1px solid #dfdfdf;
+           position:relative;
+           top:150px;
 }
 .form fieldset{border:0px; padding:0px; margin:0px;}
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; }
 
+#head-banner {
+  float: left;
+  height: auto;
+  padding: 11px 35px;
+  position: relative;
+}
+
+
+
 .form input[type="text"] {
-  height: 35px;
-  width: 92%;
+  height: 25px;
+  width: 91%;
   text-align:center;
+ 
+}
+h1 {
+  color: #404040;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+h5 {
+  color: #666;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  margin: 0;
 }
 .form input[type="email"] { width: 400px; }
 .form input[type="password"] { width: 400px; }
 .form input.birthday{width:60px;}
 .form input.birthyear{width:120px;}
-.form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
+.form label { color: #000; font-weight:bold;font-size: 12px; }
 .form label.month {width: 135px;}
 .form input, textarea, select { 
 	background-color: rgba(255, 255, 255, 0.4); 
 	border: 1px solid rgba(122, 192, 0, 0.15); 
 	padding: 7px; 
-	font-family: Keffeesatz, Arial; 
+	
 	color: #4b4b4b; font-size: 14px; 
 	-webkit-border-radius: 5px; 
 	}
@@ -377,38 +397,19 @@ input:-moz-placeholder {
   border: 1px solid #ccc;
   color: #555;
   font-size: inherit;
-  margin: 0;
+ float:left;
   overflow: hidden;
   padding-top: 5px;
   padding-bottom: 5px;
   text-overflow: ellipsis;
-  white-space: nowrap;}
-.form .gender {
-  width:410px;
+  white-space: nowrap;
+  margin-right:10px;
   }
-.form input.buttom{ 
-	background: #4b8df9; 
-	display: inline-block; 
-	padding: 10px; 
-	color: #fbf7f7; 
-	text-decoration: none; 
-	font-weight: bold; 
-	line-height: 1; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	-moz-box-shadow: 0 1px 3px #999; 
-	-webkit-box-shadow: 0 1px 3px #999; 
-	box-shadow: 0 1px 3px #999; 
-	text-shadow: 0 -1px 1px #222; 
-	border: none; 
-	position: relative; 
-	cursor: pointer; 
-	font-size: 14px; 
-	font-family:Verdana, Geneva, sans-serif;
-	
-	}
-.form input.buttom:hover   { background-color: #2a78f6; }
+.form .gender {
+  width:200px;
+  }
+
+
 
 .s-button {
   margin-left: 1%;
@@ -419,7 +420,11 @@ input:-moz-placeholder {
   float: left;
   margin-top: 10px !important;
   vertical-align: middle;
-  width: 16%;
+  width: 9%;
+}
+
+.buttons.fetch {
+  margin-left: 6%;
 }
 
 
@@ -430,7 +435,7 @@ table {
 
 td, th {
   border: 1px solid #ccc;
-  height: 50px;
+  height: 35px;
   width: auto;
 }
 
@@ -452,7 +457,7 @@ td, th {
 }
 
 .div-inner {
-  margin: 25px;
+  margin: 15px;
 }
 
 
@@ -549,7 +554,7 @@ a.return {
   float: left;
   height: 24px !important;
   text-align: left !important;
-  width: 33% !important;
+  width: 15% !important;
 }
 
 .last-week-row {
@@ -593,12 +598,13 @@ a.return {
 .buttom.r-button {
   margin-left: 10px;
 }
+
 #tabs-2 th {
-  font-family: trebuchet ms !important;
-  font-size: 16px;
+ font-size: 14px;
 }
+
 #tabs-2 td {
-  font-family: Trebuchet MS;
+  
   font-size: 13px;
 }
 
@@ -624,7 +630,7 @@ th.order-table-header {
 .risk-input {
   float: left;
   text-align: center;
-  height: 50px;
+  height: 41px;
 
 }
 
@@ -664,14 +670,6 @@ th.order-table-header {
   border: 0 none;
 }
 
-.add-butn, .del-butn {
-  background: #52a9f9 none repeat scroll 0 0 !important;
-  border: 0 none !important;
-  border-radius: 8px !important;
-  color: white !important;
-  vertical-align: middle;
-  width: 55px;
-}
 
 .add-butn {
 	margin-right: 23px;
@@ -695,11 +693,11 @@ th.order-table-header {
 }
 
 .Resource_Details {
-  font-family: trebuchet ms;
+ 
   font-size: 16px;
 }
 .resource-table td {
-  font-family: trebuchet MS;
+  
   font-size: 14px;
 }
 
@@ -771,15 +769,12 @@ background : rgba(0, 0, 0, 0)url(images/pen-to-paper.jpg) no-repeat scroll 0 0;
 }
 
 a.Go-back {
-  background: #76c9f5 none repeat scroll 0 0;
-  border-radius: 8px;
-  color: #fff !important;
   float: right;
-  font-size: 14px;
-  padding: 10px;
+  height: auto !important;
+  padding: 10px !important;
+  text-align: center;
   text-decoration: none;
 }
-
 h1.dashboard-heading {
   margin-left: 33px !important;
 }
@@ -793,4 +788,59 @@ h1.dashboard-heading {
   padding-left: 35px;
   padding-right: 35px;
   width: 85%;
+}
+
+.buttons {
+  background-color: #f2f2f1 !important;
+  border: 1px solid #d8d8d7 !important;
+  border-radius: 3px !important;
+  color: #666667 !important;
+  cursor: pointer;
+  font-size: 12px !important;
+  height: 30px;
+  margin-right: 5px;
+  min-width: 75px;
+  overflow: hidden;
+  padding: 0 6px !important;
+  text-transform: capitalize;
+  white-space: nowrap;
+  background-image: none !important;
+}
+
+.buttons:hover {
+  border: 1px solid #888888 !important;
+}
+
+#ZDBHeader {
+  position: absolute;
+  width: 100%;
+}
+
+.toplogobg, #ZDBBody, #ZDBHead {
+    background-color: #f3f3f2;
+}
+.toplogobg {
+    height: 40px;
+}
+
+.fLeft {
+    float: left;
+}
+
+img#ZDBLogo {
+  float: left;
+  height:30px;
+}
+
+div.dashboard-pagr-title {
+  float: left;
+  font-size: 20px;
+  height: auto;
+  margin-left: 10px;
+  margin-top: 0;
+  width: 30px;
+}
+
+#tabs-1 input[type="text"] {
+  border: 0 none !important;
 }
