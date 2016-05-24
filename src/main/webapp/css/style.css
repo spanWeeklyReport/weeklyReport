@@ -1,5 +1,7 @@
 body {
+  background: rgba(0, 0, 0, 0) url("../images/download.jpg") no-repeat scroll 0 0 / cover ;
   font-family: Arial,Helvetica,"Lucida Grande";
+  height: auto;
 }
 
 .container {
@@ -330,11 +332,10 @@ input:-moz-placeholder {
         padding-left:25px;
          padding-top:20px;
           border-radius: 8px;
-           
            padding-right:25px;
            border: 1px solid #dfdfdf;
            position:relative;
-           top:150px;
+           clear:both;
 }
 .form fieldset{border:0px; padding:0px; margin:0px;}
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; }
@@ -437,6 +438,7 @@ td, th {
   border: 1px solid #ccc;
   height: 35px;
   width: auto;
+  font-size:12px !important;
 }
 
 .ui-tabs-nav li {
@@ -576,7 +578,7 @@ a.return {
 }
 
 .datepicker {
-  background: rgba(0, 0, 0, 0) url("images/calender.png") no-repeat scroll 0 0 !important;
+  background: rgba(0, 0, 0, 0) url("../images/calender.png") no-repeat scroll 0 0 !important;
   color: transparent !important;
   height: 35px;
   margin-left: 10px;
@@ -812,7 +814,7 @@ h1.dashboard-heading {
 }
 
 #ZDBHeader {
-  position: absolute;
+  position: relative;
   width: 100%;
 }
 

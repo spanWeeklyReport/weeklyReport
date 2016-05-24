@@ -1690,6 +1690,7 @@ z-index: 1;
 }
 .ZDBDBOptsTip h1{
 line-height: 16px;
+margin-bottom:12px;
 }
 .ZDBDBOptsTip div:first-child{
 background-color: #F6F6F6;
@@ -2357,10 +2358,7 @@ background:black;
 filter:alpha(opacity=10);
 opacity:0.4;
 }
-.hide 
-{
-display: none;
-}
+
 .maxBtn
 {
 background: url("../images/theme.gif") no-repeat;
@@ -7973,7 +7971,7 @@ font-weight: bold !important;
 .dbDescription
 {
 font-size: 12px;
-color: #666;
+color: #fafafa;
 font-weight: normal;
 line-height:20px;
 margin:0px;
@@ -13299,4 +13297,55 @@ a.create, a.view {
   margin-bottom: 4px;
   margin-top: 10px;
   width: 100%;
+}
+
+/*Styles added by Mehak 23/05/2016 */
+
+#ZRSCreateOptsHeader > h1 {
+  color: #fafafa;
+}
+
+#ZRSHomeMainDiv {
+	height: 600px;
+	padding-left:40px;
+	padding-right: 40px;
+	padding-bottom:12px;
+}
+
+.product-header-inner {overflow: visible;}
+.product-menu{top: 36px;}
+
+#ZRSDBCreateOptsHldr{position: relative; height: 205px;}
+#ZDBDBOptsDiv {visibility: visible; height: 100%; opacity: 1; width: 1070px;}
+.header-menu {
+  height: 35px;
+  width: 225px;
+}
+.header-menu li {
+  display: inline;
+  float: left;
+  margin-left:10px;
+}
+
+.buttons {
+  background-color: #f2f2f1 !important;
+  border: 1px solid #d8d8d7 !important;
+  border-radius: 3px !important;
+  color: #666667 !important;
+  cursor: pointer;
+  font-size: 12px !important;
+  height: 30px;
+  margin-right: 5px;
+  min-width: 75px;
+  overflow: hidden;
+  padding: 0 6px !important;
+  text-transform: capitalize;
+  white-space: nowrap;
+  background-image: none !important;
+}
+
+.logout.buttons {
+  background-color: #f0483e !important;
+  border-radius: 4px !important;
+  color: white !important;
 }

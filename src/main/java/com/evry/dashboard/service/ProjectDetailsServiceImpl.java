@@ -17,8 +17,14 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 
     private ProjectDetailsMapper mapper;
     private ProjectDetailsDAO projectDetailsDAO;
+    
+    
 
-    public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) {
+    public ProjectDetailsServiceImpl() {
+		
+	}
+
+	public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) {
         this.projectDetailsDAO = projectDetailsDAO;
     }
 

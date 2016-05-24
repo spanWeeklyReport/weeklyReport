@@ -13,7 +13,7 @@
       <title>Welcome</title>
       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
       </link>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="css/style.css">
       </link>
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
       </link>
@@ -48,8 +48,10 @@
                   <h:link class="Go-back buttons" value="Go Back" outcome="dashboard.xhtml"></h:link>
                </p>
                <p class="contact selectbox project">
+                  <f:viewParam name="tech" value="" />
                   <h:outputLabel value="Select Project:" for="select_project"  />
                </p>
+                
                <h:selectOneMenu value="#{taskDetails.projectDetailsName}" class="select-style gender" >
                   <f:selectItems value="#{projectDetailsService.getProjectNames()}" />
                </h:selectOneMenu>

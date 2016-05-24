@@ -10,6 +10,7 @@ public class ProjectDetailsView
 	private long oid;
 	private String projectName;
 	private String projectStatus;
+	private String projectTechnology;
 	
 	public long getOid() 
 	{
@@ -40,4 +41,13 @@ public class ProjectDetailsView
 	{
 		this.projectStatus = projectStatus;
 	}
+
+	public String getProjectTechnology() {
+		return projectTechnology;
+	}
+
+	public void setProjectTechnology(String projectTechnology) {
+		this.projectTechnology = projectTechnology;
+	}
+	
 }

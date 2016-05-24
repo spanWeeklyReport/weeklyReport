@@ -30,6 +30,9 @@ public class ProjectDetails {
 	
 	@Column(name = "PROJECT_STATUS")
 	private String projectStatus;
+	
+	@Column(name = "PROJECT_TECHNOLOGY")
+	private String projectTechnology;
 
 	public long getOid() {
 		return oid;
@@ -60,6 +63,16 @@ public class ProjectDetails {
 		// TODO Auto-generated method stub
 		return projectName;
 	}
+
+	public String getProjectTechnology() {
+		return projectTechnology;
+	}
+
+	public void setProjectTechnology(String projectTechnology) {
+		this.projectTechnology = projectTechnology;
+	}
+	
+	
 	
 	
 
