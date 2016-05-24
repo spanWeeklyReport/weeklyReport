@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -50,8 +52,12 @@ private SessionFactory sessionFactory;
 	@Transactional
 	public List<String> getProjectNames()
 	{
+		
+		String tech = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("tech");
+    	System.out.println("----------"+tech);
+		
 		Session session = this.sessionFactory.getCurrentSession();
-        List<ProjectDetails> projectList = session.createQuery("from ProjectDetails").list();
+        List<ProjectDetails> projectList = session.createQuery("from ProjectDetails where projectTechnology='"+tech+"'").list();
         //System.out.println(projectList);
         ArrayList projectNames = new ArrayList();
         

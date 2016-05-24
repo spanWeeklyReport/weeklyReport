@@ -118,7 +118,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 			
 	     }
 		
-		
+		cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
 		List<TaskDetails> viewReport = cr.list();
 

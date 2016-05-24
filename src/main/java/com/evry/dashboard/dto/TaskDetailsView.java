@@ -13,21 +13,20 @@ import javax.persistence.Id;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.RiskDetails;
 
-@ManagedBean(name="taskDetails")
+@ManagedBean(name = "taskDetails")
 @SessionScoped
-public class TaskDetailsView implements Serializable
-{
-	
+public class TaskDetailsView implements Serializable {
+
 	/**
-	 * 
-	 */
+                                                                                                                                                                          * 
+                                                                                                                                                                           */
 	private static final long serialVersionUID = -8796260672796259709L;
 	private long taskId;
 	private String projectDetailsName;
 	private int WeekNo = 1;
 	private String wNo;
-	//private int YearNo;
-	private String PlannedTask;	
+	// private int YearNo;
+	private String PlannedTask;
 	private String CompletedTask;
 	private String HoldTask;
 	private String InprogressTask;
@@ -40,15 +39,15 @@ public class TaskDetailsView implements Serializable
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
-	
+
 	private long lastTaskId;
 	private String lastPlanned;
 	private String lastCompleted;
 	private String lastHold;
 	private String lastInProgress;
 	public String data = "1";
-	private static final ArrayList<RiskDetailsView> riskDetailsList = new ArrayList();
-	
+	private ArrayList<RiskDetailsView> riskDetailsList;
+
 	public long getTaskId() {
 		return taskId;
 	}
@@ -56,6 +55,7 @@ public class TaskDetailsView implements Serializable
 	public void setTaskId(long taskId) {
 		this.taskId = taskId;
 	}
+
 	public String getProjectDetailsName() {
 		return projectDetailsName;
 	}
@@ -71,14 +71,12 @@ public class TaskDetailsView implements Serializable
 	public void setWeekNo(int weekNo) {
 		this.WeekNo = weekNo;
 	}
-	
-	/*public int getYearNo() {
-		return YearNo;
-	}
 
-	public void setYearNo(int yearNo) {
-		YearNo = yearNo;
-	}*/
+	/*
+	 * public int getYearNo() { return YearNo; }
+	 * 
+	 * public void setYearNo(int yearNo) { YearNo = yearNo; }
+	 */
 
 	public String getPlannedTask() {
 		return PlannedTask;
@@ -112,7 +110,6 @@ public class TaskDetailsView implements Serializable
 		this.InprogressTask = inprogressTask;
 	}
 
-	
 	public String getSharedResources() {
 		return SharedResources;
 	}
@@ -128,9 +125,9 @@ public class TaskDetailsView implements Serializable
 	public void setBilledResources(String billedResources) {
 		this.BilledResources = billedResources;
 	}
-    	
-	//For billed resources
-	
+
+	// For billed resources
+
 	public String getProjectIncB() {
 		return ProjectIncB;
 	}
@@ -146,51 +143,47 @@ public class TaskDetailsView implements Serializable
 	public void setProjectDecB(String projectDecB) {
 		ProjectDecB = projectDecB;
 	}
-	
-	//For shadow resources
+
+	// For shadow resources
 
 	public String getProjectIncSh() {
 		return ProjectIncSh;
 	}
-	
+
 	public void setProjectIncSh(String projectIncSh) {
 		ProjectIncSh = projectIncSh;
 	}
-	
+
 	public String getProjectDecSh() {
 		return ProjectDecSh;
 	}
-	
+
 	public void setProjectDecSh(String projectDecSh) {
 		ProjectDecSh = projectDecSh;
 	}
-	
+
 	public String getProjectUpdates() {
 		return ProjectUpdates;
 	}
-	
+
 	public void setProjectUpdates(String projectUpdates) {
 		ProjectUpdates = projectUpdates;
 	}
-	
+
 	public String getResourceLoadingB() {
 		return ResourceLoadingB;
 	}
-	
+
 	public void setResourceLoadingB(String resourceLoadingB) {
 		ResourceLoadingB = resourceLoadingB;
 	}
-	
+
 	public String getResourceLoadingSh() {
 		return ResourceLoadingSh;
 	}
-	
+
 	public void setResourceLoadingSh(String resourceLoadingSh) {
 		ResourceLoadingSh = resourceLoadingSh;
-	}
-
-	public ArrayList<RiskDetailsView> getRiskDetailsList() {
-		return riskDetailsList;
 	}
 
 	public String getData() {
@@ -248,9 +241,13 @@ public class TaskDetailsView implements Serializable
 	public void setwNo(String wNo) {
 		this.wNo = wNo;
 	}
-	
-	
-	
-	
-	
+
+	public ArrayList<RiskDetailsView> getRiskDetailsList() {
+		return riskDetailsList;
+	}
+
+	public void setRiskDetailsList(ArrayList<RiskDetailsView> riskDetailsList) {
+		this.riskDetailsList = riskDetailsList;
+	}
+
 }

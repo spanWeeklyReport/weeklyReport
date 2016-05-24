@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dto.ProjectDetailsView;
 import com.evry.dashboard.dto.mapper.ProjectDetailsMapper;
 import com.evry.dashboard.model.ProjectDetails;
+import com.evry.dashboard.util.ProjectTechnology;
 
 @ManagedBean(name = "projectDetailsService")
 @SessionScoped
@@ -35,6 +37,8 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 
 
     public List < String > getProjectNames() {
+    	
+    	 	
         List < String > projectDetails = projectDetailsDAO.getProjectNames();
         return projectDetails;
     }
