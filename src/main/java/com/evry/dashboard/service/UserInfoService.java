@@ -10,4 +10,5 @@ public interface UserInfoService
 	List<UserInfoView> getUsers();
 	String isValid(UserInfoView userInfo);
 	String logout();
+	public void addUserDetails(UserInfoView userInfoView);
 }

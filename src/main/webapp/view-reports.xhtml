@@ -6,9 +6,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
 <h:head>
-	<title>View Reports</title>
+	<title>Welcome</title>
 	<link
 		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
 		rel='stylesheet' type='text/css'></link>
@@ -16,121 +19,149 @@
 	<link rel="stylesheet"
 		href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	</link>
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" href="css/dashboard.css"></link>
+	<link rel="stylesheet" href="css/styles.css"></link>
+	<link rel="stylesheet" href="css/css.css"></link>
+	<link rel="stylesheet" href="css/smk-accordion.css"></link>
+
+
 </h:head>
-<h:body class="welcome-body dashboard">
-	<div class="container2">
-		<header>
-		<div class="top">
-			<div class="nav">
-				<img src="images/spanlogo.png" alt="Span Logo" />
-				<div class="navigation">
-					<h:form id="logout">
-						<ul>
-							<li>Welcome ${userInfo.userName}</li>
-							<li><h:commandButton id="logout" value="Sign Out"
-									class="button" action="#{userInfoService.logout()}"></h:commandButton>
-							</li>
-						</ul>
-					</h:form>
+<h:body>
+	<div class="header">
+		<a href="#" class="logo"> SPAN </a>
+		<div class="signing">
+
+			<h:form id="logout">
+				<ul class="header-menu">
+					<li>Welcome ${userInfo.userName}</li>
+					<li><h:commandButton id="logout" value="Sign Out"
+							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
+					</li>
+				</ul>
+			</h:form>
+
+		</div>
+		<span class="menu-icon">Menu</span>
+
+		<ul class="menu">
+
+		</ul>
+		<div style="height: 322px;" class="dropdown-mask"></div>
+	</div>
+	<!-- HEADER ENDS -->
+	<section class="banner-part"> <!-- PRODUCT HEADER START -->
+	<div class="product-header">
+		<div class="product-header-inner">
+			<a class="product-logo" href="#">Reports</a> <span
+				class="sub-menu-icon">Menu</span>
+			<ul class="product-menu scale hide">
+				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
+				<li><h:link value = "Projects" outcome="add_projects.xhtml"></h:link></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- PRODUCT HEADER ENDS --> <!-- Main div -->
+	<div id="ZRSHomeMainDiv">
+
+
+		<div id="ZRSDBCreationOptions">
+			<div id="ZRSCreateOptsHeader">
+				<h1 style="">View Your Reports</h1>
+			</div>
+			<div class="form view-page">
+				<o:form id="viewform" includeRequestParams="true">
+					<p class="info">
+						<h:outputLabel
+							value="Select the project and week for which you want to view report"
+							for="select_project" />
+						<h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
+					</p>
+					<p class="contact selectbox">
+						<h:outputLabel value="Select Project:" for="select_project" />
+					</p>
+					<h:selectOneMenu value="#{taskDetails.projectDetailsName}"
+						class="select-style gender">
+						<f:selectItem itemValue="All"></f:selectItem>
+						<f:selectItems value="#{projectDetailsService.getProjectNames()}" />
+					</h:selectOneMenu>
+					
+					<p class="contact selectbox">
+						<h:outputLabel value="Select Week:" for="select_week" />
+					</p>
+					<h:inputText value="#{taskDetails.weekNo}"
+						class="weeknumber select-style gender" a:placeholder="Select Week"
+						id="week_no">
+					</h:inputText>
+					<h:button class="datepicker"></h:button>
+					<h:selectBooleanCheckbox class="checkweeks" id="checkBoxAll"
+						value="#{taskDetails.wNo}">
+
+					</h:selectBooleanCheckbox>
+					<h:outputLabel class="all_weeks" value="All Weeks" for="checkweeks" />
+
+					
+					<h:commandButton id="getResult" value="Select" class="Go-back buttons"
+						action="#{taskDetailsService.viewReport(taskDetails)}" />
+					
+					<h:messages class="error-msg" style="margin:8px 0px;padding:0"
+						infoStyle="color:darkgreen" errorStyle="color:darkred" />
+					<br />
+				</o:form>
+				<div>
+
+					<c:if test="${!empty taskDetailsService.taskDetailsViews}">
+
+						<div class="accordion_example2">
+							<ui:repeat value="${taskDetailsService.taskDetailsViews}"
+								var="taskDetailsViewIn">
+								<div class="accordion_in">
+									<div class="acc_head">Project
+										Name:${taskDetailsViewIn.projectDetailsName}
+										&nbsp;&nbsp;&nbsp;&nbsp;Week No: ${taskDetailsViewIn.weekNo}</div>
+									<div class="acc_content">
+										Project Updates :${taskDetailsViewIn.projectUpdates}
+										<h:dataTable var="risk"
+											value="${taskDetailsViewIn.riskDetailsList}"
+											headerClass="mini-titles" rowClasses="table-data">
+											<h:column>
+												<f:facet name="header">Risk Type</f:facet>
+		               ${risk.riskType}
+		            </h:column>
+											<h:column>
+												<f:facet name="header">Risk Description</f:facet>
+		               ${risk.riskDescription}
+		            </h:column>
+											<h:column>
+												<f:facet name="header">Responsible Person</f:facet>
+		               ${risk.riskResponsible}
+		            </h:column>
+										</h:dataTable>
+
+
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</c:if>
+
+
 				</div>
+
 			</div>
 		</div>
-		<h1>View Reports</h1>
-		</header>
 	</div>
-	<div class="form view-page">
-		<h:form id="viewform">
-			<p class="info">
-				<h:outputLabel
-					value="Select the project and week for which you want to view report"
-					for="select_project" />
-				<h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
-			</p>
-			<p class="contact selectbox">
-				<h:outputLabel value="Select Project:" for="select_project" />
-			</p>
-			<h:selectOneMenu value="#{taskDetails.projectDetailsName}"
-				class="select-style gender">
-				<f:selectItem itemValue="All"></f:selectItem>
-				<f:selectItems value="#{projectDetailsService.getProjectNames()}" />
-			</h:selectOneMenu>
-			<br />
-			<br />
-			<p class="contact selectbox">
-				<h:outputLabel value="Select Week:" for="select_week" />
-			</p>
-			<h:inputText value="#{taskDetails.weekNo}"
-				class="weeknumber select-style gender" a:placeholder="Select Week"
-				id="week_no">
-			</h:inputText>
-			<h:button class="datepicker"></h:button>
-			<h:selectBooleanCheckbox class="checkweeks" id="checkBoxAll"
-				value="#{taskDetails.wNo}">
-
-			</h:selectBooleanCheckbox>
-			<h:outputLabel class="all_weeks" value="All Weeks" for="checkweeks" />
-
-			<br />
-			<br />
-			<h:commandButton id="getResult" value="Select" class="buttom fetch"
-				action="#{taskDetailsService.viewReport(taskDetails)}" />
-			<br />
-			<h:messages class="error-msg" style="margin:8px 0px;padding:0"
-				infoStyle="color:darkgreen" errorStyle="color:darkred" />
-			<br />
-		</h:form>
-		<div>
-
-			<c:if test="${!empty taskDetailsService.taskDetailsViews}">
-
-				<ui:repeat value="${taskDetailsService.taskDetailsViews}"
-					var="taskDetailsViewIn">
-					<table class="view-report-table">
-						<tr class="tb-head-row">
-							<th colspan="12">Project Name:
-								${taskDetailsViewIn.projectDetailsName}</th>
-
-						</tr>
-						<tr class="mini-titles">
-							<th colspan="12">Week No: ${taskDetailsViewIn.weekNo}</th>
-
-						</tr>
-
-						<h:dataTable var="risk"
-							value="${taskDetailsViewIn.riskDetailsList}"
-							headerClass="mini-titles" rowClasses="table-data">
-							<h:column>
-								<f:facet name="header">Risk Type</f:facet>
-               ${risk.riskType}
-            </h:column>
-							<h:column>
-								<f:facet name="header">Risk Description</f:facet>
-               ${risk.riskDescription}
-            </h:column>
-							<h:column>
-								<f:facet name="header">Responsible Person</f:facet>
-               ${risk.riskResponsible}
-            </h:column>
-						</h:dataTable>
-						<tr class="table-data">
-							<td colspan="12">Project Updates :
-								${taskDetailsViewIn.projectUpdates}</td>
-						</tr>
-					</table>
-
-
-				</ui:repeat>
-
-			</c:if>
-
-
-		</div>
-
-	</div>
+	</section>
 	<footer> <ui:insert name="footer">
 		<ui:include src="commonFooter.xhtml" />
 	</ui:insert> </footer>
-
+	<script src="js/smk-accordion.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+	jQuery(".accordion_example2").smk_Accordion({
+		closeAble: true, //boolean
+	});
+	</script>
 </h:body>
 </html>

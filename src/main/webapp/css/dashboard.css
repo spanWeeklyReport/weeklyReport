@@ -4,10 +4,7 @@
  * The original css sources are available in the above location.
  */
 
-html, body{
-font-size:100%;
-overflow:hidden !important;
-}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 html, body{
 font-size:100%;
@@ -424,7 +421,7 @@ color: #333;
 .ZAppIcon-chat{ 	background-position: 0 -561px;}
 .ZAppIcon-people{ 	background-position: 0 -204px;}
 .ZAppIcon-recruit{ 	background-position: 0 -238px;}
-body   {position:absolute; width:100%; height:100%;font-family: Arial, Helvetica, "Lucida Grande";}
+
 ul{
 list-style-type:none;
 margin:0;
@@ -2847,12 +2844,7 @@ width: 11px;
 margin: 6px;
 background: url(../../common/images/box/closeBtn.gif) transparent no-repeat;
 }
-body{
-padding:0px;
-margin:0px;
-padding-right:1px;
-background-color :white;
-}
+
 #ZDBBody,#ZDBHead{
 background-color :#F3F3F3;
 }
@@ -7281,10 +7273,7 @@ background-position:-81px -107px;
 .zdbEmailIcon{
 background-position:-156px -83px;
 }
-BODY
-{
-overflow: scroll;
-}
+
 .primarybgcolor1 {
 background-color: #9ECA99;
 }
@@ -10683,16 +10672,7 @@ height: 22px;
 padding: 0 2px;
 width: 100px;
 }
-.selectbox
-{
-background: none repeat scroll 0 0 #e4e4e4;
-border: 1px solid #CDCCCB;
-border-radius: 3px 3px 3px 3px;
-float: left;
-margin: 4px 3px 0 0;
-padding: 0 2px;
-cursor: pointer
-}
+
 #attachFileDataDiv ul li div {
 text-decoration:none;
 color:#000;
@@ -11990,8 +11970,7 @@ width: 100px;
 }
 .selectbox
 {
-background: none repeat scroll 0 0 #e4e4e4;
-border: 1px solid #CDCCCB;
+
 border-radius: 3px 3px 3px 3px;
 float: left;
 margin: 4px 3px 0 0;
@@ -13306,10 +13285,10 @@ a.create, a.view {
 }
 
 #ZRSHomeMainDiv {
-	height: 600px;
 	padding-left:40px;
 	padding-right: 40px;
 	padding-bottom:12px;
+	position:relative;
 }
 
 .product-header-inner {overflow: visible;}
@@ -13328,10 +13307,10 @@ a.create, a.view {
 }
 
 .buttons {
-  background-color: #f2f2f1 !important;
-  border: 1px solid #d8d8d7 !important;
+  background-color:#f0483e !important;
+  border: 1px solid #f0483e  !important;
   border-radius: 3px !important;
-  color: #666667 !important;
+  color: #fff !important;
   cursor: pointer;
   font-size: 12px !important;
   height: 30px;

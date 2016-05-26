@@ -11,4 +11,5 @@ public interface UserInfoDAO
 	//void add(UserInfo userInfo);
 	Query getUsers();
 	boolean isValid(UserInfo userInfo);
+	 public void addUsers(UserInfo userInfo);
 }

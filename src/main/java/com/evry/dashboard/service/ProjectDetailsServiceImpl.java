@@ -3,6 +3,7 @@ package com.evry.dashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -17,31 +18,37 @@ import com.evry.dashboard.util.ProjectTechnology;
 @SessionScoped
 public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 
-    private ProjectDetailsMapper mapper;
-    private ProjectDetailsDAO projectDetailsDAO;
-    
-    
+	private ProjectDetailsMapper projectDetailsmapper;
+	private ProjectDetailsDAO projectDetailsDAO;
 
-    public ProjectDetailsServiceImpl() {
-		
+	public ProjectDetailsServiceImpl() {
+
 	}
 
 	public void setProjectDetailsDAO(ProjectDetailsDAO projectDetailsDAO) {
-        this.projectDetailsDAO = projectDetailsDAO;
-    }
+		this.projectDetailsDAO = projectDetailsDAO;
+	}
 
-    public void setMapper(ProjectDetailsMapper mapper) {
-        this.mapper = mapper;
-    }
+	public void setMapper(ProjectDetailsMapper mapper) {
+		this.projectDetailsmapper = mapper;
+	}
 
+	public List<String> getProjectNames() {
 
+		List<String> projectDetails = projectDetailsDAO.getProjectNames();
+		return projectDetails;
+	}
 
-    public List < String > getProjectNames() {
-    	
-    	 	
-        List < String > projectDetails = projectDetailsDAO.getProjectNames();
-        return projectDetails;
-    }
+	public void addProject(ProjectDetailsView projectDetailsView) {
+		FacesContext.getCurrentInstance().addMessage(
+				"projectForm:submit4",
+				new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"Your project has been saved !!", null));
 
+		ProjectDetails obj = projectDetailsmapper
+				.getMappedEntity(projectDetailsView);
+		projectDetailsDAO.add(obj);
+
+	}
 
 }

@@ -24,7 +24,7 @@ private SessionFactory sessionFactory;
 	}
 	
 	@Transactional
-	public void add(TaskDetails projectDetails) 
+	public void add(ProjectDetails projectDetails) 
 	{
 		Session session = this.sessionFactory.getCurrentSession();
         session.persist(projectDetails);

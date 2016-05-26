@@ -1,183 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets" 
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-   xmlns:c="http://java.sun.com/jsp/jstl/core" 
-   xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
-   >
-   <h:head>
-      <title>Dashboard</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-      </link>
-      <link rel="stylesheet" href="css/dashboard.css">
-      </link>
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-      </link>
-       <link rel="stylesheet" href="css/styles.css"></link>
-       <link rel="stylesheet" href="css/css.css"></link>
-      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
-     
-   </h:head>
-   <h:body>
-        <div class="header">
-         <a href="#" class="logo"> SPAN </a>
-         <div class="signing">
-         
-          <h:form id="logout">
-                        <ul class="header-menu">
-                           <li>Welcome ${userInfo.userName}</li>
-                           <li>
-                              <h:commandButton id="logout" value="Sign Out" class="logout buttons" 
-                                 action="#{userInfoService.logout()}"></h:commandButton>
-                           </li>
-                        </ul>
-          </h:form>
-         
-          </div>
-         <span class="menu-icon">Menu</span>
-         
-         <ul class="menu">
-            
-          </ul>
-         <div style="height: 322px;" class="dropdown-mask"></div>
-      </div>
-      <!-- HEADER ENDS --> 
-      <section class="banner-part">
-      <!-- PRODUCT HEADER START -->
-      <div class="product-header">
-         <div class="product-header-inner">
-            <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
-            <ul  class="product-menu scale hide">
-               <li><a href="">Home</a></li>
-               <li><a href="">Users</a></li>
-               
-            </ul>
-         </div>
-      </div>
-      
-      <!-- PRODUCT HEADER ENDS -->
-      
-         <!-- Main div -->
-            <div id="ZRSHomeMainDiv" >
-               
-               
-               <div id="ZRSDBCreationOptions">
-                  <div id="ZRSCreateOptsHeader">
-                     <h1 style="">Choose your Technology</h1>
-                     <h5 class="dbDescription">Select the technology for which you want to create/view Reports
-                     </h5>
-                  </div>
-                  <div id="ZRSDBCreateOptsHldr">
-                     <div style="position: relative; margin-left: 30px; margin-right: auto; height: 100%; width: 1144px;">
-                        <div id="ZDBDBOptsDiv">
-                           
-                           <ul class="DBCreateOpts">
-                              <li id="FileImport">
-                                 <div class="holder">
-                                    <div class="zdbIcon importnew"></div>
-                                    <div class="optName">Java</div>
-                                    <div style="display: none;" class="ZDBDBOptsTip">
-                                       <div>
-                                          <h1 class="dbNameFont">Java</h1>
-                                          <p class="dbDescription">
-                                            <h:link class="create" outcome="welcome" value="Create Report">
-                                                <f:param name="tech" value="JAVA" includeViewParams="true" />
-                                            </h:link> <br /> 
-                                            <h:link class="view" outcome="view-reports">View Report </h:link>
-                                          </p>
-                                          
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li  id="ImportFromCloud">
-                                 <div class="holder">
-                                    <div class="zdbIcon cloudnew"></div>
-                                    <div class="optName">Dot Net</div>
-                                    <div style="display: none;" class="ZDBDBOptsTip">
-                                       <div>
-                                          <h1 class="dbNameFont">Dot Net</h1>
-                                           <p class="dbDescription">
-                                            <h:link class="create" outcome="welcome.xhtml" value="Create Report">
-                                                <f:param name="tech" value="DOT_NET" includeViewParams="true" />
-                                            </h:link> <br /> 
-                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
-                                          </p>
-                                          
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li id="ImportFromLocalDatabases">
-                                 <div class="holder">
-                                    <div class="zdbIcon localDB"></div>
-                                    <div class="optName">CRM</div>
-                                    <div class="ZDBDBOptsTip" style="height: 140px; width: 202px; padding: 5px; left: -27px; top: -37px; display: none;">
-                                       <div style="width:182px;height:119px;">
-                                          <h1 class="dbNameFont">CRM</h1>
-                                          <p class="dbDescription">
-                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
-                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
-                                          </p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li  id="ZohoProjectsImport" >
-                                 <div class="holder">
-                                    <div class="zdbIcon projectsDB"></div>
-                                    <div class="optName">ROJD</div>
-                                    <div style="display: none;" class="ZDBDBOptsTip">
-                                       <div>
-                                          <h1 class="dbNameFont">ROJD</h1>
-                                           <p class="dbDescription">
-                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
-                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
-                                          </p>
-                                          
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li id="GoogleAnalyticsImport" >
-                                 <div class="holder">
-                                    <div class="zdbIcon gAnalytics"></div>
-                                    <div class="optName">SharePoint</div>
-                                    <div style="display: none;" class="ZDBDBOptsTip">
-                                       <div>
-                                          <h1 class="dbNameFont">SharePoint</h1>
-                                           <p class="dbDescription">
-                                            <h:link class="create" outcome="welcome.xhtml">Create Report</h:link> <br /> 
-                                            <h:link class="view" outcome="view-reports.xhtml">View Report </h:link>
-                                          </p>
-                                          
-                                       </div>
-                                    </div>
-                                 </div>
-                              </li>
-                              
-                              
-                           </ul>
-                           
-                           <div style="clear:both;"></div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               
-            </div>
-            <!-- main div close -->
-         </section>
-         <div class="footer">
-        
-      </div> 
-      <!-- Java Script Start -->
-      <script  src="js/dashboard.js" type="text/javascript"></script>
-       <script src="js/prd-common.js"></script>
-   </h:body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Dashboard</title>
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+		rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="css/dashboard.css"></link>
+	<link rel="stylesheet" href="css/styles.css"></link>
+	<link rel="stylesheet" href="css/css.css"></link>
+	<link rel="stylesheet"
+		href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	</link>
+
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+</h:head>
+<h:body>
+	<div class="header">
+		<a href="#" class="logo"> SPAN </a>
+		<div class="signing">
+
+			<h:form id="logout">
+				<ul class="header-menu">
+					<li>Welcome ${userInfo.userName}</li>
+					<li><h:commandButton id="logout" value="Sign Out"
+							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
+					</li>
+				</ul>
+			</h:form>
+
+		</div>
+		<span class="menu-icon">Menu</span>
+
+		<ul class="menu">
+
+		</ul>
+		<div style="height: 322px;" class="dropdown-mask"></div>
+	</div>
+	<!-- HEADER ENDS -->
+	<section class="banner-part"> <!-- PRODUCT HEADER START -->
+	<div class="product-header">
+		<div class="product-header-inner">
+			<a class="product-logo" href="#">Reports</a> <span
+				class="sub-menu-icon">Menu</span>
+			<ul class="product-menu scale hide">
+				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
+				<li><h:link value = "Projects" outcome="add_projects.xhtml"></h:link></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- PRODUCT HEADER ENDS --> <!-- Main div -->
+	<div id="ZRSHomeMainDiv">
+
+
+		<div id="ZRSDBCreationOptions">
+			<div id="ZRSCreateOptsHeader">
+				<h1 style="">Choose your Technology</h1>
+				<h5 class="dbDescription">Select the technology for which you
+					want to create/view Reports</h5>
+			</div>
+			<div id="ZRSDBCreateOptsHldr">
+				<div
+					style="position: relative; margin-left: 30px; margin-right: auto; height: 100%; width: 1144px;">
+					<div id="ZDBDBOptsDiv">
+
+						<ul class="DBCreateOpts">
+							<li id="FileImport">
+								<div class="holder">
+									<div class="zdbIcon importnew"></div>
+									<div class="optName">Java</div>
+									<div style="display: none;" class="ZDBDBOptsTip">
+										<div>
+											<h1 class="dbNameFont">Java</h1>
+											<p class="dbDescription">
+												<h:link class="create" outcome="welcome"
+													value="Create Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+												<br />
+												<h:link class="view" outcome="view-reports"
+													value="View Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</li>
+							<li id="ImportFromCloud">
+								<div class="holder">
+									<div class="zdbIcon cloudnew"></div>
+									<div class="optName">Dot Net</div>
+									<div style="display: none;" class="ZDBDBOptsTip">
+										<div>
+											<h1 class="dbNameFont">Dot Net</h1>
+											<p class="dbDescription">
+												<h:link class="create" outcome="welcome.xhtml"
+													value="Create Report">
+													<f:param name="tech" value="DOT_NET"
+														includeViewParams="true" />
+												</h:link>
+												<br />
+												<h:link class="view" outcome="view-reports"
+													value="View Report">
+													<f:param name="tech" value="DOT_NET"
+														includeViewParams="true" />
+												</h:link>
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</li>
+							<li id="ImportFromLocalDatabases">
+								<div class="holder">
+									<div class="zdbIcon localDB"></div>
+									<div class="optName">CRM</div>
+									<div class="ZDBDBOptsTip"
+										style="height: 140px; width: 202px; padding: 5px; left: -27px; top: -37px; display: none;">
+										<div style="width: 182px; height: 119px;">
+											<h1 class="dbNameFont">CRM</h1>
+											<p class="dbDescription">
+												<h:link class="create" outcome="welcome"
+													value="Create Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+												<br />
+												<h:link class="view" outcome="view-reports"
+													value="View Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+											</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li id="ZohoProjectsImport">
+								<div class="holder">
+									<div class="zdbIcon projectsDB"></div>
+									<div class="optName">ROJD</div>
+									<div style="display: none;" class="ZDBDBOptsTip">
+										<div>
+											<h1 class="dbNameFont">ROJD</h1>
+											<p class="dbDescription">
+												<h:link class="create" outcome="welcome"
+													value="Create Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+												<br />
+												<h:link class="view" outcome="view-reports"
+													value="View Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</li>
+							<li id="GoogleAnalyticsImport">
+								<div class="holder">
+									<div class="zdbIcon gAnalytics"></div>
+									<div class="optName">SharePoint</div>
+									<div style="display: none;" class="ZDBDBOptsTip">
+										<div>
+											<h1 class="dbNameFont">SharePoint</h1>
+											<p class="dbDescription">
+												<h:link class="create" outcome="welcome"
+													value="Create Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+												<br />
+												<h:link class="view" outcome="view-reports"
+													value="View Report">
+													<f:param name="tech" value="JAVA" includeViewParams="true" />
+												</h:link>
+											</p>
+
+										</div>
+									</div>
+								</div>
+							</li>
+
+
+						</ul>
+
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- main div close --> </section>
+	<div class="footer"></div>
+	<!-- Java Script Start -->
+	<script src="js/dashboard.js" type="text/javascript"></script>
+	<script src="js/prd-common.js"></script>
+</h:body>
 </html>

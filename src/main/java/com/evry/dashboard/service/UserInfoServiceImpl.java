@@ -9,8 +9,10 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.evry.dashboard.dao.UserInfoDAO;
+import com.evry.dashboard.dto.ProjectDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
+import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.HttpSessionFactory;
 
@@ -67,6 +69,17 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
 
     }
+    
+    public void addUserDetails(UserInfoView userInfoView){
+                FacesContext.getCurrentInstance().addMessage(
+                                                                "regform:submit5",
+                                                                new FacesMessage(FacesMessage.SEVERITY_INFO,
+                                                                                                "Your details have been saved !!", null));
+                
+                UserInfo obj = mapper.getMappedEntity(userInfoView);
+                userInfoDAO.addUsers(obj);
+                
+    }          
 
     public String logout() {
         renderer = false;

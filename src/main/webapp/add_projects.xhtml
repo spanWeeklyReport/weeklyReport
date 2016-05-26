@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets" 
+   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   >
+   <h:head>
+      <title>Add Projects</title>
+      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+      </link>
+      <link rel="stylesheet" href="css/styles.css"></link>
+       <link rel="stylesheet" href="css/css.css"></link>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
+      
+   </h:head>
+   <h:body>
+      <div class="header">
+         <a href="#" class="logo"> SPAN </a>
+         <div class="signing"> </div>
+         <span class="menu-icon">Menu</span>
+         <div style="top: 36px;" class="mask-holder hide">
+            <div style="top: 36px;" class="mobile-menu">
+               <div class="mobile-menu-wrap">
+                  
+                  
+                    
+               </div>
+            </div>
+         </div>
+         <ul class="menu">
+            
+          </ul>
+         <div style="height: 322px;" class="dropdown-mask"></div>
+      </div>
+      <!-- HEADER ENDS --> 
+      <!-- PRODUCT HEADER START -->
+      <div class="product-header">
+         <div style="overflow: visible;" class="product-header-inner">
+            <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
+            <ul style="top: 36px;" class="product-menu scale hide">
+               <li><a href="">Projects</a></li>
+               <h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
+               
+               
+               
+            </ul>
+         </div>
+      </div>
+      
+      <!-- PRODUCT HEADER ENDS --> 
+      <!-- MAIN START -->
+      <div class="main">
+         <!--  BANNER STARTS -->
+         <section class="banner-part">
+            <div class="banner-inner content-wrap">
+               <div class="banner-content">
+                  <h1>Span Weekly Reporting</h1>
+                  <p>Visually analyze your business data. Create insightful reports and dashboards. Make informed business decisions.</p>
+                  
+               </div>
+               <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
+               <div class="signup-box ">
+                  <div class="signup_frm">
+                     <p class="signup-heading">Add Projects</p>
+                     <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
+       <h:form id="projectForm">
+       <h:message class="error-msg" style="margin:8px 0px;padding:0"
+                                  infoStyle="color:darkgreen" errorStyle="color:darkred" />
+              <h:outputLabel value="Select Technology: " for="select_technology" />
+              <h:selectOneMenu value="#{projectDetails.projectTechnology}">
+                     <f:selectItem itemValue="0" itemLabel="Select" />
+                     <f:selectItem itemValue="Java" itemLabel="JAVA" />
+                     <f:selectItem itemValue="Dot_net" itemLabel="DOT NET" />
+                     
+              </h:selectOneMenu><br/>
+
+Name: <h:inputText value="#{projectDetails.projectName}"
+                     id="tasks_planned" class="integer planned" /><br/>
+                     
+                     <h:outputLabel value="Status: " for="select_status" />
+              <h:selectOneMenu value="#{projectDetails.projectStatus}">
+                     <f:selectItem itemValue="0" itemLabel="Select" />
+                     <f:selectItem itemValue="Completed" itemLabel="completed" />
+                     <f:selectItem itemValue="Pending" itemLabel="pending" />
+                     <f:selectItem itemValue="Running" itemLabel="running" />
+                     
+              </h:selectOneMenu><br/>
+              
+              <h:commandButton id="submit4" value="Add" 
+                                  action="#{projectDetailsService.addProject(projectDetails)}" />
+
+       </h:form>
+
+</div>
+               </div>
+               <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
+            </div>
+            
+         </section>
+         <!--  BANNER ENDS --> 
+         
+       </div>   <!-- end of main -->
+      <!-- BOTTOM BANNER STARTS -->
+     
+      <div class="footer">
+        
+      </div>
+      <!-- FOOTER ENDS --> 
+      <script src="js/prd-common.js"></script>
+         
+        
+     
+   </h:body>
+</html>
+s

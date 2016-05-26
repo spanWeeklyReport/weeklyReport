@@ -10,5 +10,6 @@ public interface ProjectDetailsDAO {
 	
 	ProjectDetails findByName(String projectName);
 	List<String> getProjectNames();
+	public void add(ProjectDetails projectDetails);
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -22,6 +23,7 @@ import com.evry.dashboard.model.TaskDetails;
 
 @ManagedBean(name = "taskDetailsService")
 @SessionScoped
+@ViewScoped
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	private boolean renderer;

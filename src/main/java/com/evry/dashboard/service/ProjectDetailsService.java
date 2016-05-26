@@ -8,5 +8,6 @@ public interface ProjectDetailsService
 {
 	
 	List<String> getProjectNames();
+	public void addProject(ProjectDetailsView projectDetailsView);
 	
 }
