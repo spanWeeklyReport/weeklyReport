@@ -53,7 +53,7 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-				<li><h:link value = "Projects" outcome="add_projects.xhtml"></h:link></li>
+				
 
 			</ul>
 		</div>
@@ -94,7 +94,7 @@
 					class="weeknumber select-style gender" a:placeholder="Select Week"
 					id="week_no">
 				</h:inputText>
-				<h:button class="datepicker"></h:button>
+				<h:inputSecret class="datepicker" />
 
 				<h:commandButton id="fetch" value="Select" class="buttons fetch"
 					action="#{taskDetailsService.checkTasks(taskDetails)}" />

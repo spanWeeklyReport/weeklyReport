@@ -43,7 +43,7 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		FacesContext.getCurrentInstance().addMessage(
 				"projectForm:submit4",
 				new FacesMessage(FacesMessage.SEVERITY_INFO,
-						"Your project has been saved !!", null));
+						"Project Added Successfully!", null));
 
 		ProjectDetails obj = projectDetailsmapper
 				.getMappedEntity(projectDetailsView);

@@ -12,6 +12,7 @@
       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
       </link>
       <link rel="stylesheet" href="css/styles.css"></link>
+      <link rel="stylesheet" href="css/dashboard.css"></link>
        <link rel="stylesheet" href="css/css.css"></link>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
       
@@ -41,8 +42,8 @@
          <div style="overflow: visible;" class="product-header-inner">
             <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
             <ul style="top: 36px;" class="product-menu scale hide">
-               <li><a href="">Projects</a></li>
-               <h:link class="Go-back" value="Go Back" outcome="dashboard.xhtml"></h:link>
+              
+              <li> <h:link class="Go-back buttons" value="Go Back" outcome="dashboard.xhtml"></h:link> </li>
                
                
                
@@ -56,32 +57,28 @@
          <!--  BANNER STARTS -->
          <section class="banner-part">
             <div class="banner-inner content-wrap">
-               <div class="banner-content">
-                  <h1>Span Weekly Reporting</h1>
-                  <p>Visually analyze your business data. Create insightful reports and dashboards. Make informed business decisions.</p>
-                  
-               </div>
+               
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
-               <div class="signup-box ">
+               <div class="signup-box-sim">
                   <div class="signup_frm">
-                     <p class="signup-heading">Add Projects</p>
+                     <p class="pro-heading">Add Projects</p>
                      <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
        <h:form id="projectForm">
        <h:message class="error-msg" style="margin:8px 0px;padding:0"
                                   infoStyle="color:darkgreen" errorStyle="color:darkred" />
-              <h:outputLabel value="Select Technology: " for="select_technology" />
-              <h:selectOneMenu value="#{projectDetails.projectTechnology}">
+              <h:outputLabel value="Select Technology: " for="select_technology" class="project_form_label"/>
+              <h:selectOneMenu value="#{projectDetails.projectTechnology}" class="project_form">
                      <f:selectItem itemValue="0" itemLabel="Select" />
-                     <f:selectItem itemValue="Java" itemLabel="JAVA" />
-                     <f:selectItem itemValue="Dot_net" itemLabel="DOT NET" />
+                     <f:selectItem itemValue="JAVA" itemLabel="Java" />
+                     <f:selectItem itemValue="DOT_NET" itemLabel="Dot Net" />
                      
               </h:selectOneMenu><br/>
-
-Name: <h:inputText value="#{projectDetails.projectName}"
-                     id="tasks_planned" class="integer planned" /><br/>
+       <h:outputLabel value="Enter Project Name" class="project_form_label"></h:outputLabel>
+    <h:inputText value="#{projectDetails.projectName}"
+                     id="project_name" class="project_form" /><br/>
                      
-                     <h:outputLabel value="Status: " for="select_status" />
-              <h:selectOneMenu value="#{projectDetails.projectStatus}">
+                     <h:outputLabel value="Project Status:" class="project_form_label" />
+              <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form">
                      <f:selectItem itemValue="0" itemLabel="Select" />
                      <f:selectItem itemValue="Completed" itemLabel="completed" />
                      <f:selectItem itemValue="Pending" itemLabel="pending" />
@@ -89,7 +86,7 @@ Name: <h:inputText value="#{projectDetails.projectName}"
                      
               </h:selectOneMenu><br/>
               
-              <h:commandButton id="submit4" value="Add" 
+              <h:commandButton id="submit4" value="Add" class="buttons"
                                   action="#{projectDetailsService.addProject(projectDetails)}" />
 
        </h:form>
@@ -98,7 +95,6 @@ Name: <h:inputText value="#{projectDetails.projectName}"
                </div>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
             </div>
-            
          </section>
          <!--  BANNER ENDS --> 
          
@@ -115,4 +111,3 @@ Name: <h:inputText value="#{projectDetails.projectName}"
      
    </h:body>
 </html>
-s

@@ -13,6 +13,7 @@
       </link>
       <link rel="stylesheet" href="css/styles.css"></link>
        <link rel="stylesheet" href="css/css.css"></link>
+       <link rel="stylesheet" href="css/dashboard.css"></link>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
       
    </h:head>
@@ -41,7 +42,7 @@
          <div style="overflow: visible;" class="product-header-inner">
             <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
             <ul style="top: 36px;" class="product-menu scale hide">
-               <h:link class="Go-back" value="Go Back" outcome="index.xhtml"></h:link>
+               <h:link class="Go-back buttons" value="Go Back" outcome="index.xhtml"></h:link>
                
                
                
@@ -55,23 +56,19 @@
          <!--  BANNER STARTS -->
          <section class="banner-part">
             <div class="banner-inner content-wrap">
-               <div class="banner-content">
-                  <h1>Span Weekly Reporting</h1>
-                  <p>Visually analyze your business data. Create insightful reports and dashboards. Make informed business decisions.</p>
-                  
-               </div>
+              
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
-               <div class="signup-box ">
+               <div class="signup-box-sim">
                   <div class="signup_frm">
-                     <p class="signup-heading">Add Users</p>
+                     <p class="pro-heading">Add Users</p>
                      <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
                      
                   <h:form id="regform">
-                 First Name: <h:inputText value="#{userInfo.firstName}" id="first_name"  /><br/>
-                 Second Name: <h:inputText value="#{userInfo.lastName}" id="last_name"  /><br/>
-                 Username: <h:inputText value="#{userInfo.userName}" id="username"  /><br/>
-                 Password: <h:inputText value="#{userInfo.password}" id="password"  /><br/>
-                 <h:commandButton id="submit5" value="Sign Up" 
+                 <h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel> <h:inputText value="#{userInfo.firstName}"  class="project_form" /><br/>
+                 <h:outputLabel value="Second Name:" class="project_form_label"></h:outputLabel> <h:inputText value="#{userInfo.lastName}"  class="project_form" /><br/>
+                 <h:outputLabel value="Username:" class="project_form_label" /> <h:inputText value="#{userInfo.userName}"  class="project_form"  /><br/>
+                 <h:outputLabel value="Password:" class="project_form_label" /> <h:inputSecret value="#{userInfo.password}" class="project_form" /><br/>
+                 <h:commandButton id="submit5" value="Sign Up" class="buttons"
                                   action="#{userInfoService.addUserDetails(userInfo)}" />
                   
                  </h:form>   

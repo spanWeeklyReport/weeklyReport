@@ -318,7 +318,7 @@ input:-moz-placeholder {
 }
 
 .form{
-       background:#fff; width:70%; 
+       background:#fff; width:77%; 
        margin:0 auto;
         padding-left:25px;
          padding-top:20px;
@@ -392,7 +392,7 @@ input:-moz-placeholder {
   float: left;
   margin-top: 10px !important;
   vertical-align: middle;
-  width: 15%;
+  width: 13%;
 }
 
 .buttons.fetch {
@@ -539,19 +539,20 @@ a.return {
 }
 
 .datepicker {
-  background-attachment: scroll !important;
-  background-clip: border-box !important;
+ 
+ 
   background-color: rgba(0, 0, 0, 0) !important;
   background-image: url("../images/cal.png") !important;
   background-origin: padding-box !important;
   background-position: 0 0 !important;
   background-repeat: no-repeat !important;
-  background-size: cover;
+  background-size: cover !important;
   color: transparent !important;
-  height: 34px;
+  height: 10px !important;
   margin-left: 10px;
   position: absolute;
-  width: 36px;
+  width: 20px !important;
+  margin:0 !important;
 }
 
 .year {
@@ -676,12 +677,10 @@ th.order-table-header {
 }
 
 .checkweeks {
-  margin-left: 68px;
+  margin-left: 20px;
   margin-top: 10px;
   vertical-align: text-bottom;
-}
-.all_weeks {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 table.view-report-table {
@@ -700,6 +699,11 @@ background : rgba(0, 0, 0, 0)url(images/pen-to-paper.jpg) no-repeat scroll 0 0;
   background-size: cover;
   border-radius: 8px;
 }
+
+#ui-datepicker-div {
+  z-index: 99 !important;
+}
+
 .reports2 {
   background: rgba(0, 0, 0, 0) url("images/Monthly-Reports.png") no-repeat scroll 0 0;
   border: 1px dashed #ccc;
@@ -736,6 +740,8 @@ background : rgba(0, 0, 0, 0)url(images/pen-to-paper.jpg) no-repeat scroll 0 0;
 
 .all_weeks {
   margin-left: 5px;
+  display:inline;
+  margin-right:25px;
 }
 
 a.Go-back {

@@ -475,10 +475,7 @@ padding: 5px;
 width: 100%;
 font-size: 13px;
 }
-input[type="checkbox"]
-{
-margin-left:0px;
-}
+
 textarea{
 border: 1px solid #d1d1d1;
 font-size: 13px;

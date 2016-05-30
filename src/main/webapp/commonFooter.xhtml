@@ -164,11 +164,11 @@
              
       //Calender
         $('.datepicker').datepicker({
-              buttonImage: "images/calender.png",
-              buttonImageOnly: true,
+              
               yearRange: "2002:2016",
               changeYear: true,
               changeMonth: true,
+              showOn: 'both',
              showOtherMonths: true,
                  onSelect: function (dateText, inst) {
              var week =  $('.weeknumber').val($.datepicker.iso8601Week(new Date(dateText)));

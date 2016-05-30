@@ -74,7 +74,7 @@ public class UserInfoServiceImpl implements UserInfoService {
                 FacesContext.getCurrentInstance().addMessage(
                                                                 "regform:submit5",
                                                                 new FacesMessage(FacesMessage.SEVERITY_INFO,
-                                                                                                "Your details have been saved !!", null));
+                                                                                                "User Added Successfully!", null));
                 
                 UserInfo obj = mapper.getMappedEntity(userInfoView);
                 userInfoDAO.addUsers(obj);
