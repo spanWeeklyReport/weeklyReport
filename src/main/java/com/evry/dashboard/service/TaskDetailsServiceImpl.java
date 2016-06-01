@@ -23,7 +23,7 @@ import com.evry.dashboard.model.TaskDetails;
 
 @ManagedBean(name = "taskDetailsService")
 @SessionScoped
-@ViewScoped
+
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	private boolean renderer;
@@ -119,7 +119,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		
 		
 		       
-		             return"report.xhtml";
+		             return"report";
 		  }
 
 

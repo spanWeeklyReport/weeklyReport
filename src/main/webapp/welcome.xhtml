@@ -74,8 +74,7 @@
 					<h:outputLabel
 						value="Select the project and week for which you want to add/update report"
 						for="select_project" />
-					<h:link class="Go-back buttons" value="Go Back"
-						outcome="dashboard.xhtml"></h:link>
+					
 				</p><br />
 				<p class="contact selectbox project">
 					
@@ -97,7 +96,9 @@
 				<h:inputSecret class="datepicker" />
 
 				<h:commandButton id="fetch" value="Select" class="buttons fetch"
-					action="#{taskDetailsService.checkTasks(taskDetails)}" />
+					action="#{taskDetailsService.checkTasks(taskDetails)}" >
+					
+				</h:commandButton>
 				<br />
 				<h:messages class="error-msg" style="margin:8px 0px;padding:0"
 					infoStyle="color:darkgreen" errorStyle="color:darkred" />

@@ -16,8 +16,7 @@
 		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
 		rel='stylesheet' type='text/css'></link>
 	<link rel="stylesheet" href="css/style.css"></link>
-	<link rel="stylesheet"
-		href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	</link>
 	<link rel="stylesheet" href="css/dashboard.css"></link>
 	<link rel="stylesheet" href="css/styles.css"></link>
@@ -56,7 +55,7 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-				
+
 
 			</ul>
 		</div>
@@ -72,12 +71,28 @@
 			</div>
 			<div class="form view-page">
 				<o:form id="viewform" includeRequestParams="true">
+					<p class="contact selectbox">
+						<h:outputLabel value="Select Report Type:"></h:outputLabel>
+
+					</p>
+					<h:selectOneMenu value="#{taskDetails.reportType}"
+						class="project_form">
+						<f:selectItem itemValue="0" itemLabel="Select" />
+						<f:selectItem itemValue="AllRisks" itemLabel="All Risks" />
+						<f:selectItem itemValue="AllProjectUpdates"
+							itemLabel="All Project Updates" />
+						<f:ajax render="results" />
+
+					</h:selectOneMenu>
+					<br />
+					<br />
 					<p class="info">
 						<h:outputLabel
-							value="Select the project and week for which you want to view report"
+							value="Select the project and week for which you want to view report:"
 							for="select_project" />
-						<h:link class="Go-back buttons" value="Go Back" outcome="dashboard.xhtml"></h:link>
-					</p><br />
+
+					</p>
+					<br />
 					<p class="contact selectbox">
 						<h:outputLabel value="Select Project:" for="select_project" />
 					</p>
@@ -86,7 +101,7 @@
 						<f:selectItem itemValue="All"></f:selectItem>
 						<f:selectItems value="#{projectDetailsService.getProjectNames()}" />
 					</h:selectOneMenu>
-					
+
 					<p class="contact selectbox">
 						<h:outputLabel value="Select Week:" for="select_week" />
 					</p>
@@ -101,8 +116,9 @@
 					</h:selectBooleanCheckbox>
 					<h:outputLabel class="all_weeks" value="All Weeks" for="checkweeks" />
 
-					
-					<h:commandButton id="getResult" value="Select" class="Go-back buttons"
+
+					<h:commandButton id="getResult" value="Select"
+						class="Go-back buttons"
 						action="#{taskDetailsService.viewReport(taskDetails)}" />
 					<br />
 					<h:messages class="error-msg" style="margin:8px 0px;padding:0"
@@ -111,39 +127,50 @@
 				</o:form>
 				<div>
 
-					<c:if test="${!empty taskDetailsService.taskDetailsViews}">
+					<c:if test="#{!empty taskDetailsService.taskDetailsViews}">
 
-						<div class="accordion_example2">
+						<h:panelGroup layout="block" styleClass="accordion_example2" >
 							<ui:repeat value="${taskDetailsService.taskDetailsViews}"
 								var="taskDetailsViewIn">
-								<div class="accordion_in">
+								<h:panelGroup layout="block" styleClass="accordion_in">
 									<div class="acc_head">Project
 										Name:${taskDetailsViewIn.projectDetailsName}
 										&nbsp;&nbsp;&nbsp;&nbsp;Week No: ${taskDetailsViewIn.weekNo}</div>
-									<div class="acc_content">
-										Project Updates :${taskDetailsViewIn.projectUpdates}
-										<h:dataTable var="risk"
-											value="${taskDetailsViewIn.riskDetailsList}"
-											headerClass="mini-titles" rowClasses="table-data">
-											<h:column>
-												<f:facet name="header">Risk Type</f:facet>
+									<h:panelGroup id="results" class="acc_content">
+										<h:panelGroup layout="block"
+											rendered="#{taskDetails.reportType eq 'AllProjectUpdates'}"
+											styleClass="#{empty taskDetailsViewIn.projectUpdates ? 'empty' : ''}">
+									
+									   Project Updates :${taskDetailsViewIn.projectUpdates}
+									
+									</h:panelGroup>
+
+
+										<h:panelGroup layout="block"
+											rendered="#{taskDetails.reportType eq 'AllRisks'}"
+											styleClass="#{empty taskDetailsViewIn.riskDetailsList ? 'empty' : ''}">
+											<h:dataTable var="risk"
+												value="${taskDetailsViewIn.riskDetailsList}"
+												headerClass="mini-titles" rowClasses="table-data">
+												<h:column>
+													<f:facet name="header">Risk Type</f:facet>
 		               ${risk.riskType}
 		            </h:column>
-											<h:column>
-												<f:facet name="header">Risk Description</f:facet>
+												<h:column>
+													<f:facet name="header">Risk Description</f:facet>
 		               ${risk.riskDescription}
 		            </h:column>
-											<h:column>
-												<f:facet name="header">Responsible Person</f:facet>
+												<h:column>
+													<f:facet name="header">Responsible Person</f:facet>
 		               ${risk.riskResponsible}
 		            </h:column>
-										</h:dataTable>
+											</h:dataTable>
+										</h:panelGroup>
 
-
-									</div>
-								</div>
+									</h:panelGroup>
+								</h:panelGroup>
 							</ui:repeat>
-						</div>
+						</h:panelGroup>
 					</c:if>
 
 
@@ -162,6 +189,7 @@
 	jQuery(".accordion_example2").smk_Accordion({
 		closeAble: true, //boolean
 	});
+	jQuery('.empty').parent().parent().hide();
 	</script>
 </h:body>
 </html>

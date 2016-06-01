@@ -22,10 +22,10 @@ public class TaskDetailsView implements Serializable {
                                                                                                                                                                            */
 	private static final long serialVersionUID = -8796260672796259709L;
 	private long taskId;
+	private String reportType;
 	private String projectDetailsName;
 	private int WeekNo = 1;
 	private String wNo;
-	// private int YearNo;
 	private String PlannedTask;
 	private String CompletedTask;
 	private String HoldTask;
@@ -72,11 +72,14 @@ public class TaskDetailsView implements Serializable {
 		this.WeekNo = weekNo;
 	}
 
-	/*
-	 * public int getYearNo() { return YearNo; }
-	 * 
-	 * public void setYearNo(int yearNo) { YearNo = yearNo; }
-	 */
+	
+	public String getReportType() {
+		return reportType;
+	}
+
+	public void setReportType(String reportType) {
+		this.reportType = reportType;
+	}
 
 	public String getPlannedTask() {
 		return PlannedTask;
