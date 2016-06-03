@@ -1,9 +1,3 @@
-/**
- * IMPORTANT NOTE: This compressed css includes thirdparty css
- * listed at http://reports.zoho.com/html/thirdparty.html
- * The original css sources are available in the above location.
- */
-
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 html, body{
@@ -28,7 +22,7 @@ display:none;
 {
 border:1px solid #C1C1C1;
 border-radius: 10px;
-line-height:17px;	
+line-height:17px;    
 width: 160px;
 }
 .ZRSSearchField input
@@ -170,7 +164,7 @@ line-height:20px;
 text-align:center;
 padding-bottom:3px;
 padding-top:2px;
-margin-top:-2px;	
+margin-top:-2px;     
 }
 .ZAppsMIcon{
 cursor: pointer; 
@@ -315,7 +309,7 @@ display: none;
 border-radius: 4px 4px 0 0 !important;
 -moz-border-radius: 4px 4px 0 0;
 -ms-border-radius:4px 4px 0 0;
--webkit-border-radius: 4px 4px 0 0;	
+-webkit-border-radius: 4px 4px 0 0;      
 }
 #ZDBHomeTabs ul.ZDBTabContainer, #ZRDBManage_Tabs ul.ZDBTabContainer{
 padding: 0 0 0 25px;
@@ -390,37 +384,37 @@ white-space: nowrap;
 display:block;
 color: #333;
 }
-.ZAppIcon{ 	float: left; 	margin-right: 5px; 	background: url("../../common/images/appicons.png") no-repeat;}
-.ZAppIcon-crm{ 	background-position: 0 -119px;}
-.ZAppIcon-motivator{ 	background-position: 0 -544px;}
-.ZAppIcon-campaigns{ 	background-position: 0 -51px;}
-.ZAppIcon-sites{ 	background-position: 0 -340px;}
-.ZAppIcon-survey{ 	background-position: 0 -408px;}
-.ZAppIcon-salesiq{ 	background-position: 0 -272px;}
-.ZAppIcon-social{ 	background-position: 0 -357px;}
-.ZAppIcon-contactmanager{ 	background-position: 0 -85px;}
-.ZAppIcon-forms{ 	background-position: 0 -510px;}
-.ZAppIcon-support{ 	background-position: 0 -391px;}
-.ZAppIcon-assist{ 	background-position: 0 0;}
-.ZAppIcon-creator{ 	background-position: 0 -102px;}
-.ZAppIcon-reports{ 	background-position: 0 -255px;}
-.ZAppIcon-site24x7{ 	background-position: 0 -323px;}
-.ZAppIcon-books{ 	background-position: 0 -17px;}
-.ZAppIcon-invoice{ 	background-position: 0 -153px;}
-.ZAppIcon-subscriptions{ 	background-position: 0 -374px;}
-.ZAppIcon-expense{ 	background-position: 0 -459px;}
-.ZAppIcon-inventory{ 	background-position: 0 -595px;}
-.ZAppIcon-mail{ 	background-position: 0 -170px;}
-.ZAppIcon-docs{ 	background-position: 0 -136px;}
-.ZAppIcon-projects{ 	background-position: 0 -221px;}
-.ZAppIcon-connect{ 	background-position: 0 -68px;}
-.ZAppIcon-bugtracker{ 	background-position: 0 -34px;}
-.ZAppIcon-meeting{ 	background-position: 0 -187px;}
-.ZAppIcon-vault{ 	background-position: 0 -425px;}
-.ZAppIcon-showtime{ 	background-position: 0 -476px;}
-.ZAppIcon-chat{ 	background-position: 0 -561px;}
-.ZAppIcon-people{ 	background-position: 0 -204px;}
-.ZAppIcon-recruit{ 	background-position: 0 -238px;}
+.ZAppIcon{    float: left; margin-right: 5px;   background: url("../../common/images/appicons.png") no-repeat;}
+.ZAppIcon-crm{       background-position: 0 -119px;}
+.ZAppIcon-motivator{       background-position: 0 -544px;}
+.ZAppIcon-campaigns{       background-position: 0 -51px;}
+.ZAppIcon-sites{     background-position: 0 -340px;}
+.ZAppIcon-survey{    background-position: 0 -408px;}
+.ZAppIcon-salesiq{   background-position: 0 -272px;}
+.ZAppIcon-social{    background-position: 0 -357px;}
+.ZAppIcon-contactmanager{ background-position: 0 -85px;}
+.ZAppIcon-forms{     background-position: 0 -510px;}
+.ZAppIcon-support{   background-position: 0 -391px;}
+.ZAppIcon-assist{    background-position: 0 0;}
+.ZAppIcon-creator{   background-position: 0 -102px;}
+.ZAppIcon-reports{   background-position: 0 -255px;}
+.ZAppIcon-site24x7{ background-position: 0 -323px;}
+.ZAppIcon-books{     background-position: 0 -17px;}
+.ZAppIcon-invoice{   background-position: 0 -153px;}
+.ZAppIcon-subscriptions{   background-position: 0 -374px;}
+.ZAppIcon-expense{   background-position: 0 -459px;}
+.ZAppIcon-inventory{       background-position: 0 -595px;}
+.ZAppIcon-mail{      background-position: 0 -170px;}
+.ZAppIcon-docs{      background-position: 0 -136px;}
+.ZAppIcon-projects{ background-position: 0 -221px;}
+.ZAppIcon-connect{   background-position: 0 -68px;}
+.ZAppIcon-bugtracker{      background-position: 0 -34px;}
+.ZAppIcon-meeting{   background-position: 0 -187px;}
+.ZAppIcon-vault{     background-position: 0 -425px;}
+.ZAppIcon-showtime{ background-position: 0 -476px;}
+.ZAppIcon-chat{      background-position: 0 -561px;}
+.ZAppIcon-people{    background-position: 0 -204px;}
+.ZAppIcon-recruit{   background-position: 0 -238px;}
 
 ul{
 list-style-type:none;
@@ -462,10 +456,9 @@ input, textarea
 font-family:inherit;
 font-size:inherit;
 }
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], input[type="email"]{
 border: 1px solid #d1d1d1;
 height: 23px;
-font-size: 13px;
 padding-left: 5px;
 }
 input[type="file"]{
@@ -1911,7 +1904,7 @@ background-position: -1px -441px;
 .ZRSSampleDB{
 background-position: -1px -546px;
 }
-.GreenButton{	
+.GreenButton{ 
 display: inline-block;
 -moz-border-radius: .25em;
 border-radius: .25em;
@@ -1952,35 +1945,19 @@ margin-top: 30px;
 padding: 20px 0 0 28px;
 }
 .zdbIcon {
-height: 45px;
+height: 60px;
 margin-bottom: 18px;
 position: relative;
 top: 11px;
 width: 51px;
-}	 
+}      
 .import:hover {
 background-position: 48px -417px;
 }
 .importnew {
-  background-image: url("../images/java2.jpg");
-  background-position: 1px -7px;
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 70px;
 }
-.cloudnew {
-  background-image: url("../images/dotnet.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 70px;
-}
-.projectsDB {
-  background-image: url("../images/rojd.jpg");
-  background-position: 0 -3px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 47px;
-}
+
 .bugtrackerDB {
 background-position: -94px -66px;
 }
@@ -1998,7 +1975,7 @@ background-position: -182px -10px;
 }
 .blankDB {
 background-position: -1px -73px;
-}	
+}      
 .localDB {
   background-image: url("../images/crm.jpg");
   background-position: 2px 2px;
@@ -2007,7 +1984,7 @@ background-position: -1px -73px;
 }
 .gAdwords {
 background-position: -237px -9px;
-}	
+}      
 .gAnalytics {
   background-image: url("../images/sharepoint.png");
   background-position: 0 -3px;
@@ -2171,8 +2148,8 @@ font-weight: bold;
 line-height:20px;
 }
 a.dbNameFont:hover{
-color: #000;	
-text-decoration:underline;	
+color: #000;  
+text-decoration:underline; 
 }
 .ZRSDBSearchFld{
 position: absolute; 
@@ -2204,7 +2181,7 @@ background-position: -335px -765px;
 background-position: -350px -161px;
 }
 .impDlgBooks{
-background-position: 	-219px -1019px;
+background-position:       -219px -1019px;
 }
 .impDlgArrow
 {
@@ -2485,7 +2462,7 @@ cursor:pointer;
 background-position:-47px -401px;
 }
 .tableRow{
-display: table-row;	
+display: table-row;  
 }
 .tableCell{
 display: table-cell;
@@ -2556,10 +2533,10 @@ box-shadow:0 4px 4px #CDCDCD;
 border: 1px solid #DD4040;
 }
 .ZRSNotification.ZRSNSuccess{
-border: 1px solid #80D2B1;	
+border: 1px solid #80D2B1; 
 }
 .ZRSNotification.ZRSNInfo{
-border: 1px solid #7BD5FF;	
+border: 1px solid #7BD5FF; 
 }
 .ZRSNotifyMessage{
 -ms-word-wrap: break-word;
@@ -2636,7 +2613,7 @@ border-width: 10px;
 margin-left: -10px;
 }
 .ZRSPointerBottomBefore {
-border-top-color: #C0C0C0;	
+border-top-color: #C0C0C0; 
 border-width: 11px;
 margin-left: -11px;
 }
@@ -2671,7 +2648,7 @@ color:red;
 background-color:white;
 border:1px solid;
 }
-.ZRSTipPointerTop:after{	
+.ZRSTipPointerTop:after{   
 bottom: 100%; 
 left: 50%; 
 border: solid transparent; 
@@ -2684,7 +2661,7 @@ border-bottom-color: #404040;
 border-width: 5px;
 margin-left: -5px;
 }
-.ZRSTipPointerTopError:after{	
+.ZRSTipPointerTopError:after{     
 bottom: 100%; 
 left: 50%; 
 border: solid transparent; 
@@ -2697,7 +2674,7 @@ border-bottom-color: #404040;
 border-width: 5px;
 margin-left: -5px;
 }
-.ZRSTipPointerRight:after{	
+.ZRSTipPointerRight:after{ 
 left: 100%; 
 top: 50%; 
 border: solid transparent; 
@@ -2710,7 +2687,7 @@ border-left-color: #404040;
 border-width: 5px;
 margin-top: -5px;
 }
-.ZRSTipPointerBottom:after{	
+.ZRSTipPointerBottom:after{ 
 top: 100%; 
 left: 50%; 
 border: solid transparent; 
@@ -2723,7 +2700,7 @@ border-top-color: #404040;
 border-width: 5px;
 margin-left: -5px;
 }
-.ZRSTipPointerLeft:after{	
+.ZRSTipPointerLeft:after{  
 right: 100%; 
 top: 50%; 
 border: solid transparent; 
@@ -2785,7 +2762,7 @@ white-space:normal;
 white-space:normal;
 }
 .dervEditorDesc1{
-padding-left: 50px; 	 
+padding-left: 50px;  
 min-height:10px
 }
 .dervEditorExample{
@@ -2812,7 +2789,7 @@ margin-left:auto;
 margin-right:auto;
 color: #006666;
 padding : 7px;
-border:1px;	
+border:1px;   
 }
 .successMsg .msgTextDiv,.failureMsg .msgTextDiv{
 width:75%;
@@ -3988,7 +3965,7 @@ background-image:url('../../common/images/icons.gif');
 background-repeat:no-repeat;
 background-position:0px 0px;
 font-family: Arial;
-vertical-align:middle;  	
+vertical-align:middle;     
 cursor:default;
 white-space:nowrap;
 padding:0px 0px 0px 28px;
@@ -4720,7 +4697,7 @@ background: -webkit-gradient(center top , #999999, #808080) repeat scroll 0 0 tr
 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#999999, endColorstr=#808080);
 background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, from(#999999), to(#808080));
 background: -ms-linear-gradient(top, #999999 0%, #808080 100%); 
-background-color: #808080;	
+background-color: #808080; 
 }
 .tabSelected .tabHeader, .tabNotSelected .tabHeader
 {
@@ -5113,7 +5090,7 @@ background-color:transparent;
 padding: 5px 5px 5px 5px;
 }
 .dlginnerblock
-{	
+{      
 border:1px solid #ebebea;
 overflow:auto;
 }
@@ -5479,7 +5456,7 @@ content: "";
 width: 9px;
 height: 3px;
 }
-.cnTtl{	
+.cnTtl{       
 padding-top: 12px;
 }
 /*.DrillFlowEl .closeButton
@@ -5785,7 +5762,7 @@ background-color :#F3F3F2;
 position:relative;
 top:1px;
 height:28px;
-overflow:hidden;	
+overflow:hidden;     
 }
 #ZDBSWIPE a.blue:link, #ZDBSWIPE a.blue:active, #ZDBSWIPE a.blue:hover, #ZDBSWIPE a.blue:visited {
 color: #030303;
@@ -5793,7 +5770,7 @@ font-family: Arial,Helvetica,sans-serif;
 font-size: 9pt;
 font-weight: normal;
 text-decoration: none;
-}	
+}      
 #ZDBSWIPE a.blue:hover{
 /*color: #c8cccf;
 text-shadow:0 0 5px white;
@@ -5817,7 +5794,7 @@ cursor:pointer;
 color: #000;
 text-decoration:none;
 cursor:pointer;
-}	
+}      
 .sel{
 background-color: #f5f5f5 !important;
 *background-color: #8c97ab !important;
@@ -5964,7 +5941,7 @@ background:#ededed;
 border-radius:5px;
 border:1px solid #cacaca;
 margin :2px 2px 0px 2px;
-}*/	
+}*/    
 .ZDBDashboardPanel .navPadding{
 padding-right:14px
 }
@@ -6200,7 +6177,7 @@ font-size: 12px;
 color: #666;
 font-weight: normal;
 line-height: 0.5;
-}	
+}      
 .zdbDataCell, .filterCell,.groupCell,.sectionHeader,.groupSummary,
 .sectionHeaderLast,
 .groupSumPrevRowExists,.groupColStartCell,.groupCellEnd , .pivotLastGroupCell ,  .pivotColSumCell
@@ -6272,10 +6249,10 @@ background-color: rgb(255,235,200);
 border-color: rgb(255,235,200);
 }
 .groupCell 
-{	 
-border-bottom: 1px solid #f7f7f7;	 
-border-top: 1px solid #f7f7f7;	 
-background-color: #f7f7f7;	 
+{      
+border-bottom: 1px solid #f7f7f7; 
+border-top: 1px solid #f7f7f7;    
+background-color: #f7f7f7; 
 font-weight:bold;
 }
 .groupCellEnd
@@ -6292,7 +6269,7 @@ border-bottom:2px solid #DDDDDD;
 }
 .groupSummary
 {
-font-weight: bold;	
+font-weight: bold;   
 background-color: #FFFCF3;
 border-top:2px solid #DDDDDD;
 border-bottom:2px solid #DDDDDD;
@@ -6937,10 +6914,10 @@ padding:0px 7px 0px 3px !important;
 {
 padding: 0px 7px 0px 2px !important;
 }
-.groupCell{	 
-border-bottom: 1px solid #F3F3F3;	 
-border-top: 1px solid #F3F3F3;	 
-background-color: #F3F3F3;	 
+.groupCell{   
+border-bottom: 1px solid #F3F3F3; 
+border-top: 1px solid #F3F3F3;    
+background-color: #F3F3F3; 
 font-weight:bold;
 }
 .groupCellEnd
@@ -6957,7 +6934,7 @@ border-bottom:1px solid #DDDDDD;
 }
 .groupSummary,.groupSummaryLast,.groupSummaryData
 {
-font-weight: bold;	
+font-weight: bold;   
 background-color: #FEF9D8;
 border-top:0px;
 border-bottom:1px solid #DDDDDD;
@@ -6982,13 +6959,13 @@ color:#C0C0C0;
 .percentage,.currency,.date,.boolean,.aggFormulaIcon,.aggIcon,.zdbEmailIcon, .zdbUrlIcon, .geo,.geoIcon{
 background:url(../../common/images/analysis.png) no-repeat;
 }
-.plain,.plainIcon{	
+.plain,.plainIcon{   
 background-position:-28px -83px;
 }
-.geo,.geoIcon{	
+.geo,.geoIcon{       
 background-position:1px -128px;
 }
-.multiline,.multilineIcon{	
+.multiline,.multilineIcon{ 
 background-position:-75px -83px;
 }
 .email,.mailIcon{
@@ -7997,14 +7974,14 @@ height: 24px;
 cursor: pointer;
 }
 .ZRSUpArrow{
-background-position: -92px -248px;	
+background-position: -92px -248px; 
 }
 .ZRSDownArrow{
 background-position: -126px -248px;
 }
 .zdbFreezeIcon{
 position : absolute;
-background:url("../../common/images/icons.png") no-repeat 	-5px -431px transparent;  
+background:url("../../common/images/icons.png") no-repeat     -5px -431px transparent;  
 padding-left:10px;
 height:15px;
 cursor: pointer;
@@ -8179,7 +8156,7 @@ font-weight: normal;
 color: #888888;
 font-size:12px;
 white-space: normal;
-line-height:18px;	
+line-height:18px;    
 }
 .sfSuccessInfo
 {
@@ -9968,7 +9945,7 @@ border-top:1px solid #cccccc;
 background-position:2px 2px;
 padding: 0px 0px 0px 25px;
 }
-.refresh{	
+.refresh{     
 background-position:3px -44px;
 padding: 3px 3px 3px 24px;
 }
@@ -10028,7 +10005,7 @@ background:url('../../common/images/icons.gif') no-repeat;
 background-position:0px -2943px;
 padding: 3px 5px 0px 20px;
 cursor:pointer;
-}	
+}      
 .unmarked{
 background:transparent;
 padding: 3px 5px 0px 20px;
@@ -10530,7 +10507,7 @@ background-position: 0 -571px;
 }
 .txtFiles{
 background-position: -22px -571px;
-}	
+}      
 .xlFiles{
 background-position: -44px -571px;
 }
@@ -10707,7 +10684,7 @@ padding: 3px 0 2px 23px;
 {
 height:16px;
 background-position: 2px -4966px;
-padding: 3px 0 2px 23px;	
+padding: 3px 0 2px 23px;   
 }
 .menuitem {
 font-size: 12px;
@@ -11697,7 +11674,7 @@ color:#000;
 text-decoration: underline;
 }
 .zdbQtTableHeader .header li div{
-font-size:13px;	
+font-size:13px;      
 color:#666;
 padding:10px;
 border-bottom:2px solid #ccc;
@@ -11825,7 +11802,7 @@ background-position: 0 -571px;
 }
 .txtFiles{
 background-position: -22px -571px;
-}	
+}      
 .xlFiles{
 background-position: -44px -571px;
 }
@@ -13204,13 +13181,13 @@ color:#999;
 font-size:12px;
 }
 .impDlgBooks{
-background-position: 	-219px -1019px;
+background-position:       -219px -1019px;
 }
 .impDlgZendeskIcon
 {
 background-position: -235px -438px;
 }
-.zdbSlideEditTable{	
+.zdbSlideEditTable{  
 border-spacing:0;
 }
 .zdbSlideEditTable .header{
@@ -13221,7 +13198,7 @@ height:25px;
 font-size:12px;
 color:#333;
 padding:7px 0px 7px 10px;
-border-bottom:1px solid #e0e0e0;	
+border-bottom:1px solid #e0e0e0;  
 }
 .zdbSlideEditTable .data:hover{
 transition:0.5s all;
@@ -13230,7 +13207,7 @@ transition:0.5s all;
 background:#f6f6f6;
 }
 .zdbSlideEditTable .header td{
-font-size:14px;	
+font-size:14px;      
 color:#666;
 padding:10px;
 border-bottom:2px solid #ccc;
@@ -13248,7 +13225,7 @@ display: inline-block;
 max-width: 600px;
 width:60%;
 padding-right: 25px;
-}	
+}      
 .connInfoDlgBottomBar{
 margin:20px;
 line-height:20px;
@@ -13282,10 +13259,10 @@ a.create, a.view {
 }
 
 #ZRSHomeMainDiv {
-	padding-left:40px;
-	padding-right: 40px;
-	padding-bottom:12px;
-	position:relative;
+       padding-left:40px;
+       padding-right: 40px;
+       padding-bottom:12px;
+       position:relative;
 }
 
 .product-header-inner {overflow: visible;}
@@ -13295,7 +13272,7 @@ a.create, a.view {
 #ZDBDBOptsDiv {visibility: visible; height: 100%; opacity: 1; width: 1070px;}
 .header-menu {
   height: 35px;
-  width: 225px;
+  width: 280px;
 }
 .header-menu li {
   display: inline;

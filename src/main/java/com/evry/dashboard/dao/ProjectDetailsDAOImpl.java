@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import org.hibernate.Query;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
+import com.evry.dashboard.model.UserInfo;
 
 public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 	
@@ -65,5 +67,42 @@ private SessionFactory sessionFactory;
         	projectNames.add(details.getProjectName());
         return projectNames;
 	}
+	
+	@Transactional
+	public boolean checkProject(ProjectDetails projectDetails) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		String projectExists = projectDetails.getProjectName();
+		List<UserInfo> rst = session.getNamedQuery("Projects.projectExists")
+				.setParameter("projectName", projectExists).list();
+				
+
+		boolean projectCheck = false;
+
+		if (!rst.isEmpty()) {
+			projectCheck = true;
+			System.out.println("Project Already Exists");
+			
+			FacesContext.getCurrentInstance().addMessage(
+			"projectForm:submit4",
+			new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"This Project already exists!", null));
+			
+			return true;
+		} else {
+
+			session.persist(projectDetails);
+			FacesContext.getCurrentInstance().addMessage(
+			"projectForm:submit4",
+			new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Project Added Successfully!", null));
+		}
+
+		return false;
+		
+	}
+
+	
+	
 	
 }

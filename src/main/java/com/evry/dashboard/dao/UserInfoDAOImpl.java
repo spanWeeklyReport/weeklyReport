@@ -77,6 +77,41 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return false;
 
 	}
+	
+	@Transactional
+	public boolean userExists(UserInfo userInfo) {
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		String usernameExists = userInfo.getUserName();
+		List<UserInfo> rst = session.getNamedQuery("Users.userExists")
+				.setParameter("username", usernameExists).list();
+				
+
+		boolean userCheck = false;
+
+		if (!rst.isEmpty()) {
+			userCheck = true;
+			System.out.println("User Already Exists");
+			
+			FacesContext.getCurrentInstance().addMessage(
+					"regform:submit5",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"This emailhad already been registered", null));
+			
+			return true;
+		} else {
+
+			session.persist(userInfo);
+			FacesContext.getCurrentInstance().addMessage(
+					"regform:submit5",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"User Successfully added", null));
+		}
+
+		return false;
+		
+	}
+	
 
 	public Query getUsers() {
 		// TODO Auto-generated method stub

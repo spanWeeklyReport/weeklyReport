@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
- 
+
     <annotation-driven /> 
     <resources mapping="/resource/**" location="/resource/" />
   
@@ -16,7 +16,7 @@
         <beans:property name="username" value="root" />
         <beans:property name="password" value="" />
     </beans:bean>
- 
+
     <!-- Hibernate 4 SessionFactory Bean definition -->
     <beans:bean id="hibernate4AnnotatedSessionFactory"
         class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -27,6 +27,7 @@
                 <beans:value>com.evry.dashboard.model.TaskDetails</beans:value>
                 <beans:value>com.evry.dashboard.model.ProjectDetails</beans:value>
                  <beans:value>com.evry.dashboard.model.RiskDetails</beans:value>
+                 <beans:value>com.evry.dashboard.model.Department</beans:value>
             </beans:list>
         </beans:property>
         <beans:property name="hibernateProperties">
@@ -40,10 +41,10 @@
     
     <!-- Bean Creations -->  
     <beans:bean id = "messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<beans:property name="basename">
-			<beans:value>com\evry\dashboard\resources\application</beans:value>
-		</beans:property>
-	</beans:bean>
+              <beans:property name="basename">
+                     <beans:value>com\evry\dashboard\resources\application</beans:value>
+              </beans:property>
+       </beans:bean>
     <beans:bean id = "userInfoDAO" class = "com.evry.dashboard.dao.UserInfoDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean>    
@@ -57,6 +58,10 @@
     <beans:bean id = "riskDetailsDAO" class = "com.evry.dashboard.dao.RiskDetailsDAOImpl">
         <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
     </beans:bean> 
+    <beans:bean id = "departmentDAO" class = "com.evry.dashboard.dao.DepartmentDAOImpl">
+        <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    
     <beans:bean id = "userInfoService" class = "com.evry.dashboard.service.UserInfoServiceImpl">
         <beans:property name = "userInfoDAO" ref = "userInfoDAO"/>
         <beans:property name = "mapper" ref = "userInfoMapper"/>
@@ -67,19 +72,21 @@
          <beans:property name = "riskDetailsDAO" ref = "riskDetailsDAO"/>
         <beans:property name = "taskDetailsMapper" ref = "taskDetailsMapper"/>
         <beans:property name = "riskDetailsMapper" ref = "riskDetailsMapper"/>
-        
-       
-    </beans:bean>
+   </beans:bean>
+    
      <beans:bean id = "projectDetailsService" class = "com.evry.dashboard.service.ProjectDetailsServiceImpl">
         <beans:property name = "projectDetailsDAO" ref = "projectDetailsDAO"/>
         <beans:property name = "mapper" ref = "projectDetailsMapper"/>
-       
     </beans:bean>
+   
     <beans:bean id = "riskDetailsService" class = "com.evry.dashboard.service.RiskDetailsServiceImpl">
         <beans:property name = "riskDetailsDAO" ref = "riskDetailsDAO"/>
         <beans:property name = "mapper" ref = "riskDetailsMapper"/>
-       
-    </beans:bean>
+   </beans:bean>
+    <beans:bean id = "departmentService" class = "com.evry.dashboard.service.DepartmentServiceImpl">
+        <beans:property name = "departmentDAO" ref = "departmentDAO"/>
+        <beans:property name = "departmentMapper" ref = "departmentMapper"/>
+   </beans:bean>
     
     <beans:bean id = "userInfoMapper" class = "com.evry.dashboard.dto.mapper.UserInfoMapper"/>
     
@@ -92,6 +99,8 @@
    <beans:bean id = "projectDetailsMapper" class = "com.evry.dashboard.dto.mapper.ProjectDetailsMapper" />
 
     <beans:bean id = "riskDetailsMapper" class = "com.evry.dashboard.dto.mapper.RiskDetailsMapper" />
+    
+     <beans:bean id = "departmentMapper" class = "com.evry.dashboard.dto.mapper.DepartmentMapper" />
         
     <context:component-scan base-package="com.evry.dashboard.service" />
     <context:component-scan base-package="com.evry.dashboard.dao" />     
@@ -103,5 +112,5 @@
         <beans:property name="sessionFactory"
             ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
- 
+
 </beans:beans>

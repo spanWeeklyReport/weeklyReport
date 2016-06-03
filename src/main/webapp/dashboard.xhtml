@@ -54,11 +54,13 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-				<li><h:link value = "Projects" outcome="add_projects.xhtml"></h:link></li>
+				<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
 
 			</ul>
 		</div>
 	</div>
+
+
 
 	<!-- PRODUCT HEADER ENDS --> <!-- Main div -->
 	<div id="ZRSHomeMainDiv">
@@ -66,134 +68,48 @@
 
 		<div id="ZRSDBCreationOptions">
 			<div id="ZRSCreateOptsHeader">
-				<h1 style="">Choose your Technology</h1>
+				<h1 style="">Choose your Department</h1>
 				<h5 class="dbDescription">Select the technology for which you
 					want to create/view Reports</h5>
 			</div>
 			<div id="ZRSDBCreateOptsHldr">
+
 				<div
 					style="position: relative; margin-left: 30px; margin-right: auto; height: 100%; width: 1144px;">
 					<div id="ZDBDBOptsDiv">
 
 						<ul class="DBCreateOpts">
-							<li id="FileImport">
-								<div class="holder">
-									<div class="zdbIcon importnew"></div>
-									<div class="optName">Java</div>
-									<div style="display: none;" class="ZDBDBOptsTip">
-										<div>
-											<h1 class="dbNameFont">Java</h1>
-											<p class="dbDescription">
-												<h:link class="create" outcome="welcome"
-													value="Create Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-												<br />
-												<h:link class="view" outcome="view-reports"
-													value="View Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-											</p>
+							<ui:repeat id="names"
+								value="${departmentService.getDepartment()}" var="department">
+								<li id="FileImport">
+									<div class="holder">
+										<div class="zdbIcon importnew">
+											<img src="${department.logo}" />
+										</div>
+										<div class="optName">${department.departmentName}</div>
+										<div style="display: none;" class="ZDBDBOptsTip">
+											<div>
+												<h1 class="dbNameFont">${department.departmentName}</h1>
+												<p class="dbDescription">
+													<h:link class="create" outcome="welcome"
+														value="Create Report">
+														<f:param name="tech" value="${department.departmentName}"
+															includeViewParams="true" />
+													</h:link>
+													<br />
+													<h:link class="view" outcome="view-reports"
+														value="View Report">
+														<f:param name="tech" value="${department.departmentName}"
+															includeViewParams="true" />
+													</h:link>
+												</p>
 
+											</div>
 										</div>
 									</div>
-								</div>
-							</li>
-							<li id="ImportFromCloud">
-								<div class="holder">
-									<div class="zdbIcon cloudnew"></div>
-									<div class="optName">Dot Net</div>
-									<div style="display: none;" class="ZDBDBOptsTip">
-										<div>
-											<h1 class="dbNameFont">Dot Net</h1>
-											<p class="dbDescription">
-												<h:link class="create" outcome="welcome.xhtml"
-													value="Create Report">
-													<f:param name="tech" value="DOT_NET"
-														includeViewParams="true" />
-												</h:link>
-												<br />
-												<h:link class="view" outcome="view-reports"
-													value="View Report">
-													<f:param name="tech" value="DOT_NET"
-														includeViewParams="true" />
-												</h:link>
-											</p>
+								</li>
 
-										</div>
-									</div>
-								</div>
-							</li>
-							<li id="ImportFromLocalDatabases">
-								<div class="holder">
-									<div class="zdbIcon localDB"></div>
-									<div class="optName">CRM</div>
-									<div class="ZDBDBOptsTip"
-										style="height: 140px; width: 202px; padding: 5px; left: -27px; top: -37px; display: none;">
-										<div style="width: 182px; height: 119px;">
-											<h1 class="dbNameFont">CRM</h1>
-											<p class="dbDescription">
-												<h:link class="create" outcome="welcome"
-													value="Create Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-												<br />
-												<h:link class="view" outcome="view-reports"
-													value="View Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-											</p>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li id="ZohoProjectsImport">
-								<div class="holder">
-									<div class="zdbIcon projectsDB"></div>
-									<div class="optName">ROJD</div>
-									<div style="display: none;" class="ZDBDBOptsTip">
-										<div>
-											<h1 class="dbNameFont">ROJD</h1>
-											<p class="dbDescription">
-												<h:link class="create" outcome="welcome"
-													value="Create Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-												<br />
-												<h:link class="view" outcome="view-reports"
-													value="View Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-											</p>
-
-										</div>
-									</div>
-								</div>
-							</li>
-							<li id="GoogleAnalyticsImport">
-								<div class="holder">
-									<div class="zdbIcon gAnalytics"></div>
-									<div class="optName">SharePoint</div>
-									<div style="display: none;" class="ZDBDBOptsTip">
-										<div>
-											<h1 class="dbNameFont">SharePoint</h1>
-											<p class="dbDescription">
-												<h:link class="create" outcome="welcome"
-													value="Create Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-												<br />
-												<h:link class="view" outcome="view-reports"
-													value="View Report">
-													<f:param name="tech" value="JAVA" includeViewParams="true" />
-												</h:link>
-											</p>
-
-										</div>
-									</div>
-								</div>
-							</li>
-
+							</ui:repeat>
 
 						</ul>
 

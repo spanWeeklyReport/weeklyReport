@@ -40,14 +40,10 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 	}
 
 	public void addProject(ProjectDetailsView projectDetailsView) {
-		FacesContext.getCurrentInstance().addMessage(
-				"projectForm:submit4",
-				new FacesMessage(FacesMessage.SEVERITY_INFO,
-						"Project Added Successfully!", null));
+		
 
-		ProjectDetails obj = projectDetailsmapper
-				.getMappedEntity(projectDetailsView);
-		projectDetailsDAO.add(obj);
+		ProjectDetails obj = projectDetailsmapper.getMappedEntity(projectDetailsView);
+		projectDetailsDAO.checkProject(obj);
 
 	}
 

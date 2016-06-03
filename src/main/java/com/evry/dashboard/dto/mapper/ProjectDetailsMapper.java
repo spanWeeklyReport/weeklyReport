@@ -12,7 +12,7 @@ public class ProjectDetailsMapper
 		projectDetailsView.setOid(projectDetails.getOid());
 		projectDetailsView.setProjectName(projectDetails.getProjectName());
 		projectDetailsView.setProjectStatus(projectDetails.getProjectStatus());
-		projectDetailsView.setProjectTechnology(projectDetails.getProjectTechnology());
+		projectDetailsView.setProjectDepartment(projectDetails.getProjectDepartment());
 		return projectDetailsView;
 	}
 
@@ -22,7 +22,7 @@ public class ProjectDetailsMapper
 //		projectDetails.setOid(projectDetailsView.getOid());
 		projectDetails.setProjectName(projectDetailsView.getProjectName());
 		projectDetails.setProjectStatus(projectDetailsView.getProjectStatus());
-		projectDetails.setProjectTechnology(projectDetailsView.getProjectTechnology());
+		projectDetails.setProjectDepartment(projectDetailsView.getProjectDepartment());
 		return projectDetails;
 
 }

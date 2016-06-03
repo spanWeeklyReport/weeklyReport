@@ -2,7 +2,18 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">     
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	<filter>
+		<description>
+		</description>
+		<display-name>CacheFilter</display-name>
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>com.evry.dashboard.util.CacheFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>/CacheFilter</url-pattern>
+	</filter-mapping>     
   <listener>
     <listener-class>
         org.springframework.web.context.ContextLoaderListener
@@ -19,6 +30,10 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <param-value>Development</param-value>
     </context-param>
     <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
 	    <param-name>facelets.SKIP_COMMENTS</param-name>
 	    <param-value>true</param-value>
     </context-param>
@@ -32,6 +47,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <url-pattern>*.jsf</url-pattern>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+   
     <session-config>
         <session-timeout>
             30

@@ -66,13 +66,10 @@
        <h:form id="projectForm">
        <h:message class="error-msg" style="margin:8px 0px;padding:0"
                                   infoStyle="color:darkgreen" errorStyle="color:darkred" />
-              <h:outputLabel value="Select Technology: " for="select_technology" class="project_form_label"/>
-              <h:selectOneMenu value="#{projectDetails.projectTechnology}" class="project_form">
-                     <f:selectItem itemValue="0" itemLabel="Select" />
-                     <f:selectItem itemValue="JAVA" itemLabel="Java" />
-                     <f:selectItem itemValue="DOT_NET" itemLabel="Dot Net" />
-                     
-              </h:selectOneMenu><br/>
+              <h:outputLabel value="Select Department: " for="select_technology" class="project_form_label"/>
+              <h:selectOneMenu value="#{projectDetails.projectDepartment}" class="project_form">
+                   
+             </h:selectOneMenu><br/>
        <h:outputLabel value="Enter Project Name" class="project_form_label"></h:outputLabel>
     <h:inputText value="#{projectDetails.projectName}"
                      id="project_name" class="project_form" /><br/>

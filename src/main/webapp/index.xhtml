@@ -68,7 +68,7 @@
                         <div class="sgfrm za-email-container">
                          
                            <span class="placeholder">Email</span>
-                          <h:inputText value="#{userInfo.userName}" class="sgnemail" id="email" />
+                          <h:inputText value="#{userInfo.userName}" a:type="email" class="sgnemail" id="email" />
                            <div class="za-email-suggestion">
                               <div></div>
                            </div>
@@ -102,7 +102,19 @@
       </div>
       <!-- FOOTER ENDS --> 
       <script src="js/prd-common.js"></script>
+	  <script type="text/javascript">
+	  if ($(".sgnemail").val() != ""){
+
+		  $(".za-email-container").addClass('added-placeholder');
+
+		  }
+	  if ($(".sgnpaswrd").val() != ""){
+
+		  $(".za-password-container").addClass('added-placeholder');
+
+		  }
 	  
+	  </script>
 	 
      
    </h:body>

@@ -12,4 +12,5 @@ public interface UserInfoDAO
 	Query getUsers();
 	boolean isValid(UserInfo userInfo);
 	 public void addUsers(UserInfo userInfo);
+	 public boolean userExists (UserInfo userInfo);
 }

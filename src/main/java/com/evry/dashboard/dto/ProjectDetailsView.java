@@ -10,7 +10,7 @@ public class ProjectDetailsView
 	private long oid;
 	private String projectName;
 	private String projectStatus;
-	private String projectTechnology;
+	private String projectDepartment;
 	
 	public long getOid() 
 	{
@@ -42,12 +42,13 @@ public class ProjectDetailsView
 		this.projectStatus = projectStatus;
 	}
 
-	public String getProjectTechnology() {
-		return projectTechnology;
+	public String getProjectDepartment() {
+		return projectDepartment;
 	}
 
-	public void setProjectTechnology(String projectTechnology) {
-		this.projectTechnology = projectTechnology;
+	public void setProjectDepartment(String projectDepartment) {
+		this.projectDepartment = projectDepartment;
 	}
+
 	
 }

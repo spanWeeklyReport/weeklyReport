@@ -16,7 +16,10 @@ import javax.persistence.Table;
 	        @NamedQuery(  
 	        name = "findByName",  
 	        query = "select o from ProjectDetails o where o.projectName = :projectName "  
-	        )  
+	        )  ,
+	        @NamedQuery(
+	        name = "Projects.projectExists", 
+	        query = "SELECT o FROM ProjectDetails o WHERE o.projectName = :projectName")
 	    } 
 	  )
 public class ProjectDetails {
@@ -31,8 +34,8 @@ public class ProjectDetails {
 	@Column(name = "PROJECT_STATUS")
 	private String projectStatus;
 	
-	@Column(name = "PROJECT_TECHNOLOGY")
-	private String projectTechnology;
+	@Column(name = "PROJECT_DEPARTMENT")
+	private String projectDepartment;
 
 	public long getOid() {
 		return oid;
@@ -64,13 +67,14 @@ public class ProjectDetails {
 		return projectName;
 	}
 
-	public String getProjectTechnology() {
-		return projectTechnology;
+	public String getProjectDepartment() {
+		return projectDepartment;
 	}
 
-	public void setProjectTechnology(String projectTechnology) {
-		this.projectTechnology = projectTechnology;
+	public void setProjectDepartment(String projectDepartment) {
+		this.projectDepartment = projectDepartment;
 	}
+
 	
 	
 	
