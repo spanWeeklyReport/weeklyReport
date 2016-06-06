@@ -55,6 +55,7 @@
 			<ul class="product-menu scale hide">
 				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
 				<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
+				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>
 
 			</ul>
 		</div>
@@ -108,8 +109,38 @@
 										</div>
 									</div>
 								</li>
+								
 
 							</ui:repeat>
+							
+							<li id="FileImport">
+									<div class="holder">
+										<div class="zdbIcon importnew">
+											<img src="../images/rojd.jpg" />
+										</div>
+										<div class="optName">All Departments</div>
+										<div style="display: none;" class="ZDBDBOptsTip">
+											<div>
+												<h1 class="dbNameFont">All Departments</h1>
+												<p class="dbDescription">
+													<h:link class="create" outcome="welcome"
+														value="Create Report">
+														<f:param name="tech" value="All"
+															includeViewParams="true" />
+													</h:link>
+													<br />
+													<h:link class="view" outcome="view-reports"
+														value="View Report">
+														<f:param name="tech" value="All"
+															includeViewParams="true" />
+													</h:link>
+												</p>
+
+											</div>
+										</div>
+									</div>
+								</li>
+								
 
 						</ul>
 

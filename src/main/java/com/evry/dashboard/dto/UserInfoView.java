@@ -18,6 +18,8 @@ public class UserInfoView implements Serializable
                 private String lastName;
                 private String userName;
                 private String password;
+               // private String loginUsername;
+                private int userRole = 2;
                 
                 public String getUserName() 
                 {
@@ -55,4 +57,25 @@ public class UserInfoView implements Serializable
                 {
                                 this.password = password;
                 }
+
+				public int getUserRole() {
+					return userRole;
+				}
+
+				public void setUserRole(int userRole) {
+					this.userRole = userRole;
+				}
+
+				/*public String getLoginUsername() {
+					return loginUsername;
+				}
+
+				public void setLoginUsername(String loginUsername) {
+					this.loginUsername = loginUsername;
+				}*/
+
+				
+				
+                
+                
 }

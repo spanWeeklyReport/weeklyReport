@@ -96,7 +96,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"This emailhad already been registered", null));
+							"This email has already been registered", null));
 			
 			return true;
 		} else {

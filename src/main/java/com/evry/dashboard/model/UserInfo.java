@@ -43,6 +43,9 @@ public class UserInfo
 
                 @Column(name = "PASSWORD")
                 private String password;
+                
+                @Column(name = "ROLE")
+                private int userRole;
 
                 public long getOid() 
                 {
@@ -90,5 +93,17 @@ public class UserInfo
                 {
                                 this.password = password;
                 }
+
+				public int getUserRole() {
+					return userRole;
+				}
+
+				public void setUserRole(int userRole) {
+					this.userRole = userRole;
+				}
+
+				
+                
+                
 
 }

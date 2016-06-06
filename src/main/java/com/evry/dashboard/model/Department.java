@@ -3,10 +3,21 @@ package com.evry.dashboard.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "DEPARTMENT")
+
+@NamedQueries(  
+	    {  
+	       
+	        @NamedQuery(
+	        name = "Department.departmentExists", 
+	        query = "SELECT o FROM Department o WHERE o.departmentName = :departmentName")
+	    } 
+	  )
 
 public class Department {
 	

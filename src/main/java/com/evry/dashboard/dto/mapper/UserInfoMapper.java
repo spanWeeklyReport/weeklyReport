@@ -12,7 +12,9 @@ public class UserInfoMapper
                                 userInfoView.setFirstName(userInfo.getFirstName());
                                 userInfoView.setLastName(userInfo.getLastName());
                                 userInfoView.setUserName(userInfo.getUserName());
+                               // userInfoView.setLoginUsername(userInfo.getUserName());
                                 userInfoView.setPassword(userInfo.getPassword());
+                                userInfoView.setUserRole(userInfo.getUserRole());
                                 return userInfoView;
                 }
 
@@ -23,6 +25,8 @@ public class UserInfoMapper
                                 userInfo.setLastName(userInfoView.getLastName());
                                 userInfo.setUserName(userInfoView.getUserName());
                                 userInfo.setPassword(userInfoView.getPassword());
+                                //userInfo.setUserName(userInfoView.getLoginUsername());
+                                userInfo.setUserRole(userInfoView.getUserRole());
                                 return userInfo;
                 }
 
