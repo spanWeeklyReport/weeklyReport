@@ -24,7 +24,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 
 	@Transactional
-	private boolean getUsers(String username, String password) {
+	private boolean getUsers(String username, String password, UserInfo userInfo) {
 
 		Session session = this.sessionFactory.getCurrentSession();
 		boolean result = false;
@@ -32,12 +32,20 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		List<UserInfo> rs = session.getNamedQuery("Users.findByUsername")
 				.setParameter("username", username)
 				.setParameter("password", password).list();
+		int userRole = userInfo.getUserRole();
+		String fname = userInfo.getFirstName();
 
 		boolean userFound = false;
 
 		if (!rs.isEmpty()) {
 			userFound = true;
 			System.out.println("Login Successful");
+			
+			 FacesContext context2 = FacesContext.getCurrentInstance();
+		        HttpSession sesion = (HttpSession) context2.getExternalContext().getSession(true);
+		        sesion.setAttribute("userRole", userRole);
+		        sesion.setAttribute("fname", fname);
+			   
 			return true;
 		} else {
 
@@ -56,6 +64,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public boolean isValid(UserInfo userInfo) {
 		String username = userInfo.getUserName();
 		String password = userInfo.getPassword();
+		
 
 		if ((username.equals("") || password.equals(""))) {
 			if (username.equals("") && password.equals("")) {
@@ -70,7 +79,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		}
 
 		else {
-			return getUsers(username, password);
+			return getUsers(username, password, userInfo);
 
 		}
 

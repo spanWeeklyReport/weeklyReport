@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name="userInfo")
 @SessionScoped
+@ViewScoped
 public class UserInfoView implements Serializable
 {
                 /**

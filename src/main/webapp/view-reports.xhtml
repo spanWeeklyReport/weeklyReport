@@ -32,7 +32,7 @@
 
 			<h:form id="logout">
 				<ul class="header-menu">
-					<li>Welcome ${userInfo.userName}</li>
+					<li>Welcome  #{username}</li>
 					<li><h:commandButton id="logout" value="Sign Out"
 							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
 					</li>
@@ -76,7 +76,7 @@
 
 					</p>
 					<h:selectOneMenu value="#{taskDetails.reportType}"
-						class="project_form">
+						class="project_form select-style">
 						<f:selectItem itemValue="0" itemLabel="Select" />
 						<f:selectItem itemValue="AllRisks" itemLabel="All Risks" />
 						<f:selectItem itemValue="AllProjectUpdates"

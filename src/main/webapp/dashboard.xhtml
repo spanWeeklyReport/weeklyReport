@@ -31,7 +31,7 @@
 
 			<h:form id="logout">
 				<ul class="header-menu">
-					<li>Welcome ${userInfo.userName}</li>
+					<li>Welcome #{username}</li>
 					<li><h:commandButton id="logout" value="Sign Out"
 							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
 					</li>
@@ -54,8 +54,8 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-				<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
-				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>
+				<!-- <li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
+				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>  -->
 
 			</ul>
 		</div>
@@ -113,7 +113,7 @@
 
 							</ui:repeat>
 							
-							<li id="FileImport">
+							<!-- <li id="FileImport">
 									<div class="holder">
 										<div class="zdbIcon importnew">
 											<img src="../images/rojd.jpg" />
@@ -139,8 +139,8 @@
 											</div>
 										</div>
 									</div>
-								</li>
-								
+								</li>  -->
+							
 
 						</ul>
 
