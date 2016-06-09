@@ -48,21 +48,22 @@
                <div class="signup-box-sim">
                   <div class="signup_frm">
                      <p class="pro-heading">Add Projects</p>
-                     <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
+                     <h:messages class="error-msg" style="margin:10px 0px;padding:0"   />
        <h:form id="projectForm">
        <h:message class="error-msg" style="margin:8px 0px;padding:0"
                                   infoStyle="color:darkgreen" errorStyle="color:darkred" />
               <h:outputLabel value="Select Manager: " for="select_technology" class="project_form_label"/>
-              <h:selectOneMenu value="#{projectDetails.projectDepartment}" class="project_form sel_department">
+              <h:selectOneMenu value="#{projectDetails.projectDepartment}" class="project_form sel_department" required="true" requiredMessage="Please select Manager">
+                   <f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
                    <f:selectItems value="#{departmentService.getdepartmentName()}" />
              </h:selectOneMenu><br/>
        <h:outputLabel value="Enter Project Name" class="project_form_label"></h:outputLabel>
     <h:inputText value="#{projectDetails.projectName}"
-                     id="project_name" class="project_form proj_name"/><br/>
+                     id="project_name" class="project_form proj_name" required="true" requiredMessage="Please enter Project Name"/><br/>
                      
                      <h:outputLabel value="Project Status:" class="project_form_label" />
-              <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form project_status">
-                     <f:selectItem itemValue="0" itemLabel="Select" />
+              <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form project_status" required="true" requiredMessage="Please select Project Status">
+                     <f:selectItem itemValue="#{null}" itemLabel="Select" />
                      <f:selectItem itemValue="Completed" itemLabel="completed" />
                      <f:selectItem itemValue="Pending" itemLabel="pending" />
                      <f:selectItem itemValue="Running" itemLabel="running" />
@@ -90,13 +91,7 @@
       <!-- FOOTER ENDS --> 
       <script src="js/prd-common.js"></script>
       <script type="text/javascript">
-      $("#projectForm").submit(function(){
-      if ( $(".sel_department").val() == 0 || $(".proj_name").val() == "" || $(".project_status").val() == "" ) {
-    	  
-    	  alert("Please fill all the details");
-    	  return false;
-      }
-      });
+     
       </script>
         
      

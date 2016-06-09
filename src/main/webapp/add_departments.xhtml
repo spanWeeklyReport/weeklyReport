@@ -15,6 +15,25 @@
        <link rel="stylesheet" href="css/css.css"></link>
        <link rel="stylesheet" href="css/dashboard.css"></link>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
+      <script type="text/javscript">
+      $(document).ready(function(){
+       $(".add-d").click(function(){
+
+         if ( $(".department").val() == "" ){
+  
+         alert("erferf");
+         return false;
+  
+              }
+
+           });
+
+
+    });
+     
+      
+
+     </script>   
       
    </h:head>
    <h:body>
@@ -28,7 +47,7 @@
             <ul style="top: 36px;" class="product-menu scale hide">
                <li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
                <li><h:link value="Users" outcome="user_reg.xhtml"></h:link></li>
-				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>
+				<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
                
                
                
@@ -50,9 +69,10 @@
                      <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
                      
                   <h:form id="addDepartmentForm">
-                 <h:outputLabel value="Department Name:" class="project_form_label"></h:outputLabel> <h:inputText value="#{departmentView.departmentName}"  class="project_form" /><br/>
+                 <h:outputLabel value="Department Name:" class="project_form_label"></h:outputLabel> 
+                 <h:inputText value="#{departmentView.departmentName}"  class="project_form department" required="true" requiredMessage="Please enter Department Name" /><br/>
                 
-                 <h:commandButton id="submit6" value="Add" class="buttons"
+                 <h:commandButton id="submit6" value="Add" class="buttons add-d"
                                   action="#{departmentService.addDepartment(departmentView)}" />
                   
                  </h:form>   
@@ -74,8 +94,7 @@
       </div>
       <!-- FOOTER ENDS --> 
       <script src="js/prd-common.js"></script>
-         
-        
+              
      
    </h:body>
 </html>
