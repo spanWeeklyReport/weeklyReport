@@ -31,7 +31,7 @@ body {
 	-webkit-text-size-adjust: none;
 }
 h1 {
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: 400;
 	letter-spacing: -1px;
 	line-height: 50px;
@@ -139,7 +139,7 @@ p {
 	background: none repeat scroll 0 0 #ffffff;
 	overflow: hidden;
 	width: 100%;
-	min-height: 35px;
+	min-height: 40px;
 	border-bottom: 1px solid #e8e8e8;
 }
 .logo {
@@ -821,7 +821,7 @@ p {
 	margin-left: 40px;
 }
 .product-menu li:first-child {
-	margin-left: 0;
+	margin-left: 35px;
 }
 .product-menu li a {
 	display: inline-block;
@@ -1191,7 +1191,7 @@ p.pro-heading {
 
 select.project_form {
   height: 33px;
-  width: 199px;
+  width: 133px;
 }
 
 a.Go-back {

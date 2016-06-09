@@ -50,17 +50,29 @@ public class UserInfoServiceImpl implements UserInfoService {
 				.getMappedEntity(userInfoView));
 
 		if (result) {
+			
+			String uRoll = userInfoDAO.getUserRole(mapper
+						.getMappedEntity(userInfoView));
+			String uName = userInfoDAO.getUserName(mapper
+					.getMappedEntity(userInfoView));
+			System.out.println("*******"+uRoll);
+			System.out.println("*******"+uName);
 			// get Http Session and store username
 			HttpSession session = HttpSessionFactory.getSession();
-			session.setAttribute("username", userInfoView.getUserName());
+			session.setAttribute("email", userInfoView.getUserName());
+			session.setAttribute("userRole", uRoll);
+			session.setAttribute("userName", uName);
+
 			
+			
+
 			return "dashboard.xhtml";
 		} else {
 
 			FacesContext.getCurrentInstance().addMessage(
 					"signupform:signupbtn",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"Invalid Login!", "Please Try Again!"));
+							"Please enter valid login details!", "Please Try Again!"));
 
 			return "index.xhtml";
 		}
@@ -71,16 +83,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 		UserInfo obj = mapper.getMappedEntity(userInfoView);
 		userInfoDAO.userExists(obj);
-		
-		
 
 	}
 
 	public String logout() {
 		renderer = false;
 		logout = true;
-		String abc = HttpSessionFactory.getUserName();
-		System.out.println(abc);
+		
 		HttpSessionFactory.getSession().invalidate();
 		System.out.println("successfully logout");
 		;

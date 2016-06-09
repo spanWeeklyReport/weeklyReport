@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:body>
+           <ui:composition>
+           
+            <!-- Header Starts -->
+    <div class="header">
+		<a href="http://localhost:8080/WeekyReport/" class="logo"> SPAN </a>
+		<div class="signing">
+
+			<h:form id="logout">
+				<ul class="header-menu">
+				<h:panelGroup rendered="#{!empty userName}">
+					<li>Welcome #{userName}</li>
+					<li><h:commandButton id="logout" value="Sign Out"
+							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
+					</li>
+			   </h:panelGroup>
+				</ul>
+			</h:form>
+
+		</div>
+		<span class="menu-icon">Menu</span>
+
+		<ul class="menu">
+
+		</ul>
+		<div style="height: 322px;" class="dropdown-mask"></div>
+	</div>
+	<!-- HEADER ENDS -->
+
+           </ui:composition>
+     </h:body>
+  </html>

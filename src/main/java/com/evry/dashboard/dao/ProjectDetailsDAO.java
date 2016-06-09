@@ -6,6 +6,11 @@ import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.util.ProjectTechnology;
 
+/**
+ * @author Mehak.Sapra
+ * DAO Interface for Project Details
+ *
+ */
 public interface ProjectDetailsDAO {
 	
 	ProjectDetails findByName(String projectName);

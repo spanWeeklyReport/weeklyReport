@@ -39,6 +39,10 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		return projectDetails;
 	}
 
+	/*  To add new project
+	 * (non-Javadoc)
+	 * @see com.evry.dashboard.service.ProjectDetailsService#addProject(com.evry.dashboard.dto.ProjectDetailsView)
+	 */
 	public void addProject(ProjectDetailsView projectDetailsView) {
 		
 

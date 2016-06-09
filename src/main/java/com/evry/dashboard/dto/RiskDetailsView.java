@@ -22,6 +22,9 @@ public class RiskDetailsView {
 	private ArrayList<RiskDetailsView> riskDetailsList = new ArrayList(){{add(new RiskDetails());}};
 	
 
+	/**
+	 * @Getters and setters
+	 */
 	public long getRiskId() {
 		return riskId;
 	}
@@ -44,7 +47,7 @@ public class RiskDetailsView {
 	}
 	
 	public void setRiskType(String riskType) {
-		RiskType = riskType;
+		this.RiskType = riskType;
 	}
 	
 	public String getRiskDescription() {
@@ -52,7 +55,7 @@ public class RiskDetailsView {
 	}
 	
 	public void setRiskDescription(String riskDescription) {
-		RiskDescription = riskDescription;
+		this.RiskDescription = riskDescription;
 	}
 	
 	public String getRiskResponsible() {
@@ -60,7 +63,7 @@ public class RiskDetailsView {
 	}
 	
 	public void setRiskResponsible(String riskResponsible) {
-		RiskResponsible = riskResponsible;
+		this.RiskResponsible = riskResponsible;
 	}
 	
 }

@@ -18,31 +18,17 @@
       
    </h:head>
    <h:body>
-      <div class="header">
-         <a href="#" class="logo"> SPAN </a>
-         <div class="signing"> </div>
-         <span class="menu-icon">Menu</span>
-         <div style="top: 36px;" class="mask-holder hide">
-            <div style="top: 36px;" class="mobile-menu">
-               <div class="mobile-menu-wrap">
-                  
-                  
-                    
-               </div>
-            </div>
-         </div>
-         <ul class="menu">
-            
-          </ul>
-         <div style="height: 322px;" class="dropdown-mask"></div>
-      </div>
-      <!-- HEADER ENDS --> 
+     <ui:insert name="header">
+		<ui:include src="commonHeader.xhtml" />
+	</ui:insert>
       <!-- PRODUCT HEADER START -->
       <div class="product-header">
          <div style="overflow: visible;" class="product-header-inner">
             <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
             <ul style="top: 36px;" class="product-menu scale hide">
-               <h:link class="Go-back buttons" value="Back" outcome="dashboard.xhtml"></h:link>
+               <li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
+               <li><h:link value="Users" outcome="user_reg.xhtml"></h:link></li>
+				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>
                
                
                

@@ -6,6 +6,11 @@ import org.hibernate.Query;
 
 import com.evry.dashboard.model.UserInfo;
 
+/**
+ * @author Mehak.Sapra
+ * DAO Interface for UserInfo
+ *
+ */
 public interface UserInfoDAO
 {
 	//void add(UserInfo userInfo);
@@ -13,4 +18,6 @@ public interface UserInfoDAO
 	boolean isValid(UserInfo userInfo);
 	 public void addUsers(UserInfo userInfo);
 	 public boolean userExists (UserInfo userInfo);
+	 public String getUserRole(UserInfo userInfo);
+	 public String getUserName(UserInfo userInfo);
 }

@@ -18,13 +18,13 @@ import com.evry.dashboard.model.RiskDetails;
 public class TaskDetailsView implements Serializable {
 
 	/**
-                                                                                                                                                                          * 
-                                                                                                                                                                           */
+	 * Current week variables
+	 */
 	private static final long serialVersionUID = -8796260672796259709L;
 	private long taskId;
 	private String reportType;
 	private String projectDetailsName;
-	private int WeekNo = 1;
+	private int WeekNo;
 	private String wNo;
 	private String PlannedTask;
 	private String CompletedTask;
@@ -40,6 +40,9 @@ public class TaskDetailsView implements Serializable {
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
 
+	/**
+	 * Last week Variables
+	 */
 	private long lastTaskId;
 	private String lastPlanned;
 	private String lastCompleted;
@@ -48,6 +51,9 @@ public class TaskDetailsView implements Serializable {
 	public String data = "1";
 	private ArrayList<RiskDetailsView> riskDetailsList;
 
+	/**
+	 * @Getters and setters
+	 */
 	public long getTaskId() {
 		return taskId;
 	}
@@ -72,7 +78,6 @@ public class TaskDetailsView implements Serializable {
 		this.WeekNo = weekNo;
 	}
 
-	
 	public String getReportType() {
 		return reportType;
 	}

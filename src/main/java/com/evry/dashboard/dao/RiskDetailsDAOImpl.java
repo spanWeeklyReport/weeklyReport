@@ -11,11 +11,17 @@ public class RiskDetailsDAOImpl implements RiskDetailsDAO {
 private SessionFactory sessionFactory;
 	
 
+	/**
+	 * @param sessionFactory
+	 */
 	public void setSessionFactory(SessionFactory sessionFactory) 
 	{
 		this.sessionFactory = sessionFactory;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.evry.dashboard.dao.RiskDetailsDAO#addRisks(com.evry.dashboard.model.RiskDetails)
+	 */
 	@Transactional
 	public Long addRisks(RiskDetails riskDetails) 
 	{
@@ -24,12 +30,18 @@ private SessionFactory sessionFactory;
 		return null;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.evry.dashboard.dao.RiskDetailsDAO#getRisks(com.evry.dashboard.model.RiskDetails)
+	 */
 	@Transactional
 	public RiskDetails getRisks(RiskDetails riskDetails)
 	{
 		return riskDetails;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.evry.dashboard.dao.RiskDetailsDAO#checkRisks(com.evry.dashboard.model.RiskDetails)
+	 */
 	@Transactional
 	public RiskDetails checkRisks(RiskDetails riskDetails) 
 	{

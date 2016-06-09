@@ -3,11 +3,13 @@ package com.evry.dashboard.dto.mapper;
 import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.model.RiskDetails;
 
-
 public class RiskDetailsMapper {
-	
-	public RiskDetailsView getMappedView(RiskDetails riskDetails)
-	{
+
+	/**
+	 * @param riskDetails
+	 * @return
+	 */
+	public RiskDetailsView getMappedView(RiskDetails riskDetails) {
 		RiskDetailsView riskDetailsView = new RiskDetailsView();
 		riskDetailsView.setRiskId(riskDetails.getRiskId());
 		riskDetailsView.setRiskType(riskDetails.getRiskType());
@@ -16,9 +18,11 @@ public class RiskDetailsMapper {
 		return riskDetailsView;
 	}
 
-
-   public RiskDetailsView getMappedView(RiskDetailsView riskDetails)
-	{
+	/**
+	 * @param riskDetails
+	 * @return
+	 */
+	public RiskDetailsView getMappedView(RiskDetailsView riskDetails) {
 		RiskDetailsView riskDetailsView = new RiskDetailsView();
 		riskDetailsView.setRiskId(riskDetails.getRiskId());
 		riskDetailsView.setRiskType(riskDetails.getRiskType());
@@ -27,9 +31,11 @@ public class RiskDetailsMapper {
 		return riskDetailsView;
 	}
 
-	
-	public RiskDetails getMappedEntity(RiskDetailsView riskDetailsView)
-	{
+	/**
+	 * @param riskDetailsView
+	 * @return
+	 */
+	public RiskDetails getMappedEntity(RiskDetailsView riskDetailsView) {
 		RiskDetails riskDetails = new RiskDetails();
 		riskDetails.setRiskId(riskDetailsView.getRiskId());
 		riskDetails.setRiskType(riskDetailsView.getRiskType());
@@ -37,6 +43,5 @@ public class RiskDetailsMapper {
 		riskDetails.setRiskResponsible(riskDetailsView.getRiskResponsible());
 		return riskDetails;
 	}
-
 
 }

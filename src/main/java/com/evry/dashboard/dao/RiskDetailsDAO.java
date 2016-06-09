@@ -7,6 +7,11 @@ import org.hibernate.Query;
 import com.evry.dashboard.model.RiskDetails;
 import com.evry.dashboard.model.TaskDetails;
 
+/**
+ * @author Mehak.Sapra
+ * DAO Interface for Risk Details
+ *
+ */
 public interface RiskDetailsDAO {
 	
 	Long addRisks(RiskDetails riskDetails);

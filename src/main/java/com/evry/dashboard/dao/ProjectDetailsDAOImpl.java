@@ -24,12 +24,25 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.dao.ProjectDetailsDAO#add(com.evry.dashboard.model
+	 * .ProjectDetails)
+	 */
 	@Transactional
 	public void add(ProjectDetails projectDetails) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(projectDetails);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.dao.ProjectDetailsDAO#findByName(java.lang.String)
+	 */
 	@Transactional
 	public ProjectDetails findByName(String projectName) {
 
@@ -48,6 +61,11 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		return details;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.evry.dashboard.dao.ProjectDetailsDAO#getProjectNames()
+	 */
 	@Transactional
 	public List<String> getProjectNames() {
 
@@ -72,7 +90,8 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		else {
 			System.out.println("--inside 2");
 			List<ProjectDetails> projectList2 = session.createQuery(
-					"from ProjectDetails where projectDepartment='" + tech+ "'").list();
+					"from ProjectDetails where projectDepartment='" + tech
+							+ "'").list();
 			// System.out.println(projectList);
 			ArrayList projectNames2 = new ArrayList();
 
@@ -84,12 +103,20 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.dao.ProjectDetailsDAO#checkProject(com.evry.dashboard
+	 * .model.ProjectDetails)
+	 */
 	@Transactional
 	public boolean checkProject(ProjectDetails projectDetails) {
 
 		Session session = this.sessionFactory.getCurrentSession();
 		String projectExists = projectDetails.getProjectName();
-		List<ProjectDetails> rst = session.getNamedQuery("Projects.projectExists")
+		List<ProjectDetails> rst = session
+				.getNamedQuery("Projects.projectExists")
 				.setParameter("projectName", projectExists).list();
 
 		boolean projectCheck = false;

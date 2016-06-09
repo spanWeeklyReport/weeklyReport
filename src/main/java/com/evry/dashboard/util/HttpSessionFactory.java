@@ -20,7 +20,7 @@ public class HttpSessionFactory {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         return  session.getAttribute("username").toString();
       }
-       
+      
       public static String getUserId()
       {
         HttpSession session = getSession();

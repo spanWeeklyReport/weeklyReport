@@ -53,6 +53,13 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		this.riskDetailsMapper = riskDeatilsMapper;
 	}
 
+	/*
+	 * Add/Update task details for current as well as last week (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#addTasks(com.evry.dashboard
+	 * .dto.TaskDetailsView)
+	 */
 	public void addTasks(TaskDetailsView taskDetailsView) {
 
 		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
@@ -76,6 +83,14 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
+	/*
+	 * Fetch task details corresponding to project name and week selected
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#checkTasks(com.evry.dashboard
+	 * .dto.TaskDetailsView)
+	 */
 	public void checkTasks(TaskDetailsView taskDetailsView) {
 
 		// Fetch selected week's data
@@ -99,44 +114,57 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		taskDetailsView.setLastInProgress(taskDetails.getInprogressTask());
 
 	}
-	
-			public String checkReport(TaskDetailsView taskDetailsView){
-		        TaskDetails taskDetails = taskDetailsDAO.checkReport(taskDetailsMapper
-		                     .getMappedEntity(taskDetailsView));
-		             
+
+	/*
+	 * Generates a web report for the selected as well as previous week
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#checkReport(com.evry.dashboard
+	 * .dto.TaskDetailsView)
+	 */
+	public String checkReport(TaskDetailsView taskDetailsView) {
+		TaskDetails taskDetails = taskDetailsDAO.checkReport(taskDetailsMapper
+				.getMappedEntity(taskDetailsView));
+
 		taskDetailsMapper.mapView(taskDetailsView, taskDetails);
 		int lastWeek = taskDetails.getWeekNo() - 1;
-		
+
 		TaskDetails taskDetailsLastWeek = new TaskDetails();
 		taskDetailsLastWeek.setProjectDetails(taskDetails.getProjectDetails());
 		taskDetailsLastWeek.setWeekNo(lastWeek);
-		
+
 		taskDetails = taskDetailsDAO.checkTasks(taskDetailsLastWeek);
 		taskDetailsView.setLastTaskId(taskDetails.getTaskId());
 		taskDetailsView.setLastPlanned(taskDetails.getPlannedTask());
 		taskDetailsView.setLastCompleted(taskDetails.getCompletedTask());
 		taskDetailsView.setLastHold(taskDetails.getHoldTask());
 		taskDetailsView.setLastInProgress(taskDetails.getInprogressTask());
-		
-		
-		       
-		             return"report";
-		  }
 
+		return "report";
+	}
 
-
+	/*
+	 * Fetches the risks and project updates as per report type (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#viewReport(com.evry.dashboard
+	 * .dto.TaskDetailsView)
+	 */
 	public void viewReport(TaskDetailsView taskDetailsView) {
-			if(taskDetailsView.getwNo().equals("true")) {
-				taskDetailsView.setWeekNo(0);
-			}
+		if (taskDetailsView.getwNo().equals("true")) {
+			taskDetailsView.setWeekNo(0);
+		}
 		try {
-			List<TaskDetails> taskDetails2 = (List<TaskDetails>) taskDetailsDAO.viewReport(taskDetailsMapper.getMappedEntity(taskDetailsView));
+			List<TaskDetails> taskDetails2 = (List<TaskDetails>) taskDetailsDAO
+					.viewReport(taskDetailsMapper
+							.getMappedEntity(taskDetailsView));
 			if (!CollectionUtils.isEmpty(taskDetails2)) {
 				System.out.println("data found");
-				setTaskDetailsViews(taskDetailsMapper.getMappedView(taskDetails2));
-			}
-			else {
-				
+				setTaskDetailsViews(taskDetailsMapper
+						.getMappedView(taskDetails2));
+			} else {
+
 				System.out.println("no data found");
 				setTaskDetailsViews(null);
 				FacesContext.getCurrentInstance().addMessage(
@@ -151,19 +179,45 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.evry.dashboard.service.TaskDetailsService#renderScreen()
+	 */
 	public boolean renderScreen() {
 
 		return renderer;
 	}
 
+	/*
+	 * Add risks to UI (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#addRisks(com.evry.dashboard
+	 * .dto.TaskDetailsView, com.evry.dashboard.dto.RiskDetailsView)
+	 */
 	public String addRisks(TaskDetailsView taskDetailsView,
 			RiskDetailsView riskDetailsView) {
 
-		taskDetailsView.getRiskDetailsList().add(riskDetailsView);
+		RiskDetailsView detailsView = new RiskDetailsView();
+		detailsView.setRiskDescription(riskDetailsView.getRiskDescription());
+		detailsView.setRiskDetailsList(riskDetailsView.getRiskDetailsList());
+		detailsView.setRiskId(riskDetailsView.getRiskId());
+		detailsView.setRiskResponsible(riskDetailsView.getRiskResponsible());
+		detailsView.setRiskType(riskDetailsView.getRiskType());
+		
+		taskDetailsView.getRiskDetailsList().add(detailsView);
 		return null;
 
 	}
 
+	/*
+	 * Deletes risks (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.service.TaskDetailsService#deleteRisks(com.evry.dashboard
+	 * .dto.TaskDetailsView, com.evry.dashboard.dto.RiskDetailsView)
+	 */
 	public String deleteRisks(TaskDetailsView taskDetailsView,
 			RiskDetailsView riskDetailsView) {
 
@@ -179,7 +233,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	public void setTaskDetailsViews(List<TaskDetailsView> taskDetailsViews) {
 		this.taskDetailsViews = taskDetailsViews;
 	}
-	
+
 	public void DataListener(ValueChangeEvent e) {
 		System.out.println("inside ajax func");
 		TaskDetailsView taskDetails = new TaskDetailsView();

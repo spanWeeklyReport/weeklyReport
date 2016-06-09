@@ -7,6 +7,11 @@ import org.hibernate.Query;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 
+/**
+ * @author Mehak.Sapra
+ *DAO Interface for task Details
+ *
+ */
 public interface TaskDetailsDAO {
 	
 	void addTasks(TaskDetails taskDetails);

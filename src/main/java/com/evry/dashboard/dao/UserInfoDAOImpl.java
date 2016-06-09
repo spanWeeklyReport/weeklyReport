@@ -1,5 +1,6 @@
 package com.evry.dashboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -11,6 +12,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.evry.dashboard.dto.UserInfoView;
+import com.evry.dashboard.model.Department;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.UserInfo;
 
@@ -23,6 +26,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	/**
+	 * @param username
+	 * @param password
+	 * @param userInfo
+	 * @return
+	 */
 	@Transactional
 	private boolean getUsers(String username, String password, UserInfo userInfo) {
 
@@ -32,8 +41,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		List<UserInfo> rs = session.getNamedQuery("Users.findByUsername")
 				.setParameter("username", username)
 				.setParameter("password", password).list();
-		int userRole = userInfo.getUserRole();
-		String fname = userInfo.getFirstName();
+		
 
 		boolean userFound = false;
 
@@ -43,8 +51,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			
 			 FacesContext context2 = FacesContext.getCurrentInstance();
 		        HttpSession sesion = (HttpSession) context2.getExternalContext().getSession(true);
-		        sesion.setAttribute("userRole", userRole);
-		        sesion.setAttribute("fname", fname);
+		        
 			   
 			return true;
 		} else {
@@ -110,16 +117,55 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			return true;
 		} else {
 
+			
 			session.persist(userInfo);
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
 							"User Successfully added", null));
+			
 		}
 
 		return false;
 		
 	}
+	@Transactional
+	public String getUserRole(UserInfo userInfo) { 
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		String username = userInfo.getUserName();
+		
+		
+		Query query =  session.createQuery("select E.userRole from UserInfo E where userName = '"+ username +"'" );
+		List<String> userRoles = query.list();
+		
+		String uRoll = userRoles.get(0);
+		
+		return uRoll;
+	
+		
+		
+	}
+	@Transactional
+      public String getUserName(UserInfo userInfo) { 
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		String username = userInfo.getUserName();
+		
+		
+		Query query =  session.createQuery("select E.firstName from UserInfo E where userName = '"+ username +"'" );
+		List<String> userNames = query.list();
+		
+		String uName = userNames.get(0);
+		
+		return uName;
+	
+		
+		
+	}
+	
+	
+	
 	
 
 	public Query getUsers() {

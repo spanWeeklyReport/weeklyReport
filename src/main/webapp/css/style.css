@@ -601,7 +601,7 @@ th.order-table-header {
 .risk-input {
   float: left;
   text-align: center;
-  height: 41px;
+  height: 32px;
 
 }
 
@@ -819,5 +819,9 @@ div.dashboard-pagr-title {
 
 #tabs-1 input[type="text"] {
   border: 0 none !important;
+}
+
+.risk-input {
+  color: #555 !important;
 }
 

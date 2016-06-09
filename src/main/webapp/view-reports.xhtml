@@ -26,29 +26,12 @@
 
 </h:head>
 <h:body>
-	<div class="header">
-		<a href="#" class="logo"> SPAN </a>
-		<div class="signing">
-
-			<h:form id="logout">
-				<ul class="header-menu">
-					<li>Welcome  #{username}</li>
-					<li><h:commandButton id="logout" value="Sign Out"
-							class="logout buttons" action="#{userInfoService.logout()}"></h:commandButton>
-					</li>
-				</ul>
-			</h:form>
-
-		</div>
-		<span class="menu-icon">Menu</span>
-
-		<ul class="menu">
-
-		</ul>
-		<div style="height: 322px;" class="dropdown-mask"></div>
-	</div>
-	<!-- HEADER ENDS -->
-	<section class="banner-part"> <!-- PRODUCT HEADER START -->
+	<ui:insert name="header">
+		<ui:include src="commonHeader.xhtml" />
+	</ui:insert>
+	
+	<!-- PRODUCT HEADER START -->
+		<section class="banner-part"> 
 	<div class="product-header">
 		<div class="product-header-inner">
 			<a class="product-logo" href="#">Reports</a> <span

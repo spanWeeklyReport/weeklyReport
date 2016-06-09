@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 @NamedQueries(  
 	    {  
-	       
 	        @NamedQuery(
 	        name = "Department.departmentExists", 
 	        query = "SELECT o FROM Department o WHERE o.departmentName = :departmentName")
@@ -31,6 +30,9 @@ public class Department {
 	    @Column(name = "LOGO")
 	    private String logo;
 
+		/**
+		 * @Getters and setters
+		 */
 		public long getOid() {
 			return oid;
 		}
