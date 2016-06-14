@@ -23,6 +23,7 @@ C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\model\Tas
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\service\DepartmentService.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\dao\TaskDetailsDAOImpl.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\dto\mapper\UserInfoMapper.java
+C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\util\DemoBean.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\dto\TaskDetailsView.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\service\TaskDetailsService.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\service\ProjectDetailsServiceImpl.java
@@ -33,6 +34,7 @@ C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\dto\mappe
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\dao\RiskDetailsDAOImpl.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\service\RiskDetailsServiceImpl.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\model\ProjectDetails.java
+C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\util\uploadFilesBean.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\util\HttpSessionFactory.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\model\TaskDetails.java
 C:\Users\mehak.sapra\git\weeklyReport\src\main\java\com\evry\dashboard\util\Constants.java

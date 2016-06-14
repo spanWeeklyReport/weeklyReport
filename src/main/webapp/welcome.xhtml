@@ -199,7 +199,7 @@
 									<tr class="order-table-odd-row">
 										<td><h:outputLabel value="Risk Priority" for="risks_type" />
 											<h:selectOneMenu class="risk-input risk-type" 
-												value="#{riskDetails.riskType}" required="true">
+												value="#{riskDetails.riskType}" >
 												<f:selectItem itemValue="#{null}" itemLabel="Select Risk" />
 												<f:selectItem itemValue="High" itemLabel="High Risk" />
 												<f:selectItem itemValue="Medium" itemLabel="Medium Risk" />
@@ -209,12 +209,12 @@
 												for="ass_risks" /> <h:inputText id="ass_risks"
 												class="risk-input risk-des"
 												value="#{riskDetails.riskDescription}"
-												a:placeholder="Risk Description" required="true"/></td>
+												a:placeholder="Risk Description" /></td>
 										<td><h:outputLabel value="Responsible Person"
 												for="ass_risksresp" /> <h:inputText id="ass_risksresp"
 												class="risk-input risk-res"
 												value="#{riskDetails.riskResponsible}"
-												a:placeholder="Risk Responsible" required="true" requiredMessage="Please enter your password">
+												a:placeholder="Risk Responsible" >
 												
 												</h:inputText></td>
 										<td><a4j:commandButton value="Add" class="add-butn buttons"
@@ -262,6 +262,26 @@
 	</section>
 	<footer> <ui:insert name="footer">
 		<ui:include src="commonFooter.xhtml" />
-	</ui:insert> </footer>
+	</ui:insert> 
+	<script type="text/javascript">
+	
+	$(".add-butn").click(function(){
+
+        if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == ""  ) {
+            
+        	
+            alert("Please fill all fields regarding risk details");
+            return false;
+            
+            }
+        else {}
+       
+       });
+	
+	  
+	
+	</script>
+	
+	</footer>
 </h:body>
 </html>

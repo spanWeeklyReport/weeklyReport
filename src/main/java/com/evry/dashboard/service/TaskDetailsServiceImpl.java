@@ -27,7 +27,7 @@ import com.evry.dashboard.model.TaskDetails;
 @RequestScoped
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
-	private boolean renderer;
+	private boolean renderer = false;
 	private boolean logout;
 	private TaskDetailsMapper taskDetailsMapper;
 	private RiskDetailsMapper riskDetailsMapper;
@@ -200,13 +200,38 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 			RiskDetailsView riskDetailsView) {
 
 		RiskDetailsView detailsView = new RiskDetailsView();
-		detailsView.setRiskDescription(riskDetailsView.getRiskDescription());
-		detailsView.setRiskDetailsList(riskDetailsView.getRiskDetailsList());
-		detailsView.setRiskId(riskDetailsView.getRiskId());
-		detailsView.setRiskResponsible(riskDetailsView.getRiskResponsible());
-		detailsView.setRiskType(riskDetailsView.getRiskType());
+		if (riskDetailsView.getRiskType() != "" ||  riskDetailsView.getRiskDescription() != "" || riskDetailsView.getRiskResponsible() != "" ) {
+			
+			detailsView.setRiskDescription(riskDetailsView.getRiskDescription());
+			detailsView.setRiskDetailsList(riskDetailsView.getRiskDetailsList());
+			detailsView.setRiskId(riskDetailsView.getRiskId());
+			detailsView.setRiskResponsible(riskDetailsView.getRiskResponsible());
+			detailsView.setRiskType(riskDetailsView.getRiskType());
+			
+			taskDetailsView.getRiskDetailsList().add(detailsView);
+			
+			
+			
+			detailsView = new RiskDetailsView();
 		
-		taskDetailsView.getRiskDetailsList().add(detailsView);
+			
+			
+		}
+		
+		
+		else { 
+			
+			
+			FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Please enter all the fields in risk details !!", null));
+			
+			
+			
+			
+		}
+		
 		return null;
 
 	}

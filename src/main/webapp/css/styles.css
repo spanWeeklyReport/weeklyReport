@@ -2094,3 +2094,21 @@ input[type="email"] {
   font-family: Arial,Verdana,sans-serif;
   font-size: 11px;
 }
+
+.header-menu {
+  height: 35px;
+  width: 315px;
+}
+
+.header-menu li {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+}
+
+.logout.buttons {
+  background-color: #f0483e !important;
+  border-radius: 4px !important;
+  color: white !important;
+  background-image: none !important;
+}

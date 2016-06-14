@@ -43,11 +43,7 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
     HttpServletResponse res = (HttpServletResponse) response;
 
     // apply no caching for all web pages except resources, you can customize that to be applied for specific pages
-    if (!req.getRequestURI().startsWith(req.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER)) { // Skip JSF resources (CSS/JS/Images/etc)
-        res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        res.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-        res.setDateHeader("Expires", 0); // Proxies.
-    }
+    
 
     chain.doFilter(request, response);
 }

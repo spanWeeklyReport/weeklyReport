@@ -10,9 +10,20 @@
             <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
       <script src="js/jquery.numeric.js" ></script>
+      <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js" ></script>
            <script type="text/javascript">
            $.noConflict();
-              jQuery(document).ready(function($){
+              jQuery(document).ready(function($){ 
+            	  
+            	  
+            	  $(".add-butn").click(function(){
+                      
+            		  $(".risk-type").val($(".risk-type option:first").val());
+            		  $(".risk-des").val("");
+            		  $(".risk-res").val("");
+            		
+
+            		  });
             	 
             	 
             	  
@@ -106,16 +117,7 @@
 
         //Risk Validation
         
-        $(".add-butn").click(function(){
-
-               if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == 0 ) {
-                   
-                   alert("Please fill all fields regarding risk details");
-                    return false;
-                   
-                   }
-              
-              });
+       
                             
           
                   //Calculating total fields
@@ -191,7 +193,7 @@
       //Calender
         $('.datepicker').datepicker({
               
-              yearRange: "2002:2016",
+              yearRange: "2016:2016",
               changeYear: true,
               changeMonth: true,
               showOn: 'both',

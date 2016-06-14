@@ -38,10 +38,12 @@
             <div class="banner-inner content-wrap">
                <div class="banner-content">
                   <h1>Span Weekly Reporting</h1>
-                  <p>Visually analyze your business data. Create insightful reports and dashboards. Make informed business decisions.</p>
+                  <p>Visually analyze your business data. Create insightful reports and dashboard. Make informed business decisions.</p>
                   
                </div>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
+               
+               <h:panelGroup rendered="#{empty userName}">
                <div class="signup-box ">
                   <div class="signup_frm">
                      <p class="signup-heading">Sign In</p>
@@ -71,6 +73,15 @@
                      
                   </div>
                </div>
+               </h:panelGroup>
+               <h:panelGroup rendered="#{!empty userName}">
+               <div class="signup-box ">
+                  <div class="signup_frm" style="color:white;">
+                     You are already logged in. Click here to go to the <h:link outcome="dashboard.xhtml">home page</h:link>
+                  </div>
+                </div>
+               
+               </h:panelGroup>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
             </div>
          </section>
