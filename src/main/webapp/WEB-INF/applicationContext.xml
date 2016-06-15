@@ -75,9 +75,14 @@
         <beans:property name = "riskDetailsMapper" ref = "riskDetailsMapper"/>
    </beans:bean>
    
-   <beans:bean id = "demoBean" class="com.evry.dashboard.util.DemoBean"> </beans:bean>
+   <beans:bean id = "demoBean" class="com.evry.dashboard.util.DemoBean" />  
    
-   <beans:bean id ="fileUploadController" class="com.evry.dashboard.util.uploadFilesBean" ></beans:bean>
+   <beans:bean id ="UploadFilesBean" class="com.evry.dashboard.util.UploadFilesBean" >
+      <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
+      <beans:property name = "departmentMapper" ref = "departmentMapper"/>
+      <beans:property name = "departmentDAO" ref = "departmentDAO"/>
+      
+   </beans:bean>
     
      <beans:bean id = "projectDetailsService" class = "com.evry.dashboard.service.ProjectDetailsServiceImpl">
         <beans:property name = "projectDetailsDAO" ref = "projectDetailsDAO"/>

@@ -28,7 +28,7 @@
             <ul style="top: 36px;" class="product-menu scale hide">
                  <li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
                <li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
-				<li><h:link value="Departments" outcome="add_departments.xhtml"></h:link></li>
+				<li><h:link value="Managers" outcome="add_departments.xhtml"></h:link></li>
                
                
                
@@ -47,11 +47,20 @@
                <div class="signup-box-sim">
                   <div class="signup_frm">
                      <p class="pro-heading">Add Users</p>
-                     <h:messages class="error-msg" style="margin:8px 0px;padding:0"   />
                      
+                     <h:messages infoClass="info" errorClass="error-msg" style="margin:8px 0px;padding:0"   />
+                    
                   <h:form id="regform">
-                 <h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel> <h:inputText value="#{userInfo.firstName}"  class="project_form fname"  /><br/>
-                 <h:outputLabel value="Second Name:" class="project_form_label"></h:outputLabel> <h:inputText value="#{userInfo.lastName}"  class="project_form lname" /><br/>
+                  
+                 <h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel> 
+                 <h:inputText value="#{userInfo.firstName}"  class="project_form fname" id="name" >
+                  <f:validateLength minimum="2" maximum="50" />
+                 </h:inputText>
+                 <br/>
+                 <h:outputLabel value="Second Name:" class="project_form_label"></h:outputLabel> 
+                 <h:inputText value="#{userInfo.lastName}"  class="project_form lname"  >
+                     <f:validateLength minimum="2" maximum="50" />
+                 </h:inputText><br/>
                  <h:outputLabel value="Email" class="project_form_label" /> <h:inputText a:type="email" value="#{userInfo.userName}"  class="project_form Remail"  /><br/>
                  <h:outputLabel value="Password:" class="project_form_label" /> <h:inputSecret value="#{userInfo.password}"  class="project_form Rpass" /><br/>
                  <h:outputLabel value="User Type:" class="project_form_label" />

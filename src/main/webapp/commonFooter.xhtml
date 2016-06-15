@@ -96,6 +96,29 @@
                           
                    });
                    
+       
+        $(".fetch2").click(function(){
+        	
+        	         if(jQuery(".report-type").val() == 0){
+        	        	 
+        	        	 alert("Please select report type");
+        	        	 return false;
+        	         }
+	          
+        	 
+                	   if ($(".weeknumber").val() &gt; 52) {
+      					 alert("Please enter a valid week range"); 
+      					 return false;
+      					}
+      					else if ($(".weeknumber").val() &lt; 1) {
+      						alert("Please enter a valid week range");
+      						return false;
+      					}
+                          
+      					else {}
+                          
+                   });
+       
            
                
            $(".s-button").click(function() {

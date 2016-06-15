@@ -14,9 +14,10 @@ com\evry\dashboard\service\ProjectDetailsService.class
 com\evry\dashboard\service\TaskDetailsServiceImpl.class
 com\evry\dashboard\dao\DepartmentDAOImpl.class
 com\evry\dashboard\dto\mapper\DepartmentMapper.class
+com\evry\dashboard\dto\Manager.class
 com\evry\dashboard\util\ProjectTechnology.class
 com\evry\dashboard\util\HttpSessionFactory.class
-com\evry\dashboard\util\uploadFilesBean.class
+com\evry\dashboard\util\UploadFilesBean.class
 com\evry\dashboard\service\DepartmentServiceImpl.class
 com\evry\dashboard\model\TaskRiskMapping.class
 com\evry\dashboard\util\Constants.class

@@ -3097,14 +3097,7 @@ border-bottom:1px solid #B2B2B2;
 border-collapse:collapse;
 height: 36px; line-height: 24px; float:left; margin-bottom: -1px;
 }
-.error
-{
-color:#990000;
-font-size:9pt;
-display:none;
-font-weight:normal;
-margin-left: 10px;
-}
+
 .leftpane {
 background-color: #f8f8f9;
 border-top: 1px solid #FFFFFF;
@@ -13265,11 +13258,11 @@ a.create, a.view {
 .product-header-inner {overflow: visible;}
 .product-menu{top: 36px;}
 
-#ZRSDBCreateOptsHldr{position: relative; height: 205px;}
+#ZRSDBCreateOptsHldr{position: relative; height: auto;}
 #ZDBDBOptsDiv {visibility: visible; height: auto; opacity: 1; width: 1070px;}
 .header-menu {
   height: 35px;
-  width: 315px;
+  width: 186px;
 }
 .header-menu li {
   display: inline;
@@ -13298,4 +13291,10 @@ a.create, a.view {
   background-color: #f0483e !important;
   border-radius: 4px !important;
   color: white !important;
+}
+
+button[disabled], input[type="reset"][disabled], input[type="submit"][disabled], input[type="button"][disabled] {
+  background-color: #cccccc !important;
+ 
+ border-color: #cccccc !important;
 }

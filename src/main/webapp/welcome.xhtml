@@ -219,7 +219,7 @@
 												</h:inputText></td>
 										<td><a4j:commandButton value="Add" class="add-butn buttons"
 												render="out"
-												action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" />
+												action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" disabled="disabled"/>
 										</td>
 									</tr>
 								</table>
@@ -267,16 +267,33 @@
 	
 	$(".add-butn").click(function(){
 
-        if ($(".risk-des").val() == "" || $(".risk-res").val() == "" || $(".risk-type").val() == ""  ) {
+        if ($(".risk-des").val() == "" &amp;&amp; $(".risk-res").val() == "" &amp;&amp; $(".risk-type").val() == ""  ) {
             
         	
             alert("Please fill all fields regarding risk details");
             return false;
             
             }
+        
         else {}
        
        });
+	
+	$(document).ready(function (){
+	    validate();
+	    $('.risk-des, .risk-res, .risk-type').change(validate);
+	});
+
+	function validate(){
+	    if ($('.risk-des').val().length   >   0   &amp;&amp;
+	        $('.risk-res').val().length  >   0   &amp;&amp;
+	        $('.risk-type').val().length    >   0) {
+	        $(".add-butn").prop("disabled", false);
+	    }
+	    else {
+	        $(".add-butn").prop("disabled", true);
+	    }
+	}
 	
 	  
 	

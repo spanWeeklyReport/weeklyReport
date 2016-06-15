@@ -40,7 +40,7 @@
 				<h:panelGroup class="allD" rendered="#{userRole == 'Admin'}">
 				    <li><h:link value="Users" outcome="user_reg.xhtml" /></li>
 					<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
-					<li><h:link value="Departments"
+					<li><h:link value="Managers"
 							outcome="add_departments.xhtml"></h:link></li>
 				</h:panelGroup>
 
@@ -72,7 +72,7 @@
 								<li id="FileImport">
 									<div class="holder">
 										<div class="zdbIcon importnew">
-											<img src="${department.logo}" />
+											<img src="${department.localtion}" />
 										</div>
 										<div class="optName">${department.departmentName}</div>
 										<div style="display: none;" class="ZDBDBOptsTip">
@@ -105,10 +105,10 @@
 										<div class="zdbIcon importnew">
 											<img src="../images/rojd.jpg" />
 										</div>
-										<div class="optName">All Departments</div>
+										<div class="optName">All Managers</div>
 										<div style="display: none;" class="ZDBDBOptsTip">
 											<div>
-												<h1 class="dbNameFont">All Departments</h1>
+												<h1 class="dbNameFont">All Managers</h1>
 												<p class="dbDescription">
 													<h:link class="create" outcome="welcome"
 														value="Create Report">

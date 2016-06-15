@@ -134,10 +134,12 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		} else {
 
 			session.persist(projectDetails);
+			if (projectDetails.getProjectName() !="") {
 			FacesContext.getCurrentInstance().addMessage(
 					"projectForm:submit4",
 					new FacesMessage(FacesMessage.SEVERITY_INFO,
 							"Project Added Successfully!", null));
+			}
 		}
 
 		return false;

@@ -121,7 +121,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 			session.persist(userInfo);
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
-					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
 							"User Successfully added", null));
 			
 		}

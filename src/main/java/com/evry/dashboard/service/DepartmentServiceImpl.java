@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.hibernate.SessionFactory;
+
 import com.evry.dashboard.dao.DepartmentDAO;
 import com.evry.dashboard.dto.DepartmentView;
 import com.evry.dashboard.dto.ProjectDetailsView;
@@ -21,11 +23,20 @@ public class DepartmentServiceImpl {
 
 	private DepartmentDAO departmentDAO;
 	private DepartmentMapper departmentMapper;
+	private static final int BUFFER_SIZE = 6124;
+	
+	private SessionFactory sessionFactory;
 
-	public DepartmentServiceImpl() {
+	private DepartmentMapper mapper;
 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
-
+	
+	public void setMapper(DepartmentMapper mapper) {
+		this.mapper = mapper;
+	}
+	
 	public void setDepartmentDAO(DepartmentDAO departmentDAO) {
 		this.departmentDAO = departmentDAO;
 	}
@@ -63,8 +74,8 @@ public class DepartmentServiceImpl {
 	 * @param departmentView
 	 */
 	public void addDepartment(DepartmentView departmentView) {
-		Department obj = departmentMapper.getMappedEntity(departmentView);
-		departmentDAO.add(obj);
+		//Department obj = departmentMapper.getMappedEntity(departmentView);
+		//departmentDAO.add(obj);
 
 	}
 }

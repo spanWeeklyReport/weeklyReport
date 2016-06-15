@@ -14,7 +14,7 @@ public class DepartmentMapper {
 		DepartmentView departmentView = new DepartmentView();
 		departmentView.setOid(department.getOid());
 		departmentView.setDepartmentName(department.getDepartmentName());
-		departmentView.setLogo(department.getLogo());
+		departmentView.setLocaltion(department.getLogo());
 
 		return departmentView;
 	}
@@ -28,7 +28,7 @@ public class DepartmentMapper {
 		Department department = new Department();
 		department.setOid(departmentView.getOid());
 		department.setDepartmentName(departmentView.getDepartmentName());
-		department.setLogo(departmentView.getLogo());
+		department.setLogo(departmentView.getLocaltion());
 		return department;
 	}
 

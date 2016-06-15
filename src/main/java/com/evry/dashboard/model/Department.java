@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 public class Department {
 	
-	 @Id
+	    @Id
 	    @Column(name = "O_ID")
 	    private long oid;
 	    

@@ -59,7 +59,7 @@
 
 					</p>
 					<h:selectOneMenu value="#{taskDetails.reportType}"
-						class="project_form select-style">
+						class="project_form select-style report-type">
 						<f:selectItem itemValue="0" itemLabel="Select" />
 						<f:selectItem itemValue="AllRisks" itemLabel="All Risks" />
 						<f:selectItem itemValue="AllProjectUpdates"
@@ -101,7 +101,7 @@
 
 
 					<h:commandButton id="getResult" value="Select"
-						class="Go-back buttons"
+						class="Go-back buttons fetch2"
 						action="#{taskDetailsService.viewReport(taskDetails)}" />
 					<br />
 					<h:messages class="error-msg" style="margin:8px 0px;padding:0"

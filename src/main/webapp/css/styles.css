@@ -2080,6 +2080,7 @@ input:focus, input:active {
 .error-msg {
   height: 50px;
   width: 100%;
+  color:red;
 }
 
 input[type="email"] {
@@ -2097,7 +2098,7 @@ input[type="email"] {
 
 .header-menu {
   height: 35px;
-  width: 315px;
+  width: 186px;
 }
 
 .header-menu li {
@@ -2111,4 +2112,8 @@ input[type="email"] {
   border-radius: 4px !important;
   color: white !important;
   background-image: none !important;
+}
+
+li.info {
+  color: green;
 }
