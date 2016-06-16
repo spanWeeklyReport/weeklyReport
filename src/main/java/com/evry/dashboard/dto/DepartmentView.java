@@ -19,6 +19,18 @@ public class DepartmentView {
 	    public long getOid() {
 			return Oid;
 		}
+	    
+	    private Byte[] imageData;
+	    
+	    
+
+		public Byte[] getImageData() {
+			return imageData;
+		}
+
+		public void setImageData(Byte[] imageData) {
+			this.imageData = imageData;
+		}
 
 		/**
 		 * @param oid the oid to set

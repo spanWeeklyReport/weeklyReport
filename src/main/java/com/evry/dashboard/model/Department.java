@@ -36,8 +36,19 @@ public class Department {
 		/**
 		 * @Getters and setters
 		 */
+	    
+	    
+	    
 		public long getOid() {
 			return oid;
+		}
+
+		public Byte[] getImageData() {
+			return imageData;
+		}
+
+		public void setImageData(Byte[] imageData) {
+			this.imageData = imageData;
 		}
 
 		public void setOid(long oid) {
