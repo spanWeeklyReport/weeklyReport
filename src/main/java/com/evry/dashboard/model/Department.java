@@ -29,6 +29,9 @@ public class Department {
 	    
 	    @Column(name = "LOGO")
 	    private String logo;
+	    
+	    private Byte[] imageData;
+	    
 
 		/**
 		 * @Getters and setters

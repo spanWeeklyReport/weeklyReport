@@ -69,10 +69,11 @@ public class UploadFilesBean {
 																	// getInputStream()
 		 
 		ExternalContext extContext = FacesContext.getCurrentInstance()
-				.getExternalContext();
+				.getExternalContext();	
     
 		
 		String filePathPrefix="C://Users//mehak.sapra//git//weeklyReport//src//main//webapp";
+		extContext.get
 		String filePath="//images//"+fileName; 
 		String fileLocaltion=filePathPrefix+filePath;
 		File result = new File(fileLocaltion);
