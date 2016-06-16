@@ -42,10 +42,21 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>DisplayImage</display-name>
+    	<servlet-name>DisplayImage</servlet-name>
+    	<servlet-class>com.evry.dashboard.util.DisplayImage</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>DisplayImage</servlet-name>
+    	<url-pattern>/DisplayImage</url-pattern>
     </servlet-mapping>
    
     <session-config>

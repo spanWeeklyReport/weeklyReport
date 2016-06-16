@@ -15,7 +15,8 @@ public class DepartmentMapper {
 		departmentView.setOid(department.getOid());
 		departmentView.setDepartmentName(department.getDepartmentName());
 		departmentView.setLocaltion(department.getLogo());
-
+		departmentView.setImageData(department.getImageData());
+		
 		return departmentView;
 	}
 
@@ -29,6 +30,8 @@ public class DepartmentMapper {
 		department.setOid(departmentView.getOid());
 		department.setDepartmentName(departmentView.getDepartmentName());
 		department.setLogo(departmentView.getLocaltion());
+		department.setImageData(departmentView.getImageData());
+		
 		return department;
 	}
 

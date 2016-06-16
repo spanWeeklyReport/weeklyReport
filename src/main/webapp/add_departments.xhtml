@@ -56,11 +56,10 @@
 							class="project_form" required="true"
 							requiredMessage="Please enter manager name" />
 						<br />
-
+                 <h:outputLabel value="Logo:" class="project_form_label"></h:outputLabel>
 						<p:fileUpload mode="simple"
-							value="#{departmentView.uploadedFile}" />
-<!-- 						<p:commandButton value="Upload" -->
-<!-- 							actionListener="#{UploadFilesBean.upload()}" ajax="false" /> -->
+							value="#{departmentView.uploadedFile}" class="logo_upload" />
+
 
 						<h:commandButton id="submit6" value="Add" class="buttons"
 							action="#{UploadFilesBean.upload(departmentView)}" />

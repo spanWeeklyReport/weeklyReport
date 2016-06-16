@@ -72,7 +72,12 @@
 								<li id="FileImport">
 									<div class="holder">
 										<div class="zdbIcon importnew">
-											<img src="${department.localtion}" />
+											<!-- <img src="${department.localtion}" /> -->
+											
+											<img src="data:image/jpeg;charset=utf-8;base64,${department.localtion}"/>
+											
+											
+											 <!-- <h:graphicImage id="image" alt="uploaded image" url="${department.imageData}" /> -->
 										</div>
 										<div class="optName">${department.departmentName}</div>
 										<div style="display: none;" class="ZDBDBOptsTip">

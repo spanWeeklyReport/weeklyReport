@@ -62,8 +62,12 @@ public class DepartmentServiceImpl {
 		List<Department> departmentName = departmentDAO.fetchDepartment();
 
 		List<DepartmentView> departmentView = new ArrayList();
+		
+		
 
 		for (Department department : departmentName)
+			
+		
 			departmentView.add(departmentMapper.getMappedView(department));
 		return departmentView;
 	}

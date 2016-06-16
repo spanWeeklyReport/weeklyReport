@@ -1205,7 +1205,12 @@ a.Go-back {
 .project_form_label {
   float: left;
   padding: 5px;
-  width: 190px;
+  width: 153px;
+}
+
+.logo_upload {
+  float: left;
+  width: 173px !important;
 }
 
 .project_form {

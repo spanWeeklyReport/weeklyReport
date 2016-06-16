@@ -1,11 +1,15 @@
 package com.evry.dashboard.model;
 
+import java.util.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import sun.misc.BASE64Encoder;
 
 @Entity
 @Table(name = "DEPARTMENT")
@@ -30,7 +34,8 @@ public class Department {
 	    @Column(name = "LOGO")
 	    private String logo;
 	    
-	    private Byte[] imageData;
+	    @Column(name = "IMAGE_DATA")
+	    private byte[] imageData;
 	    
 
 		/**
@@ -43,11 +48,11 @@ public class Department {
 			return oid;
 		}
 
-		public Byte[] getImageData() {
+		public byte[] getImageData() {
 			return imageData;
 		}
-
-		public void setImageData(Byte[] imageData) {
+		
+		public void setImageData(byte[] imageData) {
 			this.imageData = imageData;
 		}
 
@@ -64,6 +69,7 @@ public class Department {
 		}
 
 		public String getLogo() {
+			logo=new BASE64Encoder().encode(imageData);
 			return logo;
 		}
 

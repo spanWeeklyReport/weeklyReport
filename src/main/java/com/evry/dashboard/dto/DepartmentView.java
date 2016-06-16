@@ -20,15 +20,16 @@ public class DepartmentView {
 			return Oid;
 		}
 	    
-	    private Byte[] imageData;
+	    private byte[] imageData;
+	    
 	    
 	    
 
-		public Byte[] getImageData() {
+		public byte[] getImageData() {
 			return imageData;
 		}
 
-		public void setImageData(Byte[] imageData) {
+		public void setImageData(byte[] imageData) {
 			this.imageData = imageData;
 		}
 

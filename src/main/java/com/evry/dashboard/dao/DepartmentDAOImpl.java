@@ -45,6 +45,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<Department> departmentList = session.createQuery(
 				"from Department ").list();
+		
 		return departmentList;
 
 	}

@@ -100,6 +100,7 @@ public class UploadFilesBean {
 			
 			 
 			departmentView.setLocaltion(location);
+			departmentView.setImageData(contents);
 			Department obj = departmentMapper.getMappedEntity(departmentView);
 			departmentDAO.add(obj);
 			
