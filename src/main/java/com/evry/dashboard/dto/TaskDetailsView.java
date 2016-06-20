@@ -14,7 +14,7 @@ import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name = "taskDetails")
-@SessionScoped
+@ViewScoped
 public class TaskDetailsView implements Serializable {
 
 	/**

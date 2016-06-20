@@ -14,10 +14,23 @@ import com.evry.dashboard.model.UserInfo;
 public interface UserInfoDAO
 {
 	//void add(UserInfo userInfo);
-	Query getUsers();
+	
+	/**
+	 * @param userInfo
+	 * @return
+	 */
 	boolean isValid(UserInfo userInfo);
-	 public void addUsers(UserInfo userInfo);
+	
+	 /**
+	 * @param userInfo
+	 */
+	public void addUsers(UserInfo userInfo);
 	 public boolean userExists (UserInfo userInfo);
-	 public String getUserRole(UserInfo userInfo);
+	 /**
+	 * @param userInfo
+	 * @return 
+	 */
+	public String getUserRole(UserInfo userInfo);
 	 public String getUserName(UserInfo userInfo);
+	 public List<UserInfo> getUsersList();
 }

@@ -61,6 +61,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see com.evry.dashboard.dao.UserInfoDAO#addUsers(com.evry.dashboard.model.UserInfo)
+	 */
 	@Transactional
 	public void addUsers(UserInfo userInfo) {
 		Session session = this.sessionFactory.getCurrentSession();
@@ -119,10 +122,11 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 			
 			session.persist(userInfo);
+			String useR = userInfo.getUserRole();
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
 					new FacesMessage(FacesMessage.SEVERITY_INFO,
-							"User Successfully added", null));
+							useR +" Successfully added", null));
 			
 		}
 
@@ -165,12 +169,13 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	}
 	
 	
-	
-	
-
-	public Query getUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional
+	public List<UserInfo> getUsersList()
+	{
+		Session session = this.sessionFactory.getCurrentSession();
+        List<UserInfo> personsList = session.createQuery("from UserInfo").list();
+        return personsList;
 	}
-
+	
+	
 }

@@ -1,99 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:ui="http://java.sun.com/jsf/facelets" 
-   xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-   >
-   <h:head>
-      <title>SIGN UP</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-      </link>
-      <link rel="stylesheet" href="css/styles.css"></link>
-       <link rel="stylesheet" href="css/css.css"></link>
-       <link rel="stylesheet" href="css/dashboard.css"></link>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
-      
-   </h:head>
-   <h:body>
-    <ui:insert name="header">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<title>SIGN UP</title>
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+		rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="css/styles.css"></link>
+	<link rel="stylesheet" href="css/css.css"></link>
+	<link rel="stylesheet" href="css/dashboard.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</h:head>
+<h:body>
+	<ui:insert name="header">
 		<ui:include src="commonHeader.xhtml" />
 	</ui:insert>
-      <!-- PRODUCT HEADER START -->
-      <div class="product-header">
-         <div style="overflow: visible;" class="product-header-inner">
-            <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
-            <ul style="top: 36px;" class="product-menu scale hide">
-                 <li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
-               <li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
+	<!-- PRODUCT HEADER START -->
+	<div class="product-header">
+		<div style="overflow: visible;" class="product-header-inner">
+			<a class="product-logo" href="#">Reports</a> <span
+				class="sub-menu-icon">Menu</span>
+			<ul style="top: 36px;" class="product-menu scale hide">
+				<li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
+				<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
 				<li><h:link value="Managers" outcome="add_departments.xhtml"></h:link></li>
-               
-               
-               
-            </ul>
-         </div>
-      </div>
-      
-      <!-- PRODUCT HEADER ENDS --> 
-      <!-- MAIN START -->
-      <div class="main">
-         <!--  BANNER STARTS -->
-         <section class="banner-part">
-            <div class="banner-inner content-wrap">
-              
-               <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
-               <div class="signup-box-sim">
-                  <div class="signup_frm">
-                     <p class="pro-heading">Add Users</p>
-                     
-                     <h:messages infoClass="info" errorClass="error-msg" style="margin:8px 0px;padding:0"   />
-                    
-                  <h:form id="regform">
-                  
-                 <h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel> 
-                 <h:inputText value="#{userInfo.firstName}"  class="project_form fname" id="name" >
-                  <f:validateLength minimum="2" maximum="50" />
-                 </h:inputText>
-                 <br/>
-                 <h:outputLabel value="Second Name:" class="project_form_label"></h:outputLabel> 
-                 <h:inputText value="#{userInfo.lastName}"  class="project_form lname"  >
-                     <f:validateLength minimum="2" maximum="50" />
-                 </h:inputText><br/>
-                 <h:outputLabel value="Email" class="project_form_label" /> <h:inputText a:type="email" value="#{userInfo.userName}"  class="project_form Remail"  /><br/>
-                 <h:outputLabel value="Password:" class="project_form_label" /> <h:inputSecret value="#{userInfo.password}"  class="project_form Rpass" /><br/>
-                 <h:outputLabel value="User Type:" class="project_form_label" />
-                 
-                  <h:selectOneMenu value="#{userInfo.userRole}" class="project_form usertype">
-                     <f:selectItem itemValue="Admin" itemLabel="Admin" />
-                     <f:selectItem itemValue="User" itemLabel="User" />
-                   
-                 </h:selectOneMenu>
-                 
-                 <h:commandButton id="submit5" value="Sign Up" class="buttons"
-                                  action="#{userInfoService.addUserDetails(userInfo)}" />
-                  
-                 </h:form>   
-                     
-                     
-                     </div>
-               </div>
-               <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
-               
-            </div>
-         </section>
-         <!--  BANNER ENDS --> 
-         
-       </div>   <!-- end of main -->
-      <!-- BOTTOM BANNER STARTS -->
-      
-      <div class="footer">
-        
-      </div>
-      <!-- FOOTER ENDS --> 
-      <script src="js/prd-common.js"></script>
-      <script type="text/javascript">
+
+
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- PRODUCT HEADER ENDS -->
+	<!-- MAIN START -->
+	<div class="main">
+		<!--  BANNER STARTS -->
+		<section class="banner-part">
+		<div class="banner-inner content-wrap">
+			<h:commandButton value="Register New User" class="buttons">
+				<rich:componentControl target="popup" operation="show" />
+			</h:commandButton>
+			<rich:popupPanel id="popup" modal="true" resizeable="false"
+				autosized="true" onmaskclick="#{rich:component('popup')}.hide()">
+				<f:facet name="header">
+					<h:outputText value="Register New User" />
+				</f:facet>
+				<f:facet name="controls">
+					<h:outputLink value="#"
+						onclick="#{rich:component('popup')}.hide(); return false;"
+						style="color: inherit">
+                X
+            </h:outputLink>
+				</f:facet>
+				<!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
+				<div class="signup-box-sim">
+					<div class="signup_frm">
+						<p class="pro-heading">Add Users</p>
+
+						<h:messages infoClass="info" errorClass="error-msg"
+							style="margin:8px 0px;padding:0" />
+
+						<h:form id="regform">
+
+							<h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel>
+							<h:inputText value="#{userInfo.firstName}"
+								class="project_form fname" id="name">
+								<f:validateLength minimum="2" maximum="50" />
+							</h:inputText>
+							<br />
+							<h:outputLabel value="Last Name:" class="project_form_label"></h:outputLabel>
+							<h:inputText value="#{userInfo.lastName}"
+								class="project_form lname">
+								<f:validateLength minimum="2" maximum="50" />
+							</h:inputText>
+							<br />
+							<h:outputLabel value="Email" class="project_form_label" />
+							<h:inputText a:type="email" value="#{userInfo.userName}"
+								class="project_form Remail" />
+							<br />
+							<h:outputLabel value="Password:" class="project_form_label" />
+							<h:inputSecret value="#{userInfo.password}"
+								class="project_form Rpass" />
+							<br />
+							<h:outputLabel value="User Type:" class="project_form_label" />
+
+							<h:selectOneMenu value="#{userInfo.userRole}"
+								class="project_form usertype">
+								<f:selectItem itemValue="Admin" itemLabel="Admin" />
+								<f:selectItem itemValue="User" itemLabel="User" />
+
+							</h:selectOneMenu>
+
+							<h:commandButton id="submit5" value="Sign Up" class="buttons"
+								action="#{userInfoService.addUserDetails(userInfo)}" />
+
+						</h:form>
+
+
+					</div>
+				</div>
+				<!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS -->
+			</rich:popupPanel>
+
+
+
+			<div class="signup-box-sim">
+				<div class="signup_frm">
+				<p class="pro-heading">Existing Users</p>
+					<rich:dataTable value="#{userInfoService.getUsers()}" var="userInfo">
+					
+					    <f:facet name="header">
+			          <rich:columnGroup>
+			              
+			              <rich:column >
+			                  <h:outputText value="First Name" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Last Name" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Role" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>
+			              
+			          </rich:columnGroup>
+			      </f:facet>
+					
+					 <rich:column >
+			                  <h:outputText value="${userInfo.firstName}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="${userInfo.lastName}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="${userInfo.userRole}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:commandButton value="Edit" class="buttons" >
+			                        
+									<rich:componentControl target="popup" operation="show" />
+								</h:commandButton>
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>
+						
+												
+					</rich:dataTable>
+					
+				</div>
+			</div>
+
+
+		</div>
+		</section>
+		<!--  BANNER ENDS -->
+
+	</div>
+	<!-- end of main -->
+	<!-- BOTTOM BANNER STARTS -->
+
+	<div class="footer"></div>
+	<!-- FOOTER ENDS -->
+	<script src="js/prd-common.js"></script>
+	<script type="text/javascript">
       $(document).ready(function(){
     	  $(".sgnemail").attr("value","") ;
       $("#regform").submit(function() {
@@ -106,7 +191,7 @@
       });
       });
       </script>
-        
-     
-   </h:body>
+
+
+</h:body>
 </html>

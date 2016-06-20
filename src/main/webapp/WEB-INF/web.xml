@@ -24,7 +24,11 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         org.springframework.web.context.request.RequestContextListener
     </listener-class>
   </listener>
-     
+	 <context-param>
+	    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+	    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+	    <param-value>client</param-value>
+	</context-param>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
@@ -42,23 +46,12 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
-    	<description>
-    	</description>
-    	<display-name>DisplayImage</display-name>
-    	<servlet-name>DisplayImage</servlet-name>
-    	<servlet-class>com.evry.dashboard.util.DisplayImage</servlet-class>
-    </servlet>
+    
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-    	<servlet-name>DisplayImage</servlet-name>
-    	<url-pattern>/DisplayImage</url-pattern>
-    </servlet-mapping>
-   
     <session-config>
         <session-timeout>
             30

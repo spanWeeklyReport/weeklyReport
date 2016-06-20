@@ -90,7 +90,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 
 		if (!rsl.isEmpty()) {
 			departCheck = true;
-			System.out.println("Department already Exists");
+			System.out.println("Manager already Exists");
 
 			FacesContext.getCurrentInstance().addMessage(
 					"addDepartmentForm:submit6",
@@ -104,7 +104,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 			FacesContext.getCurrentInstance().addMessage(
 					"addDepartmentForm:submit6",
 					new FacesMessage(FacesMessage.SEVERITY_INFO,
-							"Department Added Successfully!", null));
+							"Manager Added Successfully!", null));
 
 		}
 

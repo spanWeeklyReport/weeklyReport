@@ -38,7 +38,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	public List<UserInfoView> getUsers() {
-		List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsers();
+		List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsersList();
 		List<UserInfoView> userInfoViews = new ArrayList();
 		for (UserInfo userInfo : userInfos)
 			userInfoViews.add(mapper.getMappedView(userInfo));

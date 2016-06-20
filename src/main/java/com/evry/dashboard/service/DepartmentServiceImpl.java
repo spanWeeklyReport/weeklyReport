@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.hibernate.SessionFactory;
@@ -18,7 +19,7 @@ import com.evry.dashboard.model.Department;
 import com.evry.dashboard.model.ProjectDetails;
 
 @ManagedBean(name = "departmentService")
-@SessionScoped
+@ViewScoped
 public class DepartmentServiceImpl {
 
 	private DepartmentDAO departmentDAO;

@@ -23,8 +23,7 @@ import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
 import com.evry.dashboard.model.TaskDetails;
 
 @ManagedBean(name = "taskDetailsService")
-@SessionScoped
-@RequestScoped
+@ViewScoped
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	private boolean renderer = false;
