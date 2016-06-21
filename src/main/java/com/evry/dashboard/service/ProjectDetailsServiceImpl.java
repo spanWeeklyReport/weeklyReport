@@ -10,8 +10,10 @@ import javax.faces.context.FacesContext;
 
 import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dto.ProjectDetailsView;
+import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.ProjectDetailsMapper;
 import com.evry.dashboard.model.ProjectDetails;
+import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.ProjectTechnology;
 
 @ManagedBean(name = "projectDetailsService")
@@ -50,5 +52,16 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		projectDetailsDAO.checkProject(obj);
 
 	}
+	
+	public List<ProjectDetailsView> getProjectList() {
+		List<ProjectDetails> proDetails = (List<ProjectDetails>) projectDetailsDAO.getProjectList();
+		List<ProjectDetailsView> projectDeatilViews = new ArrayList();
+		for (ProjectDetails projectDetails : proDetails)
+			projectDeatilViews.add(projectDetailsmapper.getMappedView(projectDetails));
+		return projectDeatilViews;
+	}
+
+	
+	
 
 }

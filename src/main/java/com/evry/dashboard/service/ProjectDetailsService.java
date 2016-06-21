@@ -9,5 +9,6 @@ public interface ProjectDetailsService
 	
 	List<String> getProjectNames();
 	public void addProject(ProjectDetailsView projectDetailsView);
+	public List<ProjectDetailsView> getProjectList();
 	
 }

@@ -177,5 +177,17 @@ public class UserInfoDAOImpl implements UserInfoDAO {
         return personsList;
 	}
 	
+	@Transactional
+	public String deleteUsers(UserInfo userInfo) { 
+		
+		String email = userInfo.getUserName();
+		
+		Session session = this.sessionFactory.getCurrentSession();
+		session.createQuery("Delete from UserInfo where userName = '"+email +"' ");
+		return "null";
+		
+		
+	}
+	
 	
 }

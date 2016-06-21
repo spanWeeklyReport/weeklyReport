@@ -33,4 +33,5 @@ public interface UserInfoDAO
 	public String getUserRole(UserInfo userInfo);
 	 public String getUserName(UserInfo userInfo);
 	 public List<UserInfo> getUsersList();
+	 public String deleteUsers(UserInfo userInfo);
 }

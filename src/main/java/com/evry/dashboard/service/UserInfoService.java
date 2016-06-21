@@ -12,5 +12,6 @@ public interface UserInfoService
 	String isValid(UserInfoView userInfo);
 	String logout();
 	public void addUserDetails(UserInfoView userInfoView);
+	String deleteUsers (UserInfoView userInfoView);
 	
 }

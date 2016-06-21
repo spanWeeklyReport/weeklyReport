@@ -145,5 +145,14 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		return false;
 
 	}
+	
+	@Transactional
+	public List<ProjectDetails> getProjectList()
+	{
+		Session session = this.sessionFactory.getCurrentSession();
+        List<ProjectDetails> projectList = session.createQuery("from ProjectDetails").list();
+        return projectList;
+	}
+	
 
 }

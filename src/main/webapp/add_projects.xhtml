@@ -6,6 +6,8 @@
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:ui="http://java.sun.com/jsf/facelets" 
    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+   xmlns:rich="http://richfaces.org/rich"
+   xmlns:a4j="http://richfaces.org/a4j"
    >
    <h:head>
       <title>Add Projects</title>
@@ -43,6 +45,23 @@
          <!--  BANNER STARTS -->
          <section class="banner-part">
             <div class="banner-inner content-wrap">
+            
+            <h:commandButton value="Add New Project" class="buttons add-popup">
+				<rich:componentControl target="popup" operation="show" />
+			</h:commandButton>
+			
+			<rich:popupPanel id="popup" modal="true" resizeable="false"
+				autosized="true" onmaskclick="#{rich:component('popup')}.hide()">
+				<f:facet name="header">
+					<h:outputText value="Register New User" />
+				</f:facet>
+				<f:facet name="controls">
+					<h:outputLink value="#"
+						onclick="#{rich:component('popup')}.hide(); return false;"
+						style="color: inherit">
+                X
+            </h:outputLink>
+				</f:facet>
                
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
                <div class="signup-box-sim">
@@ -77,7 +96,67 @@
 
 </div>
                </div>
-               <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
+          </rich:popupPanel>
+               
+               
+			<div class="list-box">
+				<div class="signup_frm">
+				<p class="pro-heading">Current Projects</p>
+					<rich:dataTable value="#{projectDetailsService.getProjectList()}" var="project">
+					
+					    <f:facet name="header">
+			          <rich:columnGroup>
+			              
+			              <rich:column >
+			                  <h:outputText value="Project Name" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Project Status" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Project Manager" />
+			              </rich:column>
+			              
+			               <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>
+			             
+			              
+			          </rich:columnGroup>
+			      </f:facet>
+					
+					 <rich:column >
+			                  <h:outputText value="${project.projectName}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="${project.projectStatus}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:outputText value="${project.projectDepartment}" />
+			              </rich:column>
+			              <rich:column >
+			                  <h:commandButton value="Edit" class="buttons" >
+			                        
+									<rich:componentControl target="popup" operation="show" />
+								</h:commandButton>
+			              </rich:column>
+			              <rich:column >
+			              <h:form>
+			                  <h:commandButton value="Delete" class="buttons"  ></h:commandButton>
+			              </h:form>
+			              </rich:column>
+						
+												
+					</rich:dataTable>
+					
+				</div>
+			</div>
+               
+               
+               
             </div>
          </section>
          <!--  BANNER ENDS --> 

@@ -96,4 +96,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return "index.xhtml";
 
 	}
+	
+	public String deleteUsers(UserInfoView userInfoView) { 
+		
+		UserInfo userView = mapper.getMappedEntity(userInfoView);
+		userInfoDAO.deleteUsers(userView);
+		return "null";
+		
+	}
+	
+	
+	
 }

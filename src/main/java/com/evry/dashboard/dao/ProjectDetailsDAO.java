@@ -17,4 +17,5 @@ public interface ProjectDetailsDAO {
 	List<String> getProjectNames();
 	public void add(ProjectDetails projectDetails);
 	public boolean checkProject(ProjectDetails projectDetails);
+	public List<ProjectDetails> getProjectList();
 }

@@ -47,7 +47,7 @@
 		<!--  BANNER STARTS -->
 		<section class="banner-part">
 		<div class="banner-inner content-wrap">
-			<h:commandButton value="Register New User" class="buttons">
+			<h:commandButton value="Register New User" class="buttons add-popup">
 				<rich:componentControl target="popup" operation="show" />
 			</h:commandButton>
 			<rich:popupPanel id="popup" modal="true" resizeable="false"
@@ -114,9 +114,9 @@
 
 
 
-			<div class="signup-box-sim">
+			<div class="list-box">
 				<div class="signup_frm">
-				<p class="pro-heading">Existing Users</p>
+				<p class="pro-heading">Current Users</p>
 					<rich:dataTable value="#{userInfoService.getUsers()}" var="userInfo">
 					
 					    <f:facet name="header">
@@ -157,7 +157,9 @@
 								</h:commandButton>
 			              </rich:column>
 			              <rich:column >
-			                  <h:outputText value="Action" />
+			              <h:form>
+			                  <h:commandButton value="Delete" class="buttons" action="#{userInfoService.deleteUsers(userInfo)}" ></h:commandButton>
+			              </h:form>
 			              </rich:column>
 						
 												
