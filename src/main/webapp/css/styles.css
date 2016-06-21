@@ -109,7 +109,7 @@ p {
 	border: 1px solid rgba(255,255,255,1);
 }
 .logo, .apple-store, .google-play, .facebook, .twitter, .linkedin, .menu-icon, .sub-menu-icon, .footer-zohologo a, .windows-store, .play-icon, .openquote {
-	background-image: url(../images/spanlogo.png);
+	background-image: url(../images/elogo.jpg);
 	background-repeat: no-repeat;
 	text-indent: -999em;
 	display: inline-block;
@@ -142,13 +142,13 @@ p {
 	border-bottom: 1px solid #e8e8e8;
 }
 .logo {
-	background-position: left top;
-	float: left;
-	height: 23px;
-	margin: 6px 0 0 20px;
-	text-indent: -999em;
-	width: 75px;
-	background-size:cover;
+  background-position: left top;
+  background-size: cover;
+  float: left;
+  height: 34px;
+  margin: 6px 0 0 20px;
+  text-indent: -999em;
+  width: 89px;
 }
 .menu {
 	float: left;
@@ -2120,4 +2120,29 @@ input[type="email"] {
 
 li.info {
   color: green;
+}
+
+.list-box {
+  background: #fff none repeat scroll 0 0;
+  border: 5px solid #ececec;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  cursor: pointer;
+  height: auto;
+  margin: 0 auto;
+  padding: 25px;
+  position: relative;
+  transition: all 0.7s ease 0s;
+  width: 90%;
+}
+
+.buttons.add-popup {
+  margin-bottom: 20px;
+  margin-left: 38px;
+}
+
+.rf-dt {
+	
+	width: 96%;
+	
 }
