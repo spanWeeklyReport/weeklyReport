@@ -83,4 +83,10 @@ public class DepartmentServiceImpl {
 		//departmentDAO.add(obj);
 
 	}
+	
+	public String createReport() { 
+		
+		return "welcome.xhtml";
+	}
+	
 }

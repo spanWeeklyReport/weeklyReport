@@ -3,18 +3,16 @@ package com.evry.dashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dto.ProjectDetailsView;
-import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.ProjectDetailsMapper;
 import com.evry.dashboard.model.ProjectDetails;
-import com.evry.dashboard.model.UserInfo;
-import com.evry.dashboard.util.ProjectTechnology;
+import com.evry.dashboard.util.HttpSessionFactory;
 
 @ManagedBean(name = "projectDetailsService")
 @SessionScoped
@@ -59,6 +57,15 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		for (ProjectDetails projectDetails : proDetails)
 			projectDeatilViews.add(projectDetailsmapper.getMappedView(projectDetails));
 		return projectDeatilViews;
+	}
+	
+	public void projectDepartment(){
+		String tech = FacesContext.getCurrentInstance().getExternalContext()
+				.getRequestParameterMap().get("tech");
+		System.out.println("#####"+ tech);
+		
+		
+		
 	}
 
 	

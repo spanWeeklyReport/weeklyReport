@@ -20,7 +20,7 @@ import com.evry.dashboard.model.RiskDetails;
 
 
 @ManagedBean(name = "riskDetailsService")
-@ViewScoped
+@SessionScoped
 public class RiskDetailsServiceImpl implements RiskDetailsService {
 
     private RiskDetailsMapper mapper;

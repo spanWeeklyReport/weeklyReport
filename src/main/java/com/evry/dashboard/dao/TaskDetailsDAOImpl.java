@@ -1,6 +1,9 @@
 package com.evry.dashboard.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.faces.context.FacesContext;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -10,6 +13,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 
 public class TaskDetailsDAOImpl implements TaskDetailsDAO {
@@ -123,14 +127,22 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 	 */
 	@Transactional
 	public List<TaskDetails> viewReport(TaskDetails taskDetails) {
+		
+		String tech = FacesContext.getCurrentInstance().getExternalContext()
+				.getRequestParameterMap().get("tech");
+		System.out.println("**" + tech);
+		
 		String projectName = taskDetails.getProjectDetails().getProjectName();
+		
 
-		System.out.println(projectName);
+		//System.out.println(projectName);
 
 		int wNo = taskDetails.getWeekNo();
-		System.out.println(wNo);
+		//System.out.println(wNo);
 		Session session = this.sessionFactory.getCurrentSession();
 		Criteria cr = session.createCriteria(TaskDetails.class);
+		boolean all = false;
+		
 
 		if (!projectName.equalsIgnoreCase("All") && wNo != 0) {
 			System.out.println("condition1");
@@ -149,19 +161,39 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		else if (projectName.equalsIgnoreCase("All") && wNo != 0) {
 			System.out.println("condition3");
 			cr.add(Restrictions.eq("WeekNo", wNo));
+			cr.add(Restrictions.eq("projectDepartment", tech));
 		}
 
 		else if (projectName.equalsIgnoreCase("All") && wNo == 0) {
 			System.out.println("condition4");
-			cr.addOrder(Order.asc("WeekNo"));
+			all = true;
+			
 
 		}
 
 		cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 
 		List<TaskDetails> viewReport = cr.list();
-
-		return viewReport;
+		if (!tech.equals("All")){
+				List<TaskDetails> viewReport1 = new ArrayList();
+					if(all)
+						for(TaskDetails task : viewReport)				
+						{
+							if(task.getProjectDetails().getProjectDepartment().equals(tech))				
+									viewReport1.add(task);
+						}
+					else
+						viewReport1 = viewReport;
+					return viewReport1;
+									
+		}	
+		else { 
+			
+			return viewReport;
+			
+		}
+		
+		
 
 	}
 

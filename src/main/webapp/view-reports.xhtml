@@ -37,8 +37,9 @@
 			<a class="product-logo" href="#">Reports</a> <span
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
-				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-
+				 <h:form>
+				<li><h:commandLink value="Home" action="#{taskDetailsService.setRender()}" /></li>
+                  </h:form>
 
 			</ul>
 		</div>
@@ -50,6 +51,11 @@
 
 		<div id="ZRSDBCreationOptions">
 			<div id="ZRSCreateOptsHeader">
+			    <h:panelGroup layout="block" class="mblock" >
+				
+				   <h1 class="mblock-head">Manager Name:</h1><h1 class="mblock-head mname"></h1> 
+				    
+				</h:panelGroup>
 				<h1 style="">View Your Reports</h1>
 			</div>
 			<div class="form view-page">
@@ -110,7 +116,7 @@
 				</o:form>
 				<div>
 
-					<c:if test="#{!empty taskDetailsService.taskDetailsViews}">
+					<h:panelGroup id="view-panel" rendered="#{taskDetailsService.renderScreen()}">
 
 						<h:panelGroup layout="block" styleClass="accordion_example2" >
 							<ui:repeat value="${taskDetailsService.taskDetailsViews}"
@@ -154,7 +160,7 @@
 								</h:panelGroup>
 							</ui:repeat>
 						</h:panelGroup>
-					</c:if>
+					</h:panelGroup>
 
 
 				</div>
@@ -169,10 +175,19 @@
 	<script src="js/smk-accordion.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	
-	jQuery(".accordion_example2").smk_Accordion({
-		closeAble: true, //boolean
+	jQuery(document).ready(function(){
+		
+		jQuery(".accordion_example2").smk_Accordion({
+			closeAble: true, //boolean
+		});
+		jQuery('.empty').parent().parent().hide();
+	
+		
+		
 	});
-	jQuery('.empty').parent().parent().hide();
+	
+	
+	
 	</script>
 </h:body>
 </html>

@@ -17,10 +17,20 @@ public class UserInfoView implements Serializable {
 	private String password;
 	// private String loginUsername;
 	private String userRole;
-
+	boolean editable;
+	
+	
 	/**
 	 * @Getters and setters
 	 */
+	
+	public boolean isEditable() {
+		return editable;
+	}
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
+	
 	public String getUserName() {
 		return userName;
 	}

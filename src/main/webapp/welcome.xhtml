@@ -25,7 +25,7 @@
 
 
 </h:head>
-<h:body>
+<h:body >
 	<ui:insert name="header">
 		<ui:include src="commonHeader.xhtml" />
 	</ui:insert>
@@ -36,8 +36,9 @@
 			<a class="product-logo" href="#">Reports</a> <span
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
-				<li><h:link value="Home" outcome="dashboard.xhtml" /></li>
-
+			     <h:form>
+				<li><h:commandLink value="Home" action="#{taskDetailsService.setRender()}" /></li>
+                  </h:form>
 
 			</ul>
 		</div>
@@ -49,7 +50,15 @@
 
 		<div id="ZRSDBCreationOptions">
 			<div id="ZRSCreateOptsHeader">
+			
+			   <h:panelGroup layout="block" class="mblock" >
+				
+				   <h1 class="mblock-head">Manager Name:</h1><h1 class="mblock-head mname"></h1> 
+				    
+				</h:panelGroup>
+			    
 				<h1 style="">Add Your Report for the week: </h1>
+				
 				
 			</div>
 
@@ -166,7 +175,7 @@
 												id="resc_l_sh" class="count-shaR integer" /></td>
 										<td><h:inputText value="#{taskDetails.projectIncSh}"
 												id="proj_inc_sh" class="count-projIncSh integer" /></td>
-										<td><h:inputText value="#{taskDetails.projectDecSh}"
+										<td><h:inputText value="#{taskDetails.projectDecSh}" 
 												id="proj_dec_sh" class="count-projDecSh integer" /></td>
 									</tr>
 									<tr>
@@ -265,10 +274,17 @@
 		<ui:include src="commonFooter.xhtml" />
 	</ui:insert> 
 	<script type="text/javascript">
+	 //<![CDATA[
+	
+	$(document).ready(function (){
+		
+		
+		
+		
 	
 	$(".add-butn").click(function(){
 
-        if ($(".risk-des").val() == "" &amp;&amp; $(".risk-res").val() == "" &amp;&amp; $(".risk-type").val() == ""  ) {
+        if ($(".risk-des").val() == "" && $(".risk-res").val() == "" && $(".risk-type").val() == ""  ) {
             
         	
             alert("Please fill all fields regarding risk details");
@@ -280,15 +296,15 @@
        
        });
 	
-	$(document).ready(function (){
+	
 	    validate();
 	    $('.risk-des, .risk-res, .risk-type').change(validate);
-	});
+	
 
 	function validate(){
-	    if ($('.risk-des').val().length   >   0   &amp;&amp;
-	        $('.risk-res').val().length  >   0   &amp;&amp;
-	        $('.risk-type').val().length    >   0) {
+	    if ($('.risk-des').val().length >  0   &&
+	        $('.risk-res').val().length  >   0   &&
+	        $('.risk-type').val().length  >   0) {
 	        $(".add-butn").prop("disabled", false);
 	    }
 	    else {
@@ -296,8 +312,11 @@
 	    }
 	}
 	
-	  
 	
+	
+	});  
+    //]]>
+    
 	</script>
 	
 	</footer>

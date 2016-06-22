@@ -14,6 +14,7 @@ import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.HttpSessionFactory;
+import com.evry.dashboard.service.TaskDetailsService;
 
 @ManagedBean(name = "userInfoService")
 @SessionScoped
@@ -23,6 +24,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private UserInfoDAO userInfoDAO;
 	private boolean renderer;
 	private boolean logout;
+	private TaskDetailsService taskDetailsService;
 
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
@@ -35,6 +37,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public void addUser(UserInfoView userInfoView) {
 		UserInfo obj = mapper.getMappedEntity(userInfoView);
 		// userInfoDAO.add(obj);
+	}
+	
+	
+	public void setTaskDetailsService(TaskDetailsService taskDetailsService) {
+		this.taskDetailsService = taskDetailsService;
 	}
 
 	public List<UserInfoView> getUsers() {
@@ -90,6 +97,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 		renderer = false;
 		logout = true;
 		
+		taskDetailsService.setRender();
+		
 		HttpSessionFactory.getSession().invalidate();
 		System.out.println("successfully logout");
 		;
@@ -101,10 +110,17 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		UserInfo userView = mapper.getMappedEntity(userInfoView);
 		userInfoDAO.deleteUsers(userView);
-		return "null";
+		return null;
 		
 	}
 	
+	public String editUsers(UserInfoView userInfoView){
+		
+		System.out.println("inside edit function");
+	
+		userInfoView.setEditable(true);
+		return null;
+	}
 	
 	
 }

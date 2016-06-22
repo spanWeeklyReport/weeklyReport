@@ -9,4 +9,5 @@ public interface DepartmentService {
 	public  List<DepartmentView> getDepartment();
 	List<String> getdepartmentName();
 	void addDepartment(DepartmentView departmentView);
+	public String createReport();
 }

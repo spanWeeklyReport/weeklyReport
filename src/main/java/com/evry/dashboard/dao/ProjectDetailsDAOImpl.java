@@ -71,11 +71,11 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 
 		String tech = FacesContext.getCurrentInstance().getExternalContext()
 				.getRequestParameterMap().get("tech");
-		System.out.println("----------" + tech);
+		//System.out.println("----------" + tech);
 
 		Session session = this.sessionFactory.getCurrentSession();
 		if (tech.equalsIgnoreCase("All")) {
-			System.out.println("---inside 1");
+			//System.out.println("---inside 1");
 			List<ProjectDetails> projectList = session.createQuery(
 					"from ProjectDetails").list();
 			// System.out.println(projectList);
@@ -88,7 +88,7 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		}
 
 		else {
-			System.out.println("--inside 2");
+			//System.out.println("--inside 2");
 			List<ProjectDetails> projectList2 = session.createQuery(
 					"from ProjectDetails where projectDepartment='" + tech
 							+ "'").list();
@@ -123,7 +123,7 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 
 		if (!rst.isEmpty()) {
 			projectCheck = true;
-			System.out.println("Project Already Exists");
+			//System.out.println("Project Already Exists");
 
 			FacesContext.getCurrentInstance().addMessage(
 					"projectForm:submit4",

@@ -45,11 +45,11 @@
          <!--  BANNER STARTS -->
          <section class="banner-part">
             <div class="banner-inner content-wrap">
-            
+            <h:form>
             <h:commandButton value="Add New Project" class="buttons add-popup">
 				<rich:componentControl target="popup" operation="show" />
 			</h:commandButton>
-			
+			</h:form>
 			<rich:popupPanel id="popup" modal="true" resizeable="false"
 				autosized="true" onmaskclick="#{rich:component('popup')}.hide()">
 				<f:facet name="header">
@@ -83,9 +83,10 @@
                      <h:outputLabel value="Project Status:" class="project_form_label" />
               <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form project_status" required="true" requiredMessage="Please select Project Status">
                      <f:selectItem itemValue="#{null}" itemLabel="Select" />
-                     <f:selectItem itemValue="Completed" itemLabel="completed" />
-                     <f:selectItem itemValue="Pending" itemLabel="pending" />
-                     <f:selectItem itemValue="Running" itemLabel="running" />
+                     <f:selectItem itemValue="Closed" itemLabel="Closed" />
+                     <f:selectItem itemValue="On Hold" itemLabel="On Hold" />
+                     <f:selectItem itemValue="In Progress" itemLabel="In Progress" />
+                     <f:selectItem itemValue="Started" itemLabel="Started" />
                      
               </h:selectOneMenu><br/>
               

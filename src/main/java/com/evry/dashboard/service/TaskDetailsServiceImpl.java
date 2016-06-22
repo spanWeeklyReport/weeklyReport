@@ -23,7 +23,8 @@ import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
 import com.evry.dashboard.model.TaskDetails;
 
 @ManagedBean(name = "taskDetailsService")
-@ViewScoped
+@SessionScoped
+
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	private boolean renderer = false;
@@ -35,6 +36,9 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	private TaskDetailsView taskDetailsView;
 	private long riskId;
 	private List<TaskDetailsView> taskDetailsViews;
+	
+	
+	
 
 	public void setTaskDetailsDAO(TaskDetailsDAO taskDetailsDAO) {
 		this.taskDetailsDAO = taskDetailsDAO;
@@ -159,6 +163,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 					.viewReport(taskDetailsMapper
 							.getMappedEntity(taskDetailsView));
 			if (!CollectionUtils.isEmpty(taskDetails2)) {
+				renderer = true;
 				System.out.println("data found");
 				setTaskDetailsViews(taskDetailsMapper
 						.getMappedView(taskDetails2));
@@ -262,6 +267,13 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		System.out.println("inside ajax func");
 		TaskDetailsView taskDetails = new TaskDetailsView();
 		taskDetails.setWeekNo(0);
+	}
+	
+	public String setRender() { 
+		
+		renderer = false;
+		return "dashboard.xhtml";
+		
 	}
 
 }

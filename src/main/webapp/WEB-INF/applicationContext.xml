@@ -66,6 +66,7 @@
     <beans:bean id = "userInfoService" class = "com.evry.dashboard.service.UserInfoServiceImpl">
         <beans:property name = "userInfoDAO" ref = "userInfoDAO"/>
         <beans:property name = "mapper" ref = "userInfoMapper"/>
+        <beans:property name = "taskDetailsService" ref= "taskDetailsService" />
        
     </beans:bean> 
      <beans:bean id = "taskDetailsService" class = "com.evry.dashboard.service.TaskDetailsServiceImpl">

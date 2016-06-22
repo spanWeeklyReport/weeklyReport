@@ -181,10 +181,12 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public String deleteUsers(UserInfo userInfo) { 
 		
 		String email = userInfo.getUserName();
+		System.out.println("++++"+email);
 		
 		Session session = this.sessionFactory.getCurrentSession();
-		session.createQuery("Delete from UserInfo where userName = '"+email +"' ");
-		return "null";
+		Query q = session.createQuery("Delete from UserInfo where userName = '"+email +"' ");
+		q.executeUpdate();
+		return null;
 		
 		
 	}

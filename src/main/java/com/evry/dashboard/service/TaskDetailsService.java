@@ -20,7 +20,7 @@ public interface TaskDetailsService {
     void viewReport(TaskDetailsView taskDetailsView);
     void DataListener(ValueChangeEvent e);
     public String checkReport(TaskDetailsView taskDetailsView);
-	
+    public String setRender();
 	
     
 }

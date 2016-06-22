@@ -1888,8 +1888,10 @@ input:focus, input:active {
 
 .acc_content {
   float: left;
-  width: 100%;
+  width: 90%;
 }
+
+font-weight: 700;
 
 
 /*Styles for front page*/
@@ -2145,4 +2147,16 @@ li.info {
 	
 	width: 96%;
 	
+}
+
+.mblock {
+  float: left;
+  width: 100%;
+}
+
+.mblock-head {
+  color: white;
+  float: left;
+  margin-right: 10px;
+  font-size:20px;
 }

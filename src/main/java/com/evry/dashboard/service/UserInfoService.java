@@ -13,5 +13,6 @@ public interface UserInfoService
 	String logout();
 	public void addUserDetails(UserInfoView userInfoView);
 	String deleteUsers (UserInfoView userInfoView);
+	String editUsers (UserInfoView userInfoView);
 	
 }

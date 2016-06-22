@@ -12,7 +12,7 @@ import javax.faces.bean.ViewScoped;
 import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="riskDetails")
-@ViewScoped
+@SessionScoped
 public class RiskDetailsView {
 	
 	private long riskId;	

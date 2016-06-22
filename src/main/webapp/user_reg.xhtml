@@ -47,9 +47,11 @@
 		<!--  BANNER STARTS -->
 		<section class="banner-part">
 		<div class="banner-inner content-wrap">
+		<h:form>
 			<h:commandButton value="Register New User" class="buttons add-popup">
 				<rich:componentControl target="popup" operation="show" />
 			</h:commandButton>
+		</h:form>
 			<rich:popupPanel id="popup" modal="true" resizeable="false"
 				autosized="true" onmaskclick="#{rich:component('popup')}.hide()">
 				<f:facet name="header">
@@ -116,55 +118,69 @@
 
 			<div class="list-box">
 				<div class="signup_frm">
-				<p class="pro-heading">Current Users</p>
-					<rich:dataTable value="#{userInfoService.getUsers()}" var="userInfo">
-					
-					    <f:facet name="header">
-			          <rich:columnGroup>
-			              
-			              <rich:column >
-			                  <h:outputText value="First Name" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="Last Name" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="Role" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="Action" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="Action" />
-			              </rich:column>
-			              
-			          </rich:columnGroup>
-			      </f:facet>
-					
-					 <rich:column >
-			                  <h:outputText value="${userInfo.firstName}" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="${userInfo.lastName}" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:outputText value="${userInfo.userRole}" />
-			              </rich:column>
-			              <rich:column >
-			                  <h:commandButton value="Edit" class="buttons" >
-			                        
-									<rich:componentControl target="popup" operation="show" />
-								</h:commandButton>
-			              </rich:column>
-			              <rich:column >
-			              <h:form>
-			                  <h:commandButton value="Delete" class="buttons" action="#{userInfoService.deleteUsers(userInfo)}" ></h:commandButton>
-			              </h:form>
-			              </rich:column>
-						
-												
+					<p class="pro-heading">Current Users</p>
+					<rich:dataTable value="#{userInfoService.getUsers()}"
+						var="userInfo">
+
+						<f:facet name="header">
+							<rich:columnGroup>
+
+								<rich:column>
+									<h:outputText value="First Name" />
+								</rich:column>
+								<rich:column>
+									<h:outputText value="Last Name" />
+								</rich:column>
+								<rich:column>
+									<h:outputText value="Role" />
+								</rich:column>
+								<rich:column>
+									<h:outputText value="Action" />
+								</rich:column>
+								<rich:column>
+									<h:outputText value="Action" />
+								</rich:column>
+
+							</rich:columnGroup>
+						</f:facet>
+
+						<rich:column>
+							<h:inputText value="#{userInfo.firstName}" size="10"
+								rendered="#{userInfo.editable}" />
+							<h:outputText value="${userInfo.firstName}"
+								rendered="#{not userInfo.editable}" />
+						</rich:column>
+						<rich:column>
+							<h:inputText value="#{userInfo.lastName}" size="10"
+								rendered="#{userInfo.editable}" />
+							<h:outputText value="${userInfo.lastName}"
+								rendered="#{not userInfo.editable}" />
+						</rich:column>
+						<rich:column>
+							<h:inputText value="#{userInfo.userRole}" size="10"
+								rendered="#{userInfo.editable}" />
+							<h:outputText value="${userInfo.userRole}"
+								rendered="#{not userInfo.editable}" />
+						</rich:column>
+						<rich:column>
+                           <h:form>
+                          
+							<h:commandLink value="Edit" class="buttons"
+								rendered="#{not userInfo.editable}"
+								action="#{userInfoService.editUsers(userInfo)}" />
+							</h:form>	
+
+						</rich:column>
+						<rich:column>
+							<h:form>
+								<h:commandButton value="Delete" class="buttons"
+									action="#{userInfoService.deleteUsers(userInfo)}"></h:commandButton>
+							</h:form>
+						</rich:column>
+
+
 					</rich:dataTable>
-					
+
 				</div>
 			</div>
 
