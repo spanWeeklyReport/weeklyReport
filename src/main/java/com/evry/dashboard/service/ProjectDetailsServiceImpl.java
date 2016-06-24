@@ -13,12 +13,12 @@ import com.evry.dashboard.dto.ProjectDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.ProjectDetailsMapper;
 import com.evry.dashboard.model.ProjectDetails;
-<<<<<<< HEAD
+
 import com.evry.dashboard.util.HttpSessionFactory;
-=======
+
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.ProjectTechnology;
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
+
 
 @ManagedBean(name = "projectDetailsService")
 @SessionScoped
@@ -64,7 +64,7 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 			projectDeatilViews.add(projectDetailsmapper.getMappedView(projectDetails));
 		return projectDeatilViews;
 	}
-<<<<<<< HEAD
+
 	
 	public void projectDepartment(){
 		String tech = FacesContext.getCurrentInstance().getExternalContext()
@@ -74,8 +74,6 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		
 		
 	}
-=======
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
 
 	
 	

@@ -34,8 +34,7 @@ public interface UserInfoDAO
 	 public String getUserName(UserInfo userInfo);
 	 public List<UserInfo> getUsersList();
 	 public String deleteUsers(UserInfo userInfo);
-<<<<<<< HEAD
+
 	 public UserInfo editUsers(UserInfo userInfo);
-=======
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
+
 }

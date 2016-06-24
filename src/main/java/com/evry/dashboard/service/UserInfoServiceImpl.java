@@ -3,6 +3,7 @@ package com.evry.dashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -39,6 +40,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfo obj = mapper.getMappedEntity(userInfoView);
 		// userInfoDAO.add(obj);
 	}
+	
+	
+	
 	
 	
 	public void setTaskDetailsService(TaskDetailsService taskDetailsService) {
@@ -111,7 +115,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		UserInfo userView = mapper.getMappedEntity(userInfoView);
 		userInfoDAO.deleteUsers(userView);
-<<<<<<< HEAD
+
 		return null;
 		
 	}
@@ -120,14 +124,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		System.out.println("inside edit function"); 
 		UserInfo userInfo = userInfoDAO.editUsers(mapper.getMappedEntity(userInfoView));
-		 
-	}
-=======
-		return "null";
+
+		
 		
 	}
 	
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
+
 	
 	
 }
