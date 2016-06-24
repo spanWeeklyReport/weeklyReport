@@ -168,7 +168,7 @@
 						<rich:column>
                            
                           
-							<h:commandLink value="#{userInfo.editable}" class="buttons"
+							<!-- <h:commandLink value="#{userInfo.editable}" class="buttons"
 								rendered="#{not userInfo.editable}"
 								action="#{userInfoService.editUsers(userInfo)}" 
 								/>
@@ -177,7 +177,11 @@
 								rendered="#{not userInfo.editable}"
 								action="#{userInfoService.editUsers(userInfo)}" 
 								
-								/>
+								/>  -->
+								
+				<h:commandButton value="Editttt" class="buttons add-popup" action="#{userInfoService.editUsers(userInfo)}">
+				<rich:componentControl target="popup" operation="show"  />
+			   </h:commandButton>
 										 
 
 						</rich:column>

@@ -202,10 +202,15 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		Query qry = session.createQuery("Select from UserInfo where oid = '"+userid +"' ");
 		
-		//UserInfo userInfo = qry.executeUpdate();
-		return null;
+		List<UserInfo> rs = qry.list();
+		UserInfo user = null;
+		if(!rs.isEmpty()){ 
+			
+			user = rs.get(0);
+		}
 		
 		
+		return user;
 		
 	}
 	
