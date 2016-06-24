@@ -190,6 +190,24 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		
 		
 	}
+	@Transactional
+	public UserInfo editUsers(UserInfo userInfo){ 
+		
+		return getUser(userInfo);
+	}
+	
+	@Transactional
+	public UserInfo getUser(UserInfo userInfo){ 
+		long userid = userInfo.getOid();
+		Session session = this.sessionFactory.getCurrentSession();
+		Query qry = session.createQuery("Select from UserInfo where oid = '"+userid +"' ");
+		
+		//UserInfo userInfo = qry.executeUpdate();
+		return null;
+		
+		
+		
+	}
 	
 	
 }

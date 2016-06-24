@@ -8,14 +8,12 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name = "userInfo")
 @SessionScoped
-@ViewScoped
 public class UserInfoView implements Serializable {
 	private static final long serialVersionUID = 7016146540858290775L;
 	private String firstName;
 	private String lastName;
 	private String userName;
 	private String password;
-	// private String loginUsername;
 	private String userRole;
 	boolean editable;
 	
@@ -71,11 +69,6 @@ public class UserInfoView implements Serializable {
 		this.userRole = userRole;
 	}
 
-	/*
-	 * public String getLoginUsername() { return loginUsername; }
-	 * 
-	 * public void setLoginUsername(String loginUsername) { this.loginUsername =
-	 * loginUsername; }
-	 */
+	
 
 }

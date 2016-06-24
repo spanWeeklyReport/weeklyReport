@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.evry.dashboard.dao.UserInfoDAO;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
+import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.HttpSessionFactory;
 import com.evry.dashboard.service.TaskDetailsService;
@@ -114,12 +115,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 	}
 	
-	public String editUsers(UserInfoView userInfoView){
+	public void editUsers(UserInfoView userInfoView){
 		
-		System.out.println("inside edit function");
-	
-		userInfoView.setEditable(true);
-		return null;
+		System.out.println("inside edit function"); 
+		UserInfo userInfo = userInfoDAO.editUsers(mapper.getMappedEntity(userInfoView));
+		 
 	}
 	
 	

@@ -145,8 +145,8 @@ p {
   background-position: left top;
   background-size: cover;
   float: left;
-  height: 34px;
-  margin: 6px 0 0 20px;
+  height: 37px;
+  margin: 0 0 10px 20px;
   text-indent: -999em;
   width: 89px;
 }
@@ -814,6 +814,7 @@ p {
 }
 .product-menu {
 	float: right;
+	height:30px;
 }
 .product-menu li {
 	float: left;
@@ -2103,7 +2104,9 @@ input[type="email"] {
 }
 
 .header-menu {
-  height: 35px;
+  height: 40px;
+  position: relative;
+  top: 5px;
   width: 186px;
 }
 
@@ -2159,4 +2162,21 @@ li.info {
   float: left;
   margin-right: 10px;
   font-size:20px;
+}
+
+.buttons {
+  background-color: #f0483e !important;
+  background-image: none !important;
+  border: 1px solid #f0483e !important;
+  border-radius: 3px !important;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 12px !important;
+  height: 30px;
+  margin-right: 5px;
+  min-width: 75px;
+  overflow: hidden;
+  padding: 0 6px !important;
+  text-transform: capitalize;
+  white-space: nowrap;
 }

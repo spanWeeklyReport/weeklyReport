@@ -1799,7 +1799,7 @@ list-style-type:none;
 padding-top:15px;
 position: relative;
 top: 0;
-height: 600px;
+height: auto;;
 overflow-x: auto;
 padding: 30px 0px 0px;
 display:inline-block;
@@ -13253,6 +13253,7 @@ a.create, a.view {
        padding-right: 40px;
        padding-bottom:12px;
        position:relative;
+       margin-top:5%;
 }
 
 .product-header-inner {overflow: visible;}
