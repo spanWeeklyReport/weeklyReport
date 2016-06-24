@@ -13,6 +13,9 @@ public interface UserInfoService
 	String logout();
 	public void addUserDetails(UserInfoView userInfoView);
 	String deleteUsers (UserInfoView userInfoView);
+<<<<<<< HEAD
 	void editUsers (UserInfoView userInfoView);
+=======
+>>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
 	
 }

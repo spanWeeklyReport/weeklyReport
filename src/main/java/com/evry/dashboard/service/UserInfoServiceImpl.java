@@ -111,6 +111,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		UserInfo userView = mapper.getMappedEntity(userInfoView);
 		userInfoDAO.deleteUsers(userView);
+<<<<<<< HEAD
 		return null;
 		
 	}
@@ -121,6 +122,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfo userInfo = userInfoDAO.editUsers(mapper.getMappedEntity(userInfoView));
 		 
 	}
+=======
+		return "null";
+		
+	}
+	
+>>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
 	
 	
 }
