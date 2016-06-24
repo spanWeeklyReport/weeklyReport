@@ -145,13 +145,8 @@ p {
   background-position: left top;
   background-size: cover;
   float: left;
-<<<<<<< HEAD
-  height: 37px;
-  margin: 0 0 10px 20px;
-=======
-  height: 34px;
-  margin: 6px 0 0 20px;
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
+  height: 40px;
+  margin: 0px 0 10px 20px;
   text-indent: -999em;
   width: 89px;
 }
@@ -2185,6 +2180,5 @@ li.info {
   padding: 0 6px !important;
   text-transform: capitalize;
   white-space: nowrap;
-=======
->>>>>>> branch 'master' of https://github.com/spanWeeklyReport/weeklyReport.git
+
 }
