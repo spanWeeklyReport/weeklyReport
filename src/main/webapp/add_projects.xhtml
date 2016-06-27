@@ -103,13 +103,13 @@
               </h:selectOneMenu><br/>
               
                <h:outputLabel value="*Start Date" class="project_form_label"></h:outputLabel>
-               <h:inputText styleClass="datepicker1 project_form" value="#{projectDetails.startDate}" >
+               <h:inputText id="start_date" styleClass="datepicker1 project_form" value="#{projectDetails.startDate}" >
                <f:convertDateTime pattern="yyyy-MM-dd" />
                 </h:inputText>
               <br/>
                
              <h:outputLabel value="*Estimated End Date" class="project_form_label"></h:outputLabel>
-               <h:inputText styleClass ="datepicker2 project_form" value="#{projectDetails.endDate}">
+               <h:inputText id="end_date" styleClass ="datepicker2 project_form" value="#{projectDetails.endDate}">
                <f:convertDateTime pattern="yyyy-MM-dd" />
                 </h:inputText><br/>  
               
@@ -152,7 +152,9 @@
                                <h:outputText value="Estimated End Date" />
                            </rich:column>
          
-			              
+			               <!--  <rich:column >
+			                  <h:outputText value="Action" />
+			              </rich:column>  -->
 			              <rich:column >
 			                  <h:outputText value="Action" />
 			              </rich:column>
@@ -183,7 +185,13 @@
                                 </h:outputText>
                             </rich:column>
                             
-                          
+                           <!-- <rich:column>
+			            
+		                  <h:commandButton value="Edit" class="buttons" >
+		                        
+								<rich:componentControl target="popup" operation="show" />
+							</h:commandButton>
+						 </rich:column>  -->
 			              
 			              <rich:column >
 			                <h:commandButton value="Delete" class="buttons" id="Delete" action="#{projectDetailsService.deleteProjects(project)}" 
@@ -214,9 +222,19 @@
       <!-- FOOTER ENDS --> 
       <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+     
       <script type="text/javascript">
       $(document).ready(function(){
-
+             
+    	  var sdate = $(".sdate").text();
+    	  var replaced = sdate.split(" ");
+    	  var date  = replaced[0];
+    	  $(".sdate").text(date);
+    	  
+    	  var edate = $(".edate").text();
+    	  var replaced2 = edate.split(" ");
+    	  var date2  = replaced2[0];
+    	  $(".edate").text(date2);
 
     	  $(".sel_department").val($(".sel_department option:first").val());
     	  $(".project_status").val($(".project_status option:first").val());
@@ -241,21 +259,23 @@
     	  
     	  $('.datepicker1').datepicker(
                   { 
-                	  
                 	  changeMonth: true,
                 	  showOtherMonths: true,
-                	  dateFormat: 'yy-mm-dd' }
-                 
-              
-        
-        );
+                	  dateFormat: 'yy-mm-dd',
+                		  onSelect: function(selected) {
+                	          $(".datepicker2").datepicker("option","minDate", selected)
+                	        }
+                	  
+                  });
         $('.datepicker2').datepicker(
                   { 
                 	  changeMonth: true,
                 	  showOtherMonths: true,
-                	  dateFormat: 'yy-mm-dd' }        
-        
-        );
+                	  dateFormat: 'yy-mm-dd',
+                		  onSelect: function(selected) {
+                	           $(".datepicker1").datepicker("option","maxDate", selected)
+                	        }
+                 });
     	  
       });
       

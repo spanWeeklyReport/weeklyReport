@@ -826,3 +826,13 @@ div.dashboard-pagr-title {
   color: #555 !important;
 }
 
+.date_details {
+  float: left;
+  padding-left: 10px;
+  width: 45%;
+}
+
+.datelabel {
+  float: left;
+  width: 30%;
+}

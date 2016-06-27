@@ -2,6 +2,7 @@ package com.evry.dashboard.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -41,6 +42,8 @@ public class TaskDetailsView implements Serializable {
 	private String ProjectUpdates;
 	private String ResourceLoadingB;
 	private String ResourceLoadingSh;
+	private Date startDate;
+	private Date endDate;
 
 	/**
 	 * Last week Variables
@@ -267,6 +270,23 @@ public class TaskDetailsView implements Serializable {
 	public void setYearNo(int yearNo) {
 		this.yearNo = yearNo;
 	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	
 	
 	
 

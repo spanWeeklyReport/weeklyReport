@@ -104,6 +104,21 @@
 					<br />
 					<h:panelGroup layout="block" id="Panel-details"
 						rendered="#{taskDetailsService.renderScreen()}" clas="panel">
+						<h:panelGroup>
+              <p class="date_details">   
+               <h:outputLabel class="datelabel">Project Start Date:</h:outputLabel>
+               <h:outputText class="sdate" value="#{taskDetails.startDate}">
+                 <f:convertDateTime pattern="yyyy-MM-dd" timeZone="IST"></f:convertDateTime> 
+               </h:outputText>
+              </p>
+              <p class="date_details">    
+               <h:outputLabel class="datelabel">Estimated End Date:</h:outputLabel>
+              <h:outputText class="edate" value="#{taskDetails.endDate}">
+                  <f:convertDateTime pattern="yyyy-MM-dd" timeZone="IST"></f:convertDateTime>
+                     </h:outputText>
+              </p>
+                     </h:panelGroup>
+						
 						<!-- main div -->
 						<div id="tabs-1">
 							<!-- Tabs Start -->

@@ -62,6 +62,17 @@ public class TaskDetailsMapper {
 		} catch (Exception e) {
 			taskDetailsView.setProjectDetailsName("");
 		}
+        try{
+            taskDetailsView.setStartDate(taskDetails.getProjectDetails().getStartDate());
+			}catch(Exception e){
+			            taskDetailsView.setStartDate(null);
+			}
+			try{
+			            taskDetailsView.setEndDate(taskDetails.getProjectDetails().getEndDate());
+			}catch(Exception e){
+			            taskDetailsView.setEndDate(null);
+			}
+
 		taskDetailsView.setWeekNo(taskDetails.getWeekNo());
 		taskDetailsView.setYearNo(taskDetails.getYearNo());
 		taskDetailsView.setPlannedTask(taskDetails.getPlannedTask());
