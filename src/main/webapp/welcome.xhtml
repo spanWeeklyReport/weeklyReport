@@ -92,6 +92,7 @@
 						id="week_no">
 					</h:inputText>
 					<h:inputSecret class="datepicker" />
+					<h:inputHidden value="#{taskDetails.yearNo}" styleClass="year" id="year" ></h:inputHidden>
 
 					<h:commandButton id="fetch" value="Select" class="buttons fetch"
 						action="#{taskDetailsService.checkTasks(taskDetails)}">
@@ -135,7 +136,7 @@
 												disabled="#{taskDetails.lastInProgress == null}" /></td>
 									</tr>
 									<tr>
-										<td>Selected Week (${taskDetails.weekNo})</td>
+										<td>Selected Week (${taskDetails.weekNo}/${taskDetails.yearNo})</td>
 										<td><h:inputText value="#{taskDetails.plannedTask}"
 												id="tasks_planned" class="integer planned" /></td>
 										<td><h:inputText value="#{taskDetails.completedTask}"
@@ -198,7 +199,7 @@
 								<h2 class="panel-heading">Project Updates</h2>
 								<div class="risk_row">
 									<h:inputTextarea rows="5" cols="50"
-										value="#{taskDetails.projectUpdates}" class="update-textarea" />
+										value="#{taskDetails.projectUpdates}" class="update-textarea" id="update-textarea"/>
 								</div>
 							</div>
 						</div>
@@ -286,6 +287,8 @@
 		
 		
 		
+		
+		
 	
 	$(".add-butn").click(function(){
 
@@ -307,9 +310,10 @@
 	
 
 	function validate(){
-	    if ($('.risk-des').val().length >  0   &&
+	    if( $('.risk-des').val().length >  0   &&
 	        $('.risk-res').val().length  >   0   &&
-	        $('.risk-type').val().length  >   0) {
+	        $('.risk-type').val().length  >   0 ) { 
+	    	
 	        $(".add-butn").prop("disabled", false);
 	    }
 	    else {

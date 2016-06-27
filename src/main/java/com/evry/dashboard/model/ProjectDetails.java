@@ -1,5 +1,7 @@
 package com.evry.dashboard.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,6 +29,12 @@ public class ProjectDetails {
 
 	@Column(name = "PROJECT_DEPARTMENT")
 	private String projectDepartment;
+	
+	@Column(name = "START_DATE")
+	private Date startDate;
+	
+	@Column(name = "END_DATE")
+	private Date endDate;
 
 	/**
 	 * @Getters and setters
@@ -68,5 +76,23 @@ public class ProjectDetails {
 	public void setProjectDepartment(String projectDepartment) {
 		this.projectDepartment = projectDepartment;
 	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	
+	
 
 }

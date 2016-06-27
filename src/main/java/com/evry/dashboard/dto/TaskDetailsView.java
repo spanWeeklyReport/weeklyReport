@@ -26,6 +26,7 @@ public class TaskDetailsView implements Serializable {
 	private String reportType;
 	private String projectDetailsName;
 	private int WeekNo;
+	private int yearNo;
 	private String wNo;
 	private String PlannedTask;
 	private String CompletedTask;
@@ -258,5 +259,15 @@ public class TaskDetailsView implements Serializable {
 	public void setRiskDetailsList(ArrayList<RiskDetailsView> riskDetailsList) {
 		this.riskDetailsList = riskDetailsList;
 	}
+
+	public int getYearNo() {
+		return yearNo;
+	}
+
+	public void setYearNo(int yearNo) {
+		this.yearNo = yearNo;
+	}
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package com.evry.dashboard.dto;
 
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
@@ -13,6 +15,9 @@ public class ProjectDetailsView {
 	private String projectStatus;
 	private String projectDepartment;
 	private String managerName;
+	private Date startDate;
+	private Date endDate;
+	
 
 	/**
 	 * @Getters and setters
@@ -60,4 +65,23 @@ public class ProjectDetailsView {
 		this.projectDepartment = projectDepartment;
 	}
 
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+    
+	
+	
+	
 }

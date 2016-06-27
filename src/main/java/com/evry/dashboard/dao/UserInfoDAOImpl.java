@@ -121,7 +121,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		} else {
 
 			
-			session.persist(userInfo);
+			session.merge(userInfo);
 			String useR = userInfo.getUserRole();
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
@@ -199,9 +199,9 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	
 	@Transactional
 	public UserInfo getUser(UserInfo userInfo){ 
-		long userid = userInfo.getOid();
+		String email = userInfo.getUserName();
 		Session session = this.sessionFactory.getCurrentSession();
-		Query qry = session.createQuery("Select from UserInfo where oid = '"+userid +"' ");
+		Query qry = session.createQuery("FROM UserInfo where userName = '"+email +"' ");
 		
 		List<UserInfo> rs = qry.list();
 		UserInfo user = null;
@@ -215,15 +215,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		
 	}
 
-		public String deleteUsers(UserInfoView userInfoView) {
-		String email = userInfoView.getUserName();
-		Session session = this.sessionFactory.getCurrentSession();
-		session.createQuery("Delete from UserInfo where userName = '"+email +"' ");
-		return "null";
 		
-
-		
-	}
-	
 	
 }

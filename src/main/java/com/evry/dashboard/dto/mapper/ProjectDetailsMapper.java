@@ -16,6 +16,8 @@ public class ProjectDetailsMapper {
 		projectDetailsView.setProjectStatus(projectDetails.getProjectStatus());
 		projectDetailsView.setProjectDepartment(projectDetails
 				.getProjectDepartment());
+		projectDetailsView.setStartDate(projectDetails.getStartDate());
+		projectDetailsView.setEndDate(projectDetails.getEndDate());
 		return projectDetailsView;
 	}
 
@@ -30,6 +32,8 @@ public class ProjectDetailsMapper {
 		projectDetails.setProjectStatus(projectDetailsView.getProjectStatus());
 		projectDetails.setProjectDepartment(projectDetailsView
 				.getProjectDepartment());
+		projectDetails.setStartDate(projectDetailsView.getStartDate());
+		projectDetails.setEndDate(projectDetailsView.getEndDate());
 		return projectDetails;
 
 	}

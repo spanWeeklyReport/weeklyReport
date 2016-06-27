@@ -76,10 +76,9 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		Session session = this.sessionFactory.getCurrentSession();
 		if (tech.equalsIgnoreCase("All")) {
 			//System.out.println("---inside 1");
-			List<ProjectDetails> projectList = session.createQuery(
-					"from ProjectDetails").list();
+			List<ProjectDetails> projectList = session.createQuery("from ProjectDetails").list();
 			// System.out.println(projectList);
-			ArrayList projectNames = new ArrayList();
+			ArrayList<String> projectNames = new ArrayList<String>();
 
 			for (ProjectDetails details : projectList)
 				projectNames.add(details.getProjectName());
@@ -89,11 +88,10 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 
 		else {
 			//System.out.println("--inside 2");
-			List<ProjectDetails> projectList2 = session.createQuery(
-					"from ProjectDetails where projectDepartment='" + tech
-							+ "'").list();
+			List<ProjectDetails> projectList2 = session.createQuery("from ProjectDetails"
+					+ " where projectDepartment='" + tech + "' and projectStatus='InProgress'").list();
 			// System.out.println(projectList);
-			ArrayList projectNames2 = new ArrayList();
+			ArrayList<String> projectNames2 = new ArrayList<String>();
 
 			for (ProjectDetails details2 : projectList2)
 				projectNames2.add(details2.getProjectName());
@@ -152,6 +150,20 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		Session session = this.sessionFactory.getCurrentSession();
         List<ProjectDetails> projectList = session.createQuery("from ProjectDetails").list();
         return projectList;
+	}
+	
+	
+	@Transactional
+	public String deleteProjects(ProjectDetails projectDetails) { 
+		
+		String projectName = projectDetails.getProjectName();
+
+		Session session = this.sessionFactory.getCurrentSession();
+		Query q = session.createQuery("Delete from ProjectDetails where projectName = '"+projectName +"' ");
+		q.executeUpdate();
+		return null;
+		
+		
 	}
 	
 

@@ -75,12 +75,15 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 	@Transactional
 	public TaskDetails getTasks(TaskDetails taskDetails) {
 		int weekNo = taskDetails.getWeekNo();
+		int yearNo = taskDetails.getYearNo();
 		// int yearNo = taskDetails.getYearNo();
 		Session session = this.sessionFactory.getCurrentSession();
 		Query query = session
 				.getNamedQuery("findProject")
 				.setParameter("projectDetails", taskDetails.getProjectDetails())
-				.setParameter("weekNo", weekNo);
+				.setParameter("weekNo", weekNo)
+				.setParameter("yearNo", yearNo);
+		
 
 		List<TaskDetails> rs = query.list();
 		TaskDetails details = null;

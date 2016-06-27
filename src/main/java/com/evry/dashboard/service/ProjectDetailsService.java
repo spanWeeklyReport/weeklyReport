@@ -10,7 +10,7 @@ public interface ProjectDetailsService
 	List<String> getProjectNames();
 	public void addProject(ProjectDetailsView projectDetailsView);
 	public List<ProjectDetailsView> getProjectList();
-
+	public String deleteProjects(ProjectDetailsView projectDetailsView);
 	public void projectDepartment();
 
 }

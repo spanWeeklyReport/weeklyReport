@@ -13,10 +13,21 @@
       <title>Add Projects</title>
       <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
       </link>
+      <link rel="stylesheet" href="css/style.css"></link>
       <link rel="stylesheet" href="css/styles.css"></link>
       <link rel="stylesheet" href="css/dashboard.css"></link>
        <link rel="stylesheet" href="css/css.css"></link>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
+        <style>
+        
+        .ui-datepicker-prev.ui-corner-all, .ui-datepicker-next.ui-corner-all {
+  display: none;
+}
+.ui-datepicker-title {
+  margin-top: 10px;
+}
+        
+        
+        </style>
       
    </h:head>
    <h:body>
@@ -69,30 +80,40 @@
                <div class="signup-box-sim">
                   <div class="signup_frm">
                      <p class="pro-heading">Add Projects</p>
-                     <h:messages infoClass="info" errorClass="error-msg" style="margin:10px 0px;padding:0"   />
+                    
        <h:form id="projectForm">
-       <h:message class="error-msg" style="margin:8px 0px;padding:0"
-                                  infoStyle="color:darkgreen" errorStyle="color:darkred" />
-              <h:outputLabel value="Select Manager: " for="select_technology" class="project_form_label"/>
-              <h:selectOneMenu value="#{projectDetails.projectDepartment}" class="project_form sel_department" required="true" requiredMessage="Please select Manager">
+       
+              <h:outputLabel value="*Select Manager: " for="select_technology" class="project_form_label"/>
+              <h:selectOneMenu value="#{projectDetails.projectDepartment}" class="project_form sel_department" >
                    <f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
                    <f:selectItems value="#{departmentService.getdepartmentName()}" />
              </h:selectOneMenu><br/>
-       <h:outputLabel value="Enter Project Name" class="project_form_label"></h:outputLabel>
+       <h:outputLabel value="*Enter Project Name" class="project_form_label"></h:outputLabel>
     <h:inputText value="#{projectDetails.projectName}"
-                     id="project_name" class="project_form proj_name" required="true" requiredMessage="Please enter Project Name"/><br/>
+                     id="project_name" class="project_form proj_name" /><br/>
                      
-                     <h:outputLabel value="Project Status:" class="project_form_label" />
-              <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form project_status" required="true" requiredMessage="Please select Project Status">
+                     <h:outputLabel value="*Project Status:" class="project_form_label" />
+              <h:selectOneMenu value="#{projectDetails.projectStatus}" class="project_form project_status"  >
                      <f:selectItem itemValue="#{null}" itemLabel="Select" />
                      <f:selectItem itemValue="Closed" itemLabel="Closed" />
                      <f:selectItem itemValue="On Hold" itemLabel="On Hold" />
-                     <f:selectItem itemValue="In Progress" itemLabel="In Progress" />
-                     <f:selectItem itemValue="Started" itemLabel="Started" />
+                     <f:selectItem itemValue="InProgress" itemLabel="In Progress" />
+                     
                      
               </h:selectOneMenu><br/>
               
-              <h:commandButton id="submit4" value="Add" class="buttons"
+               <h:outputLabel value="*Start Date" class="project_form_label"></h:outputLabel>
+               <h:inputText styleClass="datepicker1 project_form" value="#{projectDetails.startDate}" >
+               <f:convertDateTime pattern="yyyy-MM-dd" />
+                </h:inputText>
+              <br/>
+               
+             <h:outputLabel value="*Estimated End Date" class="project_form_label"></h:outputLabel>
+               <h:inputText styleClass ="datepicker2 project_form" value="#{projectDetails.endDate}">
+               <f:convertDateTime pattern="yyyy-MM-dd" />
+                </h:inputText><br/>  
+              
+              <h:commandButton id="submit4" value="Add" class="buttons submit4"
                                   action="#{projectDetailsService.addProject(projectDetails)}" />
 
        </h:form>
@@ -105,6 +126,10 @@
 			<div class="list-box">
 				<div class="signup_frm">
 				<p class="pro-heading">Current Projects</p>
+				  <h:form>
+				  <h:messages infoClass="info" errorClass="error-msg"
+							style="margin:8px 0px;padding:0" id="messgaess"/>
+					  
 					<rich:dataTable value="#{projectDetailsService.getProjectList()}" var="project">
 					
 					    <f:facet name="header">
@@ -121,8 +146,13 @@
 			              </rich:column>
 			              
 			               <rich:column >
-			                  <h:outputText value="Action" />
-			              </rich:column>
+                                       <h:outputText value="Start Date" />
+                                   </rich:column>
+                            <rich:column >
+                               <h:outputText value="Estimated End Date" />
+                           </rich:column>
+         
+			              
 			              <rich:column >
 			                  <h:outputText value="Action" />
 			              </rich:column>
@@ -140,22 +170,31 @@
 			              <rich:column >
 			                  <h:outputText value="${project.projectDepartment}" />
 			              </rich:column>
+			             
+			              
+			               <rich:column >
+                                       <h:outputText value="${project.startDate}"  styleClass="dateclass">
+                                        <f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+                                       </h:outputText>
+                             </rich:column>
+                            <rich:column >
+                                <h:outputText value="${project.endDate}" >
+                                    <f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
+                                </h:outputText>
+                            </rich:column>
+                            
+                          
+			              
 			              <rich:column >
-			              <h:form>
-			                  <h:commandButton value="Edit" class="buttons" >
-			                        
-									<rich:componentControl target="popup" operation="show" />
-								</h:commandButton>
-						  </h:form>
-			              </rich:column>
-			              <rich:column >
-			              <h:form>
-			                  <h:commandButton value="Delete" class="buttons"  ></h:commandButton>
-			              </h:form>
+			                <h:commandButton value="Delete" class="buttons" id="Delete" action="#{projectDetailsService.deleteProjects(project)}" 
+			                  onclick="if (! confirm('Are you sure you want to delete this project?') ) { return false;}; return true; "
+			                  ></h:commandButton>
+			             
 			              </rich:column>
 						
 												
 					</rich:dataTable>
+					 </h:form>
 					
 				</div>
 			</div>
@@ -173,11 +212,56 @@
         
       </div>
       <!-- FOOTER ENDS --> 
-      <script src="js/prd-common.js"></script>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
       <script type="text/javascript">
-     
-      </script>
+      $(document).ready(function(){
+
+
+    	  $(".sel_department").val($(".sel_department option:first").val());
+    	  $(".project_status").val($(".project_status option:first").val());
+
+    	  $(".proj_name").attr("value","");
+    	  
+    	  $(".submit4").click(function(){
+
+    		  if ($(".proj_name").val() == "" || $(".sel_department").val() == "" || $(".project_status").val() =="" ||
+    				  $('.datepicker1').val() == "" || 	  $('.datepicker2').val() == ""
+    		  
+    		  ) {
+    		    
+    		   alert("Please enter all the mandatory fields marked by *");
+    		    return false;
+    		    
+    		  }
+
+
+
+    		});
+    	  
+    	  $('.datepicker1').datepicker(
+                  { 
+                	  
+                	  changeMonth: true,
+                	  showOtherMonths: true,
+                	  dateFormat: 'yy-mm-dd' }
+                 
+              
         
+        );
+        $('.datepicker2').datepicker(
+                  { 
+                	  changeMonth: true,
+                	  showOtherMonths: true,
+                	  dateFormat: 'yy-mm-dd' }        
+        
+        );
+    	  
+      });
+      
+     
+      
+      </script>       
      
    </h:body>
 </html>

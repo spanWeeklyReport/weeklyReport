@@ -3,6 +3,7 @@ package com.evry.dashboard.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -13,9 +14,7 @@ import com.evry.dashboard.dto.ProjectDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.ProjectDetailsMapper;
 import com.evry.dashboard.model.ProjectDetails;
-
 import com.evry.dashboard.util.HttpSessionFactory;
-
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.ProjectTechnology;
 
@@ -74,6 +73,20 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		
 		
 	}
+	
+	public String deleteProjects(ProjectDetailsView projectDetailsView) { 
+			
+			ProjectDetails projDetails = projectDetailsmapper.getMappedEntity(projectDetailsView);
+			projectDetailsDAO.deleteProjects(projDetails);
+			
+			FacesContext.getCurrentInstance().addMessage(
+					"projectForm:Delete",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Project has been deleted", "Please Try Again!"));
+	
+			return null;
+			
+		}
 
 	
 	

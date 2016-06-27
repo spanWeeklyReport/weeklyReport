@@ -18,7 +18,7 @@ public interface TaskDetailsService {
 	String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
     String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
     void viewReport(TaskDetailsView taskDetailsView);
-    void DataListener(ValueChangeEvent e);
+   
     public String checkReport(TaskDetailsView taskDetailsView);
     public String setRender();
 	

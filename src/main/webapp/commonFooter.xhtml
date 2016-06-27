@@ -166,7 +166,7 @@
        
                             
           
-                  //Calculating total fields
+          //Calculating total fields
            
          var bill_count = $(".count-bill").val();
         var shadow_count = $(".count-sha").val();
@@ -239,8 +239,6 @@
       //Calender
         $('.datepicker').datepicker({
               
-              yearRange: "2016:2016",
-              changeYear: true,
               changeMonth: true,
               showOn: 'both',
              showOtherMonths: true,
@@ -250,12 +248,14 @@
                day  = date.getDate(),  
                month = date.getMonth() + 1,              
                year =  date.getFullYear();
-                console.log(month);
+                console.log(year);
                 getQuator($(".weeknumber").val());
+                $('#taskform\\:year').val(year);
              
                   }
             });
         
+      //Show Quarter of the year
         getQuator($(".weeknumber").val());
 		    function getQuator(week){
 		       if ( 1 <= week && week <= 13 ){

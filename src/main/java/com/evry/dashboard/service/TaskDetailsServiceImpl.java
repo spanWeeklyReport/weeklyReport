@@ -115,6 +115,23 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		taskDetailsView.setLastCompleted(taskDetails.getCompletedTask());
 		taskDetailsView.setLastHold(taskDetails.getHoldTask());
 		taskDetailsView.setLastInProgress(taskDetails.getInprogressTask());
+		
+		if (taskDetailsView.getTaskId() != 0) { 
+			
+			FacesContext.getCurrentInstance().addMessage(
+					"taskform:fetch",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Report for the selected week:", null));
+		}
+		
+		else { 
+			
+			FacesContext.getCurrentInstance().addMessage(
+					"taskform:fetch",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"No report was found for the selected week. Create a new report:", null));
+			
+		}
 
 	}
 
@@ -263,12 +280,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		this.taskDetailsViews = taskDetailsViews;
 	}
 
-	public void DataListener(ValueChangeEvent e) {
-		System.out.println("inside ajax func");
-		TaskDetailsView taskDetails = new TaskDetailsView();
-		taskDetails.setWeekNo(0);
-	}
-	
+		
 	public String setRender() { 
 		
 		renderer = false;

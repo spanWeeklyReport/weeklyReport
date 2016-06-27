@@ -61,4 +61,10 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <welcome-file-list>
 		<welcome-file>faces/index.xhtml</welcome-file>
 	</welcome-file-list>
+	
+	<error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/expired.xhtml</location>
+   </error-page>
+   
 </web-app>

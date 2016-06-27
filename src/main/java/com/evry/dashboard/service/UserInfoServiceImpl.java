@@ -42,9 +42,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 	
 	
-	
-	
-	
 	public void setTaskDetailsService(TaskDetailsService taskDetailsService) {
 		this.taskDetailsService = taskDetailsService;
 	}
@@ -107,7 +104,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		HttpSessionFactory.getSession().invalidate();
 		System.out.println("successfully logout");
 		;
-		return "index.xhtml";
+		return "index.xhtml?faces-config=true";
 
 	}
 	
@@ -115,20 +112,26 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 		UserInfo userView = mapper.getMappedEntity(userInfoView);
 		userInfoDAO.deleteUsers(userView);
+		
+		FacesContext.getCurrentInstance().addMessage(
+				"form_signup_frm:Delete",
+				new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"User has been deleted", "Please Try Again!"));
 
 		return null;
 		
 	}
 	
-	public void editUsers(UserInfoView userInfoView){
+	/*public String editUsers(UserInfoView userInfoView){
 		
 		System.out.println("inside edit function"); 
-		UserInfo userInfo = userInfoDAO.editUsers(mapper.getMappedEntity(userInfoView));
-
+		UserInfo uInfo = mapper.getMappedEntity(userInfoView);
+		userInfoDAO.editUsers(uInfo);
+       return "edit-user.xhtml";
 		
 		
 	}
-	
+	*/
 
 	
 	

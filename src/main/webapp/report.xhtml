@@ -107,8 +107,9 @@
                #{risk.riskResponsible}
             </h:column>
          </h:dataTable>
-         <h:form>
-         <h:commandLink value="Go Back" class="return" data-week="${taskDetails.weekNo}" onclick="history.go(-1);return false;"></h:commandLink>
+         <h:form id="goBack">
+         <h:inputHidden id="wNO" class="wNO" value="${taskDetails.weekNo}" ></h:inputHidden>
+         <h:commandLink value="Go Back" id="return" class="return"  onclick="history.go(-1);return false;"></h:commandLink>
          </h:form>
       </div>
       <footer>

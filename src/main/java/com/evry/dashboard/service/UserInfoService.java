@@ -13,5 +13,5 @@ public interface UserInfoService
 	String logout();
 	public void addUserDetails(UserInfoView userInfoView);
 	String deleteUsers (UserInfoView userInfoView);
-	public void editUsers(UserInfoView userInfoView);
+	//public String editUsers(UserInfoView userInfoView);
 }
