@@ -17,12 +17,10 @@ public interface UserInfoDAO
 	boolean isValid(UserInfo userInfo);
     public void addUsers(UserInfo userInfo);
 	 public boolean userExists (UserInfo userInfo);
-	 
-	public String getUserRole(UserInfo userInfo);
-	 public String getUserName(UserInfo userInfo);
 	 public List<UserInfo> getUsersList();
 	 public String deleteUsers(UserInfo userInfo);
-
 	 public UserInfo editUsers(UserInfo userInfo);
+	 public long getUserID(UserInfo userInfo);
+	 public UserInfo getUserByID(Long id);
 
 }

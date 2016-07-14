@@ -26,7 +26,9 @@ public class TaskDetailsView implements Serializable {
 	private long taskId;
 	private String reportType;
 	private String projectDetailsName;
-	private int WeekNo;
+    private long userId;
+  
+    private int WeekNo;
 	private int yearNo;
 	private String wNo;
 	private String PlannedTask;
@@ -286,7 +288,15 @@ public class TaskDetailsView implements Serializable {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
 	
 	
 

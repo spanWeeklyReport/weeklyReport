@@ -34,5 +34,17 @@ public class UserInfoMapper {
 		userInfo.setUserRole(userInfoView.getUserRole());
 		return userInfo;
 	}
+	
+	public void MapView(UserInfoView userInfoView, UserInfo userInfo) {
+		
+		userInfoView.setFirstName(userInfo.getFirstName());
+		userInfoView.setLastName(userInfo.getLastName());
+		userInfoView.setUserName(userInfo.getUserName());
+		userInfoView.setPassword(userInfo.getPassword());
+		userInfoView.setUserRole(userInfo.getUserRole());
+		
+	}
+
+	
 
 }

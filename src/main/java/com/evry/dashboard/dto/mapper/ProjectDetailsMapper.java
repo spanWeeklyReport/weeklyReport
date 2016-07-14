@@ -37,4 +37,17 @@ public class ProjectDetailsMapper {
 		return projectDetails;
 
 	}
+	
+	public void MapView(ProjectDetailsView projectDetailsView, ProjectDetails projectDetails) {
+		
+		projectDetailsView.setOid(projectDetails.getOid());
+		projectDetailsView.setProjectName(projectDetails.getProjectName());
+		projectDetailsView.setProjectStatus(projectDetails.getProjectStatus());
+		projectDetailsView.setProjectDepartment(projectDetails.getProjectDepartment());
+		projectDetailsView.setStartDate(projectDetails.getStartDate());
+		projectDetailsView.setEndDate(projectDetails.getEndDate());
+		
+	}
+	
+	
 }

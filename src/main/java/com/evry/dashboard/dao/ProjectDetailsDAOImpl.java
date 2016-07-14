@@ -166,5 +166,30 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 		
 	}
 	
+	@Transactional
+	public ProjectDetails editProjects(ProjectDetails projectDetails){ 
+		
+		return getProjects(projectDetails);
+	}
+	
+	@Transactional
+	public ProjectDetails getProjects(ProjectDetails projectDetails){ 
+		String projectName = projectDetails.getProjectName();
+		Session session = this.sessionFactory.getCurrentSession();
+		Query qry = session.createQuery("FROM ProjectDetails where projectName = '"+projectName +"' ");
+		
+		List<ProjectDetails> rs = qry.list();
+		ProjectDetails projects = null;
+		if(!rs.isEmpty()){ 
+			
+			projects = rs.get(0);
+		}
+		
+		
+		return projects;
+		
+	}
+	
+	
 
 }

@@ -58,8 +58,8 @@
             <div class="banner-inner content-wrap">
 
             <h:form>
-            <h:commandButton value="Add New Project" class="buttons add-popup">
-				<rich:componentControl target="popup" operation="show" />
+            <h:commandButton value="Add New Project" class="buttons add-popup" id="NewProject">
+				<rich:componentControl target="popup" operation="show" disableDefault="true"/>
 			</h:commandButton>
 			</h:form>
 
@@ -152,9 +152,9 @@
                                <h:outputText value="Estimated End Date" />
                            </rich:column>
          
-			               <!--  <rich:column >
+			                <rich:column >
 			                  <h:outputText value="Action" />
-			              </rich:column>  -->
+			              </rich:column> 
 			              <rich:column >
 			                  <h:outputText value="Action" />
 			              </rich:column>
@@ -164,34 +164,33 @@
 			      </f:facet>
 					
 					 <rich:column >
-			                  <h:outputText value="${project.projectName}" />
+			                  <h:outputText value="#{project.projectName}" />
 			              </rich:column>
 			              <rich:column >
-			                  <h:outputText value="${project.projectStatus}" />
+			                  <h:outputText value="#{project.projectStatus}" />
 			              </rich:column>
 			              <rich:column >
-			                  <h:outputText value="${project.projectDepartment}" />
+			                  <h:outputText value="#{project.projectDepartment}" />
 			              </rich:column>
 			             
 			              
 			               <rich:column >
-                                       <h:outputText value="${project.startDate}"  styleClass="dateclass">
+                                       <h:outputText value="#{project.startDate}"  styleClass="dateclass">
                                         <f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
                                        </h:outputText>
                              </rich:column>
                             <rich:column >
-                                <h:outputText value="${project.endDate}" >
+                                <h:outputText value="#{project.endDate}" >
                                     <f:convertDateTime pattern="yyyy-MM-dd"></f:convertDateTime>
                                 </h:outputText>
                             </rich:column>
                             
-                           <!-- <rich:column>
+                           <rich:column>
 			            
-		                  <h:commandButton value="Edit" class="buttons" >
-		                        
-								<rich:componentControl target="popup" operation="show" />
-							</h:commandButton>
-						 </rich:column>  -->
+		                  <h:commandButton id="editProjects" value="Edit" class="buttons add-popup" action="#{projectDetailsService.editProjects(project)}" >
+		                     
+		                  </h:commandButton>
+						 </rich:column> 
 			              
 			              <rich:column >
 			                <h:commandButton value="Delete" class="buttons" id="Delete" action="#{projectDetailsService.deleteProjects(project)}" 
@@ -236,11 +235,7 @@
     	  var date2  = replaced2[0];
     	  $(".edate").text(date2);
 
-    	  $(".sel_department").val($(".sel_department option:first").val());
-    	  $(".project_status").val($(".project_status option:first").val());
-
-    	  $(".proj_name").attr("value","");
-    	  
+    	
     	  $(".submit4").click(function(){
 
     		  if ($(".proj_name").val() == "" || $(".sel_department").val() == "" || $(".project_status").val() =="" ||

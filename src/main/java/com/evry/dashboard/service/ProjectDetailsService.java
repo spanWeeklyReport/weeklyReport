@@ -12,5 +12,5 @@ public interface ProjectDetailsService
 	public List<ProjectDetailsView> getProjectList();
 	public String deleteProjects(ProjectDetailsView projectDetailsView);
 	public void projectDepartment();
-
+	public String editProjects(ProjectDetailsView projectDetailsView);
 }

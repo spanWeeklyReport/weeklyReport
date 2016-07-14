@@ -60,17 +60,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 		if (result) {
 			
-			String uRoll = userInfoDAO.getUserRole(mapper
-						.getMappedEntity(userInfoView));
-			String uName = userInfoDAO.getUserName(mapper
-					.getMappedEntity(userInfoView));
-			System.out.println("*******"+uRoll);
-			System.out.println("*******"+uName);
-			// get Http Session and store username
-			HttpSession session = HttpSessionFactory.getSession();
-			session.setAttribute("email", userInfoView.getUserName());
-			session.setAttribute("userRole", uRoll);
-			session.setAttribute("userName", uName);
 
 			
 			
@@ -102,6 +91,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		taskDetailsService.setRender();
 		
 		HttpSessionFactory.getSession().invalidate();
+		
 		System.out.println("successfully logout");
 		;
 		return "index.xhtml?faces-config=true";
@@ -122,16 +112,17 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 	}
 	
-	/*public String editUsers(UserInfoView userInfoView){
+	public String editUsers(UserInfoView userInfoView){
 		
 		System.out.println("inside edit function"); 
-		UserInfo uInfo = mapper.getMappedEntity(userInfoView);
-		userInfoDAO.editUsers(uInfo);
-       return "edit-user.xhtml";
+		//UserInfo uInfo = mapper.getMappedEntity(userInfoView);
+		//userInfoDAO.editUsers(uInfo);
+		//mapper.MapView(userInfoView, uInfo);
+       return "edit-user";
 		
 		
 	}
-	*/
+	
 
 	
 	

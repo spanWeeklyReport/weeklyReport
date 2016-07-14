@@ -37,7 +37,7 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 				 <h:form>
-				<li><h:commandLink value="Home" action="#{taskDetailsService.setRender()}" /></li>
+				<li><h:commandLink id="home" value="Home" action="#{taskDetailsService.setWeek(taskDetails)}" /></li>
                   </h:form>
 
 			</ul>
@@ -108,8 +108,8 @@
 					<h:outputLabel class="all_weeks" value="All Weeks" for="checkweeks" />
 
 
-					<h:commandButton id="getResult" value="Select"
-						class="Go-back buttons fetch2"
+					<h:commandButton  value="Select"
+						class="Go-back buttons fetch2" id="fetch2"
 						action="#{taskDetailsService.viewReport(taskDetails)}" />
 					<br />
 					<h:messages class="error-msg" style="margin:8px 0px;padding:0"
@@ -125,7 +125,7 @@
 								var="taskDetailsViewIn">
 								<h:panelGroup layout="block" styleClass="accordion_in">
 									<div class="acc_head">Project
-										Name:${taskDetailsViewIn.projectDetailsName}
+										Name:${taskDetailsViewIn.projectDetailsName} 
 										&nbsp;&nbsp;&nbsp;&nbsp;Week No: ${taskDetailsViewIn.weekNo}</div>
 									<h:panelGroup id="results" class="acc_content">
 										<h:panelGroup layout="block"

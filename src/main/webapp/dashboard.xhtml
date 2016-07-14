@@ -40,6 +40,7 @@
 			<ul class="product-menu scale hide">
 				
 				<h:panelGroup class="allD" rendered="#{userRole == 'Admin'}">
+				    <li><h:link value="Report Status" outcome="report_status.xhtml"></h:link></li>
 				    <li><h:link value="Users" outcome="user_reg.xhtml" /></li>
 					<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
 					<li><h:link value="Managers"
@@ -90,13 +91,13 @@
 											<div>
 												<h1 class="dbNameFont">${department.departmentName}</h1>
 												<p class="dbDescription">
-													<h:link class="create" outcome="welcome"
+													<h:link class="create" outcome="welcome" id="create"
 														value="Create Report">
 														<f:param name="tech" value="${department.departmentName}"
 															includeViewParams="true" />
 													</h:link>
 													<br />
-													<h:link class="view" outcome="view-reports"
+													<h:link class="view" outcome="view-reports" id="view"
 														value="View Report">
 														<f:param name="tech" value="${department.departmentName}"
 															includeViewParams="true" />
@@ -126,7 +127,7 @@
 														<f:param name="tech" value="All" includeViewParams="true" />
 													</h:link>
 													<br />  -->
-													<h:link class="view" outcome="view-reports"
+													<h:link class="view" outcome="view-reports" id="view"
 														value="View Report">
 														<f:param name="tech" value="All" includeViewParams="true" />
 													</h:link>

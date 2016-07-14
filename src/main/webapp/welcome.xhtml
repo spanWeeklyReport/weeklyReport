@@ -36,7 +36,7 @@
 				class="sub-menu-icon">Menu</span>
 			<ul class="product-menu scale hide">
 			     <h:form>
-				<li><h:commandLink value="Home" action="#{taskDetailsService.setRender()}" /></li>
+				<li><h:commandLink id="home" value="Home" action="#{taskDetailsService.setWeek(taskDetails)}" /></li>
                   </h:form>
 
 			</ul>
@@ -247,7 +247,7 @@
 												
 												</h:inputText></td>
 										<td><a4j:commandButton value="Add" class="add-butn buttons"
-												render="out"
+												render="out" id="add-butn"
 												action="#{taskDetailsService.addRisks(taskDetails ,riskDetails)}" disabled="disabled"/>
 										</td>
 									</tr>
@@ -266,7 +266,7 @@
                                  #{risk.riskResponsible}
                               </h:column>
 										<h:column class="risk-data">
-											<a4j:commandButton value="Delete" class="del-butn buttons"
+											<a4j:commandButton id="del-butn" value="Delete" class="del-butn buttons"
 												render="out"
 												action="#{taskDetailsService.deleteRisks(taskDetails,risk)}" />
 										</h:column>
@@ -299,32 +299,16 @@
 	
 	$(document).ready(function (){
 		
-		
-		
-		
-		
-		
-	
 	$(".add-butn").click(function(){
-
-        if ($(".risk-des").val() == "" && $(".risk-res").val() == "" && $(".risk-type").val() == ""  ) {
-            
-        	
+           if ($(".risk-des").val() == "" && $(".risk-res").val() == "" && $(".risk-type").val() == ""  ) {
             alert("Please fill all fields regarding risk details");
             return false;
-            
             }
         
-        else {}
-       
        });
-	
-	
-	    validate();
-	    $('.risk-des, .risk-res, .risk-type').change(validate);
-	
-
-	function validate(){
+	   validate();
+	   $('.risk-des, .risk-res, .risk-type').change(validate);
+	   function validate(){
 	    if( $('.risk-des').val().length >  0   &&
 	        $('.risk-res').val().length  >   0   &&
 	        $('.risk-type').val().length  >   0 ) { 
@@ -335,9 +319,6 @@
 	        $(".add-butn").prop("disabled", true);
 	    }
 	}
-	
-	
-	
 	});  
     //]]>
     

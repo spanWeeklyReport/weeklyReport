@@ -1,15 +1,17 @@
 package com.evry.dashboard.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
+
 
 @ManagedBean(name = "projectDetails")
-@ViewScoped
 @SessionScoped
-public class ProjectDetailsView {
+public class ProjectDetailsView implements Serializable {
+	
+	private static final long serialVersionUID = -8764367898656L;
 	private long oid;
 	private String projectName;
 	private String projectStatus;

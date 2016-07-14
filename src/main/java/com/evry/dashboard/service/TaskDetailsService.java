@@ -18,9 +18,10 @@ public interface TaskDetailsService {
 	String addRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
     String deleteRisks(TaskDetailsView taskDetailsView, RiskDetailsView riskDetailsView);
     void viewReport(TaskDetailsView taskDetailsView);
-   
     public String checkReport(TaskDetailsView taskDetailsView);
     public String setRender();
+    public String setWeek(TaskDetailsView taskDetailsView);
+    public void employeeReportStatus(TaskDetailsView taskDetailsView);
 	
     
 }

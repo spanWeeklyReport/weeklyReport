@@ -6,11 +6,13 @@ import java.util.ListIterator;
 
 import com.evry.dashboard.dao.ProjectDetailsDAO;
 import com.evry.dashboard.dao.RiskDetailsDAO;
+import com.evry.dashboard.dao.UserInfoDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.RiskDetailsView;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.RiskDetails;
+import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.Constants;
 
 public class TaskDetailsMapper {
@@ -18,6 +20,7 @@ public class TaskDetailsMapper {
 	private ProjectDetailsDAO projectDetailsDAO;
 	private RiskDetailsDAO riskDetailsDAO;
 	private RiskDetailsMapper riskDetailsMapper;
+	private UserInfoDAO userInfoDAO;
 
 	/**
 	 * @param projectDetailsDAO
@@ -32,6 +35,10 @@ public class TaskDetailsMapper {
 
 	public void setRiskDetailsMapper(RiskDetailsMapper riskDetailsMapper) {
 		this.riskDetailsMapper = riskDetailsMapper;
+	}
+
+	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
+		this.userInfoDAO = userInfoDAO;
 	}
 
 	public List<TaskDetailsView> getMappedView(List<TaskDetails> taskDetails2) {
@@ -62,17 +69,19 @@ public class TaskDetailsMapper {
 		} catch (Exception e) {
 			taskDetailsView.setProjectDetailsName("");
 		}
-        try{
-            taskDetailsView.setStartDate(taskDetails.getProjectDetails().getStartDate());
-			}catch(Exception e){
-			            taskDetailsView.setStartDate(null);
-			}
-			try{
-			            taskDetailsView.setEndDate(taskDetails.getProjectDetails().getEndDate());
-			}catch(Exception e){
-			            taskDetailsView.setEndDate(null);
-			}
-
+		try {
+			taskDetailsView.setStartDate(taskDetails.getProjectDetails()
+					.getStartDate());
+		} catch (Exception e) {
+			taskDetailsView.setStartDate(null);
+		}
+		try {
+			taskDetailsView.setEndDate(taskDetails.getProjectDetails()
+					.getEndDate());
+		} catch (Exception e) {
+			taskDetailsView.setEndDate(null);
+		}
+		// taskDetailsView.setuName(taskDetails.getUserInfo().getUserName());
 		taskDetailsView.setWeekNo(taskDetails.getWeekNo());
 		taskDetailsView.setYearNo(taskDetails.getYearNo());
 		taskDetailsView.setPlannedTask(taskDetails.getPlannedTask());
@@ -122,7 +131,7 @@ public class TaskDetailsMapper {
 		} else {
 			taskDetails.setWeekNo(taskDetailsView.getWeekNo());
 		}
-		
+
 		taskDetails.setYearNo(taskDetailsView.getYearNo());
 		taskDetails.setPlannedTask(taskDetailsView.getPlannedTask());
 		taskDetails.setCompletedTask(taskDetailsView.getCompletedTask());
@@ -148,12 +157,18 @@ public class TaskDetailsMapper {
 						.getMappedEntity((RiskDetailsView) litr.next()));
 			}
 		}
+
+		UserInfo userInfo = userInfoDAO
+				.getUserByID(taskDetailsView.getUserId());
+
+		//taskDetails.setUserInfo(userInfo);
 		taskDetails.setRiskDetails(list);
 		return taskDetails;
 	}
 
 	/**
 	 * Mapping last week entities
+	 * 
 	 * @param taskDetailsView
 	 * @return
 	 */

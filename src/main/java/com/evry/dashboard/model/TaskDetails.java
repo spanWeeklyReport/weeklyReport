@@ -47,6 +47,10 @@ public class TaskDetails {
 	@JoinColumn(name = "PROJECT_ID")
 	private ProjectDetails projectDetails;
 	
+	@ManyToOne()
+	@JoinColumn(name = "U_ID")
+	private UserInfo userInfo;
+	
 	@Column(name = "WEEK_NO")
 	private int WeekNo;
 	
@@ -252,6 +256,18 @@ public class TaskDetails {
 	public void setYearNo(int yearNo) {
 		YearNo = yearNo;
 	}
+
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+	
+	
 	
 	
 	

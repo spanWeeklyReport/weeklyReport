@@ -20,4 +20,5 @@ public interface TaskDetailsDAO {
     void updateLastWeekTasks(TaskDetails taskDetails);
     List<TaskDetails> viewReport(TaskDetails taskDetails);
     public TaskDetails checkReport(TaskDetails taskDetails);
+    List<TaskDetails> employeeReportStatus(TaskDetails taskDetails);
 }

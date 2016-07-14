@@ -17,8 +17,10 @@
          " rel = "stylesheet" >
       </link>
       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
-      <script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
+      <script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
+      
    </h:head>
    <h:body>
       <div class="report-container" >
@@ -26,6 +28,7 @@
             <ui:insert name="header" >
             </ui:insert>
          </header>
+         <div id="content">
          <div class="upper-head">
             <div class="report-head" >
                <h3>Project Name: ${taskDetails.projectDetailsName}</h3>
@@ -107,15 +110,49 @@
                #{risk.riskResponsible}
             </h:column>
          </h:dataTable>
+         </div>
+         
+         <div id="ignorePdf">
          <h:form id="goBack">
          <h:inputHidden id="wNO" class="wNO" value="${taskDetails.weekNo}" ></h:inputHidden>
          <h:commandLink value="Go Back" id="return" class="return"  onclick="history.go(-1);return false;"></h:commandLink>
-         </h:form>
+          </h:form>
+         <div id="editor"></div>
+         <h:commandButton value="Download as PDF" id="cmd" class = "cmd"></h:commandButton>
+         </div>
       </div>
       <footer>
+      
          <ui:insert name="footer" >
             <ui:include src="reportFooter.xhtml" />
          </ui:insert>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+<script type="text/javascript" src="js/addhtml.js" ></script>
+<script type="text/javascript" src="js/from_html.js" ></script>
+<script type="text/javascript" src="js/split_text_to_size.js" ></script>
+<script type="text/javascript" src="js/standard_fonts_metrics.js" ></script>
+         
+         <script type="text/javascript">
+       //<![CDATA[
+                      
+        $(document).ready(function(){
+              $("#cmd").click(function(){
+                     
+                     alert($("#content").html());
+                     
+              var pdf = new jsPDF('p','pt','letter');
+              
+                            
+              pdf.addHTML((document.body),function() {
+                                          
+                  pdf.save('Report.pdf');
+                 
+              });
+          });
+        });
+      //]]>
+      </script>
       </footer>  
    </h:body>
 </html>

@@ -28,6 +28,29 @@ ul {
   list-style: outside none none;
 }
 
+#content {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+
+
+.cmd {
+   float: right;
+  background: #bbe0e3 none repeat scroll 0 0 !important;
+  border-radius: 8px !important;
+  color: black !important;
+  padding: 10px;
+  border:0;
+
+}
+
+#ignorePdf {
+  float: left;
+  height: auto;
+  width: 100%;
+}
+
 li {
   float: left;
   margin: 10px;
@@ -235,7 +258,7 @@ input:-moz-placeholder {
 
 .container2 > header h1 {
   color: #fff;
- 
+
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -369,7 +392,7 @@ input:-moz-placeholder {
   border: 1px solid #ccc;
   color: #555;
   font-size: inherit;
- float:left;
+float:left;
   overflow: hidden;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -539,7 +562,7 @@ a.return {
 }
 
 .datepicker {
- 
+
  
   background-color: rgba(0, 0, 0, 0) !important;
   background-image: url("../images/cal.png") !important;
@@ -571,7 +594,7 @@ a.return {
 }
 
 #tabs-2 th {
- font-size: 14px;
+font-size: 14px;
 }
 
 #tabs-2 td {
@@ -643,9 +666,9 @@ th.order-table-header {
 
 
 .add-butn {
-	margin-right: 23px;
+       margin-right: 23px;
   margin-top: 15px;
-	
+       
 }
 
 .buttom.fetch:hover {
@@ -664,7 +687,7 @@ th.order-table-header {
 }
 
 .Resource_Details {
- 
+
   font-size: 16px;
 }
 .resource-table td {

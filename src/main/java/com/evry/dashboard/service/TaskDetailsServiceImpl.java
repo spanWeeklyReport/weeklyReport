@@ -1,16 +1,12 @@
 package com.evry.dashboard.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.ValueChangeEvent;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.util.CollectionUtils;
 
@@ -21,10 +17,10 @@ import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.mapper.RiskDetailsMapper;
 import com.evry.dashboard.dto.mapper.TaskDetailsMapper;
 import com.evry.dashboard.model.TaskDetails;
+import com.evry.dashboard.util.HttpSessionFactory;
 
 @ManagedBean(name = "taskDetailsService")
 @SessionScoped
-
 public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	private boolean renderer = false;
@@ -33,12 +29,9 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	private RiskDetailsMapper riskDetailsMapper;
 	private TaskDetailsDAO taskDetailsDAO;
 	private RiskDetailsDAO riskDetailsDAO;
-	private TaskDetailsView taskDetailsView;
+
 	private long riskId;
 	private List<TaskDetailsView> taskDetailsViews;
-	
-	
-	
 
 	public void setTaskDetailsDAO(TaskDetailsDAO taskDetailsDAO) {
 		this.taskDetailsDAO = taskDetailsDAO;
@@ -55,6 +48,14 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	public void setRiskDetailsMapper(RiskDetailsMapper riskDeatilsMapper) {
 		this.riskDetailsMapper = riskDeatilsMapper;
 	}
+	
+	public List<TaskDetailsView> getTaskDetailsViews() {
+		return taskDetailsViews;
+	}
+
+	public void setTaskDetailsViews(List<TaskDetailsView> taskDetailsViews) {
+		this.taskDetailsViews = taskDetailsViews;
+	}
 
 	/*
 	 * Add/Update task details for current as well as last week (non-Javadoc)
@@ -64,9 +65,13 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	 * .dto.TaskDetailsView)
 	 */
 	public void addTasks(TaskDetailsView taskDetailsView) {
-
-		TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
-		taskDetailsDAO.addTasks(obj);
+		
+		HttpSession session = HttpSessionFactory.getSession();
+		   long userId=(Long)session.getAttribute("userID");
+			
+			taskDetailsView.setUserId(userId);
+			TaskDetails obj = taskDetailsMapper.getMappedEntity(taskDetailsView);
+			taskDetailsDAO.addTasks(obj);
 
 		TaskDetails lastWeekobj = taskDetailsMapper
 				.getLastWeekMappedEntity(taskDetailsView);
@@ -115,22 +120,26 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		taskDetailsView.setLastCompleted(taskDetails.getCompletedTask());
 		taskDetailsView.setLastHold(taskDetails.getHoldTask());
 		taskDetailsView.setLastInProgress(taskDetails.getInprogressTask());
-		
-		if (taskDetailsView.getTaskId() != 0) { 
-			
+
+		if (taskDetailsView.getTaskId() != 0) {
+
 			FacesContext.getCurrentInstance().addMessage(
 					"taskform:fetch",
 					new FacesMessage(FacesMessage.SEVERITY_INFO,
 							"Report for the selected week:", null));
 		}
-		
-		else { 
-			
-			FacesContext.getCurrentInstance().addMessage(
-					"taskform:fetch",
-					new FacesMessage(FacesMessage.SEVERITY_INFO,
-							"No report was found for the selected week. Create a new report:", null));
-			
+
+		else {
+
+			FacesContext
+					.getCurrentInstance()
+					.addMessage(
+							"taskform:fetch",
+							new FacesMessage(
+									FacesMessage.SEVERITY_INFO,
+									"No report was found for the selected week. Create a new report:",
+									null));
+
 		}
 
 	}
@@ -221,38 +230,35 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 			RiskDetailsView riskDetailsView) {
 
 		RiskDetailsView detailsView = new RiskDetailsView();
-		if (riskDetailsView.getRiskType() != "" ||  riskDetailsView.getRiskDescription() != "" || riskDetailsView.getRiskResponsible() != "" ) {
-			
-			detailsView.setRiskDescription(riskDetailsView.getRiskDescription());
-			detailsView.setRiskDetailsList(riskDetailsView.getRiskDetailsList());
+		if (riskDetailsView.getRiskType() != ""
+				|| riskDetailsView.getRiskDescription() != ""
+				|| riskDetailsView.getRiskResponsible() != "") {
+
+			detailsView
+					.setRiskDescription(riskDetailsView.getRiskDescription());
+			detailsView
+					.setRiskDetailsList(riskDetailsView.getRiskDetailsList());
 			detailsView.setRiskId(riskDetailsView.getRiskId());
-			detailsView.setRiskResponsible(riskDetailsView.getRiskResponsible());
+			detailsView
+					.setRiskResponsible(riskDetailsView.getRiskResponsible());
 			detailsView.setRiskType(riskDetailsView.getRiskType());
-			
+
 			taskDetailsView.getRiskDetailsList().add(detailsView);
-			
-			
-			
+
 			detailsView = new RiskDetailsView();
-		
-			
-			
+
 		}
-		
-		
-		else { 
-			
-			
+
+		else {
+
 			FacesContext.getCurrentInstance().addMessage(
 					null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
-							"Please enter all the fields in risk details !!", null));
-			
-			
-			
-			
+							"Please enter all the fields in risk details !!",
+							null));
+
 		}
-		
+
 		return null;
 
 	}
@@ -272,20 +278,51 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		return null;
 	}
 
-	public List<TaskDetailsView> getTaskDetailsViews() {
-		return taskDetailsViews;
-	}
+	
 
-	public void setTaskDetailsViews(List<TaskDetailsView> taskDetailsViews) {
-		this.taskDetailsViews = taskDetailsViews;
-	}
+	public String setRender() {
 
-		
-	public String setRender() { 
-		
 		renderer = false;
+
 		return "dashboard.xhtml";
+
+	}
+
+	public String setWeek(TaskDetailsView taskDetailsView) {
+
+		renderer = false;
+		taskDetailsView.setWeekNo(0);
+		return "dashboard";
+
+	}
+	
+	public void employeeReportStatus(TaskDetailsView taskDetailsView) { 
+		
+	   int weekNo = taskDetailsView.getWeekNo();
+	   System.out.println(weekNo);
+	   
+	   List<TaskDetails> taskDetailsobj = (List<TaskDetails>) taskDetailsDAO
+				.employeeReportStatus(taskDetailsMapper
+						.getMappedEntity(taskDetailsView));
+		if (!CollectionUtils.isEmpty(taskDetailsobj)) {
+			
+			System.out.println("data found");
+			setTaskDetailsViews(taskDetailsMapper
+					.getMappedView(taskDetailsobj));
+		} else {
+
+			System.out.println("no data found");
+			setTaskDetailsViews(null);
+			FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"No data found for the selected week", null));
+		}
+
+		
+	
 		
 	}
+	
 
 }

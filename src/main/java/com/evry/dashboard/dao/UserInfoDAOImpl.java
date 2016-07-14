@@ -16,6 +16,7 @@ import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.model.Department;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.UserInfo;
+import com.evry.dashboard.util.HttpSessionFactory;
 
 public class UserInfoDAOImpl implements UserInfoDAO {
 	private SessionFactory sessionFactory;
@@ -30,35 +31,37 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	 * @param username
 	 * @param password
 	 * @param userInfo
-	 * @return
+	 * @return 
 	 */
 	@Transactional
 	private boolean getUsers(String username, String password, UserInfo userInfo) {
-
 		Session session = this.sessionFactory.getCurrentSession();
 		boolean result = false;
 
-		List<UserInfo> rs = session.getNamedQuery("Users.findByUsername")
+		List<UserInfo> userList = session.getNamedQuery("Users.findByUsername")
 				.setParameter("username", username)
 				.setParameter("password", password).list();
+
+		if (!userList.isEmpty()) { 
+			 System.out.println("Login Successful");  
+			 setSessionData((UserInfo)userList.get(0));  
+			 result = true;
+		}  
+		return result;
+
+	}
+
+	/**
+	 * Method to set session variable after user login success
+	 * @param userInfo
+	 */
+	private void setSessionData(UserInfo userInfo) {
+		HttpSession httpSession = 	HttpSessionFactory.getSession();		
+		httpSession.setAttribute("userName", userInfo.getFirstName());
+		httpSession.setAttribute("email", userInfo.getUserName());
+		httpSession.setAttribute("userRole", userInfo.getUserRole());
+		httpSession.setAttribute("userID", userInfo.getOid());
 		
-
-		boolean userFound = false;
-
-		if (!rs.isEmpty()) {
-			userFound = true;
-			System.out.println("Login Successful");
-			
-			 FacesContext context2 = FacesContext.getCurrentInstance();
-		        HttpSession sesion = (HttpSession) context2.getExternalContext().getSession(true);
-		        
-			   
-			return true;
-		} else {
-
-			return false;
-		}
-
 	}
 
 	/* (non-Javadoc)
@@ -214,6 +217,36 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return user;
 		
 	}
+	
+	@Transactional
+    public long getUserID(UserInfo userInfo) {
+              
+              Session session = this.sessionFactory.getCurrentSession();
+              String username = userInfo.getUserName();
+              
+              Query query =  session.createQuery("select E.oid from UserInfo E where userName = '"+ username +"'" );
+              List userNames = query.list();
+              long uID = (long)userNames.get(0);
+              return uID;
+              
+       }
+
+	
+	
+	@Transactional
+    public UserInfo getUserByID(Long id){
+    Session session = this.sessionFactory.getCurrentSession();
+    
+    Query query = session.createQuery("from UserInfo where oid = '"+ id +"'" );
+    List<UserInfo> rs = query.list();
+    UserInfo user = null;
+    if(!rs.isEmpty()){ 
+           
+           user = rs.get(0);
+    }
+           return user;
+    }
+
 
 		
 	

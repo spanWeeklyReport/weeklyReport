@@ -92,6 +92,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		else {
 			details = new TaskDetails();
 			details.setWeekNo(weekNo);
+			details.setYearNo(yearNo);
 			details.setProjectDetails(taskDetails.getProjectDetails());
 		}
 		return details;
@@ -199,5 +200,17 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		
 
 	}
+	
+	  @Transactional
+	 public List<TaskDetails> employeeReportStatus(TaskDetails taskDetails){
+		 
+		 Session session = this.sessionFactory.getCurrentSession();
+		 int weekNo = taskDetails.getWeekNo();
+		 List<TaskDetails> reportList = session.createQuery("from TaskDetails where WeekNo='"+weekNo+"'").list();
+		 
+		 return reportList;
+		 
+		 
+	 }
 
 }
