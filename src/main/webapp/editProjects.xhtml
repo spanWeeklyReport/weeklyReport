@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<title>Edit Projects</title>
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+		rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/styles.css"></link>
+	<link rel="stylesheet" href="css/dashboard.css"></link>
+	<link rel="stylesheet" href="css/css.css"></link>
+	<style>
+.ui-datepicker-prev.ui-corner-all, .ui-datepicker-next.ui-corner-all {
+	display: none;
+}
+
+.ui-datepicker-title {
+	margin-top: 10px;
+}
+</style>
+
+</h:head>
+<h:body>
+
+	<!-- MAIN START -->
+	<div class="main">
+		<!--  BANNER STARTS -->
+		<section class="banner-part">
+		<div class="banner-inner content-wrap">
+
+			<h:link class="buttons" value="Back to All Projects"
+				outcome="add_projects.xhtml"></h:link>
+
+			<!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
+			<div class="signup-box-sim">
+				<div class="signup_frm">
+					<p class="pro-heading">Edit Project</p>
+					${projectDetails.projectDepartment}
+					${projectDetails.projectName}
+					${projectDetails.projectStatus}
+					${projectDetails.startDate}
+					${projectDetails.endDate}
+					
+				</div>
+			</div>
+
+
+
+
+		</div>
+		</section>
+		<!--  BANNER ENDS -->
+
+	</div>
+	<!-- end of main -->
+	<!-- BOTTOM BANNER STARTS -->
+
+	<div class="footer"></div>
+	<!-- FOOTER ENDS -->
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	<script type="text/javascript">
+      $(document).ready(function(){
+             
+    	  
+    	  
+    	  $(".submit4").click(function(){
+
+    		  if ($(".proj_name").val() == "" || $(".sel_department").val() == "" || $(".project_status").val() =="" ||
+    				  $('.datepicker1').val() == "" || 	  $('.datepicker2').val() == ""
+    		  
+    		  ) {
+    		    
+    		   alert("Please enter all the mandatory fields marked by *");
+    		    return false;
+    		    
+    		  }
+
+
+
+    		});
+    	  
+    	  $('.datepicker1').datepicker(
+                  { 
+                	  changeMonth: true,
+                	  showOtherMonths: true,
+                	  dateFormat: 'yy-mm-dd',
+                		  onSelect: function(selected) {
+                	          $(".datepicker2").datepicker("option","minDate", selected)
+                	        }
+                	  
+                  });
+        $('.datepicker2').datepicker(
+                  { 
+                	  changeMonth: true,
+                	  showOtherMonths: true,
+                	  dateFormat: 'yy-mm-dd',
+                		  onSelect: function(selected) {
+                	           $(".datepicker1").datepicker("option","maxDate", selected)
+                	        }
+                 });
+    	  
+      });
+      
+     
+      
+      </script>
+
+</h:body>
+</html>

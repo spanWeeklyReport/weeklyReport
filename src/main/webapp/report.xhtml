@@ -1,158 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets" 
-   xmlns:f="http://java.sun.com/jsf/core" xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-   xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:a4j="http://richfaces.org/a4j"
-   >
-   <h:head>
-      <title>Report</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-      </link>
-      <link rel="stylesheet" href="css/style.css">
-      </link>
-      <link href = "http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
-         " rel = "stylesheet" >
-      </link>
-      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>  
-      <script src = "http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-      
-      
-   </h:head>
-   <h:body>
-      <div class="report-container" >
-         <header>
-            <ui:insert name="header" >
-            </ui:insert>
-         </header>
-         <div id="content">
-         <div class="upper-head">
-            <div class="report-head" >
-               <h3>Project Name: ${taskDetails.projectDetailsName}</h3>
-               <h3>Week No: ${taskDetails.weekNo}</h3>
-            </div>
-            <img class="logo" src="images/elogo.jpg" alt="Evry Logo" /> 
-         </div>
-         <hr class="divider" />
-         <table class="report-table">
-            <tr class="tb-head-row">
-               <td colspan="5">Task Details</td>
-               <td colspan="5">Resource Details</td>
-            </tr>
-            <tr class="tb-head-row mini-titles">
-               <td>  </td>
-               <td>Planned</td>
-               <td>Completed</td>
-               <td>Hold</td>
-               <td>In Progress</td>
-               <td>  </td>
-               <td>Count</td>
-               <td>Resource loading in %</td>
-               <td>Projection Inc<label id="qtrLabel1"></label></td>
-               <td>Projection Dec<label id="qtrLabel2"></label></td>
-            </tr>
-            <tr class="table-data">
-               <td> Previous Week </td>
-               <td>${taskDetails.lastPlanned} </td>
-               <td>${taskDetails.lastCompleted}  </td>
-               <td>${taskDetails.lastHold}  </td>
-               <td>#{taskDetails.lastInProgress}</td>
-               <td> Billable </td>
-               <td class="count-bill"> ${taskDetails.billedResources} </td>
-               <td class="count-billR"> ${taskDetails.resourceLoadingB} </td>
-               <td class="count-projIncB">${taskDetails.projectIncB}  </td>
-               <td class="count-projdecB"> ${taskDetails.projectDecB} </td>
-            </tr>
-            <tr class="table-data">
-               <td rowspan="2">Selected Week</td>
-               <td rowspan="2">${taskDetails.plannedTask}</td>
-               <td rowspan="2">${taskDetails.completedTask}</td>
-               <td rowspan="2">${taskDetails.holdTask}</td>
-               <td rowspan="2">${taskDetails.inprogressTask}</td>
-               <td>Shadow</td>
-               <td class="count-sha">${taskDetails.sharedResources}</td>
-               <td class="count-shaR">${taskDetails.resourceLoadingSh}</td>
-               <td class="count-projIncSh">${taskDetails.projectIncSh}</td>
-               <td class="count-projDecSh">${taskDetails.projectDecSh}</td>
-            </tr>
-            <tr class="table-data">
-               <td>Total</td>
-               <td class="total-count"></td>
-               <td class="total-resource"></td>
-               <td class="total-inc"></td>
-               <td class="total-dec">0</td>
-            </tr>
-            <tr class="tb-head-row">
-               <td colspan="10" class="left-align"> Project Updates:</td>
-            </tr>
-            <tr class="table-data">
-               <td colspan="10" class="left-align"> ${taskDetails.projectUpdates}</td>
-            </tr>
-            <tr class="tb-head-row">
-               <td colspan="10" class="left-align">Project Risks:</td>
-            </tr>
-         </table>
-         <h:dataTable  var="risk" value="#{taskDetails.riskDetailsList}"
-            headerClass="mini-titles" rowClasses="table-data">
-            <h:column>
-               <f:facet name="header">Risk Type</f:facet>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<title>Report</title>
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+		rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link
+		href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+         "
+		rel="stylesheet"></link>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="js/xepOnline.jqPlugin.js" type="text/javascript" />
+
+</h:head>
+<h:body>
+	<div class="report-container">
+		<header> <ui:insert name="header">
+		</ui:insert> </header>
+		<div id="content">
+			<div class="upper-head">
+				<div class="report-head">
+					<h3>Project Name: ${taskDetails.projectDetailsName}</h3>
+					<h3>Week No: ${taskDetails.weekNo}</h3>
+				</div>
+				<img class="logo" src="images/elogo.jpg" alt="Evry Logo" />
+			</div>
+			<hr class="divider" />
+			<table class="report-table">
+				<tr class="tb-head-row">
+					<td colspan="5">Task Details</td>
+					<td colspan="5">Resource Details</td>
+				</tr>
+				<tr class="tb-head-row mini-titles">
+					<td></td>
+					<td>Planned</td>
+					<td>Completed</td>
+					<td>Hold</td>
+					<td>In Progress</td>
+					<td></td>
+					<td>Count</td>
+					<td>Resource loading in %</td>
+					<td>Projection Inc<label id="qtrLabel1"></label></td>
+					<td>Projection Dec<label id="qtrLabel2"></label></td>
+				</tr>
+				<tr class="table-data">
+					<td>Previous Week</td>
+					<td>${taskDetails.lastPlanned}</td>
+					<td>${taskDetails.lastCompleted}</td>
+					<td>${taskDetails.lastHold}</td>
+					<td>#{taskDetails.lastInProgress}</td>
+					<td>Billable</td>
+					<td class="count-bill">${taskDetails.billedResources}</td>
+					<td class="count-billR">${taskDetails.resourceLoadingB}</td>
+					<td class="count-projIncB">${taskDetails.projectIncB}</td>
+					<td class="count-projdecB">${taskDetails.projectDecB}</td>
+				</tr>
+				<tr class="table-data">
+					<td rowspan="2">Selected Week</td>
+					<td rowspan="2">${taskDetails.plannedTask}</td>
+					<td rowspan="2">${taskDetails.completedTask}</td>
+					<td rowspan="2">${taskDetails.holdTask}</td>
+					<td rowspan="2">${taskDetails.inprogressTask}</td>
+					<td>Shadow</td>
+					<td class="count-sha">${taskDetails.sharedResources}</td>
+					<td class="count-shaR">${taskDetails.resourceLoadingSh}</td>
+					<td class="count-projIncSh">${taskDetails.projectIncSh}</td>
+					<td class="count-projDecSh">${taskDetails.projectDecSh}</td>
+				</tr>
+				<tr class="table-data">
+					<td>Total</td>
+					<td class="total-count"></td>
+					<td class="total-resource"></td>
+					<td class="total-inc"></td>
+					<td class="total-dec">0</td>
+				</tr>
+				<tr class="tb-head-row">
+					<td colspan="10" class="left-align">Project Updates:</td>
+				</tr>
+				<tr class="table-data">
+					<td colspan="10" class="left-align">
+						${taskDetails.projectUpdates}</td>
+				</tr>
+				<tr class="tb-head-row">
+					<td colspan="10" class="left-align">Project Risks:</td>
+				</tr>
+			</table>
+			<h:dataTable var="risk" value="#{taskDetails.riskDetailsList}"
+				headerClass="mini-titles" rowClasses="table-data">
+				<h:column>
+					<f:facet name="header">Risk Type</f:facet>
                #{risk.riskType}
             </h:column>
-            <h:column>
-               <f:facet name="header">Risk Description</f:facet>
+				<h:column>
+					<f:facet name="header">Risk Description</f:facet>
                #{risk.riskDescription}
             </h:column>
-            <h:column>
-               <f:facet name="header">Responsible Person</f:facet>
+				<h:column>
+					<f:facet name="header">Responsible Person</f:facet>
                #{risk.riskResponsible}
             </h:column>
-         </h:dataTable>
-         </div>
-         
-         <div id="ignorePdf">
-         <h:form id="goBack">
-         <h:inputHidden id="wNO" class="wNO" value="${taskDetails.weekNo}" ></h:inputHidden>
-         <h:commandLink value="Go Back" id="return" class="return"  onclick="history.go(-1);return false;"></h:commandLink>
-          </h:form>
-         <div id="editor"></div>
-         <h:commandButton value="Download as PDF" id="cmd" class = "cmd"></h:commandButton>
-         </div>
-      </div>
-      <footer>
-      
-         <ui:insert name="footer" >
-            <ui:include src="reportFooter.xhtml" />
-         </ui:insert>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-<script type="text/javascript" src="js/addhtml.js" ></script>
-<script type="text/javascript" src="js/from_html.js" ></script>
-<script type="text/javascript" src="js/split_text_to_size.js" ></script>
-<script type="text/javascript" src="js/standard_fonts_metrics.js" ></script>
-         
-         <script type="text/javascript">
-       //<![CDATA[
-                      
-        $(document).ready(function(){
-              $("#cmd").click(function(){
-                     
-                     alert($("#content").html());
-                     
-              var pdf = new jsPDF('p','pt','letter');
-              
-                            
-              pdf.addHTML((document.body),function() {
-                                          
-                  pdf.save('Report.pdf');
-                 
-              });
-          });
-        });
-      //]]>
-      </script>
-      </footer>  
-   </h:body>
+			</h:dataTable>
+		</div>
+
+		<div id="ignorePdf">
+			<h:form id="goBack">
+				<h:inputHidden id="wNO" class="wNO" value="${taskDetails.weekNo}"></h:inputHidden>
+				<h:commandLink value="Go Back" id="return" class="return"
+					onclick="history.go(-1);return false;"></h:commandLink>
+			</h:form>
+			<div id="editor"></div>
+
+			<a href="#" class="cmd"
+				onclick="return xepOnline.Formatter.Format('content',{render:'download', pageWidth:'216mm', pageHeight:'279mm', embedLocalImages : true});">Download
+				as PDF</a>
+		</div>
+	</div>
+	<footer> <ui:insert name="footer">
+		<ui:include src="reportFooter.xhtml" />
+	</ui:insert> <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+	<script type="text/javascript" src="js/addhtml.js"></script> <script
+		type="text/javascript" src="js/from_html.js"></script> <script
+		type="text/javascript" src="js/split_text_to_size.js"></script> <script
+		type="text/javascript" src="js/standard_fonts_metrics.js"></script> <script
+		type="text/javascript">
+			//<![CDATA[
+
+			$(document).ready(function() {
+
+			});
+			//]]>
+		</script> </footer>
+</h:body>
 </html>
