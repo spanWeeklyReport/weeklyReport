@@ -7,14 +7,19 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Subqueries;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.model.Department;
 import com.evry.dashboard.model.ProjectDetails;
+import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.HttpSessionFactory;
 
@@ -136,40 +141,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return false;
 		
 	}
-	@Transactional
-	public String getUserRole(UserInfo userInfo) { 
-		
-		Session session = this.sessionFactory.getCurrentSession();
-		String username = userInfo.getUserName();
-		
-		
-		Query query =  session.createQuery("select E.userRole from UserInfo E where userName = '"+ username +"'" );
-		List<String> userRoles = query.list();
-		
-		String uRoll = userRoles.get(0);
-		
-		return uRoll;
-	
-		
-		
-	}
-	@Transactional
-      public String getUserName(UserInfo userInfo) { 
-		
-		Session session = this.sessionFactory.getCurrentSession();
-		String username = userInfo.getUserName();
-		
-		
-		Query query =  session.createQuery("select E.firstName from UserInfo E where userName = '"+ username +"'" );
-		List<String> userNames = query.list();
-		
-		String uName = userNames.get(0);
-		
-		return uName;
-	
-		
-		
-	}
 	
 	
 	@Transactional
@@ -237,7 +208,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
     public UserInfo getUserByID(Long id){
     Session session = this.sessionFactory.getCurrentSession();
     
-    Query query = session.createQuery("from UserInfo where oid = '"+ id +"'" );
+    Query query = session.createQuery("from UserInfo where oid = '"+ id +"' " );
     List<UserInfo> rs = query.list();
     UserInfo user = null;
     if(!rs.isEmpty()){ 
@@ -246,7 +217,18 @@ public class UserInfoDAOImpl implements UserInfoDAO {
     }
            return user;
     }
-
+     
+	 @Transactional
+	 public List<UserInfo> employeeReportStatus(UserInfo userInfo, int weekNo) {
+		
+		 System.out.println(weekNo);
+		 Session session = this.sessionFactory.getCurrentSession();
+		 Query query = session.createQuery("from UserInfo where oid not in (select userInfo from TaskDetails where WeekNo = '"+weekNo + "' ) ");
+		 List<UserInfo> result = query.list();
+		
+		  
+		 return result;
+	 }
 
 		
 	

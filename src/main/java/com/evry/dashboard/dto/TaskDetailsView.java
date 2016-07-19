@@ -57,6 +57,8 @@ public class TaskDetailsView implements Serializable {
 	private String lastInProgress;
 	public String data = "1";
 	private ArrayList<RiskDetailsView> riskDetailsList;
+	private String employeeName;
+	private String employeeEmail;
 
 	/**
 	 * @Getters and setters
@@ -297,7 +299,21 @@ public class TaskDetailsView implements Serializable {
 		this.userId = userId;
 	}
 
-	
-	
+	public String getEmployeeName() {
+		return employeeName;
+	}
 
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public String getEmployeeEmail() {
+		return employeeEmail;
+	}
+
+	public void setEmployeeEmail(String employeeEmail) {
+		this.employeeEmail = employeeEmail;
+	}
+
+	
 }

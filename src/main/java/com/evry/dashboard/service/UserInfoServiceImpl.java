@@ -10,7 +10,10 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.util.CollectionUtils;
+
 import com.evry.dashboard.dao.UserInfoDAO;
+import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
 import com.evry.dashboard.model.TaskDetails;
@@ -27,6 +30,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private boolean renderer;
 	private boolean logout;
 	private TaskDetailsService taskDetailsService;
+	private List<UserInfoView> userInfoViews;
 
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
@@ -34,6 +38,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	public void setMapper(UserInfoMapper mapper) {
 		this.mapper = mapper;
+	}
+
+	public List<UserInfoView> getUserInfoViews() {
+		return userInfoViews;
+	}
+
+	public void setUserInfoViews(List<UserInfoView> userInfoViews) {
+		this.userInfoViews = userInfoViews;
 	}
 
 	public void addUser(UserInfoView userInfoView) {
@@ -46,12 +58,16 @@ public class UserInfoServiceImpl implements UserInfoService {
 		this.taskDetailsService = taskDetailsService;
 	}
 
-	public List<UserInfoView> getUsers() {
+	public void getUsers() {
 		List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsersList();
-		List<UserInfoView> userInfoViews = new ArrayList();
-		for (UserInfo userInfo : userInfos)
-			userInfoViews.add(mapper.getMappedView(userInfo));
-		return userInfoViews;
+		if (!CollectionUtils.isEmpty(userInfos)) {
+		setUserInfoViews(mapper.getMappedView(userInfos));
+		}
+		
+		else {
+			
+			setUserInfoViews(null);
+		}
 	}
 
 	public String isValid(UserInfoView userInfoView) {
@@ -60,10 +76,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 		if (result) {
 			
-
-			
-			
-
 			return "dashboard.xhtml";
 		} else {
 
@@ -123,7 +135,28 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 	}
 	
+	public void employeeReportStatus(TaskDetailsView taskDetailsView, UserInfoView userView) { 
+		
+		   int weekNo = taskDetailsView.getWeekNo();
+		   System.out.println(weekNo);
+		   
+		   List<UserInfo> userObj = (List<UserInfo>) userInfoDAO.employeeReportStatus(mapper.getMappedEntity(userView), weekNo);
+			if (!CollectionUtils.isEmpty(userObj)) {
+				
+				System.out.println("users with no report found");
+				setUserInfoViews(mapper.getMappedView(userObj));
+			} else {
 
-	
-	
-}
+				System.out.println("nothing returned");
+				setUserInfoViews(null);
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR,
+								"No data found for the selected week", null));
+			}
+			
+			
+	}
+
+			
+  }

@@ -15,6 +15,7 @@
 		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
 		rel='stylesheet' type='text/css'></link>
 	<link rel="stylesheet" href="css/styles.css"></link>
+	<link rel="stylesheet" href="css/style.css"></link>
 	<link rel="stylesheet" href="css/css.css"></link>
 	<link rel="stylesheet" href="css/dashboard.css"></link>
 	<script
@@ -45,10 +46,18 @@
 	<!-- MAIN START -->
 	<div class="main">
 		<!--  BANNER STARTS -->
-		<section class="banner-part">
+		<section class="banner-part employee-report-page">
 		<div class="banner-inner content-wrap">
-			<h:form>
-				<h:outputText value="Select Week No:" />
+		  <div class="list-box" id="div_list_boox">
+				<div class="signup_frm" id="div_signup_frm">
+					<p class="pro-heading">Employee Report Status</p>
+		
+			<h:form id="employee-report">
+			  <h:panelGroup layout="block" class="select_week_users">
+			    <p class="info">
+				<h:outputLabel value="Select Week no. to see which employees have not filled their report yet" /> 
+				</p>
+				<h:outputLabel class="label " value="Week No:" />
 				<h:selectOneMenu class="select-week" value="#{taskDetails.weekNo}">
 
 					<f:selectItem itemValue="#{null}" itemLabel="Select" />
@@ -110,28 +119,62 @@
 
 
 				</h:selectOneMenu>
-				<br />
-				<h:commandButton value="Submit" class="buttons"
-					action="#{taskDetailsService.employeeReportStatus(taskDetails)}"></h:commandButton>
+				
+				
+				<!-- <h:commandButton value="Fetch those who have filled" class="buttons"
+					action="#{taskDetailsService.employeeReportStatus(taskDetails)}"></h:commandButton>  -->
+				
+					<h:commandButton value="Fetch Users" class="buttons fetch-users"
+					action="#{userInfoService.employeeReportStatus(taskDetails, userInfo)}"></h:commandButton>
+			   </h:panelGroup> 
 
 			</h:form>
-			<h:panelGroup id="results-panel"
-				rendered="#{taskDetailsService.renderScreen()}">
-				<ui:repeat value="${taskDetailsService.taskDetailsViews}"
-					var="taskDetailsViewResults">
+			<h:panelGroup layout="block" id="reportDetails" class="reportDetails">
+				<rich:dataTable value="#{userInfoService.userInfoViews}"
+					var="user">
+					
+					<f:facet name="header">
+							<rich:columnGroup>
 
-					<h:dataTable var="user" value="${taskDetailsViewResults.userInfo}"
-						headerClass="mini-titles" rowClasses="table-data">
+								<rich:column>
+									<h:outputText value="Name" />
+								</rich:column>
+								<rich:column>
+									<h:outputText value="Email" />
+								</rich:column>
+								
+								<rich:column>
+									<h:outputText value="Action" />
+								</rich:column> 
+								
 
-						<h:column>
-							<f:facet name="header">Users</f:facet>
-							<h:outputText value="${user.userName}"></h:outputText>
-						</h:column>
+							</rich:columnGroup>
+					</f:facet>
 
-					</h:dataTable>
-				</ui:repeat>
-			</h:panelGroup>
+					<rich:column>
+					  
+					   <h:outputText value="${user.firstName} ${user.lastName}"></h:outputText>
+					</rich:column>
+					
+					<rich:column>
+					 
+					   <h:outputText value="${user.userName}"></h:outputText>
+					</rich:column>
+					
+					<rich:column>
+					  
+					  <h:commandButton value="Remind" />
+					</rich:column>
+						
+				
+					
+				</rich:dataTable>
+		   </h:panelGroup>		
+			
 		</div>
+		</div>
+		</div>
+	
 		<!-- banner inner close --> </section>
 		<!--  BANNER ENDS -->
 

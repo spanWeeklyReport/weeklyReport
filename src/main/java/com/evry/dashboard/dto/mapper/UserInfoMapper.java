@@ -1,29 +1,28 @@
 package com.evry.dashboard.dto.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
+import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 
 public class UserInfoMapper {
 
-	/**
-	 * @param userInfo
-	 * @return
-	 */
-	public UserInfoView getMappedView(UserInfo userInfo) {
-		UserInfoView userInfoView = new UserInfoView();
+	
+	public void MapView(UserInfoView userInfoView, UserInfo userInfo) {
+		
 		userInfoView.setFirstName(userInfo.getFirstName());
 		userInfoView.setLastName(userInfo.getLastName());
 		userInfoView.setUserName(userInfo.getUserName());
 		// userInfoView.setLoginUsername(userInfo.getUserName());
 		userInfoView.setPassword(userInfo.getPassword());
 		userInfoView.setUserRole(userInfo.getUserRole());
-		return userInfoView;
+		
 	}
 
-	/**
-	 * @param userInfoView
-	 * @return
-	 */
+	
 	public UserInfo getMappedEntity(UserInfoView userInfoView) {
 		UserInfo userInfo = new UserInfo();
 		userInfo.setFirstName(userInfoView.getFirstName());
@@ -35,14 +34,17 @@ public class UserInfoMapper {
 		return userInfo;
 	}
 	
-	public void MapView(UserInfoView userInfoView, UserInfo userInfo) {
-		
-		userInfoView.setFirstName(userInfo.getFirstName());
-		userInfoView.setLastName(userInfo.getLastName());
-		userInfoView.setUserName(userInfo.getUserName());
-		userInfoView.setPassword(userInfo.getPassword());
-		userInfoView.setUserRole(userInfo.getUserRole());
-		
+	
+	public List<UserInfoView> getMappedView(List<UserInfo> userInfo2) {
+		List<UserInfoView> userInfoViews = new ArrayList<UserInfoView>();
+		for (UserInfo userInfo : userInfo2) {
+			UserInfoView userInfoView = new UserInfoView();
+
+			MapView(userInfoView, userInfo);
+			userInfoViews.add(userInfoView);
+		}
+
+		return userInfoViews;
 	}
 
 	

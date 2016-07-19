@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 
+import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 
 /**
@@ -22,5 +23,6 @@ public interface UserInfoDAO
 	 public UserInfo editUsers(UserInfo userInfo);
 	 public long getUserID(UserInfo userInfo);
 	 public UserInfo getUserByID(Long id);
+	 public List<UserInfo> employeeReportStatus(UserInfo userInfo, int weekNo);
 
 }

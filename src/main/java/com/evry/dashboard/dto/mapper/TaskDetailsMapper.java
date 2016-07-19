@@ -9,6 +9,7 @@ import com.evry.dashboard.dao.RiskDetailsDAO;
 import com.evry.dashboard.dao.UserInfoDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.RiskDetailsView;
+import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.RiskDetails;
@@ -21,6 +22,7 @@ public class TaskDetailsMapper {
 	private RiskDetailsDAO riskDetailsDAO;
 	private RiskDetailsMapper riskDetailsMapper;
 	private UserInfoDAO userInfoDAO;
+	private UserInfoMapper userInfoMapper;
 
 	/**
 	 * @param projectDetailsDAO
@@ -41,6 +43,11 @@ public class TaskDetailsMapper {
 		this.userInfoDAO = userInfoDAO;
 	}
 
+	public void setUserInfoMapper(UserInfoMapper userInfoMapper) {
+		this.userInfoMapper = userInfoMapper;
+	}
+
+	
 	public List<TaskDetailsView> getMappedView(List<TaskDetails> taskDetails2) {
 		List<TaskDetailsView> taskDetailsViews = new ArrayList<TaskDetailsView>();
 		for (TaskDetails taskDetails : taskDetails2) {
@@ -109,9 +116,32 @@ public class TaskDetailsMapper {
 						.next()));
 			}
 		}
-
+		
+		
 		taskDetailsView.setRiskDetailsList(riskList);
-
+       try {
+			
+			taskDetailsView.setEmployeeName(taskDetails.getUserInfo().getFirstName());
+		}
+		
+       catch (Exception e) {
+			
+			taskDetailsView.setEmployeeName(null);
+        
+		}
+       try {
+			
+			taskDetailsView.setEmployeeEmail(taskDetails.getUserInfo().getUserName());
+		}
+		
+      catch (Exception e) {
+			
+			taskDetailsView.setEmployeeEmail(null);;
+       
+		}
+		
+		
+		
 	}
 
 	/**
@@ -161,7 +191,7 @@ public class TaskDetailsMapper {
 		UserInfo userInfo = userInfoDAO
 				.getUserByID(taskDetailsView.getUserId());
 
-		//taskDetails.setUserInfo(userInfo);
+		taskDetails.setUserInfo(userInfo);
 		taskDetails.setRiskDetails(list);
 		return taskDetails;
 	}

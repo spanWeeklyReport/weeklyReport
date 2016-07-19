@@ -2182,3 +2182,26 @@ li.info {
   white-space: nowrap;
 
 }
+
+.select_week_users {
+  height: 60px;
+ 
+}
+
+.label {
+  float: left;
+  font-weight: bold !important;
+  height: 50px;
+  width: 100px;
+}
+
+.select-week {
+  float: left;
+  height: 28px;
+  width: 100px;
+}
+
+.buttons.fetch-users {
+  margin-left: 35px;
+}
+

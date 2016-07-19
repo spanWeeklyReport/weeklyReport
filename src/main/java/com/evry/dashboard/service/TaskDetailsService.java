@@ -22,6 +22,6 @@ public interface TaskDetailsService {
     public String setRender();
     public String setWeek(TaskDetailsView taskDetailsView);
     public void employeeReportStatus(TaskDetailsView taskDetailsView);
-	
+   
     
 }

@@ -29,6 +29,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	private RiskDetailsMapper riskDetailsMapper;
 	private TaskDetailsDAO taskDetailsDAO;
 	private RiskDetailsDAO riskDetailsDAO;
+	
 
 	private long riskId;
 	private List<TaskDetailsView> taskDetailsViews;
@@ -56,14 +57,9 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	public void setTaskDetailsViews(List<TaskDetailsView> taskDetailsViews) {
 		this.taskDetailsViews = taskDetailsViews;
 	}
-
-	/*
-	 * Add/Update task details for current as well as last week (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#addTasks(com.evry.dashboard
-	 * .dto.TaskDetailsView)
-	 */
+	
+	
+	
 	public void addTasks(TaskDetailsView taskDetailsView) {
 		
 		HttpSession session = HttpSessionFactory.getSession();
@@ -91,14 +87,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
-	/*
-	 * Fetch task details corresponding to project name and week selected
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#checkTasks(com.evry.dashboard
-	 * .dto.TaskDetailsView)
-	 */
+	
 	public void checkTasks(TaskDetailsView taskDetailsView) {
 
 		// Fetch selected week's data
@@ -144,14 +133,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
-	/*
-	 * Generates a web report for the selected as well as previous week
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#checkReport(com.evry.dashboard
-	 * .dto.TaskDetailsView)
-	 */
+	
 	public String checkReport(TaskDetailsView taskDetailsView) {
 		TaskDetails taskDetails = taskDetailsDAO.checkReport(taskDetailsMapper
 				.getMappedEntity(taskDetailsView));
@@ -173,13 +155,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 		return "report";
 	}
 
-	/*
-	 * Fetches the risks and project updates as per report type (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#viewReport(com.evry.dashboard
-	 * .dto.TaskDetailsView)
-	 */
+	
 	public void viewReport(TaskDetailsView taskDetailsView) {
 		if (taskDetailsView.getwNo().equals("true")) {
 			taskDetailsView.setWeekNo(0);
@@ -209,23 +185,13 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.evry.dashboard.service.TaskDetailsService#renderScreen()
-	 */
+	
 	public boolean renderScreen() {
 
 		return renderer;
 	}
 
-	/*
-	 * Add risks to UI (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#addRisks(com.evry.dashboard
-	 * .dto.TaskDetailsView, com.evry.dashboard.dto.RiskDetailsView)
-	 */
+	
 	public String addRisks(TaskDetailsView taskDetailsView,
 			RiskDetailsView riskDetailsView) {
 
@@ -263,13 +229,7 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 	}
 
-	/*
-	 * Deletes risks (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.service.TaskDetailsService#deleteRisks(com.evry.dashboard
-	 * .dto.TaskDetailsView, com.evry.dashboard.dto.RiskDetailsView)
-	 */
+	
 	public String deleteRisks(TaskDetailsView taskDetailsView,
 			RiskDetailsView riskDetailsView) {
 
@@ -323,6 +283,9 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 	
 		
 	}
+	
+	
+		
 	
 
 }

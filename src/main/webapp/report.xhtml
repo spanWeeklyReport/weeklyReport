@@ -36,7 +36,9 @@
 					<h3>Project Name: ${taskDetails.projectDetailsName}</h3>
 					<h3>Week No: ${taskDetails.weekNo}</h3>
 				</div>
-				<img class="logo" src="images/elogo.jpg" alt="Evry Logo" />
+				<img class="logo"
+					src="https://www.evry.com/static/gfx/logo383x200.png"
+					alt="Evry Logo" />
 			</div>
 			<hr class="divider" />
 			<table class="report-table">
@@ -124,7 +126,7 @@
 			<div id="editor"></div>
 
 			<a href="#" class="cmd"
-				onclick="return xepOnline.Formatter.Format('content',{render:'download', pageWidth:'216mm', pageHeight:'279mm', embedLocalImages : true});">Download
+				onclick="return xepOnline.Formatter.Format('content',{embedLocalImages : 'true',render:'download', cssStyle:[{width:'800px'}, {lineHeight: '40px'}, {paddingLeft: '20px'}, {paddingRight: '20px'}, {cellSpacing:'40px'}] });">Download
 				as PDF</a>
 		</div>
 	</div>
@@ -134,7 +136,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-	<script type="text/javascript" src="js/addhtml.js"></script> <script
+	<script type="text/javascript" src="js/addhtml.js"></script> <script>
 		type="text/javascript" src="js/from_html.js"></script> <script
 		type="text/javascript" src="js/split_text_to_size.js"></script> <script
 		type="text/javascript" src="js/standard_fonts_metrics.js"></script> <script

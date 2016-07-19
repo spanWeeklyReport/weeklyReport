@@ -28,13 +28,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#addTasks(com.evry.dashboard.model
-	 * .TaskDetails)
-	 */
+	
 	@Transactional
 	public void addTasks(TaskDetails taskDetails) {
 		Session session = this.sessionFactory.getCurrentSession();
@@ -42,13 +36,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		// session.save(taskDetails);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#updateLastWeekTasks(com.evry.dashboard
-	 * .model.TaskDetails)
-	 */
+	
 	@Transactional
 	public void updateLastWeekTasks(TaskDetails lastWeekDetails) {
 
@@ -65,18 +53,10 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#getTasks(com.evry.dashboard.model
-	 * .TaskDetails)
-	 */
 	@Transactional
 	public TaskDetails getTasks(TaskDetails taskDetails) {
 		int weekNo = taskDetails.getWeekNo();
 		int yearNo = taskDetails.getYearNo();
-		// int yearNo = taskDetails.getYearNo();
 		Session session = this.sessionFactory.getCurrentSession();
 		Query query = session
 				.getNamedQuery("findProject")
@@ -98,37 +78,19 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		return details;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#checkTasks(com.evry.dashboard.model
-	 * .TaskDetails)
-	 */
+	
 	@Transactional
 	public TaskDetails checkTasks(TaskDetails taskDetails) {
 		return getTasks(taskDetails);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#checkReport(com.evry.dashboard.
-	 * model.TaskDetails)
-	 */
+	
 	@Transactional
 	public TaskDetails checkReport(TaskDetails taskDetails) {
 		return getTasks(taskDetails);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.evry.dashboard.dao.TaskDetailsDAO#viewReport(com.evry.dashboard.model
-	 * .TaskDetails)
-	 */
+	
 	@Transactional
 	public List<TaskDetails> viewReport(TaskDetails taskDetails) {
 		
