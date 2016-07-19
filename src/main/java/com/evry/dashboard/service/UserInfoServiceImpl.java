@@ -61,11 +61,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public void getUsers() {
 		List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsersList();
 		if (!CollectionUtils.isEmpty(userInfos)) {
+			System.out.println("user list found");
 		setUserInfoViews(mapper.getMappedView(userInfos));
 		}
 		
 		else {
-			
+			System.out.println("user list not found");
 			setUserInfoViews(null);
 		}
 	}
