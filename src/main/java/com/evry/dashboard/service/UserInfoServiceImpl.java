@@ -16,6 +16,7 @@ import com.evry.dashboard.dao.UserInfoDAO;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
+import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
 import com.evry.dashboard.util.HttpSessionFactory;
@@ -31,7 +32,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private boolean logout;
 	private TaskDetailsService taskDetailsService;
 	private List<UserInfoView> userInfoViews;
-
+	private List<UserInfoView> userInfoList;
+ 
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
 	}
@@ -57,18 +59,36 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public void setTaskDetailsService(TaskDetailsService taskDetailsService) {
 		this.taskDetailsService = taskDetailsService;
 	}
+	
+	
 
-	public void getUsers() {
-		List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsersList();
-		if (!CollectionUtils.isEmpty(userInfos)) {
-			System.out.println("user list found");
-		setUserInfoViews(mapper.getMappedView(userInfos));
-		}
+	public List<UserInfoView> getUserInfoList() {
+		return userInfoList;
+	}
+
+	public void setUserInfoList(List<UserInfoView> userInfoList) {
+		this.userInfoList = userInfoList;
+	}
+
+	public List<UserInfoView> getUsers() {
 		
-		else {
-			System.out.println("user list not found");
-			setUserInfoViews(null);
-		}
+		
+			List<UserInfo> userInfos = (List<UserInfo>) userInfoDAO.getUsersList();
+			List<UserInfoView> userViews = new ArrayList<UserInfoView>();
+			if (!CollectionUtils.isEmpty(userInfos)) {
+				System.out.println("user list found");
+				for (UserInfo userInfo : userInfos)
+					userViews.add(mapper.getMapView(userInfo));
+				return userViews;
+			
+			}
+			
+			else {
+				System.out.println("user list not found");
+				return null;
+			}
+			
+				
 	}
 
 	public String isValid(UserInfoView userInfoView) {
