@@ -27,7 +27,7 @@ public class ProjectDetailsMapper {
 	 */
 	public ProjectDetails getMappedEntity(ProjectDetailsView projectDetailsView) {
 		ProjectDetails projectDetails = new ProjectDetails();
-		// projectDetails.setOid(projectDetailsView.getOid());
+		projectDetails.setOid(projectDetailsView.getOid());
 		projectDetails.setProjectName(projectDetailsView.getProjectName());
 		projectDetails.setProjectStatus(projectDetailsView.getProjectStatus());
 		projectDetails.setProjectDepartment(projectDetailsView

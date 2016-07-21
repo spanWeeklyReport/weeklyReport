@@ -25,6 +25,7 @@ public class UserInfoMapper {
 	
 	public UserInfo getMappedEntity(UserInfoView userInfoView) {
 		UserInfo userInfo = new UserInfo();
+		userInfo.setOid(userInfoView.getuId());
 		userInfo.setFirstName(userInfoView.getFirstName());
 		userInfo.setLastName(userInfoView.getLastName());
 		userInfo.setUserName(userInfoView.getUserName());
@@ -50,6 +51,7 @@ public class UserInfoMapper {
 	public UserInfoView getMapView(UserInfo userInfo) {
 		
 		UserInfoView userInfoView = new UserInfoView();
+		userInfoView.setuId(userInfo.getOid());
 		userInfoView.setFirstName(userInfo.getFirstName());
 		userInfoView.setLastName(userInfo.getLastName());
 		userInfoView.setUserName(userInfo.getUserName());

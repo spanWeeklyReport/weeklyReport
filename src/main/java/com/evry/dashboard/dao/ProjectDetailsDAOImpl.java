@@ -145,6 +145,13 @@ public class ProjectDetailsDAOImpl implements ProjectDetailsDAO {
 	}
 	
 	@Transactional
+	public void modifyProjects(ProjectDetails projectDetails) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.merge(projectDetails);
+		
+	}
+	
+	@Transactional
 	public List<ProjectDetails> getProjectList()
 	{
 		Session session = this.sessionFactory.getCurrentSession();

@@ -25,6 +25,7 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 
 	private ProjectDetailsMapper projectDetailsmapper;
 	private ProjectDetailsDAO projectDetailsDAO;
+	private ProjectDetailsView projDetailsView;
 
 	public ProjectDetailsServiceImpl() {
 
@@ -36,6 +37,14 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 
 	public void setMapper(ProjectDetailsMapper mapper) {
 		this.projectDetailsmapper = mapper;
+	}
+	
+	public ProjectDetailsView getProjDetailsView() {
+		return projDetailsView;
+	}
+
+	public void setProjDetailsView(ProjectDetailsView projDetailsView) {
+		this.projDetailsView = projDetailsView;
 	}
 
 	public List<String> getProjectNames() {
@@ -96,15 +105,25 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 	
    public String editProjects(ProjectDetailsView projectDetailsView){
 		
-		/*System.out.println("inside edit projects function"); 
-        ProjectDetails pDetails = projectDetailsmapper.getMappedEntity(projectDetailsView);
-		projectDetailsDAO.editProjects(pDetails);
-		projectDetailsmapper.MapView(projectDetailsView, pDetails); */
-	
+		System.out.println("inside edit projects function"); 
+        ProjectDetails pDetails = projectDetailsDAO.editProjects(projectDetailsmapper.getMappedEntity(projectDetailsView));
+		setProjDetailsView(projectDetailsmapper.getMappedView(pDetails));
        return "editProjects";
 		
 		
 	}
+   
+   public String modifyProjects(ProjectDetailsView projectDetailsView) {
+	   
+	   ProjectDetails projectDetails = projectDetailsmapper.getMappedEntity(projectDetailsView);
+	   projectDetailsDAO.modifyProjects(projectDetails);
+	   
+	   FacesContext.getCurrentInstance().addMessage(
+				"projectEditForm:editProject",
+				new FacesMessage(FacesMessage.SEVERITY_INFO,
+						"Project has been modified", "Please Try Again!"));
+	   return "add_projects";
+   }
 
 	
 	

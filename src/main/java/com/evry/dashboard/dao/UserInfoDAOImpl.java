@@ -229,6 +229,13 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		  
 		 return result;
 	 }
+	 
+	 @Transactional
+		public void modifyUser(UserInfo userInfo) {
+			Session session = this.sessionFactory.getCurrentSession();
+			session.merge(userInfo);
+			
+		}
 
 		
 	

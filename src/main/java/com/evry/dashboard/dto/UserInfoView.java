@@ -10,6 +10,7 @@ import javax.faces.bean.ViewScoped;
 @SessionScoped
 public class UserInfoView implements Serializable {
 	private static final long serialVersionUID = 7016146540858290775L;
+	private long uId;
 	private String firstName;
 	private String lastName;
 	private String userName;
@@ -22,8 +23,16 @@ public class UserInfoView implements Serializable {
 	 * @Getters and setters
 	 */
 	
+	
+	
 	public boolean isEditable() {
 		return editable;
+	}
+	public long getuId() {
+		return uId;
+	}
+	public void setuId(long uId) {
+		this.uId = uId;
 	}
 	public void setEditable(boolean editable) {
 		this.editable = editable;

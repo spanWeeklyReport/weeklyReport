@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.util.CollectionUtils;
 
 import com.evry.dashboard.dao.UserInfoDAO;
+import com.evry.dashboard.dto.ProjectDetailsView;
 import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.dto.mapper.UserInfoMapper;
@@ -33,6 +34,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private TaskDetailsService taskDetailsService;
 	private List<UserInfoView> userInfoViews;
 	private List<UserInfoView> userInfoList;
+	private UserInfoView useInfoView;
  
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
@@ -68,6 +70,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	public void setUserInfoList(List<UserInfoView> userInfoList) {
 		this.userInfoList = userInfoList;
+	}
+
+	public UserInfoView getUseInfoView() {
+		return useInfoView;
+	}
+
+	public void setUseInfoView(UserInfoView useInfoView) {
+		this.useInfoView = useInfoView;
 	}
 
 	public List<UserInfoView> getUsers() {
@@ -148,10 +158,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 	public String editUsers(UserInfoView userInfoView){
 		
 		System.out.println("inside edit function"); 
-		//UserInfo uInfo = mapper.getMappedEntity(userInfoView);
-		//userInfoDAO.editUsers(uInfo);
-		//mapper.MapView(userInfoView, uInfo);
-       return "edit-user";
+		UserInfo uInfo = mapper.getMappedEntity(userInfoView);
+		userInfoDAO.editUsers(uInfo);
+		  setUseInfoView(mapper.getMapView(uInfo));    
+		return "edit-user";
 		
 		
 	}
@@ -178,6 +188,20 @@ public class UserInfoServiceImpl implements UserInfoService {
 			
 			
 	}
+	
+	
+	 public String modifyUser(UserInfoView userInfoView) {
+		   
+		   UserInfo userInfo = mapper.getMappedEntity(userInfoView);
+		   userInfoDAO.modifyUser(userInfo);
+		   
+		   FacesContext.getCurrentInstance().addMessage(
+					"projectEditForm:editProject",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"User details have been edited", "Please Try Again!"));
+		   return "user_reg";
+	   }
+
 
 			
   }

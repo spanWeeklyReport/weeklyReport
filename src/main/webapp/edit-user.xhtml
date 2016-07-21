@@ -51,6 +51,7 @@
  				<!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
 		<div class="signup-box-sim">
 					<div class="signup_frm">
+					<ui:repeat value="${userInfoService.useInfoView}" var="user">
 						<p class="pro-heading">Edit User</p>
 
 						
@@ -58,28 +59,21 @@
 						<h:form id="regform">
 
 							<h:outputLabel value="First Name:" class="project_form_label"></h:outputLabel>
-							<h:inputText value="#{userInfo.firstName}"
+							<h:inputText value="#{user.firstName}"
 								class="project_form fname" id="name">
 								<f:validateLength minimum="2" maximum="50" />
 							</h:inputText>
 							<br />
 							<h:outputLabel value="Last Name:" class="project_form_label"></h:outputLabel>
-							<h:inputText value="#{userInfo.lastName}"
+							<h:inputText value="#{user.lastName}"
 								class="project_form lname">
 								<f:validateLength minimum="2" maximum="50" />
 							</h:inputText>
 							<br />
-							<h:outputLabel value="Email" class="project_form_label" />
-							<h:inputText a:type="email" value="#{userInfo.userName}"
-								class="project_form Remail" />
-							<br />
-							<h:outputLabel value="Password:" class="project_form_label" />
-							<h:inputSecret value="#{userInfo.password}"
-								class="project_form Rpass" />
-							<br />
+							
 							<h:outputLabel value="User Type:" class="project_form_label" />
 
-							<h:selectOneMenu value="#{userInfo.userRole}"
+							<h:selectOneMenu value="#{user.userRole}"
 								class="project_form usertype">
 								<f:selectItem itemValue="Admin" itemLabel="Admin" />
 								<f:selectItem itemValue="User" itemLabel="User" />
@@ -87,10 +81,10 @@
 							</h:selectOneMenu>
 
 							<h:commandButton id="submit5" value="Save" class="buttons"
-								action="#{userInfoService.addUserDetails(userInfo)}" />
+								action="#{userInfoService.modifyUser(user)}" />
 
 						</h:form>
-
+                     </ui:repeat>
 
 					</div>
 		</div>

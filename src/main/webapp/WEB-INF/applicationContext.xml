@@ -78,7 +78,8 @@
         
    </beans:bean>
    
-   <beans:bean id = "demoBean" class="com.evry.dashboard.util.DemoBean" />  
+   <beans:bean id = "demoBean" class="com.evry.dashboard.util.DemoBean" /> 
+   
    
    <beans:bean id ="UploadFilesBean" class="com.evry.dashboard.util.UploadFilesBean" >
       <beans:property name="sessionFactory" ref = "hibernate4AnnotatedSessionFactory" />
@@ -128,7 +129,9 @@
             ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
     
-  
+   
+    
+    
 
 </beans:beans>
 

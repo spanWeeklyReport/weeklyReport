@@ -29,26 +29,82 @@
 
 </h:head>
 <h:body>
-
+   
+    <ui:insert name="header">
+		<ui:include src="commonHeader.xhtml" />
+	</ui:insert>
+      <!-- PRODUCT HEADER START -->
+      <div class="product-header">
+         <div style="overflow: visible;" class="product-header-inner">
+            <a class="product-logo" href="#">Reports</a> <span class="sub-menu-icon">Menu</span>
+            <ul style="top: 36px;" class="product-menu scale hide">
+              
+              <li><h:link value="Home" outcome="dashboard.xhtml"></h:link></li>
+               <li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
+				<li><h:link value="Managers" outcome="add_departments.xhtml"></h:link></li>
+               
+               
+               
+            </ul>
+         </div>
+      </div>
+      
 	<!-- MAIN START -->
 	<div class="main">
 		<!--  BANNER STARTS -->
 		<section class="banner-part">
 		<div class="banner-inner content-wrap">
 
-			<h:link class="buttons" value="Back to All Projects"
-				outcome="add_projects.xhtml"></h:link>
-
 			<!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
 			<div class="signup-box-sim">
 				<div class="signup_frm">
-					<p class="pro-heading">Edit Project</p>
-					${projectDetails.projectDepartment}
-					${projectDetails.projectName}
-					${projectDetails.projectStatus}
-					${projectDetails.startDate}
-					${projectDetails.endDate}
 					
+				<ui:repeat value="${projectDetailsService.projDetailsView}" var="proj">
+				 <p class="pro-heading">Edit Project : ${proj.projectName}</p>
+				 <h:messages infoClass="info" errorClass="error-msg"
+							style="margin:8px 0px;padding:0" id="messgaess"/>
+				 <h:form id="projectEditForm">
+				 <h:outputLabel value="*Select Manager: " for="select_technology"
+							class="project_form_label" />
+							
+					<h:selectOneMenu value="${proj.projectDepartment}"
+							class="project_form sel_department">
+							<f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
+							<f:selectItems value="#{departmentService.getdepartmentName()}" />
+						</h:selectOneMenu>
+						<br />
+				
+					
+					<h:outputLabel value="*Project Status:" class="project_form_label" />
+						<h:selectOneMenu value="${proj.projectStatus}"
+							class="project_form project_status">
+							<f:selectItem itemValue="#{null}" itemLabel="Select" />
+							<f:selectItem itemValue="Closed" itemLabel="Closed" />
+							<f:selectItem itemValue="On Hold" itemLabel="On Hold" />
+							<f:selectItem itemValue="InProgress" itemLabel="In Progress" />
+
+
+						</h:selectOneMenu>
+						<br />
+					<h:outputLabel value="*Start Date" class="project_form_label"></h:outputLabel>
+						<h:inputText id="start_date" styleClass="datepicker1 project_form"
+							value="${proj.startDate}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText>
+						<br />
+
+						<h:outputLabel value="*Estimated End Date"
+							class="project_form_label"></h:outputLabel>
+						<h:inputText id="end_date" styleClass="datepicker2 project_form"
+							value="${proj.endDate}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText>
+						<br />
+					<h:commandButton id="editProject" value="Save" class="buttons submit4"
+							action="#{projectDetailsService.modifyProjects(proj)}" />
+					
+				</h:form>
+			   </ui:repeat>
 				</div>
 			</div>
 
@@ -67,8 +123,8 @@
 	<!-- FOOTER ENDS -->
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<script type="text/javascript">
+    
+    <script type="text/javascript">
       $(document).ready(function(){
              
     	  
@@ -114,6 +170,7 @@
      
       
       </script>
-
+    
+	
 </h:body>
 </html>

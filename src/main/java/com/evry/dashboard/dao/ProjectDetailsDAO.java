@@ -20,4 +20,5 @@ public interface ProjectDetailsDAO {
 	public List<ProjectDetails> getProjectList();
 	public String deleteProjects(ProjectDetails projectDetails);
 	public ProjectDetails editProjects(ProjectDetails projectDetails);
+	public void modifyProjects(ProjectDetails projectDetails);
 }
