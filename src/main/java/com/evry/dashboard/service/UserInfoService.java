@@ -15,4 +15,5 @@ public interface UserInfoService
 	String deleteUsers (UserInfoView userInfoView);
 	public String editUsers(UserInfoView userInfoView);
 	public String modifyUser(UserInfoView userInfoView);
+	public void sendEmail(UserInfoView userInfoView);
 }

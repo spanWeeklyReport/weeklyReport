@@ -2205,3 +2205,9 @@ li.info {
   margin-left: 35px;
 }
 
+#reportDetails > ul {
+  float: left;
+  height: 20px;
+  position: relative;
+  width: 100%;
+}

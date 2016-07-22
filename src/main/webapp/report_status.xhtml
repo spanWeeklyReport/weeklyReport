@@ -130,6 +130,8 @@
 
 			</h:form>
 			<h:panelGroup layout="block" id="reportDetails" class="reportDetails">
+			<h:messages infoClass="info" errorClass="error-msg"
+							style="margin:8px 0px;padding:0" id="messgaess"/>
 				<rich:dataTable value="#{userInfoService.userInfoViews}"
 					var="user">
 					
@@ -162,8 +164,9 @@
 					</rich:column>
 					
 					<rich:column>
-					  
-					  <h:commandButton value="Remind" />
+					  <h:form id="sendEmail">
+					  <h:commandButton value="Remind" id="smail" class="buttons" action="#{userInfoService.sendEmail(user)}" />
+					  </h:form>
 					</rich:column>
 						
 				

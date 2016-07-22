@@ -87,6 +87,8 @@
       <beans:property name = "departmentDAO" ref = "departmentDAO"/>
       
    </beans:bean>
+   
+    <beans:bean id ="mailService" class="com.evry.dashboard.util.ApplicationMailer" />
     
      <beans:bean id = "projectDetailsService" class = "com.evry.dashboard.service.ProjectDetailsServiceImpl">
         <beans:property name = "projectDetailsDAO" ref = "projectDetailsDAO"/>
@@ -117,6 +119,32 @@
     <beans:bean id = "riskDetailsMapper" class = "com.evry.dashboard.dto.mapper.RiskDetailsMapper" />
     
      <beans:bean id = "departmentMapper" class = "com.evry.dashboard.dto.mapper.DepartmentMapper" />
+     
+     <!-- SET default mail properties -->
+		    <beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		        <beans:property name="host" value="smtp.gmail.com"/>
+		        <beans:property name="port" value="25"/>
+		        <beans:property name="username" value="weekly.report684@gmail.com"/>
+		        <beans:property name="password" value="test123test123"/>
+		        <beans:property name="javaMailProperties">
+		            <beans:props>
+		                <beans:prop key="mail.transport.protocol">smtp</beans:prop>
+		                <beans:prop key="mail.smtp.auth">true</beans:prop>
+		                <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+		                <beans:prop key="mail.debug">true</beans:prop>
+		                
+		            </beans:props>
+		        </beans:property>
+		    </beans:bean>
+		     
+		    <!-- You can have some pre-configured messagess also which are ready to send -->
+		    <beans:bean id="preConfiguredMessage" class="org.springframework.mail.SimpleMailMessage">
+		        <beans:property name="to" value="weekly.report684@gmail.com"></beans:property>
+		        <beans:property name="from" value="weekly.report684@gmail.com"></beans:property>
+		        <beans:property name="subject" value="Mail sent"/>
+		    
+		 </beans:bean>
+     
         
     <context:component-scan base-package="com.evry.dashboard.service" />
     <context:component-scan base-package="com.evry.dashboard.dao" />     

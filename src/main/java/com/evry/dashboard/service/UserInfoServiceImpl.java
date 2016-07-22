@@ -8,8 +8,12 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.util.CollectionUtils;
 
 import com.evry.dashboard.dao.UserInfoDAO;
@@ -20,6 +24,7 @@ import com.evry.dashboard.dto.mapper.UserInfoMapper;
 import com.evry.dashboard.model.ProjectDetails;
 import com.evry.dashboard.model.TaskDetails;
 import com.evry.dashboard.model.UserInfo;
+import com.evry.dashboard.util.ApplicationMailer;
 import com.evry.dashboard.util.HttpSessionFactory;
 import com.evry.dashboard.service.TaskDetailsService;
 
@@ -201,6 +206,32 @@ public class UserInfoServiceImpl implements UserInfoService {
 							"User details have been edited", "Please Try Again!"));
 		   return "user_reg";
 	   }
+	 
+	 public void sendEmail(UserInfoView userInfoView) 
+	    {
+		 
+		    String email = userInfoView.getUserName();
+		 
+	        //Create the application context
+	        ApplicationContext context = new FileSystemXmlApplicationContext("C://Users//mehak.sapra//git//weeklyReport//src//main//webapp//WEB-INF//applicationContext.xml");
+	       // ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	         
+	        //Get the mailer instance
+	        ApplicationMailer mailer = (ApplicationMailer) context.getBean("mailService");
+	 
+	        //Send a composed mail
+	        mailer.sendMail(email, "Reminder from Weekly Report", "Hi, It seems you are yet to fill your Weekly Report for this week. Please fill it up before friday.");
+	 
+	        //Send a pre-configured mail
+	        mailer.sendPreConfiguredMail("Mail has been sent to the recipient " + email );
+	        
+	        FacesContext.getCurrentInstance().addMessage(
+					"sendEmail:smail",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Mail sent", "Please Try Again!"));
+	        
+	        
+	    }
 
 
 			
