@@ -46,7 +46,7 @@
                </div>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
                
-               <h:panelGroup rendered="#{empty userName}">
+               <h:panelGroup value="#{userInfoService.getAddress()}" rendered="#{empty userName}" >
                <div class="signup-box ">
                   <div class="signup_frm">
                      <p class="signup-heading">Sign In</p>
@@ -87,9 +87,10 @@
                </h:panelGroup>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE ENDS --> 
             </div>
+            <!--  <div class="hostname"> </div>  -->
          </section>
          <!--  BANNER ENDS --> 
-         
+        
        </div>   <!-- end of main -->
       <!-- BOTTOM BANNER STARTS -->
       
@@ -99,26 +100,36 @@
       <!-- FOOTER ENDS --> 
       <script src="js/prd-common.js"></script>
 	  <script type="text/javascript">
-	  if ($(".sgnemail").val() != ""){
-
-		  $(".za-email-container").addClass('added-placeholder');
-
-		  }
-	  if ($(".sgnpaswrd").val() != ""){
-
-		  $(".za-password-container").addClass('added-placeholder');
-
-		  }
 	  
-	  $("#signupform").submit(function(){
-		
-		  if($(".sgnemail").val() =="" || $(".sgnpaswrd").val() == ""){
-			  
-			  alert("Please enter username and/or password");
-			  return false;
-		  }
+	  $(document).ready(function(){
 		  
-	  })
+		  var ab = location.hostname;
+		  $(".hostname").text(ab);
+		  
+		  if ($(".sgnemail").val() != ""){
+
+			  $(".za-email-container").addClass('added-placeholder');
+
+			  }
+		  if ($(".sgnpaswrd").val() != ""){
+
+			  $(".za-password-container").addClass('added-placeholder');
+
+			  }
+		  
+		  $("#signupform").submit(function(){
+			
+			  if($(".sgnemail").val() =="" || $(".sgnpaswrd").val() == ""){
+				  
+				  alert("Please enter username and/or password");
+				  return false;
+			  }
+			  
+		  })
+		  
+		  
+	  });
+	 
 	  
 	  </script>
 	 

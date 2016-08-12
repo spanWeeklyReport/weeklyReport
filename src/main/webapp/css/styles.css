@@ -1087,7 +1087,7 @@ p {
 .banner-inner {
 	box-sizing: border-box;
 	overflow: hidden;
-	padding: 163px 0;
+	padding: 130px 0;
 	position: relative;
 	text-align: left;
 }
@@ -2026,7 +2026,8 @@ font-weight: 700;
         
          
          .banner-part {
-         background-image: url(../images/reports-bg.jpg);
+        background-image: url(../images/reports-bg.jpg); 
+         /*background: lightgreen; */
          }
          .banner-part:before {
          background: rgba(0,0,0,0.25)
@@ -2210,4 +2211,13 @@ li.info {
   height: 20px;
   position: relative;
   width: 100%;
+}
+
+.hostname {
+  color: red;
+  background: white;
+  width: 10%;
+  text-align: center;
+  border-radius: 8px;
+  float: right;
 }

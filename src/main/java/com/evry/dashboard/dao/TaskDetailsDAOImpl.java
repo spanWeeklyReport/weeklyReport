@@ -104,7 +104,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 		//System.out.println(projectName);
 
 		int wNo = taskDetails.getWeekNo();
-		//System.out.println(wNo);
+		System.out.println(wNo);
 		Session session = this.sessionFactory.getCurrentSession();
 		Criteria cr = session.createCriteria(TaskDetails.class);
 		boolean all = false;
@@ -126,8 +126,9 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 
 		else if (projectName.equalsIgnoreCase("All") && wNo != 0) {
 			System.out.println("condition3");
+			System.out.println("*******"+wNo);
 			cr.add(Restrictions.eq("WeekNo", wNo));
-			cr.add(Restrictions.eq("projectDepartment", tech));
+			
 		}
 
 		else if (projectName.equalsIgnoreCase("All") && wNo == 0) {

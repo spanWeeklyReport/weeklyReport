@@ -40,6 +40,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private List<UserInfoView> userInfoViews;
 	private List<UserInfoView> userInfoList;
 	private UserInfoView useInfoView;
+	private String hostname;
  
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
@@ -232,6 +233,12 @@ public class UserInfoServiceImpl implements UserInfoService {
 	        
 	        
 	    }
+	 
+	 public void getAddress() {
+		 
+		hostname = "in address";
+		System.out.println(hostname);
+	 }
 
 
 			

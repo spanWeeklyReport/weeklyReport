@@ -27,7 +27,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID"  metadata-com
 	 <context-param>
 	    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
 	    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-	    <param-value>client</param-value>
+	    <param-value>server</param-value>
 	</context-param>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -66,5 +66,6 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID"  metadata-com
 		<welcome-file>faces/index.xhtml</welcome-file>
 	</welcome-file-list>
 	
+	 <distributable/>
 	  
 </web-app>

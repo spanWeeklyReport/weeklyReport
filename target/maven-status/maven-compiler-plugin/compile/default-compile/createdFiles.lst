@@ -29,6 +29,7 @@ com\evry\dashboard\dto\RiskDetailsView.class
 com\evry\dashboard\model\Department.class
 com\evry\dashboard\dao\RiskDetailsDAOImpl.class
 com\evry\dashboard\util\DemoBean.class
+com\evry\dashboard\util\ApplicationMailer.class
 com\evry\dashboard\model\UserInfo.class
 com\evry\dashboard\service\TaskDetailsService.class
 com\evry\dashboard\model\ProjectDetails.class
@@ -37,6 +38,7 @@ com\evry\dashboard\dao\DepartmentDAO.class
 com\evry\dashboard\dao\CalcImpl.class
 com\evry\dashboard\dao\ProjectDetailsDAOImpl.class
 com\evry\dashboard\service\RiskDetailsServiceImpl.class
+com\evry\dashboard\util\MailerTest.class
 com\evry\dashboard\dto\mapper\UserInfoMapper.class
 com\evry\dashboard\service\UserInfoServiceImpl.class
 com\evry\dashboard\dao\UserInfoDAOImpl.class
