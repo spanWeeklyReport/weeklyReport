@@ -75,7 +75,7 @@
 
 						<ul class="DBCreateOpts">
 							<ui:repeat id="names"
-								value="${departmentService.getDepartment()}" var="department">
+								value="${departmentService.getDepartment()}" var="department" rendered="#{!empty userName}">
 								<li id="FileImport">
 									<div class="holder">
 										<div class="zdbIcon importnew">
@@ -111,7 +111,7 @@
 
 
 							</ui:repeat>
-							<h:panelGroup class="allD" rendered="#{userRole == 'Admin'}">
+							<h:panelGroup class="allD" rendered="#{userRole == 'Admin' and !empty userName }" >
 								<li id="FileImport">
 									<div class="holder">
 										<div class="zdbIcon importnew">
@@ -137,6 +137,10 @@
 										</div>
 									</div>
 								</li>
+							</h:panelGroup>
+							<h:panelGroup layout="block" class="sessExpired" rendered="#{empty userName}">
+							   <li>Your session has expired. Please <h:link value="login" outcome="index.xhtml"></h:link> again.</li>
+							
 							</h:panelGroup>
 
 						</ul>

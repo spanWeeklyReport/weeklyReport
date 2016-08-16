@@ -16,5 +16,6 @@ public interface UserInfoService
 	public String editUsers(UserInfoView userInfoView);
 	public String modifyUser(UserInfoView userInfoView);
 	public void sendEmail(UserInfoView userInfoView);
-	public void getAddress();
+	public void getHostName();
+	
 }

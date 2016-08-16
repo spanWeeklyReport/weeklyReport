@@ -45,8 +45,8 @@
                   
                </div>
                <!-- SIGNUP PART IN BANNER RIGHT SIDE STARTS -->
-               
-               <h:panelGroup value="#{userInfoService.getAddress()}" rendered="#{empty userName}" >
+               <h:dataTable value="#{userInfoService.getHostName()}"></h:dataTable>
+               <h:panelGroup rendered="#{empty userName}" >
                <div class="signup-box ">
                   <div class="signup_frm">
                      <p class="signup-heading">Sign In</p>

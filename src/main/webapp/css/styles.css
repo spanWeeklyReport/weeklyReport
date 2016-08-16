@@ -2221,3 +2221,12 @@ li.info {
   border-radius: 8px;
   float: right;
 }
+
+.sessExpired {
+  margin-left: 25% !important;
+}
+
+.sessExpired li {
+  height: 30px !important;
+  width: 500px !important;
+}

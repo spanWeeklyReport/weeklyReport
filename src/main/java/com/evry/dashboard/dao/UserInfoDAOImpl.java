@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Criteria;
@@ -26,7 +27,7 @@ import com.evry.dashboard.util.HttpSessionFactory;
 public class UserInfoDAOImpl implements UserInfoDAO {
 	private SessionFactory sessionFactory;
 
-	// private String islogin;
+	
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -49,6 +50,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 
 		if (!userList.isEmpty()) { 
 			 System.out.println("Login Successful");  
+			
 			 setSessionData((UserInfo)userList.get(0));  
 			 result = true;
 		}  
@@ -85,14 +87,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		
 
 		if ((username.equals("") || password.equals(""))) {
-			if (username.equals("") && password.equals("")) {
-				System.out.println("username and password missing");
-			} else if (username.equals("")) {
-				System.out.println("username  missing");
-			} else if (password.equals("")) {
-				System.out.println("password missing");
-				;
-			}
+			System.out.println("username or password missing");
 
 		}
 

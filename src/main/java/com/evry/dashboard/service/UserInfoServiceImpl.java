@@ -1,5 +1,6 @@
 package com.evry.dashboard.service;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,10 @@ import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.ApplicationContext;
@@ -41,7 +44,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	private List<UserInfoView> userInfoList;
 	private UserInfoView useInfoView;
 	private String hostname;
- 
+	
+	
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
 		this.userInfoDAO = userInfoDAO;
 	}
@@ -115,8 +119,10 @@ public class UserInfoServiceImpl implements UserInfoService {
 			
 			return "dashboard.xhtml";
 		} else {
-
-			FacesContext.getCurrentInstance().addMessage(
+            
+			FacesContext context = FacesContext.getCurrentInstance();
+	        ExternalContext externalContext = context.getExternalContext(); 
+	        context.addMessage(
 					"signupform:signupbtn",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
 							"Please enter valid login details!", "Please Try Again!"));
@@ -234,11 +240,33 @@ public class UserInfoServiceImpl implements UserInfoService {
 	        
 	    }
 	 
-	 public void getAddress() {
-		 
-		hostname = "in address";
-		System.out.println(hostname);
-	 }
+	    public void getHostName(){  
+	    	
+	    	System.out.println("inside hostname func");
+	    	
+	    	FacesContext context = FacesContext.getCurrentInstance();
+       	 HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
+	    	
+	       
+	        try {
+	        	
+	        	System.out.println("inside try");
+	        	
+	        	  String remoteAddress = request.getRemoteAddr();
+	        	 String remoteHost = request.getRemoteHost();
+	        	 String remoteUser = request.getRemoteUser();
+	        	 String localname = request.getLocalName();
+	        	 String hostname = java.net.InetAddress.getLocalHost().getHostName();
+	        	 System.out.println(hostname);
+	        	 
+				
+				
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			}  
+	      }  
 
 
 			
