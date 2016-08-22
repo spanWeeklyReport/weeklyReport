@@ -25,5 +25,7 @@ public interface UserInfoDAO
 	 public UserInfo getUserByID(Long id);
 	 public List<UserInfo> employeeReportStatus(UserInfo userInfo, int weekNo);
 	 public void modifyUser(UserInfo userInfo);
+	 public List<String> firstNameList();
+	 public UserInfo findFirstName(String firstName);
 
 }

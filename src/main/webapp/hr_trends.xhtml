@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:a4j="http://richfaces.org/a4j">
+<h:head>
+	<title>Report Status</title>
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
+		rel='stylesheet' type='text/css'></link>
+	<link rel="stylesheet" href="css/styles.css"></link>
+	
+	<link rel="stylesheet" href="css/css.css"></link>
+	<link rel="stylesheet" href="css/dashboard.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</h:head>
+<h:body>
+<ui:insert name="header">
+		<ui:include src="commonHeader.xhtml" />
+	</ui:insert>
+	<!-- PRODUCT HEADER START -->
+	<div class="product-header">
+		<div style="overflow: visible;" class="product-header-inner">
+			<a class="product-logo" href="#">Reports</a> <span
+				class="sub-menu-icon">Menu</span>
+			<ul style="top: 36px;" class="product-menu scale hide">
+				<h:form>
+					<li><h:commandLink id="home" value="Home"
+							action="#{userInfoService.renderHome(taskDetails)}" /></li>
+				</h:form>
+
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- PRODUCT HEADER ENDS -->
+	<!-- MAIN START -->
+	<div class="main">
+		<!--  BANNER STARTS -->
+		<section class="banner-part employee-report-page">
+		<div class="banner-inner content-wrap">
+		
+		   <div class="list-box" id="div_list_boox">
+				<div class="signup_frm" id="div_signup_frm">
+					<p class="pro-heading">Remind HR</p>
+					
+					<p class="info">Send a reminder mail to HR:
+					<h:form id="mailHr">
+					<h:messages class="error-msg" style="margin:8px 0px;padding:0"
+						infoStyle="color:darkgreen" errorStyle="color:darkred" />
+					<h:commandButton id="remindHr" value="Remind HR" class="remindHR buttons" action="#{userInfoService.sendHRMail()}"></h:commandButton>
+					</h:form>
+					</p>
+				</div>
+		  </div>
+		
+		
+		</div>
+		</section>
+		</div>
+		
+</h:body>
+</html>

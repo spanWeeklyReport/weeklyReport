@@ -114,7 +114,9 @@
        <beans:property name="userInfoMapper" ref= "userInfoMapper"></beans:property>
        
     </beans:bean>
-   <beans:bean id = "projectDetailsMapper" class = "com.evry.dashboard.dto.mapper.ProjectDetailsMapper" />
+   <beans:bean id = "projectDetailsMapper" class = "com.evry.dashboard.dto.mapper.ProjectDetailsMapper" >
+      <beans:property name = "userInfoDAO" ref = "userInfoDAO"/>
+    </beans:bean>
 
     <beans:bean id = "riskDetailsMapper" class = "com.evry.dashboard.dto.mapper.RiskDetailsMapper" />
     

@@ -38,7 +38,6 @@ com\evry\dashboard\dao\DepartmentDAO.class
 com\evry\dashboard\dao\CalcImpl.class
 com\evry\dashboard\dao\ProjectDetailsDAOImpl.class
 com\evry\dashboard\service\RiskDetailsServiceImpl.class
-com\evry\dashboard\util\MailerTest.class
 com\evry\dashboard\dto\mapper\UserInfoMapper.class
 com\evry\dashboard\service\UserInfoServiceImpl.class
 com\evry\dashboard\dao\UserInfoDAOImpl.class

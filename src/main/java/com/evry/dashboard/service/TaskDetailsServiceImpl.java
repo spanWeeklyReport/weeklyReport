@@ -98,9 +98,10 @@ public class TaskDetailsServiceImpl implements TaskDetailsService {
 
 		// Fetch last week's data
 		int lastWeek = taskDetails.getWeekNo() - 1;
-
+      System.out.println(lastWeek);
 		TaskDetails taskDetailsLastWeek = new TaskDetails();
 		taskDetailsLastWeek.setProjectDetails(taskDetails.getProjectDetails());
+		taskDetailsLastWeek.setYearNo(taskDetails.getYearNo());
 		taskDetailsLastWeek.setWeekNo(lastWeek);
 
 		taskDetails = taskDetailsDAO.checkTasks(taskDetailsLastWeek);

@@ -813,8 +813,9 @@ p {
 	background-position: left top;
 }
 .product-menu {
-	float: right;
-	height:30px;
+  float: right;
+  height: 30px;
+  margin-right: 10px;
 }
 .product-menu li {
 	float: left;
@@ -1062,12 +1063,16 @@ p {
 
 /* BANNER PART STARTS */
 .main {
-	overflow: hidden;
-	clear: both;
-	margin-top: -74px;
+  background-image: url("../images/reports-bg.jpg");
+  clear: both;
+  margin-top: -74px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:900px;
 }
 .banner-part {
-	background-color: #333;
+	
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
@@ -1075,7 +1080,7 @@ p {
 	min-height:600px;
 }
 .banner-part:before {
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
+	
 	content: "";
 	height: 100%;
 	left: 0;
@@ -1889,7 +1894,7 @@ input:focus, input:active {
 
 .acc_content {
   float: left;
-  width: 90%;
+  width: 95%;
 }
 
 font-weight: 700;
@@ -2026,12 +2031,12 @@ font-weight: 700;
         
          
          .banner-part {
-        background-image: url(../images/reports-bg.jpg); 
+      /*  background-image: url(../images/reports-bg.jpg);*/ 
          /*background: lightgreen; */
          }
-         .banner-part:before {
-         background: rgba(0,0,0,0.25)
-         }
+        .main::before {
+  background: rgba(0, 0, 0, 0.25) none repeat scroll 0 0;
+}
          .product-logo, .features li span, .testimonial .customer1, .testimonial .customer2, .signupHeadFadeIn span {
          background-image: url('../images/reports-sprite1.png');
          background-repeat: no-repeat;
@@ -2125,7 +2130,7 @@ input[type="email"] {
 }
 
 li.info {
-  color: green;
+  color: green !important;
 }
 
 .list-box {
@@ -2140,18 +2145,19 @@ li.info {
   position: relative;
   transition: all 0.7s ease 0s;
   width: 90%;
+ 
 }
 
 .buttons.add-popup {
-  margin-bottom: 20px;
-  margin-left: 38px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  vertical-align: middle;
 }
 
 .rf-dt {
 	
 	width: 96%;
 	
-<<<<<<< HEAD
 }
 
 .mblock {
@@ -2230,3 +2236,39 @@ li.info {
   height: 30px !important;
   width: 500px !important;
 }
+
+.remind-all.buttons {
+  float: right;
+  margin-right: 53px;
+}
+
+p.info {
+  color: #333 !important;
+}
+
+textarea.pUpdates {
+  resize: none;
+  vertical-align: middle;
+  width: 77%;
+  color:black;
+}
+
+.table-data > td {
+  background: white none repeat scroll 0 0;
+}
+
+.mini-titles {
+  background: white none repeat scroll 0 0;
+}
+
+.rf-dt-c {
+	
+	padding: 0 !important;
+	text-align: center;
+	
+}
+
+.reportDetails td {
+  padding: 7px 0 !important;
+}
+

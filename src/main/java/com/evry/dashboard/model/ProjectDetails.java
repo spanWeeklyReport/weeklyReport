@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,6 +31,11 @@ public class ProjectDetails {
 
 	@Column(name = "PROJECT_DEPARTMENT")
 	private String projectDepartment;
+	
+	@ManyToOne()
+    @JoinColumn(name = "U_ID")
+    private UserInfo userInfo;
+
 	
 	@Column(name = "START_DATE")
 	private Date startDate;
@@ -92,6 +99,15 @@ public class ProjectDetails {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+	
 	
 	
 

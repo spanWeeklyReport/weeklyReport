@@ -128,6 +128,7 @@ public class TaskDetailsDAOImpl implements TaskDetailsDAO {
 			System.out.println("condition3");
 			System.out.println("*******"+wNo);
 			cr.add(Restrictions.eq("WeekNo", wNo));
+			all = true;
 			
 		}
 

@@ -34,7 +34,7 @@
 			<ul style="top: 36px;" class="product-menu scale hide">
 				<h:form>
 					<li><h:commandLink id="home" value="Home"
-							action="#{taskDetailsService.setWeek(taskDetails)}" /></li>
+							action="#{userInfoService.renderHome(taskDetails)}" /></li>
 				</h:form>
 
 
@@ -56,7 +56,7 @@
 			  <h:panelGroup layout="block" class="select_week_users">
 			    <p class="info"><b>
 				<h:outputLabel value="Select Week no. to see which employees have not filled their report yet" /> </b>
-				</p>
+				</p><br />
 				<h:outputLabel class="label " value="Week No:" />
 				<h:selectOneMenu class="select-week" value="#{taskDetails.weekNo}">
 
@@ -126,14 +126,16 @@
 				
 					<h:commandButton value="Fetch Users" class="buttons fetch-users"
 					action="#{userInfoService.employeeReportStatus(taskDetails, userInfo)}"></h:commandButton>
+					
+					<h:commandButton value="Remind All" class="remind-all buttons" id="remind-all" action="#{userInfoService.sendEmailAll(userInfo)}" rendered="#{userInfoService.renderScreen()}"></h:commandButton>
 			   </h:panelGroup> 
 
 			</h:form>
-			<h:panelGroup layout="block" id="reportDetails" class="reportDetails">
+			<h:panelGroup  layout="block" id="reportDetails"  class="reportDetails" rendered="#{userInfoService.renderScreen()}">
 			<h:messages infoClass="info" errorClass="error-msg"
 							style="margin:8px 0px;padding:0" id="messgaess"/>
 				<rich:dataTable value="#{userInfoService.userInfoViews}"
-					var="user">
+					var="user" >
 					
 					<f:facet name="header">
 							<rich:columnGroup>
@@ -188,6 +190,23 @@
 	<div class="footer"></div>
 	<!-- FOOTER ENDS -->
 	<script src="js/prd-common.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		$(".fetch-users").click(function(){
+
+			  if ($(".select-week").val() == ""){
+			    
+			   alert("Please select week");
+			    return false;
+			  }
+
+			});
+	});
+	
+	
+	</script>
 
 
 

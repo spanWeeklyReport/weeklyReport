@@ -1,5 +1,7 @@
 package com.evry.dashboard.dto;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -7,7 +9,7 @@ import org.primefaces.model.UploadedFile;
 
 @ManagedBean(name = "departmentView")
 @SessionScoped
-public class DepartmentView {
+public class DepartmentView implements Serializable {
 
 	    private long Oid;
 	   private UploadedFile uploadedFile;

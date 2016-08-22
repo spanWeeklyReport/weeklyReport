@@ -2,6 +2,7 @@ package com.evry.dashboard.service;
 
 import java.util.List;
 
+import com.evry.dashboard.dto.TaskDetailsView;
 import com.evry.dashboard.dto.UserInfoView;
 import com.evry.dashboard.model.UserInfo;
 
@@ -16,6 +17,12 @@ public interface UserInfoService
 	public String editUsers(UserInfoView userInfoView);
 	public String modifyUser(UserInfoView userInfoView);
 	public void sendEmail(UserInfoView userInfoView);
-	public void getHostName();
+	public void sendEmailAll (UserInfoView userInfoView);
+	 public void sendMail(UserInfoView userInfoView);
+	 public boolean renderScreen();
+	 public String renderHome(TaskDetailsView taskDetailsView);
+	 public void sendHRMail();
+	 public List<String> getfirstName();
+	
 	
 }

@@ -19,6 +19,7 @@ public class ProjectDetailsView implements Serializable {
 	private String managerName;
 	private Date startDate;
 	private Date endDate;
+	private String tlName;
 	
 
 	/**
@@ -82,7 +83,16 @@ public class ProjectDetailsView implements Serializable {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public String getTlName() {
+		return tlName;
+	}
+
+	public void setTlName(String tlName) {
+		this.tlName = tlName;
+	}
     
+	
 	
 	
 	

@@ -40,6 +40,7 @@
 			<ul class="product-menu scale hide">
 				
 				<h:panelGroup class="allD" rendered="#{userRole == 'Admin'}">
+				    <li><h:link value="HR Trends" outcome="hr_trends.xhtml"></h:link></li>
 				    <li><h:link value="Report Status" outcome="report_status.xhtml"></h:link></li>
 				    <li><h:link value="Users" outcome="user_reg.xhtml" /></li>
 					<li><h:link value="Projects" outcome="add_projects.xhtml"></h:link></li>
@@ -63,8 +64,8 @@
 
 		<div id="ZRSDBCreationOptions">
 			<div id="ZRSCreateOptsHeader">
-				<h1 style="">Choose your Manager</h1>
-				<h5 class="dbDescription">Select the Manager for which you
+				<h1 style="float:left; width:75%;">Choose your Manager</h1> <h5 style="float:right; color: white;">AD-AM</h5><br/>
+				<h5 class="dbDescription" style="float:left;">Select the Manager for which you
 					want to create/view Reports</h5>
 			</div>
 			<div id="ZRSDBCreateOptsHldr">

@@ -37,13 +37,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 	private UserInfoMapper mapper;
 	private UserInfoDAO userInfoDAO;
-	private boolean renderer;
+	//private boolean renderer;
 	private boolean logout;
 	private TaskDetailsService taskDetailsService;
 	private List<UserInfoView> userInfoViews;
 	private List<UserInfoView> userInfoList;
 	private UserInfoView useInfoView;
 	private String hostname;
+	private boolean renderer = false;
 	
 	
 	public void setUserInfoDAO(UserInfoDAO userInfoDAO) {
@@ -178,7 +179,24 @@ public class UserInfoServiceImpl implements UserInfoService {
 		
 	}
 	
+	public boolean renderScreen() {
+
+		return renderer;
+	}
+	
+	public String renderHome(TaskDetailsView taskDetailsView) {
+		
+		taskDetailsView.setWeekNo(0);
+		 renderer = false;
+		return "dashboard.xhtml";
+	}
+	
+	
+	
+	
 	public void employeeReportStatus(TaskDetailsView taskDetailsView, UserInfoView userView) { 
+		
+		   renderer = true;
 		
 		   int weekNo = taskDetailsView.getWeekNo();
 		   System.out.println(weekNo);
@@ -217,21 +235,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 	 public void sendEmail(UserInfoView userInfoView) 
 	    {
 		 
-		    String email = userInfoView.getUserName();
-		 
-	        //Create the application context
-	        ApplicationContext context = new FileSystemXmlApplicationContext("C://Users//mehak.sapra//git//weeklyReport//src//main//webapp//WEB-INF//applicationContext.xml");
-	       // ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-	         
-	        //Get the mailer instance
-	        ApplicationMailer mailer = (ApplicationMailer) context.getBean("mailService");
-	 
-	        //Send a composed mail
-	        mailer.sendMail(email, "Reminder from Weekly Report", "Hi, It seems you are yet to fill your Weekly Report for this week. Please fill it up before friday.");
-	 
-	        //Send a pre-configured mail
-	        mailer.sendPreConfiguredMail("Mail has been sent to the recipient " + email );
-	        
+		 sendMail(userInfoView);
+		   
 	        FacesContext.getCurrentInstance().addMessage(
 					"sendEmail:smail",
 					new FacesMessage(FacesMessage.SEVERITY_INFO,
@@ -240,33 +245,101 @@ public class UserInfoServiceImpl implements UserInfoService {
 	        
 	    }
 	 
-	    public void getHostName(){  
-	    	
-	    	System.out.println("inside hostname func");
-	    	
-	    	FacesContext context = FacesContext.getCurrentInstance();
-       	 HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
-	    	
-	       
+	 public void sendEmailAll (UserInfoView userInfoView){
+		 
+		 List<UserInfoView> userView = getUserInfoViews();
+		
+		 if (!CollectionUtils.isEmpty(userView)) {
+				
+				for (UserInfoView userInfoView2 : userView)
+			                 sendMail(userInfoView2);
+			
+			
+			}
+		 
+		 FacesContext.getCurrentInstance().addMessage(
+					"employee-report:remind-all",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Mail has been sent to multiple recepients", "Please Try Again!"));
+	        
+		
+		 
+		 
+	 }
+	 
+	 public void sendMail(UserInfoView userInfoView){
+		 
+		 String email = userInfoView.getUserName();
+		 
+	        //Create the application context
+	        ApplicationContext context = new FileSystemXmlApplicationContext("C://Users//mehak.sapra//git//weeklyReport//src//main//webapp//WEB-INF//applicationContext.xml");
+	       // ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	         
+	        //Get the mailer instance
+	        ApplicationMailer mailer = (ApplicationMailer) context.getBean("mailService");
+	        
+	        String from = "admin@WeekyReport.com";
+	        String to = email;
+	        String subject = "Reminder from Weekly Report!";
+	        String msg = "message from weekly report";
+	        
+	        
+	        //Send a composed mail
 	        try {
-	        	
-	        	System.out.println("inside try");
-	        	
-	        	  String remoteAddress = request.getRemoteAddr();
-	        	 String remoteHost = request.getRemoteHost();
-	        	 String remoteUser = request.getRemoteUser();
-	        	 String localname = request.getLocalName();
-	        	 String hostname = java.net.InetAddress.getLocalHost().getHostName();
-	        	 System.out.println(hostname);
-	        	 
-				
-				
-			} catch (UnknownHostException e) {
+				mailer.sendMimeMessage(from, to, subject, msg);
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				
-			}  
-	      }  
+			}
+	
+	 
+	        //Send a pre-configured mail
+	        mailer.sendPreConfiguredMail("Mail has been sent to the recipient " + email );
+		 
+	 }
+	 
+     public void sendHRMail(){
+		 		
+	        //Create the application context
+	        ApplicationContext context = new FileSystemXmlApplicationContext("C://Users//mehak.sapra//git//weeklyReport//src//main//webapp//WEB-INF//applicationContext.xml");
+	       // ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	         
+	        //Get the mailer instance
+	        ApplicationMailer mailer = (ApplicationMailer) context.getBean("mailService");
+	        
+	        String from = "admin@WeekyReport.com";
+	        String to[] = {"mehak.sapra@spanservices.com","bhanu.rattan@spanservices.com"};
+	        String subject = "Fill In HR Trends!";
+	        String msg = "Fill in HR Trends";
+	        
+	        
+	        //Send a composed mail
+	        try {
+				mailer.remindHr(from, to, subject, msg);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
+	 
+	        //Send a pre-configured mail
+	        mailer.sendPreConfiguredMail("Mail has been sent to the recipient " + to );
+	        FacesContext.getCurrentInstance().addMessage(
+					"mailHr:remindHr",
+					new FacesMessage(FacesMessage.SEVERITY_INFO,
+							"Reminder Sent", "Please Try Again!"));
+		 
+	 }
+     
+     
+     public List<String> getfirstName() {
+
+         List<String> userNames = userInfoDAO.firstNameList();
+         return userNames;
+     }
+
+	 
+	    
 
 
 			

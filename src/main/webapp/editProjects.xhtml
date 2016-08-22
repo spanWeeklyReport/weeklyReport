@@ -73,7 +73,13 @@
 							<f:selectItems value="#{departmentService.getdepartmentName()}" />
 						</h:selectOneMenu>
 						<br />
-				
+						
+				   <h:outputLabel value="*Assigned Lead: " for="select_lead" class="project_form_label"/>
+              <h:selectOneMenu value="${proj.tlName}" class="project_form sel_department" >
+                   <f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
+                   <f:selectItems value="#{userInfoService.getfirstName()}" />
+             </h:selectOneMenu><br/>
+				   
 					
 					<h:outputLabel value="*Project Status:" class="project_form_label" />
 						<h:selectOneMenu value="${proj.projectStatus}"
@@ -86,6 +92,8 @@
 
 						</h:selectOneMenu>
 						<br />
+					
+											
 					<h:outputLabel value="*Start Date" class="project_form_label"></h:outputLabel>
 						<h:inputText id="start_date" styleClass="datepicker1 project_form"
 							value="${proj.startDate}">
@@ -100,6 +108,9 @@
 							<f:convertDateTime pattern="yyyy-MM-dd" />
 						</h:inputText>
 						<br />
+						
+					
+						
 					<h:commandButton id="editProject" value="Save" class="buttons submit4"
 							action="#{projectDetailsService.modifyProjects(proj)}" />
 					

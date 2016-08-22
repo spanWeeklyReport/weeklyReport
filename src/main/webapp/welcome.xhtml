@@ -213,9 +213,10 @@
 							<div class="div-inner">
 								<h2 class="panel-heading">Project Updates</h2>
 								<div class="risk_row">
-									<h:inputTextarea rows="5" cols="50"
+									<h:inputTextarea rows="5" cols="50" onkeyup="textAreaAdjust(this)" style="overflow:hidden"
 										value="#{taskDetails.projectUpdates}" class="update-textarea" id="update-textarea"/>
 								</div>
+								
 							</div>
 						</div>
 						<!-- Closing Project Updates Field -->
@@ -319,6 +320,29 @@
 	        $(".add-butn").prop("disabled", true);
 	    }
 	}
+	   function textAreaAdjust(o) {
+		    o.style.height = "1px";
+		    o.style.height = (25+o.scrollHeight)+"px";
+		}
+	   
+	   $(".update-textarea").focus(function() {
+		    if(document.getElementById('taskform:update-textarea').value === ''){
+		        document.getElementById('taskform:update-textarea').value +='• ';
+			}
+		});
+		$(".update-textarea").keyup(function(event){
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+		    if(keycode == '13'){
+		        document.getElementById('taskform:update-textarea').value +='• ';
+			}
+			var txtval = document.getElementById('taskform:update-textarea').value;
+			if(txtval.substr(txtval.length - 1) == '\n'){
+				document.getElementById('taskform:update-textarea').value = txtval.substring(0,txtval.length - 1);
+			}
+		});
+	   
+	   
+	   
 	});  
     //]]>
     

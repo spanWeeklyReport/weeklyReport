@@ -859,3 +859,15 @@ div.dashboard-pagr-title {
   float: left;
   width: 30%;
 }
+
+textarea.upt {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  color: black;
+  height: auto !important;
+  overflow: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  resize: none;
+  width: 99% !important;
+}

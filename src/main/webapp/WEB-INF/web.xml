@@ -58,7 +58,7 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID"  metadata-com
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            1
+            30
         </session-timeout>
     </session-config>     
     

@@ -27,8 +27,6 @@ import com.evry.dashboard.util.HttpSessionFactory;
 public class UserInfoDAOImpl implements UserInfoDAO {
 	private SessionFactory sessionFactory;
 
-	
-
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -37,7 +35,7 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	 * @param username
 	 * @param password
 	 * @param userInfo
-	 * @return 
+	 * @return
 	 */
 	@Transactional
 	private boolean getUsers(String username, String password, UserInfo userInfo) {
@@ -48,31 +46,36 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 				.setParameter("username", username)
 				.setParameter("password", password).list();
 
-		if (!userList.isEmpty()) { 
-			 System.out.println("Login Successful");  
-			
-			 setSessionData((UserInfo)userList.get(0));  
-			 result = true;
-		}  
+		if (!userList.isEmpty()) {
+			System.out.println("Login Successful");
+
+			setSessionData((UserInfo) userList.get(0));
+			result = true;
+		}
 		return result;
 
 	}
 
 	/**
 	 * Method to set session variable after user login success
+	 * 
 	 * @param userInfo
 	 */
 	private void setSessionData(UserInfo userInfo) {
-		HttpSession httpSession = 	HttpSessionFactory.getSession();		
+		HttpSession httpSession = HttpSessionFactory.getSession();
 		httpSession.setAttribute("userName", userInfo.getFirstName());
 		httpSession.setAttribute("email", userInfo.getUserName());
 		httpSession.setAttribute("userRole", userInfo.getUserRole());
 		httpSession.setAttribute("userID", userInfo.getOid());
-		
+
 	}
 
-	/* (non-Javadoc)
-	 * @see com.evry.dashboard.dao.UserInfoDAO#addUsers(com.evry.dashboard.model.UserInfo)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.evry.dashboard.dao.UserInfoDAO#addUsers(com.evry.dashboard.model.
+	 * UserInfo)
 	 */
 	@Transactional
 	public void addUsers(UserInfo userInfo) {
@@ -84,7 +87,6 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 	public boolean isValid(UserInfo userInfo) {
 		String username = userInfo.getUserName();
 		String password = userInfo.getPassword();
-		
 
 		if ((username.equals("") || password.equals(""))) {
 			System.out.println("username or password missing");
@@ -99,139 +101,165 @@ public class UserInfoDAOImpl implements UserInfoDAO {
 		return false;
 
 	}
-	
+
 	@Transactional
 	public boolean userExists(UserInfo userInfo) {
-		
+
 		Session session = this.sessionFactory.getCurrentSession();
 		String usernameExists = userInfo.getUserName();
 		List<UserInfo> rst = session.getNamedQuery("Users.userExists")
 				.setParameter("username", usernameExists).list();
-				
 
 		boolean userCheck = false;
 
 		if (!rst.isEmpty()) {
 			userCheck = true;
 			System.out.println("User Already Exists");
-			
+
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR,
 							"This email has already been registered", null));
-			
+
 			return true;
 		} else {
 
-			
 			session.merge(userInfo);
 			String useR = userInfo.getUserRole();
 			FacesContext.getCurrentInstance().addMessage(
 					"regform:submit5",
-					new FacesMessage(FacesMessage.SEVERITY_INFO,
-							useR +" Successfully added", null));
-			
+					new FacesMessage(FacesMessage.SEVERITY_INFO, useR
+							+ " Successfully added", null));
+
 		}
 
 		return false;
-		
+
 	}
-	
-	
+
 	@Transactional
-	public List<UserInfo> getUsersList()
-	{
+	public List<UserInfo> getUsersList() {
 		Session session = this.sessionFactory.getCurrentSession();
-        List<UserInfo> personsList = session.createQuery("from UserInfo").list();
-        return personsList;
+		List<UserInfo> personsList = session.createQuery("from UserInfo")
+				.list();
+		return personsList;
 	}
-	
+
 	@Transactional
-	public String deleteUsers(UserInfo userInfo) { 
-		
+	public String deleteUsers(UserInfo userInfo) {
+
 		String email = userInfo.getUserName();
 
-		System.out.println("++++"+email);
-		
+		System.out.println("++++" + email);
+
 		Session session = this.sessionFactory.getCurrentSession();
-		Query q = session.createQuery("Delete from UserInfo where userName = '"+email +"' ");
+		Query q = session.createQuery("Delete from UserInfo where userName = '"
+				+ email + "' ");
 		q.executeUpdate();
 		return null;
-		
-		
+
 	}
+
 	@Transactional
-	public UserInfo editUsers(UserInfo userInfo){ 
-		
+	public UserInfo editUsers(UserInfo userInfo) {
+
 		return getUser(userInfo);
 	}
-	
+
 	@Transactional
-	public UserInfo getUser(UserInfo userInfo){ 
+	public UserInfo getUser(UserInfo userInfo) {
 		String email = userInfo.getUserName();
 		Session session = this.sessionFactory.getCurrentSession();
-		Query qry = session.createQuery("FROM UserInfo where userName = '"+email +"' ");
-		
+		Query qry = session.createQuery("FROM UserInfo where userName = '"
+				+ email + "' ");
+
 		List<UserInfo> rs = qry.list();
 		UserInfo user = null;
-		if(!rs.isEmpty()){ 
-			
+		if (!rs.isEmpty()) {
+
 			user = rs.get(0);
 		}
-		
-		
+
 		return user;
-		
+
 	}
-	
-	@Transactional
-    public long getUserID(UserInfo userInfo) {
-              
-              Session session = this.sessionFactory.getCurrentSession();
-              String username = userInfo.getUserName();
-              
-              Query query =  session.createQuery("select E.oid from UserInfo E where userName = '"+ username +"'" );
-              List userNames = query.list();
-              long uID = (long)userNames.get(0);
-              return uID;
-              
-       }
 
-	
-	
 	@Transactional
-    public UserInfo getUserByID(Long id){
-    Session session = this.sessionFactory.getCurrentSession();
-    
-    Query query = session.createQuery("from UserInfo where oid = '"+ id +"' " );
-    List<UserInfo> rs = query.list();
-    UserInfo user = null;
-    if(!rs.isEmpty()){ 
-           
-           user = rs.get(0);
-    }
-           return user;
-    }
-     
-	 @Transactional
-	 public List<UserInfo> employeeReportStatus(UserInfo userInfo, int weekNo) {
-		
-		 System.out.println(weekNo);
-		 Session session = this.sessionFactory.getCurrentSession();
-		 Query query = session.createQuery("from UserInfo where oid not in (select userInfo from TaskDetails where WeekNo = '"+weekNo + "' ) ");
-		 List<UserInfo> result = query.list();
-		
-		  
-		 return result;
-	 }
-	 
-	 @Transactional
-		public void modifyUser(UserInfo userInfo) {
-			Session session = this.sessionFactory.getCurrentSession();
-			session.merge(userInfo);
-			
+	public long getUserID(UserInfo userInfo) {
+
+		Session session = this.sessionFactory.getCurrentSession();
+		String username = userInfo.getUserName();
+
+		Query query = session
+				.createQuery("select E.oid from UserInfo E where userName = '"
+						+ username + "'");
+		List userNames = query.list();
+		long uID = (long) userNames.get(0);
+		return uID;
+
+	}
+
+	@Transactional
+	public UserInfo getUserByID(Long id) {
+		Session session = this.sessionFactory.getCurrentSession();
+
+		Query query = session.createQuery("from UserInfo where oid = '" + id
+				+ "' ");
+		List<UserInfo> rs = query.list();
+		UserInfo user = null;
+		if (!rs.isEmpty()) {
+
+			user = rs.get(0);
 		}
+		return user;
+	}
 
-		
-	
+	@Transactional
+	public List<UserInfo> employeeReportStatus(UserInfo userInfo, int weekNo) {
+
+		System.out.println(weekNo);
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session
+				.createQuery("from UserInfo where oid in (select userInfo from ProjectDetails) and oid not in (select userInfo from TaskDetails where WeekNo = '"
+						+ weekNo + "' ) ");
+		List<UserInfo> result = query.list();
+
+		return result;
+	}
+
+	@Transactional
+	public void modifyUser(UserInfo userInfo) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.merge(userInfo);
+
+	}
+
+	@Transactional
+	public List<String> firstNameList() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<UserInfo> userList = session.createQuery("from UserInfo").list();
+
+		ArrayList firstName = new ArrayList();
+		for (UserInfo details : userList)
+			firstName.add(details.getFirstName());
+		return firstName;
+	}
+
+	@Transactional
+	public UserInfo findFirstName(String firstName) {
+
+		Session session = this.sessionFactory.getCurrentSession();
+		Query query = session.getNamedQuery("findFirstName").setParameter(
+				"firstName", firstName);
+		List<UserInfo> rs = query.list();
+		UserInfo details = null;
+		if (!rs.isEmpty())
+			details = rs.get(0);
+		else {
+			details = new UserInfo();
+			details.setFirstName(firstName);
+		}
+		return details;
+	}
+
 }

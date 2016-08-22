@@ -1,5 +1,6 @@
 package com.evry.dashboard.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +14,7 @@ import com.evry.dashboard.model.RiskDetails;
 
 @ManagedBean(name="riskDetails")
 @SessionScoped
-public class RiskDetailsView {
+public class RiskDetailsView implements Serializable {
 	
 	private long riskId;	
 	private String RiskType;

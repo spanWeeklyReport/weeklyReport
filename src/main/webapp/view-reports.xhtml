@@ -51,7 +51,7 @@
 	<div id="ZRSHomeMainDiv">
 
 
-		<div id="ZRSDBCreationOptions">
+		<h:panelGroup id="ZRSDBCreationOptions" layout="block" rendered="#{!empty userName}">
 			<div id="ZRSCreateOptsHeader">
 			    <h:panelGroup layout="block" class="mblock" >
 				
@@ -132,8 +132,8 @@
 											rendered="#{taskDetails.reportType eq 'AllProjectUpdates'}"
 											styleClass="#{empty taskDetailsViewIn.projectUpdates ? 'empty' : ''}">
 									
-									   Project Updates :${taskDetailsViewIn.projectUpdates}
-									
+									   Project Updates :
+									   <textarea class="pUpdates" disabled="disabled">${taskDetailsViewIn.projectUpdates} </textarea>
 									</h:panelGroup>
 
 
@@ -168,7 +168,7 @@
 				</div>
 
 			</div>
-		</div>
+		</h:panelGroup>
 	</div>
 	</section>
 	</div>

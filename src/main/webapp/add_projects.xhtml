@@ -88,6 +88,14 @@
                    <f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
                    <f:selectItems value="#{departmentService.getdepartmentName()}" />
              </h:selectOneMenu><br/>
+             
+             <h:outputLabel value="*Assign Lead: " for="select_lead" class="project_form_label"/>
+              <h:selectOneMenu value="#{projectDetails.tlName}" class="project_form sel_department" >
+                   <f:selectItem itemValue="#{nul}" itemLabel="Select"></f:selectItem>
+                   <f:selectItems value="#{userInfoService.getfirstName()}" />
+             </h:selectOneMenu><br/>
+             
+             
        <h:outputLabel value="*Enter Project Name" class="project_form_label"></h:outputLabel>
     <h:inputText value="#{projectDetails.projectName}"
                      id="project_name" class="project_form proj_name" /><br/>
@@ -115,7 +123,9 @@
               
               <h:commandButton id="submit4" value="Add" class="buttons submit4"
                                   action="#{projectDetailsService.addProject(projectDetails)}" />
-
+                                  
+                                  
+              
        </h:form>
 
 </div>
@@ -143,6 +153,10 @@
 			              </rich:column>
 			              <rich:column >
 			                  <h:outputText value="Project Manager" />
+			              </rich:column>
+			              
+			                <rich:column >
+			                  <h:outputText value="Assigned Lead" />
 			              </rich:column>
 			              
 			               <rich:column >
@@ -173,6 +187,9 @@
 			                  <h:outputText value="#{project.projectDepartment}" />
 			              </rich:column>
 			             
+			              <rich:column >
+			                  <h:outputText value="#{project.tlName}" />
+			              </rich:column>
 			              
 			               <rich:column >
                                        <h:outputText value="#{project.startDate}"  styleClass="dateclass">

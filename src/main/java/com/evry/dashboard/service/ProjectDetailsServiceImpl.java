@@ -63,6 +63,7 @@ public class ProjectDetailsServiceImpl implements ProjectDetailsService {
 		ProjectDetails obj = projectDetailsmapper.getMappedEntity(projectDetailsView);
 		projectDetailsDAO.checkProject(obj);
 		projectDetailsView.setProjectName(null);
+		projectDetailsView.setTlName(null);
 		projectDetailsView.setProjectStatus(null);
 		projectDetailsView.setProjectDepartment(null);
 		projectDetailsView.setStartDate(null);
